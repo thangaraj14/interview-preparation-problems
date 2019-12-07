@@ -3,6 +3,9 @@ package geeksforgeeks;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://www.geeksforgeeks.org/find-first-non-repeating-character-stream-characters/
+ */
 public class FirstNonReapeatingCharacterStream {
     final static int MAX_CHAR = 256;
 

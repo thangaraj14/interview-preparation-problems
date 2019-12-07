@@ -1,6 +1,5 @@
 package geeksforgeeks;
 
-
 class PrintParenthesis {
 
     static void formParenthesis(char str[], int pos, int n, int open, int close) {
@@ -22,8 +21,9 @@ class PrintParenthesis {
     }
 
     static void printParenthesis(char str[], int n) {
-        if (n > 0)
+        if (n > 0) {
             formParenthesis(str, 0, n, 0, 0);
+        }
         return;
     }
 
