@@ -49,7 +49,8 @@ public class TreasureIsland {
     }
 
     public static void main(String[] args) {
-        char[][] grid = {{'O', 'O', 'O', 'O'},
+        char[][] grid = 
+                {{'O', 'O', 'O', 'O'},
                 {'D', 'O', 'D', 'O'},
                 {'O', 'O', 'O', 'O'},
                 {'X', 'D', 'D', 'O'}};
