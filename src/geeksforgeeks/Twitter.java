@@ -42,7 +42,6 @@ public class Twitter {
             followed.remove(id);
         }
 
-
         // everytime user post a new tweet, add it to the head of tweet list.
         public void post(int id) {
             Tweet t = new Tweet(id);
@@ -50,7 +49,6 @@ public class Twitter {
             tweet_head = t;
         }
     }
-
 
     /**
      * Initialize your data structure here.
@@ -71,7 +69,6 @@ public class Twitter {
 
     }
 
-
     // Best part of this.
     // first get all tweets lists from one user including itself and all people it followed.
     // Second add all heads into a max heap. Every time we poll a tweet with
@@ -79,15 +76,17 @@ public class Twitter {
     // So after adding all heads we only need to add 9 tweets at most into this
     // heap before we get the 10 most recent tweet.
     public List<Integer> getNewsFeed(int userId) {
-        List<Integer> res = new LinkedList<>();
+        List<Integer> result = new LinkedList<>();
 
-        if (!userMap.containsKey(userId)) return res;
+        if (!userMap.containsKey(userId)) {
+            return result;
+        }
 
         Set<Integer> users = userMap.get(userId).followed;
-        PriorityQueue<Tweet> q = new PriorityQueue<Tweet>(users.size(), (a, b) -> (b.time - a.time));
+        PriorityQueue<Tweet> q = new PriorityQueue<>(users.size(), (a, b) -> (b.time - a.time));
         for (int user : users) {
             Tweet t = userMap.get(user).tweet_head;
-            // very imporant! If we add null to the head we are screwed.
+            // very important! If we add null to the head we are screwed.
             if (t != null) {
                 q.add(t);
             }
@@ -95,13 +94,14 @@ public class Twitter {
         int n = 0;
         while (!q.isEmpty() && n < 10) {
             Tweet t = q.poll();
-            res.add(t.id);
+            result.add(t.id);
             n++;
-            if (t.next != null)
+            if (t.next != null) {
                 q.add(t.next);
+            }
         }
 
-        return res;
+        return result;
 
     }
 
@@ -124,8 +124,9 @@ public class Twitter {
      * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
      */
     public void unfollow(int followerId, int followeeId) {
-        if (!userMap.containsKey(followerId) || followerId == followeeId)
+        if (!userMap.containsKey(followerId) || followerId == followeeId) {
             return;
+        }
         userMap.get(followerId).unfollow(followeeId);
     }
 
