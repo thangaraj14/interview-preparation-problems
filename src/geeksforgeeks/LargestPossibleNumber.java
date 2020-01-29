@@ -36,4 +36,17 @@ class LargestPossibleNumber {
 
         return sb.toString();
     }
+
+    public String largestNumber1(int[] nums) {
+        if(nums==null || nums.length==0) return null;
+        List<String> list= new LinkedList<>();
+        for(int i: nums){
+            list.add(String.valueOf(i));
+        }
+        
+        Collections.sort(list, (a,b)->(int)(Long.parseLong(b+a)-Long.parseLong(a+b)));
+        
+        return String.join("",list).replaceFirst("^0+(?!$)", "");
+        
+    }
 }
