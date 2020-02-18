@@ -8,14 +8,15 @@ class MyStack {
     Integer minEle;
 
     MyStack() {
-        s = new Stack<Integer>();
+        s = new Stack<>();
     }
 
     void getMin() {
-        if (s.isEmpty())
+        if (s.isEmpty()) {
             System.out.println("Stack is empty");
-        else
+        } else {
             System.out.println("Minimum Element in the " + " stack is: " + minEle);
+        }
     }
 
     void peek() {
@@ -27,10 +28,11 @@ class MyStack {
         Integer t = s.peek();
         System.out.print("Top Most Element is: ");
 
-        if (t < minEle)
+        if (t < minEle) {
             System.out.println(minEle);
-        else
+        } else {
             System.out.println(t);
+        }
     }
 
     void pop() {
@@ -45,8 +47,9 @@ class MyStack {
         if (t < minEle) {
             System.out.println(minEle);
             minEle = 2 * minEle - t;
-        } else
+        } else {
             System.out.println(t);
+        }
     }
 
     void push(Integer x) {
@@ -63,8 +66,9 @@ class MyStack {
             // 2x-minEle<x
             s.push(2 * x - minEle);
             minEle = x;
-        } else
+        } else {
             s.push(x);
+        }
 
         System.out.println("Number Inserted: " + x);
     }
