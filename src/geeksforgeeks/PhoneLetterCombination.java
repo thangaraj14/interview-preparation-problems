@@ -28,6 +28,7 @@ public class PhoneLetterCombination {
 
     public static void main(String[] args) {
         PhoneLetterCombination plc = new PhoneLetterCombination();
-        plc.letterCombinations("23");
+        List<String> strings = plc.letterCombinations("2345");
+        strings.forEach(System.out::println);
     }
 }
