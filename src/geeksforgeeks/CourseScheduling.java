@@ -10,8 +10,7 @@ import java.util.Queue;
 import java.util.Set;
 
 /**
- * @author i312458
- *
+ * https://leetcode.com/problems/course-schedule/
  */
 public class CourseScheduling {
 

@@ -15,19 +15,21 @@ class MaximumDifference {
 
             diff = arr[i + 1] - arr[i];
 
-            if (previousSum > 0)
+            if (previousSum > 0) {
                 previousSum += diff;
-            else
+            } else {
                 previousSum = diff;
+            }
 
-            if (previousSum > maxSum)
+            if (previousSum > maxSum) {
                 maxSum = previousSum;
+            }
         }
         return maxSum;
     }
 
     public static void main(String[] args) {
-        int arr[] = {2, 4, 1, 3, 10, 8, 5};
+        int arr[] = { 2, 4, 1, 3, 10, 8, 5 };
         int n = arr.length;
 
         System.out.print("Maximum difference is " + maxDiff(arr, n));

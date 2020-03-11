@@ -11,23 +11,28 @@ public class ClosestNumbers {
 
     public static void main(String[] args) {
         //10, 50, 12, 100
-        int[] arr = new int[]{5, 4, 3, 2};
+        int[] arr = new int[] { 10, 50, 12, 100 };
+        int n = arr.length;
+        if (n <= 1) {
+            return;
+        }
+
+        // Sort array elements
         Arrays.sort(arr);
 
-        Map<String, Integer> map = new HashMap<>();
+        // Compare differences of adjacent
+        // pairs to find the minimum difference.
+        int minDiff = arr[1] - arr[0];
+        for (int i = 2; i < n; i++)
+            minDiff = Math.min(minDiff, arr[i] - arr[i - 1]);
 
-        for (int i = 0; i < arr.length - 1; i++) {
-            map.put(arr[i] + "-" + arr[i + 1], arr[i + 1] - arr[i]);
-        }
-        int min = arr[1] - arr[0];
-        for (Map.Entry<String, Integer> m : map.entrySet()) {
-            if (min > m.getValue())
-                min = m.getValue();
-        }
-
-        for (Map.Entry<String, Integer> ma : map.entrySet()) {
-            if (ma.getValue().equals(min))
-                System.out.println(ma.getKey());
+        // Traverse array again and print all pairs
+        // with difference as minDiff.
+        for (int i = 1; i < n; i++) {
+            if ((arr[i] - arr[i - 1]) == minDiff) {
+                System.out.print("(" + arr[i - 1] + ", " + arr[i] + "),");
+            }
         }
     }
+
 }

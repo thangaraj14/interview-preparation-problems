@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/count-and-say/
+ */
 public class CountAndSay {
     public String countAndSay(int n) {
         if (n <= 0) {
@@ -28,5 +31,10 @@ public class CountAndSay {
             builder.append(val);
         }
         return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        CountAndSay countAndSay = new CountAndSay();
+        System.out.println(countAndSay.countAndSay(4));
     }
 }
