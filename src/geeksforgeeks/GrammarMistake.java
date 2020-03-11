@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://www.geeksforgeeks.org/check-given-sentence-given-set-simple-grammer-rules/
+ */
 class GrammarMistake {
 
     // Method to check a given sentence for given rules

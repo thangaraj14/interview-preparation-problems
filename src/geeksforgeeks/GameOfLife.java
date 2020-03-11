@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * https://forum.letstalkalgorithms.com/t/game-of-life/516/2
+ * <p>
+ * https://leetcode.com/problems/game-of-life/
  */
 public class GameOfLife {
 

@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://www.techiedelight.com/flatten-linked-list/
+ */
 class FlattenLinkedList {
     Node head;
 
@@ -18,7 +21,6 @@ class FlattenLinkedList {
             return "" + this.data;
         }
     }
-
 
     Node mergeIterative(Node a, Node b) {
         Node dummy = new Node(0);
@@ -49,8 +51,9 @@ class FlattenLinkedList {
     }
 
     Node flatten(Node root) {
-        if (root == null || root.right == null)
+        if (root == null || root.right == null) {
             return root;
+        }
 
         root.right = flatten(root.right);
 
@@ -58,7 +61,6 @@ class FlattenLinkedList {
 
         return root;
     }
-
 
     public static void main(String args[]) {
         flattenList();
@@ -120,9 +122,13 @@ class FlattenLinkedList {
     }
 
     Node merge(Node a, Node b) {
-        if (a == null) return b;
+        if (a == null) {
+            return b;
+        }
 
-        if (b == null) return a;
+        if (b == null) {
+            return a;
+        }
 
         Node result;
 

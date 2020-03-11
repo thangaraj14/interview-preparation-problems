@@ -33,10 +33,11 @@ public class GraphSplitwiseSimplify {
 
             @Override
             public boolean equals(Object o) {
-                if (this.adjV == ((AdjNode) o).adjV)
+                if (this.adjV == ((AdjNode) o).adjV) {
                     return true;
-                else
+                } else {
                     return false;
+                }
             }
 
             public String toString() {

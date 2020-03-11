@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- * @author i312458
+ * https://leetcode.com/problems/house-robber/
  */
 public class HouseRobber {
 
@@ -21,5 +21,11 @@ public class HouseRobber {
             excl = temp;
         }
         return incl;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = { 2, 7, 9, 3, 1 };
+        HouseRobber houseRobber = new HouseRobber();
+        System.out.println(houseRobber.rob(arr));
     }
 }
