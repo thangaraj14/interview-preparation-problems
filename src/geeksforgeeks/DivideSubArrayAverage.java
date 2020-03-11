@@ -29,7 +29,7 @@ class DivideSubArrayAverage {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 5, 7, 2, 0};
+        int[] arr = { 1, 5, 7, 2, 0 };
         int n = arr.length;
         findSubarrays(arr, n);
     }

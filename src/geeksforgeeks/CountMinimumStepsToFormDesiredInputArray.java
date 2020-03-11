@@ -4,7 +4,7 @@ to get the given arr array */
 /*https://www.geeksforgeeks.org/count-minimum-steps-get-given-desired-array/*/
 // unsolved
 class CountMinimumStepsToFormDesiredInputArray {
-    static int arr[] = new int[]{16, 16, 16};
+    static int arr[] = new int[] { 16, 16, 16 };
 
     // Returns count of minimum operations to covert a
     // zero array to arr array with increment and
@@ -25,17 +25,20 @@ class CountMinimumStepsToFormDesiredInputArray {
             int i; // To find first odd element
             for (i = 0; i < n; i++) {
                 // If odd number found
-                if (arr[i] % 2 == 1)
+                if (arr[i] % 2 == 1) {
                     break;
+                }
 
-                    // If 0, then increment zero_count
-                else if (arr[i] == 0)
+                // If 0, then increment zero_count
+                else if (arr[i] == 0) {
                     zero_count++;
+                }
             }
 
             // All numbers are 0
-            if (zero_count == n)
+            if (zero_count == n) {
                 return result;
+            }
 
             // All numbers are even
             if (i == n) {
@@ -59,9 +62,9 @@ class CountMinimumStepsToFormDesiredInputArray {
 
     public static void main(String[] args) {
 
-        System.out.println("Minimum number of steps required to \n" +
-                "get the given target array is " +
-                countMinOperations(arr.length));
+        System.out.println(
+                "Minimum number of steps required to \n" + "get the given target array is " + countMinOperations(
+                        arr.length));
 
     }
 } 

@@ -36,9 +36,8 @@ public class MaximumSubarray {
         return maxSoFar;
     }
 
-
     public static void main(String[] args) {
-        int arr[] = {1, -2, -3, 0, 8, 7, -2};
+        int arr[] = { 1, -2, -3, 0, 8, 7, -2 };
         System.out.println("Maximum Sub array product is " + maxSumSubArray(arr));
     }
 

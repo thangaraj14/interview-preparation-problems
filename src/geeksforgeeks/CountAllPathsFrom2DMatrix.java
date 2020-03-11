@@ -3,7 +3,7 @@ package geeksforgeeks;
 /*https://www.geeksforgeeks.org/count-possible-paths-top-left-bottom-right-nxm-matrix/*/
 class CountAllPathsFrom2DMatrix {
     // A Java program to count all possible paths
-// from top left to bottom right
+    // from top left to bottom right
     // Returns count of possible paths to reach
     // cell at row number m and column number n from
     // the topmost leftmost cell (cell at 1, 1)

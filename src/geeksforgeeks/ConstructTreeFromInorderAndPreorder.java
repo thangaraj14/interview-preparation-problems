@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class ConstructTreeFromInorderAndPreorder {
+
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         Map<Integer, Integer> inMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
