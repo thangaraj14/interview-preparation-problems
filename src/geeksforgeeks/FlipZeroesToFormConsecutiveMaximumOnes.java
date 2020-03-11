@@ -30,7 +30,6 @@ class FlipZeroesToFormConsecutiveMaximumOnes {
                 if (A[left] == 0) {
                     count--;
                 }
-
                 left++;
             }
 
@@ -43,13 +42,14 @@ class FlipZeroesToFormConsecutiveMaximumOnes {
             }
         }
 
-        System.out.println("The longest sequence has length " + window + " from index " + leftIndex + " to "
-                + (leftIndex + window - 1));
+        System.out.println(
+                "The longest sequence has length " + window + " from index " + leftIndex + " to " + (leftIndex + window
+                        - 1));
     }
 
     // main function
     public static void main(String[] args) {
-        int[] A = {1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0};
+        int[] A = { 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0 };
         int k = 1;
 
         longestSeq(A, k);
