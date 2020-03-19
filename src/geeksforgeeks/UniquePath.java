@@ -7,9 +7,7 @@ public class UniquePath {
     public static void main(String[] args) {
         System.out.println(uniquePathI(3, 2));
 
-        int[][] matrix = {{0, 0, 0},
-                {0, 1, 0},
-                {0, 0, 0}};
+        int[][] matrix = { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 } };
 
         System.out.println(uniquePathII(matrix));
 
@@ -33,7 +31,6 @@ public class UniquePath {
         }
         return dp[row - 1][col - 1];
     }
-
 
     private static int uniquePathII(int[][] mat) {
         int[][] dp = new int[mat.length][mat[0].length];

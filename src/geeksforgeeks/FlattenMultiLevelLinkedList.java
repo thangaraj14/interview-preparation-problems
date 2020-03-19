@@ -4,7 +4,9 @@ package geeksforgeeks;
 class FlattenMultiLevelLinkedList {
 
     public Node flatten(Node head) {
-        if (head == null) return head;
+        if (head == null) {
+            return head;
+        }
         // Pointer
         Node p = head;
         while (p != null) {
@@ -19,7 +21,9 @@ class FlattenMultiLevelLinkedList {
                 temp = temp.next;
             // Connect tail with p.next, if it is not null
             temp.next = p.next;
-            if (p.next != null) p.next.prev = temp;
+            if (p.next != null) {
+                p.next.prev = temp;
+            }
             // Connect p with p.child, and remove p.child
             p.next = p.child;
             p.child.prev = p;
