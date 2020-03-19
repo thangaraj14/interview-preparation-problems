@@ -7,27 +7,28 @@ public class InorderSuccessorPredecessor {
     static int successor, predecessor;
 
     public void successorPredecessor(TNode root, int val) {
+        // if (root.data == val) {
+        //     // go to the right most element in the left subtree, it will be the
+        //     // predecessor.
+        //     if (root.left != null) {
+        //         TNode t = root.left;
+        //         while (t.right != null) {
+        //             t = t.right;
+        //         }
+        //         predecessor = t.data;
+        //     }
+        //     if (root.right != null) {
+        //         // go to the left most element in the right subtree, it will be
+        //         // the successor.
+        //         TNode t = root.right;
+        //         while (t.left != null) {
+        //             t = t.left;
+        //         }
+        //         successor = t.data;
+        //     }
+        // } else 
         if (root != null) {
-            if (root.data == val) {
-                // go to the right most element in the left subtree, it will be the
-                // predecessor.
-                if (root.left != null) {
-                    TNode t = root.left;
-                    while (t.right != null) {
-                        t = t.right;
-                    }
-                    predecessor = t.data;
-                }
-                if (root.right != null) {
-                    // go to the left most element in the right subtree, it will be
-                    // the successor.
-                    TNode t = root.right;
-                    while (t.left != null) {
-                        t = t.left;
-                    }
-                    successor = t.data;
-                }
-            } else if (root.data > val) {
+            if (root.data > val) {
                 // we make the root as successor because we might have a
                 // situation when value matches with the root, it wont have
                 // right subtree to find the successor, in that case we need
