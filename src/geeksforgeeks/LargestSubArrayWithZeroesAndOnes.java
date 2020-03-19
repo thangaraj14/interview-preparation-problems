@@ -3,7 +3,7 @@ package geeksforgeeks;
 import java.util.HashMap;
 
 /*https://www.geeksforgeeks.org/largest-subarray-with-equal-number-of-0s-and-1s/*/
-class LargestSubArray {
+class LargestSubArrayWithZeroesAndOnes {
 
     int maxLen(int arr[], int n) {
 
@@ -29,8 +29,9 @@ class LargestSubArray {
                     maxLength = i - map.get(sum);
                     endingIndex = i;
                 }
-            } else
+            } else {
                 map.put(sum, i);
+            }
         }
 
         for (int i = 0; i < n; i++) {
@@ -44,8 +45,8 @@ class LargestSubArray {
     }
 
     public static void main(String[] args) {
-        LargestSubArray sub = new LargestSubArray();
-        int arr[] = {0, 0, 0, 1, 0, 1, 1};
+        LargestSubArrayWithZeroesAndOnes sub = new LargestSubArrayWithZeroesAndOnes();
+        int arr[] = { 0, 0, 0, 1, 0, 1, 1 };
         int n = arr.length;
 
         sub.maxLen(arr, n);

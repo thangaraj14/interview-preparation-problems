@@ -35,6 +35,7 @@ public class LongestIncreasingPath {
     }
 
     public static int dfsUtil(int[][] matrix, int i, int j, Integer[][] cache, int data) {
+
         if (i < 0 || i >= matrix.length || j < 0 || j >= matrix[0].length || data >= matrix[i][j]) {
             return 0;
         }
@@ -43,7 +44,7 @@ public class LongestIncreasingPath {
             return cache[i][j];
         }
 
-        int max = 1;
+        int currLength = 1;
 
         for (int[] dir : dirs) {
 
@@ -51,9 +52,9 @@ public class LongestIncreasingPath {
             int y = j + dir[1];
 
             int count = 1 + dfsUtil(matrix, x, y, cache, matrix[i][j]);
-            max = Math.max(count, max);
+            currLength = Math.max(count, currLength);
         }
-        cache[i][j] = max;
+        cache[i][j] = currLength;
 
         return cache[i][j];
     }

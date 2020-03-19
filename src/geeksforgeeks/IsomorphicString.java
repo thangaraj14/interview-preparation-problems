@@ -13,8 +13,9 @@ class IsomorphicString {
         for (int i = 0; i < n; ++i) {
             // it checks the count of the character in the array ;
             // for 'g' -> a[103] is 2 and 'd' -> a[100] is 2
-            if (m1[s.charAt(i)] != m2[t.charAt(i)])
+            if (m1[s.charAt(i)] != m2[t.charAt(i)]) {
                 return false;
+            }
             m1[s.charAt(i)] = i + 1;
             m2[t.charAt(i)] = i + 1;
         }

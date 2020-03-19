@@ -5,9 +5,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * https://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
+ */
 class LargestPossibleNumber {
+
     public static void main(String[] args) {
-        int nums[] = {10, 68, 97, 9, 21, 12};
+        int nums[] = { 10, 68, 97, 9, 21, 12 };
         List<String> numbers = Arrays.asList("10", "68", "97", "9", "21", "12");
 
         Collections.sort(numbers, (a, b) -> (b + a).compareTo(a + b));
@@ -21,10 +25,9 @@ class LargestPossibleNumber {
             arr[i] = String.valueOf(nums[i]);
         }
 
-        Arrays.sort(arr,
-                (a, b) -> {
-                    return (b + a).compareTo(a + b);
-                });
+        Arrays.sort(arr, (a, b) -> {
+            return (b + a).compareTo(a + b);
+        });
 
         StringBuilder sb = new StringBuilder();
         for (String s : arr) {
