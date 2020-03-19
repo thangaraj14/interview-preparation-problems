@@ -11,8 +11,10 @@ public class FirstMissingPositive {
 		while (i < A.length) {
 			if (A[i] == i + 1 || A[i] <= 0 || A[i] > A.length)
 				i++;
-			else if (A[A[i] - 1] != A[i])
+			else if (A[A[i] - 1] != A[i]){
+				System.out.println(A[A[i] - 1]+" "+A[i]);
 				swap(A, i, A[i] - 1);
+			}
 			else
 				i++;
 		}
@@ -50,7 +52,7 @@ public class FirstMissingPositive {
 	public static void main(String[] args) {
 		int[] arr = { 3, 4, -1, 1 };
 		FirstMissingPositive fmp = new FirstMissingPositive();
-		System.out.println(fmp.firstMissingPositive(arr));
-		System.out.println(fmp.firstMissingPositiveWithExtraSpace(arr));
+		System.out.println("result  "+fmp.firstMissingPositive(arr));
+		//System.out.println(fmp.firstMissingPositiveWithExtraSpace(arr));
 	}
 }

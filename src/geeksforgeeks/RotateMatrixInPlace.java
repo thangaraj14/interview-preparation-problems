@@ -43,6 +43,36 @@ class RotateMatrixInPlace {
         }
     }
 
+    public void rotate(int[][] matrix) {
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0)return;
+        int n= matrix.length-1;
+        
+        for(int i=0; i<matrix.length/2;i++){
+            // to check number of cycles
+            for(int j=i; j<n-i;j++){
+                // loop to find number of elements 
+                
+                //x1,y1= x2,y2
+                //x1=y2
+                
+                int temp=matrix[i][j];
+                
+                //0,0= 3,0
+                matrix[i][j]=matrix[n-j][i];
+                
+               // 3,0=3,3
+                matrix[n-j][i]= matrix[n-i][n-j];
+                
+                //3,3=0,3
+                matrix[n-i][n-j]= matrix[j][n-i];
+                
+                matrix[j][n-i]=temp;
+            }
+        }
+        
+        
+    }
+
     static void displayMatrix(int N, int mat[][]) {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++)

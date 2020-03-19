@@ -13,7 +13,7 @@ class CountAllPathsFrom2DMatrix {
         int count[][] = new int[m][n];
 
         // Count of paths to reach any cell in
-        // first column is 1
+        // first row is 1
         for (int i = 0; i < m; i++)
             count[i][0] = 1;
 
