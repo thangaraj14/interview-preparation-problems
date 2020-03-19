@@ -32,6 +32,6 @@ public class MobileKeyPadCombinations {
     }
 
     public static void main(String[] args) {
-
+        new MobileKeyPadCombinations().letterCombinations("23");
     }
 }
