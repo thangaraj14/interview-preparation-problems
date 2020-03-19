@@ -2,13 +2,15 @@ package geeksforgeeks;
 
 import java.util.Stack;
 
+/**
+ * https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
+ */
 class ConstructBSTFromPreorder {
 
     public static void main(String[] args) {
-        int[] arr = {8, 3, 1, 6, 4, 7, 10, 14, 13};
+        int[] arr = { 8, 3, 1, 6, 4, 7, 10, 14, 13 };
         bstFromPreorder(arr);
     }
-
 
     public static TreeNode bstFromPreorder(int[] preorder) {
         if (preorder == null || preorder.length == 0) {

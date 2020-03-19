@@ -5,7 +5,7 @@ package geeksforgeeks;
  */
 public class NumberOfBallons {
 
-    public int maxNumberOfBalloons(String text) {
+    public static int maxNumberOfBalloons(String text) {
         int[] chars = new int[26]; //count all letters
         for (char c : text.toCharArray()) {
             chars[c - 'a']++;
@@ -16,5 +16,9 @@ public class NumberOfBallons {
         min = Math.min(min, chars[14] / 2);//similarly for o/2
         min = Math.min(min, chars[13]);//for n
         return min;
+    }
+
+    public static void main(String[] args) {
+        maxNumberOfBalloons("llonbioan");
     }
 }

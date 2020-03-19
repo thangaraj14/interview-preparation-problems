@@ -3,6 +3,9 @@ package geeksforgeeks;
 // (0, 2, 4,..) and negative numbers at odd indexes (1, 3, 
 // 5, ..) 
 
+/**
+ * https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/
+ */
 class AlternateOddAndEvenNumbers {
 
     static void rearrange(int arr[], int n) {
@@ -17,9 +20,7 @@ class AlternateOddAndEvenNumbers {
             }
         }
 
-
         int pos = i + 1, neg = 0;
-
 
         while (pos < n && neg < pos && arr[neg] < 0) {
             temp = arr[neg];
@@ -36,7 +37,7 @@ class AlternateOddAndEvenNumbers {
     }
 
     public static void main(String[] args) {
-        int arr[] = {-1, 2, -3, 4, 5, 6, -7, 8, 9};
+        int arr[] = { -1, 2, -3, 4, 5, 6, -7, 8, 9 };
         int n = arr.length;
         rearrange(arr, n);
         System.out.println("Array after rearranging: ");

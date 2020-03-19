@@ -16,18 +16,17 @@ class LongestSpanWithSameSumArray {
         int maxLength = 0;
 
         for (int i = 0; i < n; i++) {
-
             sum += arr[i];
 
-
-            if (sum == 0)
+            if (sum == 0) {
                 maxLength = i + 1;
+            }
 
-            if (map.containsKey(sum))
+            if (map.containsKey(sum)) {
                 maxLength = Math.max(maxLength, i - map.get(sum));
-
-            else
+            } else {
                 map.put(sum, i);
+            }
         }
         return maxLength;
     }
@@ -35,8 +34,8 @@ class LongestSpanWithSameSumArray {
     public static void main(String args[]) {
        /* int[] arr1 = {0, 1, 0, 1, 1, 1, 1};
         int[] arr2 = {1, 1, 1, 1, 1, 0, 1};*/
-        int arr1[] = {0, 1, 0, 0, 1, 1, 1, 0};
-        int arr2[] = {1, 1, 1, 1, 1, 1, 0, 1};
+        int arr1[] = { 0, 1, 0, 0, 1, 1, 1, 0 };
+        int arr2[] = { 1, 1, 1, 1, 1, 1, 0, 1 };
         //{-1,0,-1,0,0,1,0}
         int n = arr1.length;
         System.out.println(longestCommonSum(arr1, arr2, n));

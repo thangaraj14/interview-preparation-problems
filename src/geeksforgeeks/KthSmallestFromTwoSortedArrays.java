@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://www.geeksforgeeks.org/k-th-element-two-sorted-arrays/
+ */
 class KthSmallestFromTwoSortedArrays {
 
     public static int findKth(int[] A, int i, int[] B, int j, int k) {
@@ -26,14 +29,15 @@ class KthSmallestFromTwoSortedArrays {
     }
 
     public static void main(String[] args) {
-        int arr1[] = {1,6,8,9,15};
-        int arr2[] = {3,5,10,14,20};
+        int arr1[] = { 1, 6, 8, 9, 15 };
+        int arr2[] = { 3, 5, 10, 14, 20 };
 
         int k = 6;
         int ans = findKth(arr1, 0, arr2, 0, k);
-        if (ans == -1)
+        if (ans == -1) {
             System.out.println("Invalid query");
-        else
+        } else {
             System.out.println(ans);
+        }
     }
 }

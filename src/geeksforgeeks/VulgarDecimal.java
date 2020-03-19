@@ -6,33 +6,33 @@ import java.util.*;
 
 public class VulgarDecimal {
 
-    public static String fractionToDecimal(long num, long den) {
-        if (num == 0) {
+    public static String fractionToDecimal(long numerator, long denominator) {
+        if (numerator == 0) {
             return "0";
         }
         StringBuilder result = new StringBuilder();
 
-        result.append(((num > 0) ^ (den > 0)) ? "-" : "");
-        result.append(num / den);
-        num %= den;
-        if (num == 0) {
+        result.append(((numerator < 0) || (denominator < 0)) ? "-" : "");
+        result.append(numerator / denominator);
+        numerator %= denominator;
+        if (numerator == 0) {
             return result.toString();
         }
 
         result.append(".");
         HashMap<Long, Integer> map = new HashMap<>();
-        map.put(num, result.length());
-        while (num != 0) {
-            num *= 10;
-            result.append(num / den);
-            num %= den;
-            if (map.containsKey(num)) {
-                int index = map.get(num);
+        map.put(numerator, result.length());
+        while (numerator != 0) {
+            numerator *= 10;
+            result.append(numerator / denominator);
+            numerator %= denominator;
+            if (map.containsKey(numerator)) {
+                int index = map.get(numerator);
                 result.insert(index, "(");
                 result.append(")");
                 break;
             } else {
-                map.put(num, result.length());
+                map.put(numerator, result.length());
             }
         }
         return result.toString();

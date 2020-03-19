@@ -67,7 +67,7 @@ public class BitonicSearch {
     }
 
     public static void main(String args[]) {
-        int arr[] = {-3, 3, 9, 8, 20, 17, 5, 3, 1};
+        int arr[] = { -3, 3, 9, 8, 20, 17, 5, 3, 1 };
         int key = 3;
         int n = arr.length;
         int l = 0;

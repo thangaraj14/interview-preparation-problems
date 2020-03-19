@@ -7,18 +7,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// unresolved
 public class IsomorphicArray {
     public Collection<List<String>> groupIsomorphicStrings(List<String> strings) {
-        if (strings == null || strings.isEmpty())
+        if (strings == null || strings.isEmpty()) {
             return Collections.EMPTY_LIST;
+        }
 
         Map<String, List<String>> hashToList = new HashMap<>();
 
         for (String string : strings) {
             String hash = hash(string);
 
-            if (!hashToList.containsKey(hash))
+            if (!hashToList.containsKey(hash)) {
                 hashToList.put(hash, new ArrayList<>());
+            }
 
             hashToList.get(hash).add(string);
         }
@@ -26,8 +29,9 @@ public class IsomorphicArray {
     }
 
     private String hash(String s) {
-        if (s.isEmpty())
+        if (s.isEmpty()) {
             return "";
+        }
 
         int count = 1;
         StringBuilder hash = new StringBuilder();
@@ -36,9 +40,9 @@ public class IsomorphicArray {
 
         for (char c : s.toCharArray()) {
 
-            if (map.containsKey(c))
+            if (map.containsKey(c)) {
                 hash.append(map.get(c));
-            else {
+            } else {
                 map.put(c, count++);
                 hash.append(map.get(c));
             }
