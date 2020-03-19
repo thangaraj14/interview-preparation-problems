@@ -13,17 +13,16 @@ public class KthSmallestMatrix {
         for (int i = 0; i < k - 1; i++) {
             Points t = pq.poll();
             System.out.println(t.x);
-            if (t.x == n - 1)
+            if (t.x == n - 1) {
                 continue;
+            }
             pq.offer(new Points(t.x + 1, t.y, matrix[t.x + 1][t.y]));
         }
         return pq.poll().val;
     }
 
     public static void main(String[] args) {
-        int[][] matrix = {{1, 2, 9},
-                {3, 11, 13},
-                {4, 13, 15}};
+        int[][] matrix = { { 1, 2, 9 }, { 3, 11, 13 }, { 4, 13, 15 } };
         int k = 4;
 
         System.out.println(kthSmallest(matrix, k));

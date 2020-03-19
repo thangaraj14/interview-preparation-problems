@@ -1,5 +1,4 @@
-package geeksforgeeks;// Java program to convert a decimal 
-// number to binary number 
+package geeksforgeeks;
 
 class IntegerToBinary {
     // function to convert decimal to binary
@@ -23,9 +22,17 @@ class IntegerToBinary {
 
     public static void main(String[] args) {
         int n = 4;
-        decToBinary(n);
+        // decToBinary(n);
         //  System.out.println("Default method :" + Integer.toBinaryString(4));
+        System.out.println(intToBinary(4));
+    }
+
+    public static String intToBinary(int n) {
+        String s = "";
+        while (n > 0) {
+            s = ((n % 2) == 0 ? "0" : "1") + s;
+            n = n / 2;
+        }
+        return s;
     }
 }
-
-// Contributed by Pramod Kumar 

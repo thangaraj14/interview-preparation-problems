@@ -1,6 +1,7 @@
 package geeksforgeeks;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -16,15 +17,18 @@ import java.util.HashMap;
  * Output: [4,9]
  */
 public class IntersectionOfArrays {
+    public static void main(String[] args) {
+        IntersectionOfArrays intersectionOfArrays = new IntersectionOfArrays();
+        int[] nums1 = { 4, 4, 9, 5 };
+        int[] nums2 = { 9, 4, 9, 4, 2, 3 };
+        System.out.println(Arrays.toString(intersectionOfArrays.intersect(nums1, nums2)));
+    }
+
     public int[] intersect(int[] nums1, int[] nums2) {
         HashMap<Integer, Integer> map = new HashMap<>();
         ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i < nums1.length; i++) {
-            if (map.containsKey(nums1[i])) {
-                map.put(nums1[i], map.get(nums1[i]) + 1);
-            } else {
-                map.put(nums1[i], 1);
-            }
+            map.put(nums1[i], map.getOrDefault(nums1[i], 1));
         }
 
         for (int i = 0; i < nums2.length; i++) {
