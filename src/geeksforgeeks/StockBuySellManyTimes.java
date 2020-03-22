@@ -5,6 +5,8 @@ import java.util.List;
 
 class Interval {
     int buy, sell;
+    int start; // for meeting problem
+    int end;
 }
 
 /**
@@ -16,8 +18,9 @@ class StockBuySellManyTimes {
     //200, 180, 260, 310, 40, 535, 695
     void stockBuySell(int price[], int n) {
         // Prices must be given for at least two days
-        if (n == 1)
+        if (n == 1) {
             return;
+        }
 
         int count = 0;
 
@@ -31,8 +34,9 @@ class StockBuySellManyTimes {
                 i++;
 
             // If we reached the end, break as no further solution possible
-            if (i == n - 1)
+            if (i == n - 1) {
                 break;
+            }
 
             Interval e = new Interval();
             e.buy = i++;
@@ -51,11 +55,13 @@ class StockBuySellManyTimes {
             count++;
         }
 
-        if (count == 0)
+        if (count == 0) {
             System.out.println("There is no day when buying the stock " + "will make profit");
-        else
+        } else {
             for (int j = 0; j < count; j++)
-                System.out.println("Buy on day: " + result.get(j).buy + "	 " + "Sell on day : " + result.get(j).sell);
+                System.out.println(
+                        "Buy on day: " + result.get(j).buy + "	 " + "Sell on day : " + result.get(j).sell);
+        }
 
         return;
     }
@@ -63,7 +69,7 @@ class StockBuySellManyTimes {
     public static void main(String args[]) {
         StockBuySellManyTimes stock = new StockBuySellManyTimes();
 
-        int price[] = {200, 180, 260, 310, 40, 535, 695};
+        int price[] = { 200, 180, 260, 310, 40, 535, 695 };
         int n = price.length;
 
         stock.stockBuySell(price, n);

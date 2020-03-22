@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PascalsTriangle {
     public List<List<Integer>> generate(int numRows) {
 

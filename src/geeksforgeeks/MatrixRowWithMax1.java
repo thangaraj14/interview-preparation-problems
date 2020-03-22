@@ -6,7 +6,7 @@ package geeksforgeeks;
 public class MatrixRowWithMax1 {
 
     public static void main(String[] args) {
-        int[][] mat = {{0, 0, 0, 1}, {0, 1, 1, 1}, {1, 1, 1, 1}, {0, 0, 0, 0}};
+        int[][] mat = { { 0, 0, 0, 1 }, { 0, 1, 1, 1 }, { 1, 1, 1, 1 }, { 0, 0, 0, 0 } };
         System.out.println(rowWithMax1s(mat));
     }
 
@@ -17,8 +17,9 @@ public class MatrixRowWithMax1 {
         int max_row_index = 0;
 
         int j = findFirstIndex(mat[0], 0, C - 1);
-        if (j == -1)
+        if (j == -1) {
             j = C - 1;
+        }
 
         for (int i = 1; i < R; i++) {
             while (j >= 0 && mat[i][j] == 1) {
@@ -33,14 +34,13 @@ public class MatrixRowWithMax1 {
         if (high >= low) {
             int mid = low + (high - low) / 2;
 
-            if ((mid == 0 || (arr[mid - 1] == 0)) && arr[mid] == 1)
+            if ((mid == 0 || (arr[mid - 1] == 0)) && arr[mid] == 1) {
                 return mid;
-
-            else if (arr[mid] == 0)
+            } else if (arr[mid] == 0) {
                 return findFirstIndex(arr, (mid + 1), high);
-
-            else
+            } else {
                 return findFirstIndex(arr, low, (mid - 1));
+            }
         }
         return -1;
     }

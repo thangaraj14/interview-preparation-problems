@@ -3,11 +3,16 @@ package geeksforgeeks;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
+ * <p>
+ * https://www.lintcode.com/problem/longest-substring-with-at-most-two-distinct-characters/description
+ */
 public class MaximumSubstringWithKDistinctChar {
 
     public static void main(String[] args) {
-        //        System.out.println(lengthOfLongestSubstringTwoDistinct("abaaaaacccddcc", 2));
-        System.out.println(lengthOfLongestSubstringKDistinct("eqgkcwGFvjjmxutystqdfhuMblWbylgjxsxgnoh", 16));
+        System.out.println(lengthOfLongestSubstringTwoDistinct("abaaaaacccddcc", 2));
+        //System.out.println(lengthOfLongestSubstringKDistinct("eqgkcwGFvjjmxutystqdfhuMblWbylgjxsxgnoh", 2));
     }
 
     public static int lengthOfLongestSubstringTwoDistinct(String s, int k) {
@@ -36,28 +41,35 @@ public class MaximumSubstringWithKDistinctChar {
         return length;
     }
 
+    // improvised solution
     public static int lengthOfLongestSubstringKDistinct(String s, int k) {
-        if(s==null || s.isEmpty()) return 0;
-        if(k==0) return 0;
-        int start=0;
-        int maxCount=0;
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
+        if (k == 0) {
+            return 0;
+        }
+        int start = 0;
+        int maxCount = 0;
         int[] arr = new int[26];
         s = s.toLowerCase();
-        for(int i=0;i<s.length();i++){
+        for (int i = 0; i < s.length(); i++) {
 
-            if(arr[s.charAt(i)-'a']==0) k--;
-
-            arr[s.charAt(i)-'a']++;
-            while(k==-1){
-
-                arr[s.charAt(start)-'a']--;
-                if(arr[s.charAt(start)-'a']==0) k++;
-                start++;
+            if (arr[s.charAt(i) - 'a'] == 0) {
+                k--;
             }
 
-            maxCount = Math.max(maxCount,i-start);
+            arr[s.charAt(i) - 'a']++;
+            while (k == -1) {
 
+                arr[s.charAt(start) - 'a']--;
+                if (arr[s.charAt(start) - 'a'] == 0) {
+                    k++;
+                }
+                start++;
+            }
+            maxCount = Math.max(maxCount, i - start);
         }
-        return maxCount+1;
+        return maxCount + 1;
     }
 }
