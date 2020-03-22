@@ -56,17 +56,16 @@ public class MajorityVoting {
         int majority = nums.length / 2;
 
         for (int i = 1; i < nums.length; i++) {
-            if (count == 0) {
+            if (candidate == nums[i]) {
+                count++;
+            } else if (count == 0) {
                 count++;
                 candidate = nums[i];
-            } else if (candidate == nums[i]) {
-                count++;
             } else {
                 count--;
             }
-
         }
-
+        //what if array is even and it has many elements
         count = 0;
         for (int num : nums) {
             if (num == candidate) {
@@ -82,9 +81,6 @@ public class MajorityVoting {
         System.out.println(majorityElementI(arr));
         System.out.println(majorityElementII(arr));
 
-
     }
-
-
 
 }

@@ -29,6 +29,5 @@ class LongestSubArraySumUtmostK {
         int k = 4;
 
         System.out.print(utMostSum(arr, n, k));
-
     }
 }

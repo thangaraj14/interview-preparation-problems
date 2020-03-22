@@ -5,7 +5,9 @@ package geeksforgeeks;
  */
 public class MaximumSubarray {
 
+    // 1, -2, -3, 0, 8, 7, -2
     public static int maxProductSubArray(int[] A) {
+
         if (A.length == 0) {
             return 0;
         }
@@ -29,7 +31,7 @@ public class MaximumSubarray {
         int max = Integer.MIN_VALUE;
         int sum = 0;
 
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i];
             if (sum < 0) {
                 //get i if you want to get index of subarray
@@ -42,7 +44,7 @@ public class MaximumSubarray {
 
     public static void main(String[] args) {
         int arr[] = { 1, -2, -3, 0, 8, 7, -2 };
-        System.out.println("Maximum Sub array product is " + maxSumSubArray(arr));
+        System.out.println("Maximum Sub array sum is " + maxSumSubArray(arr));
+        System.out.println("Maximum Sub array product is " + maxProductSubArray(arr));
     }
-
 }
