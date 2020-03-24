@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://www.geeksforgeeks.org/merge-sort-for-linked-list/
+ */
 public class MergeSortLinkedList {
 
     public static ListNode sortList(ListNode head) {
@@ -23,6 +26,7 @@ public class MergeSortLinkedList {
         // step 3. merge l1 and l2
         return merge(l1, l2);
     }
+
     static ListNode merge(ListNode l1, ListNode l2) {
         ListNode node = new ListNode(0);
         ListNode temp = node;
@@ -67,5 +71,10 @@ class ListNode {
 
     public ListNode(int val) {
         this.val = val;
+    }
+
+    @Override
+    public String toString() {
+        return "ListNode{val=" + val + '}';
     }
 }

@@ -4,15 +4,15 @@ import java.util.*;
 
 class MyStack {
 
-    Stack<Integer> s;
+    Stack<Integer> stack;
     Integer minEle;
 
     MyStack() {
-        s = new Stack<>();
+        stack = new Stack<>();
     }
 
     void getMin() {
-        if (s.isEmpty()) {
+        if (stack.isEmpty()) {
             System.out.println("Stack is empty");
         } else {
             System.out.println("Minimum Element in the " + " stack is: " + minEle);
@@ -20,12 +20,12 @@ class MyStack {
     }
 
     void peek() {
-        if (s.isEmpty()) {
+        if (stack.isEmpty()) {
             System.out.println("Stack is empty ");
             return;
         }
 
-        Integer t = s.peek();
+        Integer t = stack.peek();
         System.out.print("Top Most Element is: ");
 
         if (t < minEle) {
@@ -36,13 +36,13 @@ class MyStack {
     }
 
     void pop() {
-        if (s.isEmpty()) {
+        if (stack.isEmpty()) {
             System.out.println("Stack is empty");
             return;
         }
 
         System.out.print("Top Most Element Removed: ");
-        Integer t = s.pop();
+        Integer t = stack.pop();
 
         if (t < minEle) {
             System.out.println(minEle);
@@ -53,9 +53,9 @@ class MyStack {
     }
 
     void push(Integer x) {
-        if (s.isEmpty()) {
+        if (stack.isEmpty()) {
             minEle = x;
-            s.push(x);
+            stack.push(x);
             System.out.println("Number Inserted: " + x);
             return;
         }
@@ -64,10 +64,10 @@ class MyStack {
             // x-minEle<0
             // x-minEle+x<0+x
             // 2x-minEle<x
-            s.push(2 * x - minEle);
+            stack.push(2 * x - minEle);
             minEle = x;
         } else {
-            s.push(x);
+            stack.push(x);
         }
 
         System.out.println("Number Inserted: " + x);
@@ -92,12 +92,13 @@ public class MinimumStack {
 
 class MinStack {
     private Node head;
-    
+
     public void push(int x) {
-        if(head == null) 
+        if (head == null) {
             head = new Node(x, x);
-        else 
+        } else {
             head = new Node(x, Math.min(x, head.min), head);
+        }
     }
 
     public void pop() {
@@ -111,16 +112,16 @@ class MinStack {
     public int getMin() {
         return head.min;
     }
-    
+
     private class Node {
         int val;
         int min;
         Node next;
-        
+
         private Node(int val, int min) {
             this(val, min, null);
         }
-        
+
         private Node(int val, int min, Node next) {
             this.val = val;
             this.min = min;
