@@ -2,7 +2,6 @@ package geeksforgeeks;
 
 //https://leetcode.com/problems/game-of-life/discuss/73366/Clean-O(1)-space-O(mn)-time-Java-Solution
 public class LiveCellDeadCellGame {
-
     public void gameOfLife(int[][] board) {
         int[][] dir = { { 1, -1 }, { 1, 0 }, { 1, 1 }, { 0, -1 }, { 0, 1 }, { -1, -1 }, { -1, 0 }, { -1, 1 } };
         int row = board.length;
