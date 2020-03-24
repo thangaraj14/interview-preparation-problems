@@ -1,7 +1,7 @@
 package geeksforgeeks;
 
 /**
- * @author i312458
+ * https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
  */
 public class MergeTwoLinkedList {
 
@@ -34,7 +34,7 @@ public class MergeTwoLinkedList {
         l1.next.next.next = new ListNode(4);
 
         ListNode l2 = new ListNode(1);
-//        l2.next = new ListNode(7);
+        //        l2.next = new ListNode(7);
 
         ListNode head = mergeTwoLists(l1, l2);
 

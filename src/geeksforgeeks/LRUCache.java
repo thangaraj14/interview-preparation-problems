@@ -33,10 +33,7 @@ class LRUCache {
         this.maxCapacity = maxCapacity;
 
         head = new DNode();
-        head.prev = null;
-
         tail = new DNode();
-        tail.next = null;
 
         head.next = tail;
         tail.prev = head;
@@ -45,14 +42,11 @@ class LRUCache {
     public int get(int key) {
 
         DNode node = hashtable.get(key);
-        boolean itemFoundInCache = node != null;
 
-        if (!itemFoundInCache) {
+        if (node == null) {
             return -1;
         }
-
         moveToHead(node);
-
         return node.value;
     }
 
@@ -61,7 +55,6 @@ class LRUCache {
         DNode node = hashtable.get(key);
 
         if (node != null) {
-
             DNode newNode = new DNode();
             newNode.key = key;
             newNode.value = value;
