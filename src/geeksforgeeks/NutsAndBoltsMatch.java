@@ -1,18 +1,22 @@
 package geeksforgeeks;
 
-// Java program to solve nut and bolt problem using Quick Sort
-// unresolved
+/**
+ * https://www.geeksforgeeks.org/nuts-bolts-problem-lock-key-problem/
+ * Java program to solve nut and bolt problem using Quick Sort
+ */
 public class NutsAndBoltsMatch {
+
     public static void main(String[] args) {
         // Nuts and bolts are represented as array of characters
-        char nuts[] = {'@', '#', '$', '%', '^', '&'};
-        char bolts[] = {'$', '%', '&', '^', '@', '#'};
+        char nuts[] = { '@', '#', '$', '%', '^', '&' };
+        char bolts[] = { '$', '%', '&', '^', '@', '#' };
 
         // Method based on quick sort which matches nuts and bolts
         matchPairs(nuts, bolts, 0, 5);
 
         System.out.println("Matched nuts and bolts are : ");
         printArray(nuts);
+        System.out.println();
         printArray(bolts);
     }
 
@@ -25,14 +29,13 @@ public class NutsAndBoltsMatch {
     }
 
     // Method which works just like quick sort
-    private static void matchPairs(char[] nuts, char[] bolts, int low,
-                                   int high) {
+    private static void matchPairs(char[] nuts, char[] bolts, int low, int high) {
         if (low < high) {
+            
             // Choose last character of bolts array for nuts partition.
             int pivot = partition(nuts, low, high, bolts[high]);
 
-            // Now using the partition of nuts choose that for bolts
-            // partition.
+            // Now using the partition of nuts choose that for bolts  partition.
             partition(bolts, low, high, nuts[pivot]);
 
             // Recur for [low...pivot-1] & [pivot+1...high] for nuts and

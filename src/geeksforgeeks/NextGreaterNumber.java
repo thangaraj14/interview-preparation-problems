@@ -24,6 +24,7 @@ public class NextGreaterNumber {
         }
     }
 
+    // 6, 9, 3, 8, 6, 5, 2
     public void findNextGreaterNumber(int[] number) {
         int lastDigitSeen = number[number.length - 1];
         int i;
@@ -56,11 +57,7 @@ public class NextGreaterNumber {
     public static void main(String[] args) {
         NextGreaterNumber solution = new NextGreaterNumber();
 
-        int[] number = {6, 9, 3, 8, 6, 5, 2};
-        // 6938652
-        // 6983652
-        // 6982356
-        // i =3
+        int[] number = { 6, 9, 3, 8, 6, 5, 2 };
 
         solution.findNextGreaterNumber(number);
 
