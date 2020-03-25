@@ -30,8 +30,9 @@ public class MinTimeRotOranges {
     private boolean hasFreshOrange(int[][] grid) {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == 1)
+                if (grid[i][j] == 1) {
                     return true;
+                }
             }
         }
         return false;
@@ -48,8 +49,8 @@ public class MinTimeRotOranges {
     }
 
     private void rotOranges(Queue<Pair> queue, Pair p, int[][] grid) {
-        int[] xMoves = {1, -1, 0, 0};
-        int[] yMoves = {0, 0, 1, -1};
+        int[] xMoves = { 1, -1, 0, 0 };
+        int[] yMoves = { 0, 0, 1, -1 };
         for (int k = 0; k < xMoves.length; k++) {
             int x = p.x + xMoves[k];
             int y = p.y + yMoves[k];
@@ -65,33 +66,36 @@ public class MinTimeRotOranges {
         Queue<Pair> queue = new LinkedList<>();
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == 2)
+                if (grid[i][j] == 2) {
                     queue.add(new Pair(i, j));
+                }
             }
         }
 
-        if (queue.isEmpty())
+        if (queue.isEmpty()) {
             return -1;
+        }
 
         queue.add(new Pair(-1, -1));
         while (!queue.isEmpty()) {
             Pair p = queue.poll();
-            if (!isDelimiter(p))
+            if (!isDelimiter(p)) {
                 rotOranges(queue, p, grid);
-            else if (!queue.isEmpty()) {
+            } else if (!queue.isEmpty()) {
                 queue.add(p); // add back delimiter
                 result += 1;
             }
         }
 
-        if (hasFreshOrange(grid))
+        if (hasFreshOrange(grid)) {
             return -1;
+        }
 
         return result;
     }
 
     public static void main(String[] args) {
-        int grid[][] = {{2, 1, 0, 1, 1}, {1, 0, 2, 1, 1}, {1, 1, 1, 1, 1}};
+        int grid[][] = { { 2, 1, 0, 1, 1 }, { 1, 0, 2, 1, 1 }, { 1, 1, 1, 1, 1 } };
         System.out.println(new MinTimeRotOranges().findMinTime(grid));
     }
 

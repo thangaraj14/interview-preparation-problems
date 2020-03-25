@@ -1,8 +1,12 @@
-package geeksforgeeks;// Iterative Java program to convert a Binary
-// Tree to its mirror 
+package geeksforgeeks;
 
 import java.util.*;
 
+/**
+ * https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
+ * <p>
+ * Iterative Java program to convert a Binary Tree to its mirror
+ */
 class MirrorBinaryTree {
 
     static class Node {
@@ -10,7 +14,6 @@ class MirrorBinaryTree {
         Node left;
         Node right;
     }
-
 
     static Node newNode(int data) {
         Node node = new Node();
@@ -20,36 +23,39 @@ class MirrorBinaryTree {
     }
 
     static void mirror(Node root) {
-        if (root == null)
+        if (root == null) {
             return;
+        }
 
         Queue<Node> q = new LinkedList<>();
         q.add(root);
 
         while (q.size() > 0) {
-            Node curr = q.peek();
-            q.remove();
 
+            Node curr = q.remove();
+
+            // swap the elements
             Node temp = curr.left;
             curr.left = curr.right;
             curr.right = temp;
 
-            if (curr.left != null)
+            if (curr.left != null) {
                 q.add(curr.left);
-            if (curr.right != null)
+            }
+            if (curr.right != null) {
                 q.add(curr.right);
+            }
         }
     }
 
-
     static void inOrder(Node node) {
-        if (node == null)
+        if (node == null) {
             return;
+        }
         inOrder(node.left);
         System.out.print(node.data + " ");
         inOrder(node.right);
     }
-
 
     public static void main(String args[]) {
         Node root = newNode(1);
@@ -58,14 +64,12 @@ class MirrorBinaryTree {
         root.left.left = newNode(4);
         root.left.right = newNode(5);
 
-        System.out.print("\n Inorder traversal of the"
-                + " coned tree is \n");
+        System.out.print("\n Inorder traversal of the" + " coned tree is \n");
         inOrder(root);
 
         mirror(root);
 
-        System.out.print("\n Inorder traversal of the " +
-                "mirror tree is \n");
+        System.out.print("\n Inorder traversal of the " + "mirror tree is \n");
         inOrder(root);
     }
 } 

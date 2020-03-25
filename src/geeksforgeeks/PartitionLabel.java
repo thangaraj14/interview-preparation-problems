@@ -3,17 +3,24 @@ package geeksforgeeks;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode.com/problems/partition-labels/
+ */
 class PartitionLabel {
-    public List<Integer> partitionLabels(String S) {
+
+    public List<Integer> partitionLabels(String str) {
+
         int[] last = new int[26];
-        for (int i = 0; i < S.length(); ++i)
-            last[S.charAt(i) - 'a'] = i;
+        for (int i = 0; i < str.length(); ++i)
+            // find last appearance of the char
+            last[str.charAt(i) - 'a'] = i;
 
         int j = 0;
         int anchor = 0;
         List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < S.length(); ++i) {
-            j = Math.max(j, last[S.charAt(i) - 'a']);
+        for (int i = 0; i < str.length(); ++i) {
+            // find the max of j and last appearance of str[i]
+            j = Math.max(j, last[str.charAt(i) - 'a']);
             if (i == j) {
                 // it is (1+i-anchor)
                 int length = i - anchor + 1;

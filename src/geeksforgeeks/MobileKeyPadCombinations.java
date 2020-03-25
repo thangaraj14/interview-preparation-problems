@@ -3,6 +3,9 @@ package geeksforgeeks;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://www.geeksforgeeks.org/find-possible-words-phone-digits/
+ */
 public class MobileKeyPadCombinations {
 
     public List<String> letterCombinations(String digits) {
@@ -11,27 +14,27 @@ public class MobileKeyPadCombinations {
             return result;
         }
 
-        String[] charsCombs = { "--", "00", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        String[] keypad = { "--", "00", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
-        generateCombinations(digits, charsCombs, digits.length(), 0, new StringBuilder(), result);
+        generateCombinations(digits, keypad, digits.length(), 0, new StringBuilder(), result);
         return result;
     }
 
-    public void generateCombinations(String digits, String[] charsCombos, int len, int start, StringBuilder sb,
+    public void generateCombinations(String digits, String[] keypad, int len, int startIndex, StringBuilder sb,
             List<String> result) {
-        if (start == len) {
+        if (startIndex == len) {
             result.add(sb.toString());
             return;
         }
 
-        for (char ch : charsCombos[digits.charAt(start) - '0'].toCharArray()) {
+        for (char ch : keypad[digits.charAt(startIndex) - '0'].toCharArray()) {
             sb.append(ch);
-            generateCombinations(digits, charsCombos, len, start + 1, sb, result);
+            generateCombinations(digits, keypad, len, startIndex + 1, sb, result);
             sb.deleteCharAt(sb.length() - 1);
         }
     }
 
     public static void main(String[] args) {
-        new MobileKeyPadCombinations().letterCombinations("23");
+        new MobileKeyPadCombinations().letterCombinations("23").stream().forEach(System.out::println);
     }
 }

@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/palindrome-linked-list/
+ */
 public class PalindromeSinglyLinkedList {
 
     class Node {
@@ -47,13 +50,13 @@ public class PalindromeSinglyLinkedList {
         return true;
     }
 
-    public Node reverse(Node head) {
+    public Node reverse(Node slow) {
         Node prev = null;
-        while (head != null) {
-            Node next = head.next;
-            head.next = prev;
-            prev = head;
-            head = next;
+        while (slow != null) {
+            Node next = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = next;
         }
         return prev;
     }
