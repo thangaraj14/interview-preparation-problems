@@ -1,8 +1,13 @@
 package geeksforgeeks;
 
+import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * https://leetcode.com/problems/shuffle-an-array/
+ */
 public class ShuffleArray {
+
     private int[] nums;
     private Random random;
 
@@ -42,6 +47,7 @@ public class ShuffleArray {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3 };
         ShuffleArray sa = new ShuffleArray(arr);
-        sa.shuffle();
+        System.out.println("After shuffling :" + Arrays.toString(sa.shuffle()));
+        System.out.println("Reset : " + Arrays.toString(sa.reset()));
     }
 }
