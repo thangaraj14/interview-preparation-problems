@@ -24,14 +24,13 @@ public class PetrolGasStation {
                 tank = 0;
             }
         }
-
         return start;
     }
 
     public static void main(String[] args) {
 
-        int[] gas = {4, 6, 7, 4};
-        int[] cost = {6, 5, 3, 5};
+        int[] gas = { 4, 6, 7, 4 };
+        int[] cost = { 6, 5, 3, 5 };
         int start = canCompleteCircuit(gas, cost);
         System.out.println(start == -1 ? "No Solution" : "Start = " + start);
     }

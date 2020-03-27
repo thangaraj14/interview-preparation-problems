@@ -10,15 +10,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
-class Steps {
-    int val;
-    int steps;
-
-    public Steps(int val, int steps) {
-        this.val = val;
-        this.steps = steps;
-    }
-}
+/**
+ * https://www.geeksforgeeks.org/minimum-number-operation-required-convert-number-x-y/
+ */
 
 public class ConvertXToY {
 
@@ -61,5 +55,15 @@ public class ConvertXToY {
         int x = 4, y = 7;
         Steps src = new Steps(x, y);
         System.out.println(minOperations(x, y));
+    }
+}
+
+class Steps {
+    int val;
+    int steps;
+
+    public Steps(int val, int steps) {
+        this.val = val;
+        this.steps = steps;
     }
 }

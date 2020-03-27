@@ -1,6 +1,6 @@
 package geeksforgeeks;
 
-import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 
 /**
@@ -11,15 +11,16 @@ public class SearchAMaze {
     private static final int M = 10;
     private static final int N = 10;
 
-    private static final int row[] = {-1, 0, 0, 1};
-    private static final int col[] = {0, -1, 1, 0};
+    private static final int row[] = { -1, 0, 0, 1 };
+    private static final int col[] = { 0, -1, 1, 0 };
 
     private static boolean isValid(int mat[][], int row, int col) {
         return (row >= 0) && (row < M) && (col >= 0) && (col < N) && mat[row][col] == 1;
     }
 
     private static void BFS(int mat[][], int srcX, int srcY, int destX, int destY) {
-        Queue<MazeNode> q = new ArrayDeque<>();
+
+        Queue<MazeNode> q = new LinkedList<>();
 
         q.add(new MazeNode(srcX, srcY, 0));
 
@@ -55,10 +56,10 @@ public class SearchAMaze {
     }
 
     public static void main(String[] args) {
-        int[][] mat = {{1, 1, 1, 1, 1, 0, 0, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
-                {0, 0, 1, 0, 1, 1, 1, 0, 0, 1}, {1, 0, 1, 1, 1, 0, 1, 1, 0, 1}, {0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
-                {1, 0, 1, 1, 1, 0, 0, 1, 1, 1}, {0, 0, 0, 0, 1, 0, 0, 1, 0, 1}, {0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-                {1, 1, 1, 1, 1, 0, 0, 1, 1, 1}, {0, 0, 1, 0, 0, 1, 1, 0, 0, 1}};
+        int[][] mat = { { 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 }, { 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 },
+                { 0, 0, 1, 0, 1, 1, 1, 0, 0, 1 }, { 1, 0, 1, 1, 1, 0, 1, 1, 0, 1 }, { 0, 0, 0, 1, 0, 0, 0, 1, 0, 1 },
+                { 1, 0, 1, 1, 1, 0, 0, 1, 1, 1 }, { 0, 0, 0, 0, 1, 0, 0, 1, 0, 1 }, { 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 },
+                { 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 }, { 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 } };
 
         BFS(mat, 8, 0, 0, 9);
     }

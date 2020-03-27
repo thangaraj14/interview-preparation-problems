@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+ */
 class RemoveDuplicates {
 
     public int removeDuplicates(int[] nums) {
@@ -18,7 +21,7 @@ class RemoveDuplicates {
 
     public static void main(String[] args) {
         RemoveDuplicates removeDuplicates = new RemoveDuplicates();
-        int[] nums = { 1    , 1, 2 };
+        int[] nums = { 1, 1, 2 };
         removeDuplicates.removeDuplicates(nums);
     }
 }

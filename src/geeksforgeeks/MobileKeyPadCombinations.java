@@ -1,6 +1,7 @@
 package geeksforgeeks;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -36,5 +37,23 @@ public class MobileKeyPadCombinations {
 
     public static void main(String[] args) {
         new MobileKeyPadCombinations().letterCombinations("23").stream().forEach(System.out::println);
+    }
+
+    public List<String> letterCombinationsIterative(String digits) {
+        LinkedList<String> ans = new LinkedList<>();
+        if (digits.isEmpty()) {
+            return ans;
+        }
+        String[] mapping = { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        ans.add("");
+        for (int i = 0; i < digits.length(); i++) {
+            int x = Character.getNumericValue(digits.charAt(i));
+            while (ans.peek().length() == i) {
+                String t = ans.remove();
+                for (char s : mapping[x].toCharArray())
+                    ans.add(t + s);
+            }
+        }
+        return ans;
     }
 }
