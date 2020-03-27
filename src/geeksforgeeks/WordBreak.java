@@ -1,4 +1,9 @@
 package geeksforgeeks;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 class WordBreak {
 
     /*
@@ -58,18 +63,22 @@ j = 4 sub = code && T[4] and then break
 0 1 2 3 4 5 6 7 8
 */
     public boolean wordBreak(String s, List<String> wordDict) {
-        if(s==null) return false;
-        boolean[] dp= new boolean[s.length()+1];
-        dp[0]=true;
-        Set<String> set= new HashSet<>(wordDict);
+        if (s == null) {
+            return false;
+        }
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+        Set<String> set = new HashSet<>(wordDict);
 
-        for(int i=1;i<=s.length();i++){
-            for(int j=0;j<i;j++){   
-                dp[i]=dp[j] && set.contains(s.substring(j,i));
-                if(dp[i]) break;
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                dp[i] = dp[j] && set.contains(s.substring(j, i));
+                if (dp[i]) {
+                    break;
+                }
             }
         }
-        
+
         return dp[s.length()];
     }
 }

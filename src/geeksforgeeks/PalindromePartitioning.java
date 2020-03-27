@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * https://leetcode.com/problems/palindrome-partitioning/
+ */
 class PalindromePartitioning {
 
     public List<List<String>> partition(String s) {

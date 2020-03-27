@@ -17,67 +17,64 @@ import java.util.Queue;
 
 public class SerializeAndDeserialize {
 
-	private static final String NULL_SYMBOL = "X";
-	private static final String DELIMITER = ",";
+    private static final String NULL_SYMBOL = "X";
+    private static final String DELIMITER = ",";
 
-	public String serialize(TreeNode root) {
+    public String serialize(TreeNode root) {
 
-		if (root == null) {
-			return NULL_SYMBOL + DELIMITER;
-		}
+        if (root == null) {
+            return NULL_SYMBOL + DELIMITER;
+        }
 
-		String leftSerialized = serialize(root.left);
-		String rightSerialized = serialize(root.right);
+        String leftSerialized = serialize(root.left);
+        String rightSerialized = serialize(root.right);
 
-		return root.val + DELIMITER + leftSerialized + rightSerialized;
-	}
+        return root.val + DELIMITER + leftSerialized + rightSerialized;
+    }
 
-	public TreeNode deserialize(String data) {
-		Queue<String> nodesLeftToMaterialize = new LinkedList<>();
-		nodesLeftToMaterialize.addAll(Arrays.asList(data.split(DELIMITER)));
-		return deserializeHelper(nodesLeftToMaterialize);
-	}
+    public TreeNode deserialize(String data) {
+        Queue<String> nodesLeftToMaterialize = new LinkedList<>();
+        nodesLeftToMaterialize.addAll(Arrays.asList(data.split(DELIMITER)));
+        return deserializeHelper(nodesLeftToMaterialize);
+    }
 
-	public TreeNode deserializeHelper(Queue<String> nodesLeftToMaterialize) {
+    public TreeNode deserializeHelper(Queue<String> nodesLeftToMaterialize) {
 
-		String valueForNode = nodesLeftToMaterialize.poll();
+        String valueForNode = nodesLeftToMaterialize.poll();
 
-		if (valueForNode.equals(NULL_SYMBOL)) {
-			return null;
-		}
+        if (valueForNode.equals(NULL_SYMBOL)) {
+            return null;
+        }
 
-		TreeNode newNode = new TreeNode(Integer.valueOf(valueForNode));
-		newNode.left = deserializeHelper(nodesLeftToMaterialize);
-		newNode.right = deserializeHelper(nodesLeftToMaterialize);
+        TreeNode newNode = new TreeNode(Integer.valueOf(valueForNode));
+        newNode.left = deserializeHelper(nodesLeftToMaterialize);
+        newNode.right = deserializeHelper(nodesLeftToMaterialize);
 
-		return newNode;
-	}
+        return newNode;
+    }
 
-	public static void main(String[] args) {
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.right = new TreeNode(3);
-		root.left.right = new TreeNode(4);
-		root.right.left = new TreeNode(5);
-		root.right.right = new TreeNode(6);
-		root.right.left.left = new TreeNode(7);
-		root.right.left.right = new TreeNode(8);
-		SerializeAndDeserialize sede = new SerializeAndDeserialize();
-		String serialize = sede.serialize(root);
-		System.out.println(serialize);
-		TreeNode deserialze = sede.deserialize(serialize);
-		sede.printTree(deserialze);
-	}
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(4);
+        root.right.right = new TreeNode(5);
+        SerializeAndDeserialize sede = new SerializeAndDeserialize();
+        String serialize = sede.serialize(root);
+        System.out.println(serialize);
+        TreeNode deserialze = sede.deserialize(serialize);
+        sede.printTree(deserialze);
+    }
 
-	public void printTree(TreeNode node) {
-		if (node == null) {
-			System.out.print("X,");
-			return;
-		}
-		System.out.print(node.val + ",");
-		printTree(node.left);
-		printTree(node.right);
-	}
+    public void printTree(TreeNode node) {
+        if (node == null) {
+            System.out.print("X,");
+            return;
+        }
+        System.out.print(node.val + ",");
+        printTree(node.left);
+        printTree(node.right);
+    }
 
 }
 

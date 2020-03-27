@@ -26,19 +26,14 @@ class LRUCache {
 
     private Map<Integer, DNode> hashtable = new HashMap<>();
     private DNode head, tail;
-    private int totalItemsInCache;
     private int maxCapacity;
 
     public LRUCache(int maxCapacity) {
 
-        totalItemsInCache = 0;
         this.maxCapacity = maxCapacity;
 
         head = new DNode();
-        head.prev = null;
-
         tail = new DNode();
-        tail.next = null;
 
         head.next = tail;
         tail.prev = head;
@@ -47,24 +42,19 @@ class LRUCache {
     public int get(int key) {
 
         DNode node = hashtable.get(key);
-        boolean itemFoundInCache = node != null;
 
-        if (!itemFoundInCache) {
+        if (node == null) {
             return -1;
         }
-
         moveToHead(node);
-
         return node.value;
     }
 
     public void put(int key, int value) {
 
         DNode node = hashtable.get(key);
-        boolean itemFoundInCache = node != null;
 
-        if (!itemFoundInCache) {
-
+        if (node != null) {
             DNode newNode = new DNode();
             newNode.key = key;
             newNode.value = value;
@@ -72,9 +62,7 @@ class LRUCache {
             hashtable.put(key, newNode);
             addNode(newNode);
 
-            totalItemsInCache++;
-
-            if (totalItemsInCache > maxCapacity) {
+            if (hashtable.size() > maxCapacity) {
                 removeLRUEntryFromStructure();
             }
 
@@ -87,7 +75,6 @@ class LRUCache {
     private void removeLRUEntryFromStructure() {
         DNode tail = popTail();
         hashtable.remove(tail.key);
-        --totalItemsInCache;
     }
 
     private void addNode(DNode node) {
@@ -124,7 +111,7 @@ class LRUCache {
         lru.put(1, 1);
         lru.put(2, 2);
         lru.put(3, 3);
-        lru.put(2, 2);
+        lru.get(2);
         lru.put(4, 4);
         lru.put(2, 2);
         lru.put(3, 3);

@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+/**
+ * https://leetcode.com/problems/perfect-squares/
+ */
 class PerfectSquare {
 
     public int numSquares(int n) {
@@ -39,6 +42,6 @@ class PerfectSquare {
 
     public static void main(String[] args) {
         PerfectSquare ps = new PerfectSquare();
-        System.out.println(ps.numSquares(12));
+        System.out.println(ps.numSquares(13));
     }
 }

@@ -7,12 +7,14 @@ import java.util.Stack;
  */
 
 public class RemoveKDigits {
-    //1432219
-    public static String removeKdigits(String num, int k) {
+    //143221999
+    //121999
+    public static String removeKDigits(String num, int k) {
         int len = num.length();
 
-        if (k == len)
+        if (k == len) {
             return "0";
+        }
 
         Stack<Character> stack = new Stack<>();
         int i = 0;
@@ -42,6 +44,6 @@ public class RemoveKDigits {
     }
 
     public static void main(String[] args) {
-        System.out.println(removeKdigits("14232191", 3));
+        System.out.println(removeKDigits("14232191", 3));
     }
 }

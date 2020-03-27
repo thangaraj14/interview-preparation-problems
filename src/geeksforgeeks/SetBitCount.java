@@ -16,6 +16,6 @@ public class SetBitCount {
     }
 
     public static void main(String[] args) {
-
+        int input = 00000000000000000000000000001011;
     }
 }

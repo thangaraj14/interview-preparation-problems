@@ -1,10 +1,11 @@
 package geeksforgeeks;
 
-
+/**
+ * https://www.geeksforgeeks.org/remove-bst-keys-outside-the-given-range/
+ */
 class RemoveBSTGivenOutsideRange {
 
-    private static BSTNode removeOutsideRange(BSTNode root,
-                                              int min, int max) {
+    private static BSTNode removeOutsideRange(BSTNode root, int min, int max) {
         if (root == null) {
             return null;
         }
@@ -28,27 +29,20 @@ class RemoveBSTGivenOutsideRange {
 
     public static BSTNode newNode(int num) {
         BSTNode temp = new BSTNode();
-        temp.data
-                = num;
+        temp.data = num;
         temp.left = null;
         temp.right = null;
         return temp;
     }
 
-    public static BSTNode insert(BSTNode root,
-                                 int data) {
+    public static BSTNode insert(BSTNode root, int data) {
         if (root == null) {
-            return newNode(data
-            );
+            return newNode(data);
         }
-        if (root.data
-                > data
-        ) {
-            root.left = insert(root.left, data
-            );
+        if (root.data > data) {
+            root.left = insert(root.left, data);
         } else {
-            root.right = insert(root.right, data
-            );
+            root.right = insert(root.right, data);
         }
         return root;
     }
@@ -56,8 +50,7 @@ class RemoveBSTGivenOutsideRange {
     private static void inorderTraversal(BSTNode root) {
         if (root != null) {
             inorderTraversal(root.left);
-            System.out.print(root.data
-                    + " ");
+            System.out.print(root.data + " ");
             inorderTraversal(root.right);
         }
     }
@@ -72,14 +65,12 @@ class RemoveBSTGivenOutsideRange {
         root = insert(root, 13);
         root = insert(root, 7);
 
-        System.out.print("Inorder Traversal of " +
-                "the given tree is: ");
+        System.out.print("Inorder Traversal of " + "the given tree is: ");
         inorderTraversal(root);
 
         root = removeOutsideRange(root, -10, 13);
 
-        System.out.print("\nInorder traversal of " +
-                "the modified tree: ");
+        System.out.print("\nInorder traversal of " + "the modified tree: ");
         inorderTraversal(root);
     }
 }
