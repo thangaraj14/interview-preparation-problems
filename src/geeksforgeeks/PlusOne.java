@@ -2,6 +2,9 @@ package geeksforgeeks;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/plus-one/
+ */
 class PlusOne {
 
     public static int[] plusOne(int[] digits) {
@@ -24,8 +27,11 @@ class PlusOne {
                 sb.append(num);
             }
         }
+        if (remainder != 0) {
+            sb.append(remainder);
+        }
 
-       return sb.reverse().toString().chars().map(i -> i-'0').toArray();
+        return sb.reverse().toString().chars().map(i -> i - '0').toArray();
     }
 
     public static void main(String[] args) {
