@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+ */
 public class SortedArrayToBST {
 
     static class Node {
@@ -13,14 +16,15 @@ public class SortedArrayToBST {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6};
+        int[] arr = { 1, 2, 3, 4, 5, 6 };
         Node node = bst(arr, 0, arr.length - 1);
         printTree(node);
     }
 
     public static Node bst(int[] arr, int start, int end) {
-        if (end < start)
+        if (end < start) {
             return null;
+        }
         int mid = start + ((end - start) / 2);
         Node root = new Node(arr[mid]);
         root.left = bst(arr, start, mid - 1);
@@ -29,8 +33,9 @@ public class SortedArrayToBST {
     }
 
     public static void printTree(Node node) {
-        if (node == null)
+        if (node == null) {
             return;
+        }
         printTree(node.left);
         System.out.println(node.data);
         printTree(node.right);

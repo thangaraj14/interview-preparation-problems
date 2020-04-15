@@ -34,6 +34,10 @@ public class MeetingRoomsII {
         }
 
         return queue.size();
-
     }
+}
+
+class Interval {
+    int start;
+    int end;
 }

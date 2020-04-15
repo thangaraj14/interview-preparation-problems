@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author i312458
+ * https://leetcode.com/problems/valid-sudoku/
  */
 public class ValidSudoku {
 

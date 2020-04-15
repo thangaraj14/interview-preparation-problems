@@ -2,9 +2,11 @@ package geeksforgeeks;
 
 /**
  * https://algorithms.tutorialhorizon.com/inorder-predecessor-and-successor-in-binary-search-tree/
+ * https://www.lintcode.com/problem/inorder-successor-in-bst/description
  */
 public class InorderSuccessorPredecessor {
-    static int successor, predecessor;
+    static int successor;
+    static int predecessor;
 
     public void successorPredecessor(TNode root, int val) {
         // if (root.data == val) {
@@ -26,7 +28,7 @@ public class InorderSuccessorPredecessor {
         //         }
         //         successor = t.data;
         //     }
-        // } else 
+        // } else
         if (root != null) {
             if (root.data > val) {
                 // we make the root as successor because we might have a
@@ -79,7 +81,7 @@ public class InorderSuccessorPredecessor {
         root.left.right.right = new TNode(20);
         InorderSuccessorPredecessor i = new InorderSuccessorPredecessor();
 
-        // i.successorPredecessor(root, 20);
+        i.shortSolution(root, 20);
 /*        TNode tempSuccessor = root.right;
         TNode successor = i.findSuccessor(tempSuccessor);
         successor = successor==null?tempSuccessor:successor;*/

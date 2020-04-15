@@ -4,9 +4,9 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 /*https://leetcode.com/discuss/interview-question/356150/amazon-oa-2019-shortest-path-from-multiple-sources*/
-// unresolved
+
 public class TreasureIslandII {
-    private static final int[][] DIRS = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+    private static final int[][] DIRS = { { 0, 1 }, { 1, 0 }, { -1, 0 }, { 0, -1 } };
 
     public static int minDist(char[][] grid) {
         Queue<Point> q = collectSources(grid);
@@ -14,8 +14,9 @@ public class TreasureIslandII {
             for (int sz = q.size(); sz > 0; sz--) {
                 Point p = q.poll();
 
-                if (grid[p.r][p.c] == 'X')
+                if (grid[p.r][p.c] == 'X') {
                     return dist;
+                }
                 grid[p.r][p.c] = 'D'; // mark as visited
 
                 for (int[] dir : DIRS) {
@@ -61,8 +62,8 @@ public class TreasureIslandII {
     }
 
     public static void main(String[] args) {
-        char[][] grid = {{'S', 'O', 'O', 'S', 'S'}, {'D', 'O', 'D', 'O', 'D'}, {'O', 'O', 'O', 'O', 'X'},
-                {'X', 'D', 'D', 'O', 'O'}, {'X', 'D', 'D', 'D', 'O'}};
+        char[][] grid = { { 'S', 'O', 'O', 'S', 'S' }, { 'D', 'O', 'D', 'O', 'D' }, { 'O', 'O', 'O', 'O', 'X' },
+                { 'X', 'D', 'D', 'O', 'O' }, { 'X', 'D', 'D', 'D', 'O' } };
         test(minDist(grid), 3);
     }
 

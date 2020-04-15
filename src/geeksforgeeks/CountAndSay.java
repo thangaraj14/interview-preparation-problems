@@ -18,16 +18,16 @@ public class CountAndSay {
 
     private String build(String result) {
         StringBuilder builder = new StringBuilder();
-        int p = 0;
-        while (p < result.length()) {
-            char val = result.charAt(p);
+        int index = 0;
+        while (index < result.length()) {
+            char val = result.charAt(index);
             int count = 0;
 
-            while (p < result.length() && result.charAt(p) == val) {
-                p++;
+            while (index < result.length() && result.charAt(index) == val) {
+                index++;
                 count++;
             }
-            builder.append(String.valueOf(count));
+            builder.append(count);
             builder.append(val);
         }
         return builder.toString();
@@ -37,4 +37,5 @@ public class CountAndSay {
         CountAndSay countAndSay = new CountAndSay();
         System.out.println(countAndSay.countAndSay(4));
     }
+
 }

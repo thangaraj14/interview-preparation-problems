@@ -27,8 +27,8 @@ public class WordSearch {
         }
 
         board[i][j] = ' ';
-        if (search(board, word, i - 1, j, index + 1) || search(board, word, i + 1, j, index + 1)
-                || search(board, word, i, j - 1, index + 1) || search(board, word, i, j + 1, index + 1)) {
+        if (search(board, word, i - 1, j, index + 1) || search(board, word, i + 1, j, index + 1) || search(board, word,
+                i, j - 1, index + 1) || search(board, word, i, j + 1, index + 1)) {
             return true;
         }
         // resetting to old char since its DFS
@@ -38,9 +38,7 @@ public class WordSearch {
     }
 
     public static void main(String[] args) {
-        char[][] board = {{'C', 'A', 'A'},
-                {'A', 'A', 'A'},
-                {'B', 'C', 'D'}};
+        char[][] board = { { 'C', 'A', 'A' }, { 'A', 'A', 'A' }, { 'B', 'C', 'D' } };
 
         System.out.println(exist(board, "AAB"));
     }

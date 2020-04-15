@@ -1,26 +1,33 @@
 package geeksforgeeks;
 
+/**
+ * https://www.lintcode.com/problem/find-the-celebrity/description
+ */
 public class CelebrityProblem {
-    /**
-     * @param n a party with n people
-     *
-     * @return the celebrity's label or -1
-     */
+
     public int findCelebrity(int n) {
-        int candidate = 0;
+        if (n == 1) {
+            return 0;
+        }
+        int result = 0;
         for (int i = 1; i < n; i++) {
-            if (knows(candidate, i)) {
-                candidate = i;
+            if (knows(result, i)) {
+                result = i;
             }
         }
 
         for (int i = 0; i < n; i++) {
-            if (i != candidate && (knows(candidate, i) || !knows(i, candidate))) {
+            // just to make sure everybody knows celebrity
+            if (i != result && knows(result, i)) {
+                return -1;
+            }
+            //celebrity doesnt know anyone.
+            if (result != i && !knows(i, result)) {
                 return -1;
             }
         }
 
-        return candidate;
+        return result;
     }
 
     public boolean knows(int candidate, int i) {

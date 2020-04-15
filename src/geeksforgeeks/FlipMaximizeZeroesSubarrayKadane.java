@@ -3,7 +3,8 @@ package geeksforgeeks;
 /**
  * https://www.geeksforgeeks.org/maximize-number-0s-flipping-subarray/
  * <p>
- * Problem : flip 1's to 0's so that total no.of 0's in array is maximized
+ * Problem : flip 1's to 0's so that total (need not to be consecutive zeroes) no.of 0's + flipped 1's in array is
+ * maximized
  */
 class FlipMaximizeZeroesSubarrayKadane {
 

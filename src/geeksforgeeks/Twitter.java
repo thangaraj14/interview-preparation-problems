@@ -24,22 +24,22 @@ public class Twitter {
 
     public class User {
         public int id;
-        public Set<Integer> followed;
+        public Set<Integer> following;
         public Tweet tweet_head;
 
         public User(int id) {
             this.id = id;
-            followed = new HashSet<>();
+            following = new HashSet<>();
             follow(id); // first follow itself
             tweet_head = null;
         }
 
         public void follow(int id) {
-            followed.add(id);
+            following.add(id);
         }
 
         public void unfollow(int id) {
-            followed.remove(id);
+            following.remove(id);
         }
 
         // everytime user post a new tweet, add it to the head of tweet list.
@@ -82,7 +82,7 @@ public class Twitter {
             return result;
         }
 
-        Set<Integer> users = userMap.get(userId).followed;
+        Set<Integer> users = userMap.get(userId).following;
         PriorityQueue<Tweet> q = new PriorityQueue<>(users.size(), (a, b) -> (b.time - a.time));
         for (int user : users) {
             Tweet t = userMap.get(user).tweet_head;
@@ -100,9 +100,7 @@ public class Twitter {
                 q.add(t.next);
             }
         }
-
         return result;
-
     }
 
     /**

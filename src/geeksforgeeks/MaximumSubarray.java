@@ -26,20 +26,16 @@ public class MaximumSubarray {
         return maxsofar;
     }
 
-    public static int maxSumSubArray(int[] arr) {
+    public static int maxSumSubArray(int[] nums) {
 
-        int max = Integer.MIN_VALUE;
-        int sum = 0;
+        int maxSoFar = nums[0];
+        int maxEndingHere = nums[0];
 
-        for (int i = 0; i < arr.length; i++) {
-            sum = sum + arr[i];
-            if (sum < 0) {
-                //get i if you want to get index of subarray
-                sum = 0;
-            }
-            max = Math.max(sum, max);
+        for (int i = 1; i < nums.length; i++) {
+            maxEndingHere = Math.max(maxEndingHere + nums[i], nums[i]);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
         }
-        return sum;
+        return maxSoFar;
     }
 
     public static void main(String[] args) {

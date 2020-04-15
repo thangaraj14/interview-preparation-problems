@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * https://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
+ * https://www.techiedelight.com/find-sub-array-with-0-sum/
  */
 class Pair {
     int first, second;
@@ -29,8 +30,9 @@ public class SumSubArrayZero {
         int sum = 0;
         for (int i = 0; i < n; i++) {
             sum += arr[i];
-            if (sum == 0)
+            if (sum == 0) {
                 result.add(new Pair(0, i));
+            }
             List<Integer> al = new ArrayList<>();
             if (map.containsKey(sum)) {
                 al = map.get(sum);
@@ -45,15 +47,16 @@ public class SumSubArrayZero {
     }
 
     public static void main(String args[]) {
-        int[] arr = {6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7};
+        int[] arr = { 6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7 };
         int n = arr.length;
 
         ArrayList<Pair> out = findSubArrays(arr, n);
 
-        if (out.size() == 0)
+        if (out.size() == 0) {
             System.out.println("No subarray exists");
-        else
+        } else {
             print(out);
+        }
     }
 
     static void print(ArrayList<Pair> out) {

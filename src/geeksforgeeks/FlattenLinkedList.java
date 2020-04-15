@@ -2,6 +2,8 @@ package geeksforgeeks;
 
 /**
  * https://www.techiedelight.com/flatten-linked-list/
+ * <p>
+ * https://www.geeksforgeeks.org/flattening-a-linked-list/
  */
 class FlattenLinkedList {
     Node head;
@@ -57,9 +59,8 @@ class FlattenLinkedList {
 
         root.right = flatten(root.right);
 
-        root = mergeIterative(root, root.right);
+        return mergeIterative(root, root.right);
 
-        return root;
     }
 
     public static void main(String args[]) {
@@ -67,7 +68,7 @@ class FlattenLinkedList {
     }
 
     protected static void flattenList() {
-        FlattenLinkedList L = new FlattenLinkedList();
+        FlattenLinkedList list = new FlattenLinkedList();
   
         /* Let us create the following linked list 
             5 -> 10 -> 19 -> 28 
@@ -82,26 +83,26 @@ class FlattenLinkedList {
             30               45 
         */
 
-        L.head = L.push(L.head, 30);
-        L.head = L.push(L.head, 8);
-        L.head = L.push(L.head, 7);
-        L.head = L.push(L.head, 5);
+        list.head = list.push(list.head, 30);
+        list.head = list.push(list.head, 8);
+        list.head = list.push(list.head, 7);
+        list.head = list.push(list.head, 5);
 
-        L.head.right = L.push(L.head.right, 20);
-        L.head.right = L.push(L.head.right, 10);
+        list.head.right = list.push(list.head.right, 20);
+        list.head.right = list.push(list.head.right, 10);
 
-        L.head.right.right = L.push(L.head.right.right, 50);
-        L.head.right.right = L.push(L.head.right.right, 22);
-        L.head.right.right = L.push(L.head.right.right, 19);
+        list.head.right.right = list.push(list.head.right.right, 50);
+        list.head.right.right = list.push(list.head.right.right, 22);
+        list.head.right.right = list.push(list.head.right.right, 19);
 
-        L.head.right.right.right = L.push(L.head.right.right.right, 45);
-        L.head.right.right.right = L.push(L.head.right.right.right, 40);
-        L.head.right.right.right = L.push(L.head.right.right.right, 35);
+        list.head.right.right.right = list.push(list.head.right.right.right, 45);
+        list.head.right.right.right = list.push(list.head.right.right.right, 40);
+        list.head.right.right.right = list.push(list.head.right.right.right, 35);
 
         // flatten the list 
-        L.head = L.flatten(L.head);
+        list.head = list.flatten(list.head);
 
-        L.printList();
+        list.printList();
     }
 
     Node push(Node head_ref, int data) {
@@ -119,27 +120,5 @@ class FlattenLinkedList {
             temp = temp.down;
         }
         System.out.println();
-    }
-
-    Node merge(Node a, Node b) {
-        if (a == null) {
-            return b;
-        }
-
-        if (b == null) {
-            return a;
-        }
-
-        Node result;
-
-        if (a.data < b.data) {
-            result = a;
-            result.down = merge(a.down, b);
-        } else {
-            result = b;
-            result.down = merge(a, b.down);
-        }
-
-        return result;
     }
 }

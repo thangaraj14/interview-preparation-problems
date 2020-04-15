@@ -30,7 +30,6 @@ class SortANearlySortedArray {
         }
     }
 
-
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 4, 5, 2, 3, 7, 8, 6, 10, 9);
         int k = 2;

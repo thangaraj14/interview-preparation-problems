@@ -3,6 +3,7 @@ package geeksforgeeks;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,8 +15,8 @@ public class AircraftOptimization {
     public List<List<Integer>> calculateOptimalRoute(final List<List<Integer>> forwardList,
             final List<List<Integer>> returnList, int capacity) {
 
-        Collections.sort(forwardList, (o1, o2) -> Integer.compare(o1.get(1), o2.get(1)));
-        Collections.sort(returnList, (o1, o2) -> Integer.compare(o1.get(1), o2.get(1)));
+        Collections.sort(forwardList, Comparator.comparingInt(o -> o.get(1)));
+        Collections.sort(returnList, Comparator.comparingInt(o -> o.get(1)));
 
         int max = 0;
         int i = 0;
@@ -26,12 +27,12 @@ public class AircraftOptimization {
             int currentSum = forwardList.get(i).get(1) + returnList.get(j).get(1);
 
             if (currentSum > max && currentSum <= capacity) {
-                max = forwardList.get(i).get(1) + returnList.get(j).get(1);
+                max = currentSum;
                 // Initializing new list
                 result = new LinkedList<>();
                 result.add(new ArrayList<>(Arrays.asList(forwardList.get(i).get(0), returnList.get(j).get(0))));
                 i++;
-            } else if (forwardList.get(i).get(1) + returnList.get(j).get(1) == max) {
+            } else if (currentSum == max) {
                 // no need to reset result list
                 result.add(new ArrayList<>(Arrays.asList(forwardList.get(i).get(0), returnList.get(j).get(0))));
                 i++;
@@ -57,4 +58,5 @@ public class AircraftOptimization {
         List<List<Integer>> calculateOptimalRoute = aircraft.calculateOptimalRoute(forwardList, returnList, 10000);
         System.out.println(calculateOptimalRoute);
     }
+
 }

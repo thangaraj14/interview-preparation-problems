@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/trapping-rain-water/
+ */
 class WaterTrapping {
 
     static int findWater(int arr[], int n) {
@@ -30,7 +33,7 @@ class WaterTrapping {
     }
 
     public static void main(String[] args) {
-        int arr[] = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1};
+        int arr[] = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1 };
         int n = arr.length;
         System.out.println("Maximum water that " + "can be accumulated is " + findWater(arr, n));
     }

@@ -18,6 +18,7 @@ public class BuyAndSellStockAnytime {
     public static void main(String[] args) {
         BuyAndSellStockAnytime stock = new BuyAndSellStockAnytime();
         int[] arr = { 7, 1, 5, 6, 4 };
+        //100, 180, 260, 310,40, 535, 695
         System.out.println(stock.maxProfit(arr));
     }
 }

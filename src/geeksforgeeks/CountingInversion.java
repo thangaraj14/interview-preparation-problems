@@ -2,6 +2,10 @@ package geeksforgeeks;
 
 /**
  * https://www.geeksforgeeks.org/counting-inversions/
+ * <p>
+ * In merge process, let i is used for indexing left sub-array and j for right sub-array. At any step in merge(),
+ * if a[i] is greater than a[j], then there are (mid – i) inversions. because left and right subarrays are sorted,
+ * so all the remaining elements in left-subarray (a[i+1], a[i+2] … a[mid]) will be greater than a[j]
  */
 class CountingInversion {
 
@@ -52,7 +56,7 @@ class CountingInversion {
     }
 
     public static void main(String[] args) {
-        int arr[] = new int[] { 4, 6, 2, 1, 9, 7 };
+        int arr[] = new int[] { 8, 4, 2, 1 };
         System.out.println("Number of inversions are " + mergeSort(arr, arr.length));
     }
 }

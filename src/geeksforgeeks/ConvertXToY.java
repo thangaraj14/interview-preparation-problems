@@ -1,6 +1,6 @@
 package geeksforgeeks;
-// Java program to find minimum
-// number of steps needed to 
+
+// find minimum number of steps needed to
 // convert a number x into y 
 // with two operations allowed : 
 // (1) multiplication with 2 
@@ -37,7 +37,6 @@ public class ConvertXToY {
             int mul = temp.val * 2;
             int sub = temp.val - 1;
 
-            // given constraints
             if (mul > 0 && mul < 1000) {
                 Steps nodeMul = new Steps(mul, temp.steps + 1);
                 queue.offer(nodeMul);

@@ -3,7 +3,7 @@ package geeksforgeeks;
 import java.util.*;
 
 /*https://leetcode.com/problems/task-scheduler/*/
-// unresolved
+
 public class TaskLeastInterval {
 
     public static int leastInterval(char[] tasks, int n) {
@@ -29,10 +29,14 @@ public class TaskLeastInterval {
             }
 
             for (Map.Entry<Character, Integer> e : tempList) {
-                if (e.getValue() > 0) queue.add(e); // add valid tasks
+                if (e.getValue() > 0) {
+                    queue.add(e); // add valid tasks
+                }
             }
 
-            if (queue.isEmpty()) break;
+            if (queue.isEmpty()) {
+                break;
+            }
             count = count + k; // if k > 0, then it means we need to be idle
         }
         return count;

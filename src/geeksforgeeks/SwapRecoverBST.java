@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/recover-binary-search-tree/
+ */
 public class SwapRecoverBST {
 
     TreeNode firstElement = null;
@@ -20,12 +23,12 @@ public class SwapRecoverBST {
 
     private void traverse(TreeNode root) {
 
-        if (root == null)
+        if (root == null) {
             return;
+        }
 
         traverse(root.left);
 
-        // Start of "do some business", 
         // If first element has not been found, assign it to prevElement (refer to 6 in the example above)
         if (firstElement == null && prevElement.val >= root.val) {
             firstElement = prevElement;
@@ -37,8 +40,18 @@ public class SwapRecoverBST {
         }
         prevElement = root;
 
-        // End of "do some business"
-
         traverse(root.right);
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(4);
+        root.right.left = new TreeNode(2);
+
+        SwapRecoverBST swapRecoverBST = new SwapRecoverBST();
+        swapRecoverBST.recoverTree(root);
+        System.out.println(swapRecoverBST.firstElement);
+        System.out.println(swapRecoverBST.secondElement);
     }
 }

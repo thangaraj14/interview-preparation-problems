@@ -1,8 +1,6 @@
 package geeksforgeeks;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * https://www.geeksforgeeks.org/closest-numbers-list-unsorted-integers/
@@ -11,7 +9,8 @@ public class ClosestNumbers {
 
     public static void main(String[] args) {
         //10, 50, 12, 100
-        int[] arr = new int[] { 10, 50, 12, 100 };
+        // {5, 4, 3, 2}
+        int[] arr = new int[] { 5, 4, 3, 2 };
         int n = arr.length;
         if (n <= 1) {
             return;

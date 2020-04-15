@@ -1,49 +1,62 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * https://leetcode.com/problems/spiral-matrix/
+ */
 class SpiralMatrix {
 
-    static void spiralPrint(int rowEnd, int colEnd, int a[][]) {
-        int rowStart = 0;
-        int colStart = 0;
+    public static List<Integer> spiralOrder(int[][] matrix) {
 
-        while (rowStart < colEnd && colStart < rowEnd) {
-            // Print the first row from the remaining rowEnd
-            for (int i = colStart; i < rowEnd; ++i) {
-                System.out.print(a[rowStart][i] + " ");
+        List<Integer> result = new ArrayList<>();
+
+        if (matrix.length == 0) {
+            return result;
+        }
+
+        int rowBegin = 0;
+        int rowEnd = matrix.length - 1;
+        int colBegin = 0;
+        int colEnd = matrix[0].length - 1;
+
+        while (rowBegin <= rowEnd && colBegin <= colEnd) {
+            // Traverse Right
+            for (int j = colBegin; j <= colEnd; j++) {
+                result.add(matrix[rowBegin][j]);
             }
-            rowStart++;
+            rowBegin++;
 
-            // Print the last column from the remaining colEnd
-            for (int i = rowStart; i < colEnd; ++i) {
-                System.out.print(a[i][rowEnd - 1] + " ");
+            // Traverse Down
+            for (int j = rowBegin; j <= rowEnd; j++) {
+                result.add(matrix[j][colEnd]);
+            }
+            colEnd--;
+
+            if (rowBegin <= rowEnd) {
+                // Traverse Left
+                for (int j = colEnd; j >= colBegin; j--) {
+                    result.add(matrix[rowEnd][j]);
+                }
             }
             rowEnd--;
 
-            // Print the last row from the remaining rowEnd */
-            if (rowStart < colEnd) {
-                for (int i = rowEnd - 1; i >= colStart; --i) {
-                    System.out.print(a[colEnd - 1][i] + " ");
+            if (colBegin <= colEnd) {
+                // Traver Up
+                for (int j = rowEnd; j >= rowBegin; j--) {
+                    result.add(matrix[j][colBegin]);
                 }
-                colEnd--;
             }
-
-            // Print the first column from the remaining colEnd */
-            if (colStart < rowEnd) {
-                for (int i = colEnd - 1; i >= rowStart; --i) {
-                    System.out.print(a[i][colStart] + " ");
-                }
-                colStart++;
-            }
+            colBegin++;
         }
+
+        return result;
     }
 
     public static void main(String[] args) {
-        int R = 4;
-        int C = 4;
-        int a[][] = {{1, 2, 3, 4},
-                     {5, 6, 7, 8},
-                     {9, 10, 11, 12},
-                     {13, 14, 15, 16}};
-        spiralPrint(R, C, a);
+
+        int a[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+        spiralOrder(a);
     }
 }

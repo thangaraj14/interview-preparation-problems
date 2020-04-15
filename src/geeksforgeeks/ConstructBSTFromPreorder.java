@@ -8,7 +8,7 @@ import java.util.Stack;
 class ConstructBSTFromPreorder {
 
     public static void main(String[] args) {
-        int[] arr = { 8, 3, 1, 6, 4, 7, 10, 14, 13 };
+        int[] arr = { 8, 5, 1, 7, 10, 12 };
         bstFromPreorder(arr);
     }
 

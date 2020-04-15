@@ -40,17 +40,36 @@ public class SerializeAndDeserialize {
 
     public TreeNode deserializeHelper(Queue<String> nodesLeftToMaterialize) {
 
-        String valueForNode = nodesLeftToMaterialize.poll();
+        String value = nodesLeftToMaterialize.poll();
 
-        if (valueForNode.equals(NULL_SYMBOL)) {
+        if (value.equals(NULL_SYMBOL)) {
             return null;
         }
 
-        TreeNode newNode = new TreeNode(Integer.valueOf(valueForNode));
+        TreeNode newNode = new TreeNode(Integer.valueOf(value));
         newNode.left = deserializeHelper(nodesLeftToMaterialize);
         newNode.right = deserializeHelper(nodesLeftToMaterialize);
 
         return newNode;
+    }
+
+    public TreeNode deserializeBST(Queue<Integer> treeVals) {
+        if (treeVals.isEmpty()) {
+            return null;
+        }
+
+        Integer rootVal = treeVals.poll();
+        TreeNode root = new TreeNode(rootVal);
+
+        Queue<Integer> smallerVals = new LinkedList<>();
+
+        while (!treeVals.isEmpty() && treeVals.peek() < rootVal) {
+            smallerVals.offer(treeVals.poll());
+        }
+        root.left = deserializeBST(smallerVals);
+        root.right = deserializeBST(treeVals);
+        return root;
+
     }
 
     public static void main(String[] args) {

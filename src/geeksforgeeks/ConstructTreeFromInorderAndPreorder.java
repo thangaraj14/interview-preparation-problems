@@ -10,20 +10,20 @@ import java.util.Map;
 class ConstructTreeFromInorderAndPreorder {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        Map<Integer, Integer> inMap = new HashMap<>();
+        Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
-            inMap.put(inorder[i], i);
+            inorderMap.put(inorder[i], i);
         }
-        ArrayList<Integer> pre = new ArrayList<>();
+        ArrayList<Integer> preorderList = new ArrayList<>();
         for (int i = 0; i < preorder.length; i++) {
-            pre.add(preorder[i]);
+            preorderList.add(preorder[i]);
         }
-        TreeNode root = buildTree(pre, 0, inorder.length - 1, inMap);
+        TreeNode root = buildTree(preorderList, 0, inorder.length - 1, inorderMap);
         return root;
     }
 
-    public TreeNode buildTree(ArrayList<Integer> pre, int inStart, int inEnd, Map<Integer, Integer> inMap) {
-        if (inStart > inEnd) {
+    public TreeNode buildTree(ArrayList<Integer> pre, int inorderStart, int inorderEnd, Map<Integer, Integer> inMap) {
+        if (inorderStart > inorderEnd) {
             return null;
         }
 
@@ -31,8 +31,8 @@ class ConstructTreeFromInorderAndPreorder {
         int inRoot = inMap.get(root.val);
         pre.remove(0);
 
-        root.left = buildTree(pre, inStart, inRoot - 1, inMap);
-        root.right = buildTree(pre, inRoot + 1, inEnd, inMap);
+        root.left = buildTree(pre, inorderStart, inRoot - 1, inMap);
+        root.right = buildTree(pre, inRoot + 1, inorderEnd, inMap);
 
         return root;
     }

@@ -5,19 +5,19 @@ package geeksforgeeks;
  */
 public class FirstMissingPositive {
 
-    public int firstMissingPositive(int[] A) {
+    public int firstMissingPositive(int[] arr) {
         int i = 0;
-        while (i < A.length) {
-	        if (A[i] == i + 1 || A[i] <= 0 || A[i] > A.length) {
-		        i++;
-	        } else if (A[A[i] - 1] != A[i]) {
-		        swap(A, i, A[i] - 1);
-	        } else {
-		        i++;
-	        }
+        while (i < arr.length) {
+            if (arr[i] == i + 1 || arr[i] <= 0 || arr[i] > arr.length) {
+                i++;
+            } else if (arr[arr[i] - 1] != arr[i]) {
+                swap(arr, i, arr[i] - 1);
+            } else {
+                i++;
+            }
         }
         i = 0;
-        while (i < A.length && A[i] == i + 1)
+        while (i < arr.length && arr[i] == i + 1)
             i++;
         return i + 1;
     }
@@ -29,9 +29,9 @@ public class FirstMissingPositive {
     }
 
     public int firstMissingPositiveWithExtraSpace(int[] nums) {
-	    if (nums == null || nums.length == 0) {
-		    return 1;
-	    }
+        if (nums == null || nums.length == 0) {
+            return 1;
+        }
         int length = nums.length;
         int[] arr = new int[length + 1];
         for (int i = 0; i < length; i++) {

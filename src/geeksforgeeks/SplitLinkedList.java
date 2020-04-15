@@ -2,16 +2,20 @@ package geeksforgeeks;
 
 //https://leetcode.com/problems/split-linked-list-in-parts/
 class SplitLinkedList {
+
     public ListNode[] splitListToParts(ListNode root, int k) {
-        if (root == null) return null;
-        if (k == 0) return null;
+        if (root == null) {
+            return null;
+        }
+        if (k == 0) {
+            return null;
+        }
 
         if (k == 1) {
             ListNode[] node = new ListNode[1];
             node[0] = root;
             return node;
         }
-
 
         ListNode[] node = new ListNode[k];
         int length = getRootLength(root);
@@ -51,7 +55,6 @@ class SplitLinkedList {
             }
             node[i] = head;
         }
-
         return node;
     }
 

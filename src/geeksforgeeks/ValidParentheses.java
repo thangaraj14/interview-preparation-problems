@@ -1,21 +1,25 @@
 package geeksforgeeks;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
 
+/**
+ * https://leetcode.com/problems/valid-parentheses/
+ */
 public class ValidParentheses {
 
     public static boolean isValid(String s) {
 
-        Stack<Character> stack = new Stack<>();
+        ArrayDeque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
-            if (c == '(')
+            if (c == '(') {
                 stack.push(')');
-            else if (c == '{')
+            } else if (c == '{') {
                 stack.push('}');
-            else if (c == '[')
+            } else if (c == '[') {
                 stack.push(']');
-            else if (stack.isEmpty() || stack.pop() != c)
+            } else if (stack.isEmpty() || stack.pop() != c) {
                 return false;
+            }
         }
         return stack.isEmpty();
     }

@@ -2,42 +2,57 @@ package geeksforgeeks;
 
 /*https://leetcode.com/problems/fraction-to-recurring-decimal/*/
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class VulgarDecimal {
 
     public static String fractionToDecimal(long numerator, long denominator) {
-        if (numerator == 0) {
-            return "0";
+        if (denominator == 0) {
+            return null;
         }
-        StringBuilder result = new StringBuilder();
+        boolean isNegative = (numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0) ? true : false;
 
-        result.append(((numerator < 0) || (denominator < 0)) ? "-" : "");
-        result.append(numerator / denominator);
-        numerator %= denominator;
-        if (numerator == 0) {
-            return result.toString();
+        long denomiL = Math.abs(denominator);
+        long numerL = Math.abs(numerator);
+
+        Map<Long, Integer> map = new HashMap<>();
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(numerL / denomiL);
+
+        if (numerL % denomiL != 0) {
+            sb.append(".");
+        }
+        if (isNegative) {
+            sb.insert(0, "-");
+        }
+        numerL %= denomiL;
+        if (numerL == 0) {
+            return sb.toString();
         }
 
-        result.append(".");
-        HashMap<Long, Integer> map = new HashMap<>();
-        map.put(numerator, result.length());
-        while (numerator != 0) {
-            numerator *= 10;
-            result.append(numerator / denominator);
-            numerator %= denominator;
-            if (map.containsKey(numerator)) {
-                int index = map.get(numerator);
-                result.insert(index, "(");
-                result.append(")");
+        map.put(numerL, sb.length());
+
+        while (numerL > 0) {
+
+            numerL *= 10;
+            sb.append((numerL / denomiL));
+            numerL = (numerL % denomiL);
+
+            if (map.containsKey(numerL)) {
+                int index = map.get(numerL);
+                sb.insert(index, "(");
+                sb.append(")");
                 break;
             } else {
-                map.put(numerator, result.length());
+                map.put(numerL, sb.length());
             }
         }
-        return result.toString();
-    }
 
+        return sb.toString();
+    }
 
     /**
      * boolean doTestsPass()
@@ -52,8 +67,8 @@ public class VulgarDecimal {
         //testsPassed &= fractionToDecimal(1l, 3l).equals("0.(3)");
         //testsPassed &= fractionToDecimal(1l, 30l).equals("0.0(3)");
         //testsPassed &= fractionToDecimal(1l, 75l).equals("0.01(3)");
-        //testsPassed &= fractionToDecimal(4l, 7l).equals("0.(571428)");
-        testsPassed &= fractionToDecimal(1l, 56l).equals("0.017(857142)");
+        testsPassed &= fractionToDecimal(4l, 7l).equals("0.(571428)");
+        // testsPassed &= fractionToDecimal(1l, 56l).equals("0.017(857142)");
 
         if (testsPassed) {
             System.out.println("Tests passes");

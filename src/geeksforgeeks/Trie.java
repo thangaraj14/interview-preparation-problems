@@ -1,59 +1,59 @@
 package geeksforgeeks;
 
 class Trie {
-    
-    class TrieNode{
+
+    class TrieNode {
         char data;
         TrieNode[] children;
         boolean isWord;
-        TrieNode(char data){
-            this.data=data;
-            this.children= new TrieNode[26];
+
+        TrieNode(char data) {
+            this.data = data;
+            this.children = new TrieNode[26];
         }
     }
 
-    
     TrieNode root;
+
     public Trie() {
-        this.root=new TrieNode(' ');
+        this.root = new TrieNode(' ');
     }
-    
-  
+
     public void insert(String word) {
-        TrieNode head=root;
-        
-        for(int i=0;i<word.length();i++){
-            char temp= word.charAt(i);
-            if(head.children[temp-'a']==null){
-                head.children[temp-'a']= new TrieNode(temp);
-                
+        TrieNode head = root;
+
+        for (int i = 0; i < word.length(); i++) {
+            char temp = word.charAt(i);
+            if (head.children[temp - 'a'] == null) {
+                head.children[temp - 'a'] = new TrieNode(temp);
+
             }
-            head= head.children[temp-'a'];
+            head = head.children[temp - 'a'];
         }
-        head.isWord=true;
+        head.isWord = true;
     }
-    
-   
+
     public boolean search(String word) {
-       TrieNode result= helperFn(word);
-        if(result!=null && result.isWord) return true;
+        TrieNode result = helperFn(word);
+        if (result != null && result.isWord) {
+            return true;
+        }
         return false;
     }
-    
- 
+
     public boolean startsWith(String prefix) {
-        return helperFn(prefix)!=null;
+        return helperFn(prefix) != null;
     }
-    
-    public TrieNode helperFn(String data){
-        TrieNode head=root;
-        for(int i=0;i<data.length() && head!=null;i++){
-             char temp= data.charAt(i);
-             head= head.children[temp-'a'];
+
+    public TrieNode helperFn(String data) {
+        TrieNode head = root;
+        for (int i = 0; i < data.length() && head != null; i++) {
+            char temp = data.charAt(i);
+            head = head.children[temp - 'a'];
         }
         return head;
     }
-    
+
 }
 
 /**
