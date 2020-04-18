@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//https://www.interviewbit.com/problems/maximum-unsorted-subarray/#
+//https://leetcode.com/problems/shortest-unsorted-continuous-subarray/
+
 public class MaximumUnsortedSubarray {
 
-    public static ArrayList<Integer> subarraySort(ArrayList<Integer> A) {
+    public static ArrayList<Integer> subarraySort(final ArrayList<Integer> A) {
 
-        ArrayList<Integer> list = new ArrayList<>();
+        final ArrayList<Integer> list = new ArrayList<>();
         int start = -1;
         int end = -1;
 
@@ -63,11 +64,12 @@ public class MaximumUnsortedSubarray {
         return list;
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         //1, 1, 10, 10, 15, 10, 15, 10,10, 15, 10, 15
-        //(1, 3, 2, 4, 5)));
+        //(1, 3, 2, 4, 5);
         //4, 15, 4, 4, 15, 18, 20
-        List<Integer> result = subarraySort(new ArrayList<>(Arrays.asList(4, 15, 4, 4, 15, 18, 20)));
+        //2, 6, 1, 8, 10, 9, 15
+        final List<Integer> result = subarraySort(new ArrayList<>(Arrays.asList(4, 15, 4, 4, 15, 18, 20)));
         result.stream().forEach(System.out::println);
     }
 }

@@ -3,7 +3,7 @@ package geeksforgeeks;
 /**
  * https://www.geeksforgeeks.org/maximum-product-subarray/
  */
-public class MaximumSubarray {
+public class MaximumProductSubarray {
 
     public static int maxProductSubArray(int[] A) {
         if (A.length == 0) {
@@ -23,19 +23,6 @@ public class MaximumSubarray {
         }
         return maxsofar;
     }
-
-    public static int maxSumSubArray(int[] nums) {
-
-        int maxSoFar = nums[0];
-        int maxEndingHere = nums[0];
-
-        for (int i = 1; i < nums.length; i++) {
-            maxEndingHere = Math.max(maxEndingHere + nums[i], nums[i]);
-            maxSoFar = Math.max(maxSoFar, maxEndingHere);
-        }
-        return maxSoFar;
-    }
-
 
     public static void main(String[] args) {
         int arr[] = {1, -2, -3, 0, 8, 7, -2};

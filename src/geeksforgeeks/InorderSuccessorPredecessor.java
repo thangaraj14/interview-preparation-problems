@@ -62,6 +62,53 @@ public class InorderSuccessorPredecessor {
         System.out.println("Inorder Successor of 10 is : " + successor + " and predecessor is : " + predecessor);
 
     }
+
+    TreeNode result=null;
+    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+            helperFn(root,p);
+            return result;
+    }
+    
+    public void helperFn(TreeNode root, TreeNode p){
+        if(root==null) return;
+        
+      if(root.val>p.val){
+            // System.out.println("greatre root"+root.val);
+            result=root;
+            helperFn(root.left,p);
+        }else{
+            //System.out.println("smaller root"+root.val);
+             helperFn(root.right,p);
+        }
+        
+    }
+}
+
+private TreeNode findPredecessor(TreeNode root, TreeNode node) {
+    TreeNode pre = null;
+    TreeNode cur = root;
+    while (cur != null) {
+        if (cur.val < node.val) {
+            pre = cur;
+            cur = cur.right;
+        } else {
+            cur = cur.left;
+        }
+    }
+    return pre;
+}
+private TreeNode findSuccessor(TreeNode root, TreeNode node) {
+    TreeNode succ = null;
+    TreeNode cur = root;
+    while (cur != null) {
+        if (cur.val > node.val) {
+            succ = cur;
+            cur = cur.left;
+        } else {
+            cur = cur.right;
+        }
+    }
+    return succ;
 }
 
 class TNode {

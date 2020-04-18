@@ -2,34 +2,34 @@ package geeksforgeeks;
 
 class PrintParenthesis {
 
-    static void formParenthesis(char str[], int pos, int n, int open, int close) {
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<>();
+        if (n == 0)
+            return result;
+
+        generateUtil(n, new StringBuilder(), 0, 0, result);
+
+        return result;
+    }
+
+    public void generateUtil(int n, StringBuilder paran, int open, int close, List<String> result) {
         if (close == n) {
-            for (int i = 0; i < str.length; i++)
-                System.out.print(str[i]);
-            System.out.println();
+            result.add(paran.toString());
             return;
-        } else {
-            if (open > close) {
-                str[pos] = '}';
-                formParenthesis(str, pos + 1, n, open, close + 1);
-            }
-            if (open < n) {
-                str[pos] = '{';
-                formParenthesis(str, pos + 1, n, open + 1, close);
-            }
         }
+
+        if (close < open) {
+            paran.append(")");
+            generateUtil(n, paran, open, close + 1, result);
+            paran.deleteCharAt(paran.length() - 1);
+        }
+        if (open < n) {
+            paran.append("(");
+            generateUtil(n, paran, open + 1, close, result);
+            paran.deleteCharAt(paran.length() - 1);
+
+        }
+
     }
 
-    static void printParenthesis(char str[], int n) {
-        if (n > 0) {
-            formParenthesis(str, 0, n, 0, 0);
-        }
-        return;
-    }
-
-    public static void main(String[] args) {
-        int n = 3;
-        char[] str = new char[2 * n];
-        printParenthesis(str, n);
-    }
 }

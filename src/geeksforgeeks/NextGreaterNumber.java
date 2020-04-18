@@ -38,7 +38,7 @@ public class NextGreaterNumber {
 
         if (i >= 0) // we found the digit breaking the sorted ordering
         {
-            // find the next greater digit in the right sub-array from number[i+1 to end]
+            // find the next smallest digit greater than num[i] in the right sub-array from number[i+1 to end]
             for (j = number.length - 1; j > i; j--) {
                 if (number[j] > number[i]) {
                     break;
@@ -61,7 +61,7 @@ public class NextGreaterNumber {
         // 6983652
         // 6982356
         // i =3
-
+        //534976
         solution.findNextGreaterNumber(number);
 
         System.out.println("Next greater number is: ");

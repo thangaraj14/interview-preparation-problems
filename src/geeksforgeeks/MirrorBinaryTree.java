@@ -27,9 +27,7 @@ class MirrorBinaryTree {
         q.add(root);
 
         while (q.size() > 0) {
-            Node curr = q.peek();
-            q.remove();
-
+            Node curr = q.poll();
             Node temp = curr.left;
             curr.left = curr.right;
             curr.right = temp;

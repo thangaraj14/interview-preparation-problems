@@ -10,7 +10,8 @@ public class SearchAnElementInMatrix {
 
         int i = 0;
         int j = n - 1; // set indexes for top right element
-
+       // we can start from  top right corner or bottom left corner, because from
+       // these points only we have 2 paths one increasing one decreasing 
         while (i < n && j >= 0) {
             if (mat[i][j] == x) {
                 System.out.print("n Found at " + i + " " + j);
@@ -51,9 +52,12 @@ public class SearchAnElementInMatrix {
     }
 
     public static void main(String[] args) {
-        int[][] mat = {{10, 20, 30, 40}, {15, 25, 35, 45}, {27, 29, 37, 48}, {32, 33, 39, 50}};
+        int[][] mat = {{10, 20, 30, 40}, 
+                        {15, 25, 35, 45}, 
+                        {27, 29, 37, 48}, 
+                        {32, 33, 39, 50}};
 
-        int[][] matI = {{1, 3, 5, 7},
+ int[][] matI = {{1, 3, 5, 7} ,
                 {10, 11, 16, 20},
                 {23, 30, 34, 50}};
 

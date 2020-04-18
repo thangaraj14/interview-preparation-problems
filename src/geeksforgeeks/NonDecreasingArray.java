@@ -22,8 +22,8 @@ class NonDecreasingArray {
 
     public static void main(String[] args) {
         // 1,4,2,3
-        //3,4,2,3
-        int[] nums = {7, 8, 2, 3};
+        // 3,4,2,3
+        int[] nums = { 7, 8, 2, 3 };
         NonDecreasingArray nda = new NonDecreasingArray();
         System.out.println(nda.checkPossibility(nums));
     }

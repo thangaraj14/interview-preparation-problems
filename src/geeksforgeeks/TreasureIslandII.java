@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 /*https://leetcode.com/discuss/interview-question/356150/amazon-oa-2019-shortest-path-from-multiple-sources*/
-// unresolved
+
 public class TreasureIslandII {
     private static final int[][] DIRS = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
@@ -61,8 +61,12 @@ public class TreasureIslandII {
     }
 
     public static void main(String[] args) {
-        char[][] grid = {{'S', 'O', 'O', 'S', 'S'}, {'D', 'O', 'D', 'O', 'D'}, {'O', 'O', 'O', 'O', 'X'},
-                {'X', 'D', 'D', 'O', 'O'}, {'X', 'D', 'D', 'D', 'O'}};
+        char[][] grid = {
+            {'S', 'O', 'O', 'S', 'S'}, 
+            {'D', 'O', 'D', 'O', 'D'}, 
+            {'O', 'O', 'O', 'O', 'X'},
+            {'X', 'D', 'D', 'O', 'O'}, 
+            {'X', 'D', 'D', 'D', 'O'}};
         test(minDist(grid), 3);
     }
 

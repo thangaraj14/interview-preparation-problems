@@ -2,6 +2,7 @@ package geeksforgeeks;
 
 import java.util.*;
 
+//https://leetcode.com/problems/palindrome-partitioning/
 class PalindromePartion {
     public List<List<String>> partition(String s) {
         List<List<String>> result= new ArrayList<>();

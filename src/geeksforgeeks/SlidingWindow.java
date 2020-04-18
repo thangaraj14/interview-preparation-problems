@@ -12,26 +12,29 @@ public class SlidingWindow {
     }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums.length==0)return new int[0];
-        List<Integer> result= new ArrayList<>();
+        if(nums.length==0 || k==0) return new int[0];
+         int[] result= new int[nums.length-k+1];
+         int index=0;
+        Deque<Integer> deque= new ArrayDeque<>();
         
-        Deque<Integer> queue= new ArrayDeque<>();
-       // queue.offer(nums[0]);
-        for(int i=0;i<nums.length;i++){
-            while(!queue.isEmpty() && queue.peek()<i-k+1){
-                queue.poll();
-            }
-            while(!queue.isEmpty() && nums[queue.peekLast()]<nums[i]){
-                queue.pollLast();
-            }
-            
-            queue.offer(i);
-            
-            if(i>=k-1){
-                result.add(nums[queue.peekFirst()]);
-            }
-        }
-        //int[] res= new int[result.size()];
-        return result.stream().mapToInt(Integer::intValue).toArray();
-    }
+         for(int i=0;i<nums.length;i++){
+             
+             while( !deque.isEmpty() &&(deque.peek()<i-k+1 || nums[deque.peekLast()]<nums[i])){
+                 if(nums[deque.peekLast()]<nums[i]){
+                      deque.pollLast();
+                 }else{
+                     deque.poll();
+                 }
+                 
+             }
+             
+             deque.offer(i);
+             
+             if(i>=k-1){
+                 result[index++]=nums[deque.peekFirst()];
+             }
+         }
+         
+         return result;
+     }
 }

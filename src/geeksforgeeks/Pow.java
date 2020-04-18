@@ -1,10 +1,11 @@
 package geeksforgeeks;
 
+// https://leetcode.com/problems/powx-n/
 public class Pow {
 
     public double myPow(double x, int n) {
+
         if (n < 0) {
-            isNegative = true;
             n *= -1;
             x = 1 / x;
         }
@@ -13,6 +14,7 @@ public class Pow {
         result = powerCalcUtil(x, n);
         return result;
     }
+
 
     public double powerCalcUtil(double x, int n) {
         if (n == 0)
@@ -26,4 +28,13 @@ public class Pow {
         }
     }
 
+    public double pow1(double x, int n) {
+        double result = 1.0;
+        for(int i = n; i != 0; i /= 2, x *= x) {
+            if( i % 2 != 0 ) {
+                result *= x;
+            }
+        }
+        return n < 0 ? 1.0 / result : result;
+       }
 }

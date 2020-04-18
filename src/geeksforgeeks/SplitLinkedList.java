@@ -2,67 +2,33 @@ package geeksforgeeks;
 
 //https://leetcode.com/problems/split-linked-list-in-parts/
 class SplitLinkedList {
+
     public ListNode[] splitListToParts(ListNode root, int k) {
-        if (root == null) return null;
-        if (k == 0) return null;
-
-        if (k == 1) {
-            ListNode[] node = new ListNode[1];
-            node[0] = root;
-            return node;
-        }
-
-
-        ListNode[] node = new ListNode[k];
-        int length = getRootLength(root);
-
-        if (k > length) {
-            ListNode temp = root;
-            int index = 0;
-
-            while (temp != null) {
-                ListNode result = temp;
-                temp = temp.next;
-                result.next = null;
-                node[index] = result;
-                index++;
+        ListNode[] partsOfRoot = new ListNode[k];
+        ListNode head = root;
+        int len = size(root);
+        int minNoOfElements = len / k;
+        int extraRoomForElement = len % k;
+        ListNode prev = null;
+        for (int i = 0; i < k && head != null; i++, extraRoomForElement--) {
+            partsOfRoot[i] = head;
+            for (int j = 0; j < minNoOfElements + (extraRoomForElement > 0 ? 1 : 0); j++) {
+                prev = head;
+                head = head.next;
             }
-
-            for (; index < k; index++) {
-                node[index] = null;
-            }
-            return node;
+            prev.next = null;
         }
+        return partsOfRoot;
 
-        int remainder = length % k;
-        int quo = length / k;
-
-        for (int i = 0; i < k; i++) {
-            int value = remainder > 0 ? quo + 1 : quo;
-            remainder--;
-            ListNode head = root;
-            ListNode prev = null;
-            for (int j = 0; j < value && root != null; j++) {
-                if (j == value - 1) {
-                    prev = root;
-                    prev.next = null;
-                }
-                root = root.next;
-            }
-            node[i] = head;
-        }
-
-        return node;
     }
 
-    public int getRootLength(ListNode root) {
-        ListNode temp = root;
-        int count = 0;
-        while (temp != null) {
-            count++;
-            temp = temp.next;
+    public int size(ListNode root) {
+        int len = 0;
+        while (root != null) {
+            root = root.next;
+            len++;
         }
-        return count;
+        return len;
     }
 
     public static void main(String[] args) {

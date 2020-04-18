@@ -37,7 +37,7 @@ public class CountDistinctKSubString {
 
     public static void main(String[] args) {
         CountDistinctKSubString ob = new CountDistinctKSubString();
-        String ch = "pqpqs";
+        String ch = "abacca";
         int k = 2;
         System.out.println("Total substrings with exactly " + k + " distinct characters : " + ob.countKDist(ch, k));
     }

@@ -1,4 +1,6 @@
 package geeksforgeeks;
+
+import java.util.*;
 class RaceCarMinSteps {
     public int racecar(int target) {
         Set<String> visited = new HashSet<>(); 

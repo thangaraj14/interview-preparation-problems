@@ -6,7 +6,7 @@ import java.util.*;
 public class Twitter {
     private static int timeStamp = 0;
 
-    private Map<Integer, User> userMap;
+    private Map<Integer, User> userMap; 
 
     // Tweet link to next Tweet so that we can save a lot of time
     // when we execute getNewsFeed(userId)
@@ -30,7 +30,7 @@ public class Twitter {
         public User(int id) {
             this.id = id;
             followed = new HashSet<>();
-            follow(id); // first follow itself
+            follow(id); // first follow yourself
             tweet_head = null;
         }
 

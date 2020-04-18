@@ -1,22 +1,24 @@
 package geeksforgeeks;
 
 import java.util.Arrays;
-
+import java.util.Collections;
+import java.util.*;
 public class TwoSumClosestToZero {
 
     public static void main(String[] args) {
-        int arr[] = {-6, -5, -3, 0, 2, 4, 9, 5};
+        Integer arr[] = {-6, -5, -3, 0, 2, 4, 9, 5};
         findPair(arr);
 
     }
 
-    public static void findPair(int[] arr) {
+    public static void findPair(Integer[] arr) {
         if (arr.length < 2) {
             return;
         }
 
         Arrays.sort(arr);
 
+        System.out.println(Arrays.toString(arr));
         int low = 0;
         int high = arr.length - 1;
 

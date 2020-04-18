@@ -6,7 +6,7 @@ import java.util.Arrays;
 class ReorderLogs {
     public static String[] reorderLogFiles(String[] logs) {
         Arrays.sort(logs, (s1, s2) -> {
-            String[] split1 = s1.split(" ", 2);
+            String[] split1 = s1.split(" ", 2); // splits arr in to 2 parts
             String[] split2 = s2.split(" ", 2);
 
             boolean isDigit1 = Character.isDigit(split1[1].charAt(0));

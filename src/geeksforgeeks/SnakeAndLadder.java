@@ -1,67 +1,69 @@
 package geeksforgeeks;
 
 import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * https://leetcode.com/problems/snakes-and-ladders/
  */
 public class SnakeAndLadder {
+    class BoardCells {
+        int pos;
+        int steps;
 
-    static class QEntry {
-        int vertex;
-        int noOfMoves;
+        public BoardCells(int pos, int steps) {
+            this.pos = pos;
+            this.steps = steps;
+        }
     }
 
-     int getMinDiceThrows(int[][] board, int n) { 
-        //int n = board.length;
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(1);
+    private int n;
+
+    public int snakesAndLadders(int[][] board) {
+        n = board.length;
         boolean[] visited = new boolean[n * n + 1];
-        for (int move = 0; !queue.isEmpty(); move++) {
-            for (int size = queue.size(); size > 0; size--) {
-                int num = queue.poll();
-                if (visited[num]) continue;
-                visited[num] = true;
-                if (num == n * n) return move;
-                for (int i = 1; i <= 6 && num + i <= n * n; i++) {
-                    int next = num + i;
-                    int value = getBoardValue(board, next);
-                    if (value > 0) next = value;
-                    if (!visited[next]) queue.offer(next);
+        Queue<BoardCells> queue = new LinkedList<>();
+        queue.offer(new BoardCells(1, 1));
+        visited[1] = true;
+       
+        while (!queue.isEmpty()) {
+            BoardCells cur = queue.poll();
+            for (int i = 1; i <= 6; i++) {
+                int next = cur.pos + i;
+                int[] pos = numToPos(next);
+                if (board[pos[0]][pos[1]] > 0) {
+                    next = board[pos[0]][pos[1]];
+                }
+                if (next == n * n) {
+                    return cur.steps;
+                }
+                if (!visited[next]) {
+                    queue.offer(new BoardCells(next, cur.steps + 1));
+                    visited[next] = true;
                 }
             }
+
         }
         return -1;
     }
 
-    private int getBoardValue(int[][] board, int num) {
-        int n = board.length;
-        int r = (num - 1) / n;
-        int x = n - 1 - r;
-        int y = r % 2 == 0 ? num - 1 - r * n : n + r * n - num;
-        return board[x][y];
+    private int[] numToPos(int target) {
+        int row = (target - 1) / n, col = (target - 1) % n;
+        int x = n - 1 - row, y = row % 2 == 0 ? col : n - 1 - col;
+        return new int[] { x, y };
     }
 
-    // public static void main(String[] args) {
+    private int posToNum(int[] position) {
+        int row = (n - 1 - position[0]);
+        int y = row % 2 == 0 ? position[1] + 1 : n - position[1];
+        return row * n + y;
+    }
 
-    //     int N = 30;
-    //     int moves[] = new int[N];
-    //     for (int i = 0; i < N; i++)
-    //         moves[i] = -1;
+    public static void main(String[] args) {
 
-    //     // Ladders
-    //     moves[2] = 21;
-    //     moves[4] = 7;
-    //     moves[10] = 25;
-    //     moves[19] = 28;
+        int[][] board = { { -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1 },
+                { -1, 35, -1, -1, 13, -1 }, { -1, -1, -1, -1, -1, -1 }, { -1, 15, -1, -1, -1, -1 } };
 
-    //     // Snakes
-    //     moves[3] = 1;
-    //     moves[23] = 8;
-    //     moves[16] = 3;
-    //     moves[18] = 6;
-
-    //     System.out.println("Min Dice throws required is " + getMinDiceThrows(moves, N));
-    // }
+        System.out.println("Min Dice throws required is " + new SnakeAndLadder().snakesAndLadders(board));
+    }
 }

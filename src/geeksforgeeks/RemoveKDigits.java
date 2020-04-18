@@ -8,40 +8,37 @@ import java.util.Stack;
 
 public class RemoveKDigits {
     //1432219
-    public static String removeKdigits(String num, int k) {
-        int len = num.length();
-
-        if (k == len)
-            return "0";
-
-        Stack<Character> stack = new Stack<>();
-        int i = 0;
-        while (i < num.length()) {
-            while (k > 0 && !stack.isEmpty() && stack.peek() > num.charAt(i)) {
-                stack.pop();
+    public static String removeKdigits(String num, int k) { 
+        if(num==null || num.length()==0) return null;
+        
+        Deque<Integer> queue= new ArrayDeque<>();
+        for(char c: num.toCharArray()){
+            
+            while(!queue.isEmpty() && queue.getLast()>c-'0' && k>0){
+                queue.removeLast();
                 k--;
             }
-            stack.push(num.charAt(i));
-            i++;
+            queue.addLast(c-'0');       
         }
-
-        // corner case like "1111"
-        while (k > 0) {
-            stack.pop();
+         
+        while(k>0){
+            queue.removeLast();
             k--;
         }
-
-        StringBuilder sb = new StringBuilder();
-        while (!stack.isEmpty())
-            sb.append(stack.pop());
-        sb.reverse();
-
-        while (sb.length() > 1 && sb.charAt(0) == '0')
-            sb.deleteCharAt(0);
-        return sb.toString();
+        
+        StringBuilder result= new StringBuilder();
+        while(!queue.isEmpty()){
+            result.append(queue.removeFirst());
+        }
+       
+        while(result.length()>0 && result.charAt(0)=='0'){
+            result.deleteCharAt(0);
+        }
+        
+        return result.length()==0?"0":result.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(removeKdigits("14232191", 3));
+        System.out.println(removeKdigits("143221999", 3));
     }
 }
