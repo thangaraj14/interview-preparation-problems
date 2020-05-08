@@ -4,6 +4,7 @@ package geeksforgeeks;
  * https://leetcode.com/problems/non-decreasing-array/description/
  */
 class NonDecreasingArray {
+
     public boolean checkPossibility(int[] nums) {
 
         int count = 0;
@@ -22,7 +23,11 @@ class NonDecreasingArray {
 
     public static void main(String[] args) {
         // 1,4,2,3
+<<<<<<< HEAD
         // 3,4,2,3
+=======
+        //        //3,4,2,3
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
         int[] nums = { 7, 8, 2, 3 };
         NonDecreasingArray nda = new NonDecreasingArray();
         System.out.println(nda.checkPossibility(nums));

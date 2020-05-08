@@ -1,18 +1,11 @@
 package geeksforgeeks;
 
-class PrintParenthesis {
+/**
+ * https://leetcode.com/problems/generate-parentheses/
+ */
+class GenerateParenthesis {
 
-    public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>();
-        if (n == 0)
-            return result;
-
-        generateUtil(n, new StringBuilder(), 0, 0, result);
-
-        return result;
-    }
-
-    public void generateUtil(int n, StringBuilder paran, int open, int close, List<String> result) {
+    static void formParenthesis(char[] str, int pos, int n, int open, int close) {
         if (close == n) {
             result.add(paran.toString());
             return;

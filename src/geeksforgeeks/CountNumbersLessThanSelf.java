@@ -1,9 +1,14 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class CountNumbersLessThanSelf {
     public List<Integer> countSmaller(int[] nums) {
-        if (nums.length == 0)
+        if (nums.length == 0) {
             return new ArrayList<>();
+        }
 
         Integer[] result = new Integer[nums.length];
         Node root = null;

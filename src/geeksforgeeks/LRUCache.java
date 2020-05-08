@@ -1,132 +1,118 @@
 package geeksforgeeks;
-/*
-  https://leetcode.com/problems/lru-cache/
-  An adaption of the answer from user "liaison" on Leetcode.
-  Link: https://leetcode.com/problems/lru-cache/discuss/45911/Java-Hashtable-%2B-Double-linked-list-(with-a-touch-of-pseudo-nodes)
-  Revision by Benyam Ephrem (Dec. 31th 2018)
-    > Making variable names more conventional
-    > Adding more clarifying comments
-    > Moving code around to be more conventional
-  This code passes all Leetcode test cases as of Dec. 31st 2018
-  Runtime: 77 ms, faster than 95.85% of Java online submissions for LRU Cache.
-  The video to explain this code is here: https://www.youtube.com/watch?v=S6IfqDXWa10
-*/
-
-import java.util.HashMap;
-import java.util.Map;
-
 class LRUCache {
-
-    private class DNode {
+    
+    class DLLNode{
+        DLLNode prev;
+        DLLNode next;
+        int val;
         int key;
-        int value;
-        DNode prev;
-        DNode next;
-    }
-
-    private Map<Integer, DNode> hashtable = new HashMap<>();
-    private DNode head, tail;
-    private int totalItemsInCache;
-    private int maxCapacity;
-
-    public LRUCache(int maxCapacity) {
-
-        totalItemsInCache = 0;
-        this.maxCapacity = maxCapacity;
-
-        head = new DNode();
-        head.prev = null;
-
-        tail = new DNode();
-        tail.next = null;
-
-        head.next = tail;
-        tail.prev = head;
-    }
-
-    public int get(int key) {
-
-        DNode node = hashtable.get(key);
-        boolean itemFoundInCache = node != null;
-
-        if (!itemFoundInCache) {
-            return -1;
+        public DLLNode(int key, int val){
+            this.val=val;
+            this.key=key;
         }
-
-        moveToHead(node);
-
-        return node.value;
     }
-
-    public void put(int key, int value) {
-
-        DNode node = hashtable.get(key);
-        boolean itemFoundInCache = node != null;
-
-        if (!itemFoundInCache) {
-
-            DNode newNode = new DNode();
-            newNode.key = key;
-            newNode.value = value;
-
-            hashtable.put(key, newNode);
-            addNode(newNode);
-
-            totalItemsInCache++;
-
-            if (totalItemsInCache > maxCapacity) {
-                removeLRUEntryFromStructure();
+        Map<Integer, DLLNode> map;
+        DLLNode head;
+        DLLNode tail;
+        int capacity=0;
+        public LRUCache(int capacity) {
+            map= new HashMap<>();
+            head= new DLLNode(-1,-1);
+            tail= new DLLNode(-1,-1);
+            head.next=tail;
+            tail.prev=head;
+            this.capacity=capacity;
+        }
+        
+        public int get(int key) {
+            if(!map.containsKey(key)) return -1;
+            DLLNode node= map.get(key);
+            update(node);
+            return node.val;
+        }
+        
+        public void put(int key, int value) {
+            if(map.containsKey(key)){
+                DLLNode node= map.get(key);
+                node.val=value;
+                update(node);
+            }else{
+                 if(map.size()>=capacity){
+                    removeTail();
+                }
+                DLLNode newNode= new DLLNode(key,value);
+                map.put(key, newNode);
+               
+               updateHead(newNode);
             }
-
-        } else {
-            node.value = value;
-            moveToHead(node);
+        }
+        
+        public void removeTail(){
+            DLLNode tailNode=tail.prev;
+            remove(tailNode);
+            map.remove(tailNode.key);
+        }
+        
+        public void updateHead(DLLNode node){
+            node.prev = head;
+            node.next = head.next;
+            head.next.prev = node;
+            head.next = node;
+        }
+        
+        public void remove(DLLNode node){
+             DLLNode next= node.next;
+             DLLNode prev= node.prev;
+             prev.next=next;
+             next.prev=prev;
+        }
+        public void update(DLLNode node){
+            remove(node);
+            updateHead(node);
         }
     }
+    
 
-    private void removeLRUEntryFromStructure() {
-        DNode tail = popTail();
-        hashtable.remove(tail.key);
-        --totalItemsInCache;
+    class LRUCache1 {
+        LinkedHashMap<Integer, Integer> isbnToPrice;
+    
+        LRUCache(final int capacity) {
+            this.isbnToPrice
+                    = new LinkedHashMap<Integer, Integer>(capacity, 1f, true) {
+                @Override
+                protected boolean removeEldestEntry(Map.Entry<Integer, Integer> e) {
+                    return this.size() > capacity;
+                }
+            };
+        }
+    
+        public Integer lookup(Integer key) {
+            if (!isbnToPrice.containsKey(key)) {
+                return null;
+            }
+            return isbnToPrice.get(key);
+        }
+    
+        public Integer insert(Integer key, Integer value) {
+    // We add the value for key only if key is not present - we don’t update
+    // existing values.
+            Integer currentValue = isbnToPrice.get(key);
+            if (!isbnToPrice.containsKey(key)) {
+                isbnToPrice.put(key, value);
+                return currentValue;
+            } else {
+                return null;
+            }
+        }
+    
+        public Integer erase(Object key) {
+            return isbnToPrice.remove(key);
+        }
+    
     }
-
-    private void addNode(DNode node) {
-
-        node.prev = head;
-        node.next = head.next;
-
-        head.next.prev = node;
-        head.next = node;
-    }
-
-    private void removeNode(DNode node) {
-
-        DNode savedPrev = node.prev;
-        DNode savedNext = node.next;
-
-        savedPrev.next = savedNext;
-        savedNext.prev = savedPrev;
-    }
-
-    private void moveToHead(DNode node) {
-        removeNode(node);
-        addNode(node);
-    }
-
-    private DNode popTail() {
-        DNode itemBeingRemoved = tail.prev;
-        removeNode(itemBeingRemoved);
-        return itemBeingRemoved;
-    }
-
-    public static void main(String[] args) {
-        LRUCache lru = new LRUCache(3);
-        lru.put(1, 1);
-        lru.put(2, 2);
-        lru.put(3, 3);
-        lru.put(2, 2);
-        lru.put(4, 4);
-        lru.put(2, 2);
-        lru.put(3, 3);
-    }
-}
+    /**
+     * Your LRUCache object will be instantiated and called as such:
+     * LRUCache obj = new LRUCache(capacity);
+     * int param_1 = obj.get(key);
+     * obj.put(key,value);
+     */

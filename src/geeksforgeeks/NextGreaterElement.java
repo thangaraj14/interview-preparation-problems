@@ -9,7 +9,7 @@ import java.util.Stack;
  */
 class NextGreaterElement {
 
-    static int arr[] = {4, 5, 2, 25};
+    static int arr[] = { 4, 5, 2, 25 };
 
     // 9,1,2,3,4,5,6,7
     public static void printNGE() {

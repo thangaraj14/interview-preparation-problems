@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/valid-palindrome-ii/
+ */
 class ValidPalindromeII {
 
     public static boolean validPalindrome(String s) {
@@ -9,9 +12,13 @@ class ValidPalindromeII {
             j--;
         }
 
-        if (i >= j) return true;
+        if (i >= j) {
+            return true;
+        }
 
-        if (isPalindrome(s, i + 1, j) || isPalindrome(s, i, j - 1)) return true;
+        if (isPalindrome(s, i + 1, j) || isPalindrome(s, i, j - 1)) {
+            return true;
+        }
         return false;
     }
 
@@ -20,7 +27,9 @@ class ValidPalindromeII {
             if (s.charAt(i) == s.charAt(j)) {
                 i++;
                 j--;
-            } else return false;
+            } else {
+                return false;
+            }
         }
         return true;
     }

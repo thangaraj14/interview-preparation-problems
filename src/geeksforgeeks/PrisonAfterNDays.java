@@ -9,7 +9,9 @@ https://leetcode.com/problems/prison-cells-after-n-days/
 class PrisonAfterNDays {
 
     public static int[] prisonAfterNDays(int[] cells, int N) {
-        if (cells == null || cells.length == 0 || N <= 0) return cells;
+        if (cells == null || cells.length == 0 || N <= 0) {
+            return cells;
+        }
         boolean hasCycle = false;
         int cycle = 0;
         HashSet<String> set = new HashSet<>();
@@ -43,7 +45,7 @@ class PrisonAfterNDays {
     }
 
     public static void main(String[] args) {
-        int[] cells = {0, 1, 0, 1, 1, 0, 0, 1};
+        int[] cells = { 0, 1, 0, 1, 1, 0, 0, 1 };
         int N = 7;
         System.out.println(Arrays.toString(prisonAfterNDays(cells, N)));
     }

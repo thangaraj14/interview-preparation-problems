@@ -34,7 +34,7 @@ class MakeAnArrayPalindrome {
     }
 
     public static void main(String[] args) {
-        int arr[] = new int[]{1, 4, 5, 9, 1};
+        int arr[] = new int[] { 1, 4, 5, 9, 1 };
         System.out.println("Count of minimum operations is " + findMinOps(arr, arr.length));
 
     }

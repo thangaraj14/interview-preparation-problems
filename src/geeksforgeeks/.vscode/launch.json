@@ -1,0 +1,178 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LongestUniqueSubstring",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.LongestUniqueSubstring"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DesignTicTacToe",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.DesignTicTacToe"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - RomanToInteger",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.RomanToInteger"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MaxProductString",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.MaxProductString"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ReorganiseString",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.ReorganiseString"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ValidParentheses",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.ValidParentheses"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TwoSumClosestToZero",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.TwoSumClosestToZero"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TrailingZeroes",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.TrailingZeroes"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SpiralMatrix",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.SpiralMatrix"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SnakeAndLadder",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.SnakeAndLadder"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SerializeAndDeserialize",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.SerializeAndDeserialize"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - JumpsToReachEnd",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.JumpsToReachEnd"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ReorderLogs",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.ReorderLogs"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - QueensAttackKing",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.QueensAttackKing"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProductExceptSelf",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.ProductExceptSelf"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PrisonAfterNDays",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.PrisonAfterNDays"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PrintParenthesis",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.PrintParenthesis"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NextGreaterNumber",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.NextGreaterNumber"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MinimumSwapSortArray",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.MinimumSwapSortArray"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MinimumDistanceBetweenTwoNumbers",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.MinimumDistanceBetweenTwoNumbers"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MaximumSubstringWithKDistinctChar",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.MaximumSubstringWithKDistinctChar"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MajorityVoting",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.MajorityVoting"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CountDistinctKSubString",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.CountDistinctKSubString"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UrlEncode",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.UrlEncode"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FirstMissingPositive",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.FirstMissingPositive"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MergeIntervals",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.MergeIntervals"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InorderSuccessorPredecessor",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.InorderSuccessorPredecessor"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PalindromePartion",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.PalindromePartion"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MobileKeyPadCombinations",
+            "request": "launch",
+            "mainClass": "geeksforgeeks.MobileKeyPadCombinations"
+        }
+    ]
+}

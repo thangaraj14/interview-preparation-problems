@@ -15,6 +15,40 @@ public class JumpsToReachEnd {
         return furthestReachSoFar >= lastlndex;
     }
 
+    // Given an array of non-negative integers arr, you are initially positioned at start index of the array.
+    //  When you are at index i, you can jump to i + arr[i] or i - arr[i],
+    //   check if you can reach to any index with value 0.
+    public boolean canReachIII(int[] arr, int start) {
+        // visited check included
+        if(start>=arr.length || start<0 || arr[start]>arr.length || arr[start]<0) return false;
+        if(arr[start]==0 ) return true;
+        arr[start]=-arr[start]; // visited marking
+        return canReach(arr, start+arr[start]) || canReach(arr, start-arr[start]);
+
+    }
+
+    public int jump(int[] nums) {
+        if(nums==null || nums.length==0) return 0;
+        int currentMax=0;
+        int currentEnd=0;
+        int jumps=0;
+        
+        for(int i=0;i<nums.length-1;i++){
+            currentMax= Math.max(currentMax, i+nums[i]); // assume each index has a ladder
+            
+            if(currentMax>=nums.length-1){ // if the current pick solves the issue
+                jumps++;
+                break;
+            }
+            
+            if(currentEnd==i){ // when the current pick of ladder reached last step
+                jumps++;
+                currentEnd=currentMax;
+            }
+        }
+        return jumps;
+    }
+
     public static void main(String[] args) {
        
         List<Integer> list= Arrays.asList(new Integer[]{3,3,1,0, 2,0,1});

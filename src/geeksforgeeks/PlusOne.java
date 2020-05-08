@@ -1,6 +1,16 @@
 package geeksforgeeks;
 
+<<<<<<< HEAD
 class PlusOne {
+=======
+import java.util.Arrays;
+
+/**
+ * https://leetcode.com/problems/plus-one/
+ */
+class PlusOne {
+
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
     public static int[] plusOne(int[] digits) {
 
         StringBuilder sb = new StringBuilder();
@@ -21,8 +31,23 @@ class PlusOne {
                 sb.append(num);
             }
         }
+<<<<<<< HEAD
         if(remainder!=0)
             sb.append(remainder);
         return sb.reverse().toString().chars().map(i -> i - '0').toArray();
     }
+=======
+        if (remainder != 0) {
+            sb.append(remainder);
+        }
+
+        return sb.reverse().toString().chars().map(i -> i - '0').toArray();
+    }
+
+    public static void main(String[] args) {
+        int[] digits = { 1, 2, 9 };
+        int[] endpointUrl = plusOne(digits);
+        Arrays.stream(endpointUrl).forEach(System.out::println);
+    }
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
 }

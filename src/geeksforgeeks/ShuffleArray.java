@@ -1,30 +1,53 @@
 package geeksforgeeks;
 
-class ShuffleArray {
+import java.util.Arrays;
+import java.util.Random;
 
-    int[] value;
-    int[] originalVal;
-    public Solution(int[] nums) {
-       value= nums; 
-       originalVal=nums.clone();
+/**
+ * https://leetcode.com/problems/shuffle-an-array/
+ */
+public class ShuffleArray {
+
+    private int[] nums;
+    private Random random;
+
+    public ShuffleArray(int[] nums) {
+        this.nums = nums;
+        random = new Random();
     }
-    
-    /** Resets the array to its original configuration and return it. */
+
+    /**
+     * Resets the array to its original configuration and return it.
+     */
     public int[] reset() {
-        return originalVal;
+        return nums;
     }
-    
-    /** Returns a random shuffling of the array. */
+
+    /**
+     * Returns a random shuffling of the array.
+     */
     public int[] shuffle() {
-       // int index=value.length-1;
-        for(int i=value.length-1;i>0;i--){
-            int randIndex= (int)Math.floor(new Double(i*Math.random()));
-            int temp=value[i];
-            value[i]=value[randIndex];
-            value[randIndex]=temp;
-          //  index--;
+        if (nums == null) {
+            return null;
         }
-        
-        return value;
+        int[] a = nums.clone();
+        for (int j = 1; j < a.length; j++) {
+            int i = random.nextInt(j + 1);
+            swap(a, i, j);
+        }
+        return a;
+    }
+
+    private void swap(int[] a, int i, int j) {
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3 };
+        ShuffleArray sa = new ShuffleArray(arr);
+        System.out.println("After shuffling :" + Arrays.toString(sa.shuffle()));
+        System.out.println("Reset : " + Arrays.toString(sa.reset()));
     }
 }

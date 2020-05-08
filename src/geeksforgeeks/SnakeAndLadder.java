@@ -44,7 +44,7 @@ public class SnakeAndLadder {
             }
 
         }
-        return -1;
+        return qEntry.noOfMoves;
     }
 
     private int[] numToPos(int target) {
@@ -65,5 +65,6 @@ public class SnakeAndLadder {
                 { -1, 35, -1, -1, 13, -1 }, { -1, -1, -1, -1, -1, -1 }, { -1, 15, -1, -1, -1, -1 } };
 
         System.out.println("Min Dice throws required is " + new SnakeAndLadder().snakesAndLadders(board));
+    
     }
 }

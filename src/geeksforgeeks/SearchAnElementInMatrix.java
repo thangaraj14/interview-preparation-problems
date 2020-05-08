@@ -1,8 +1,8 @@
 package geeksforgeeks;
+
 /*https://www.youtube.com/watch?v=FOa55B9Ikfg
 * https://leetcode.com/problems/search-a-2d-matrix-ii/
 https://leetcode.com/problems/search-a-2d-matrix/*/
-
 
 public class SearchAnElementInMatrix {
 
@@ -17,10 +17,12 @@ public class SearchAnElementInMatrix {
                 System.out.print("n Found at " + i + " " + j);
                 return true;
             }
-            if (mat[i][j] > x)
+            if (mat[i][j] > x) {
                 j--;
-            else // if mat[i][j] < x
+            } else // if mat[i][j] < x
+            {
                 i++;
+            }
         }
 
         System.out.print("n Element not found");
@@ -52,6 +54,7 @@ public class SearchAnElementInMatrix {
     }
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         int[][] mat = {{10, 20, 30, 40}, 
                         {15, 25, 35, 45}, 
                         {27, 29, 37, 48}, 
@@ -60,6 +63,11 @@ public class SearchAnElementInMatrix {
  int[][] matI = {{1, 3, 5, 7} ,
                 {10, 11, 16, 20},
                 {23, 30, 34, 50}};
+=======
+        int[][] mat = { { 10, 20, 30, 40 }, { 15, 25, 35, 45 }, { 27, 29, 37, 48 }, { 32, 33, 39, 50 } };
+
+        int[][] matI = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 50 } };
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
 
         System.out.println(searchI(matI, 11));
         System.out.println(searchII(mat, 4, 33));

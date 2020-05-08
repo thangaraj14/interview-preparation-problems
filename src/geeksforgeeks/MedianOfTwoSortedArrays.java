@@ -1,6 +1,13 @@
 package geeksforgeeks;
 
+<<<<<<< HEAD
 class MedianOfTwoSortedArrays{
+=======
+/**
+ * https://github.com/mission-peace/interview/blob/master/src/com/interview/binarysearch/MedianOfTwoSortedArrayOfDifferentLength.java
+ */
+public class MedianOfTwoSortedArrays {
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
 
     public double findMedianSortedArrays(int input1[], int input2[]) {
         //if input1 length is greater than switch them so that input1 is smaller than input2.
@@ -13,8 +20,13 @@ class MedianOfTwoSortedArrays{
         int low = 0;
         int high = x;
         while (low <= high) {
+<<<<<<< HEAD
             int partitionX = (low + high)/2;
             int partitionY = (x + y + 1)/2 - partitionX;
+=======
+            int partitionX = (low + high) / 2;
+            int partitionY = (x + y + 1) / 2 - partitionX;
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
 
             //if partitionX is 0 it means nothing is there on left side. Use -INF for maxLeftX
             //if partitionX is length of input then there is nothing on right side. Use +INF for minRightX
@@ -29,9 +41,15 @@ class MedianOfTwoSortedArrays{
                 // Now get max of left elements and min of right elements to get the median in case of even length combined array size
                 // or get max of left for odd length combined array size.
                 if ((x + y) % 2 == 0) {
+<<<<<<< HEAD
                     return ((double)Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY))/2;
                 } else {
                     return (double)Math.max(maxLeftX, maxLeftY);
+=======
+                    return ((double) Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2;
+                } else {
+                    return Math.max(maxLeftX, maxLeftY);
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
                 }
             } else if (maxLeftX > minRightY) { //we are too far on right side for partitionX. Go on left side.
                 high = partitionX - 1;
@@ -45,6 +63,7 @@ class MedianOfTwoSortedArrays{
     }
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         int[] x = {1, 3, 8, 9, 15};
         int[] y = {7, 11, 19, 21, 18, 25};
 
@@ -52,3 +71,12 @@ class MedianOfTwoSortedArrays{
         mm.findMedianSortedArrays(x, y);
     }
 }
+=======
+        int[] x = { 1, 3, 8, 9, 15, 17 };
+        int[] y = { 7, 11, 18, 19, 21, 25 };
+        // 1,3,7,8,9,11,15,18,19,21,25
+        MedianOfTwoSortedArrays mm = new MedianOfTwoSortedArrays();
+        System.out.println(mm.findMedianSortedArrays(x, y));
+    }
+}
+>>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
