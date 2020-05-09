@@ -1,12 +1,8 @@
 package geeksforgeeks;
 
-<<<<<<< HEAD
-//https://www.geeksforgeeks.org/remove-bst-keys-outside-the-given-range/
-=======
 /**
  * https://www.geeksforgeeks.org/remove-bst-keys-outside-the-given-range/
  */
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
 class RemoveBSTGivenOutsideRange {
 
     private static BSTNode removeOutsideRange(BSTNode root, int min, int max) {

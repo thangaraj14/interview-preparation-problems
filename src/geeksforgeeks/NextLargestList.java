@@ -1,12 +1,5 @@
 package geeksforgeeks;
 
-<<<<<<< HEAD
-class NextLargestList {
-    public int[] nextLargerNodes(ListNode head) {
-
-        if (head == null)
-            return new int[0];
-=======
 import java.util.Stack;
 
 /**
@@ -19,7 +12,6 @@ class NextLargestList {
         if (head == null) {
             return new int[0];
         }
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
         int size = getSize(head);
         int[] result = new int[size];
         head = reverse(head);

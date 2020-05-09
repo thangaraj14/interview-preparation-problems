@@ -57,17 +57,12 @@ public class NextGreaterNumber {
     public static void main(String[] args) {
         NextGreaterNumber solution = new NextGreaterNumber();
 
-<<<<<<< HEAD
         int[] number = {6, 9, 3, 8, 6, 5, 2};
         // 6938652
         // 6983652
         // 6982356
         // i =3
         //534976
-=======
-        int[] number = { 6, 9, 3, 8, 6, 5, 2 };
-
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
         solution.findNextGreaterNumber(number);
 
         System.out.println("Next greater number is: ");

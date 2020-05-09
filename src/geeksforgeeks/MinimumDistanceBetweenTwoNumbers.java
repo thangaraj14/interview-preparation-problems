@@ -36,11 +36,8 @@ class MinimumDistanceBetweenTwoNumbers {
 
     public static void main(String[] args) {
         MinimumDistanceBetweenTwoNumbers min = new MinimumDistanceBetweenTwoNumbers();
-<<<<<<< HEAD
         int arr[] = {3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3};
-=======
-        int arr[] = { 3, 5, 4, 3, 1, 2, 4, 6, 5, 6, 6, 5, 4, 8, 3 };
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
+        int arr1[] = { 3, 5, 4, 3, 1, 2, 4, 6, 5, 6, 6, 5, 4, 8, 3 };
         int n = arr.length;
         int x = 3;
         int y = 6;

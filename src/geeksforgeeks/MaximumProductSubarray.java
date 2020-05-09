@@ -26,8 +26,6 @@ public class MaximumProductSubarray {
         return maxsofar;
     }
 
-<<<<<<< HEAD:src/geeksforgeeks/MaximumProductSubarray.java
-=======
     public static int maxSumSubArray(int[] arr) {
 
         int max = Integer.MIN_VALUE;
@@ -44,7 +42,6 @@ public class MaximumProductSubarray {
         return sum;
     }
 
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163:src/geeksforgeeks/MaximumSubarray.java
     public static void main(String[] args) {
         int arr[] = { 1, -2, -3, 0, 8, 7, -2 };
         System.out.println("Maximum Sub array sum is " + maxSumSubArray(arr));

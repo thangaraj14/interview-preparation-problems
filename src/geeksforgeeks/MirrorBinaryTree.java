@@ -31,14 +31,7 @@ class MirrorBinaryTree {
         q.add(root);
 
         while (q.size() > 0) {
-<<<<<<< HEAD
             Node curr = q.poll();
-=======
-
-            Node curr = q.remove();
-
-            // swap the elements
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
             Node temp = curr.left;
             curr.left = curr.right;
             curr.right = temp;

@@ -1,19 +1,6 @@
 package geeksforgeeks;
 
-<<<<<<< HEAD
 class PerfectSquare {
-=======
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
-
-/**
- * https://leetcode.com/problems/perfect-squares/
- */
-class PerfectSquare {
-
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
     public int numSquares(int n) {
         Queue<Integer> q = new LinkedList<>();
         Set<Integer> visited = new HashSet<>();
@@ -43,12 +30,20 @@ class PerfectSquare {
         }
         return depth;
     }
-<<<<<<< HEAD
-=======
 
-    public static void main(String[] args) {
-        PerfectSquare ps = new PerfectSquare();
-        System.out.println(ps.numSquares(13));
+    public int numSquaresDp(int n) {
+        int[] ns = new int[n+1];
+        Arrays.fill(ns , Integer.MAX_VALUE);
+        ns[0] = 0;
+        for(int i=1;i<n+1;i++){
+            int min = Integer.MAX_VALUE;
+            int sqrt = (int)Math.sqrt(i);
+            for(int j=sqrt;j>0;j--){
+                int result = i - j*j;
+                min = Math.min(min, ns[result]+1);
+            }       
+            ns[i] = min;
+        }
+        return ns[n];
     }
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
 }

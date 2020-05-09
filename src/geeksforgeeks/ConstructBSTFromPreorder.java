@@ -41,6 +41,7 @@ class ConstructBSTFromPreorder {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode root = new TreeNode(preorder[0]);
         stack.push(root);
+        //8, 3, 1, 6, 4, 7, 10, 14, 13 
         for (int i = 1; i < preorder.length; i++) {
             TreeNode node = new TreeNode(preorder[i]);
             if (preorder[i] < stack.peek().val) {

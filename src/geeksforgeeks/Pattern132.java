@@ -15,23 +15,12 @@ public class Pattern132 {
         // {3, 3, 3, 1, 1, 1, 1, 1}
 
         for (int j = arr.length - 1, top = arr.length; j >= 0; j--) {
-<<<<<<< HEAD
             if (arr[j] <= temp[j])
                 continue;
             while (top < arr.length && temp[top] <= temp[j])
                 top++;
             if (top < arr.length && arr[j] > temp[top])
                 return true;
-=======
-            if (arr[j] <= temp[j]) {
-                continue;
-            }
-            while (top < arr.length && temp[top] <= temp[j])
-                top++;
-            if (top < arr.length && arr[j] > temp[top]) {
-                return true;
-            }
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
             temp[--top] = arr[j];
         }
         return false;
@@ -39,10 +28,6 @@ public class Pattern132 {
 
     public static void main(String[] args) {
         int[] arr = { 3, 4, 1, 2, 9, 6, 7, 8 };
-<<<<<<< HEAD
-
-=======
->>>>>>> fa44d45e65bd24e807ebda00da7c1fd078295163
         find132pattern(arr);
     }
 }
