@@ -7,9 +7,8 @@ import java.util.Set;
 class WordBreak {
 
     /*
-
 |T| | | | | | | | |
-0 1 2 3 4 5 6 7 8
+ 0 1 2 3 4 5 6 7 8
 
 i = 1
 j = o sub = l
@@ -59,8 +58,8 @@ j = 2 sub = etcode
 j = 3 sub = tcode
 j = 4 sub = code && T[4] and then break
 
-|T| | | |T| | | | T|
-0 1 2 3 4 5 6 7 8
+|T| | | |T| | | |T|
+ 0 1 2 3 4 5 6 7 8
 */
     public boolean wordBreak(String s, List<String> wordDict) {
         if (s == null) {

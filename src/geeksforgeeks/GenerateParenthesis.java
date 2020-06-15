@@ -5,7 +5,17 @@ package geeksforgeeks;
  */
 class GenerateParenthesis {
 
-    static void formParenthesis(char[] str, int pos, int n, int open, int close) {
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<>();
+        if (n == 0)
+            return result;
+
+        generateUtil(n, new StringBuilder(), 0, 0, result);
+
+        return result;
+    }
+
+    public void generateUtil(int n, StringBuilder paran, int open, int close, List<String> result) {
         if (close == n) {
             result.add(paran.toString());
             return;

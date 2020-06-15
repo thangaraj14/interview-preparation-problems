@@ -33,6 +33,22 @@ public class BitonicSearch {
         return -1;
     }
 
+    // instead of writing two methods, we can write a method which contains order aganostic 
+    // binary search, which compares the first and last element at first and inside while
+    // if ascending add below 
+    // if (arr[mid] > key) {
+    //     high = mid - 1;
+    // } else {
+    //     low = mid + 1;
+    // } 
+    //else if decending 
+    // if (arr[mid] < key) {
+    //     high = mid - 1;
+    // } else {
+    //     low = mid + 1;
+    // }
+
+
     // -3,1,-2,-3,-4,-5,-6
     static int findBitonicPoint(int arr[], int n, int l, int r) {
         int mid = ((r + l) / 2) + l;

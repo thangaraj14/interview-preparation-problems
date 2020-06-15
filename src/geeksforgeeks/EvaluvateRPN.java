@@ -11,7 +11,7 @@ package geeksforgeeks;
 // = 17 + 5
 // = 22
 public class EvaluvateRPN {
-    public int evalRPN(String[] tokens) {
+    public int reversePolishNotation(String[] tokens) {
         if(tokens==null && tokens.length==0) return 0;
         Deque<Integer> deque= new ArrayDeque<>();
         for(String i: tokens){

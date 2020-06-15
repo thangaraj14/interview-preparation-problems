@@ -3,7 +3,7 @@ package geeksforgeeks;
 import java.util.*;
 
 /*https://leetcode.com/problems/task-scheduler/*/
-// unresolved
+
 public class TaskLeastInterval {
 
     public static int leastInterval(char[] tasks, int n) {
@@ -17,8 +17,15 @@ public class TaskLeastInterval {
         queue.addAll(map.entrySet());
 
         int count = 0;
+        //At each iteration, we process at most 'n' elements, 
+        //and move forwards exactly n+1 in time (regardless of how many elements we processed:
+        // Read the topmost from the queue and increment the time. Add it to a temp list to be added later.
+        // Add the element back to the queue from the temp list if count is > 0.
+        // if al elements are done, we're done too.
+        // Move time forward by n + 1
+        // Return time in the end.
         while (!queue.isEmpty()) {
-            int k = n + 1;
+            int k = n + 1;  //each time fill k elements, if k is not full, that's the idle 
             List<Map.Entry> tempList = new ArrayList<>();
             while (k > 0 && !queue.isEmpty()) {
                 Map.Entry<Character, Integer> top = queue.poll();
@@ -40,6 +47,6 @@ public class TaskLeastInterval {
 
     public static void main(String[] args) {
         char[] arr = "AAAAAABCDEFG".toCharArray();
-        leastInterval(arr, 2);
+        System.out.println(leastInterval(arr, 2));
     }
 }

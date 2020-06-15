@@ -42,6 +42,19 @@ public class MaximumProductSubarray {
         return sum;
     }
 
+    public int maxSubArray(int[] nums) {
+        if(nums==null || nums.length==0) return 0;
+        
+        int maxHere=0;
+        int max=Integer.MIN_VALUE;
+        for(int i:nums){
+            maxHere=Math.max(i,maxHere+i);
+            max= Math.max(maxHere, max);
+        }
+        
+        return max;
+    }
+
     public static void main(String[] args) {
         int arr[] = { 1, -2, -3, 0, 8, 7, -2 };
         System.out.println("Maximum Sub array sum is " + maxSumSubArray(arr));

@@ -18,6 +18,8 @@ public class SearchElementInSortedAndRotatedArray {
     // 4, 5, 0, 1, 2, 3
     int searchI(int[] nums, int target) {
 
+    // If arr[start] <= arr[middle], the numbers from start to middle are sorted in ascending order.
+    // Else, the numbers from middle+1 to end are sorted in ascending order.
         int start = 0;
         int end = nums.length - 1;
         while (start <= end) {
@@ -73,6 +75,7 @@ public class SearchElementInSortedAndRotatedArray {
                 else right = mid-1;
         }
     }
+    return false;
     }
     //[2,5,6,0,0,1,2]
     //        0

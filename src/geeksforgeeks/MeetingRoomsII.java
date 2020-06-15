@@ -36,4 +36,31 @@ public class MeetingRoomsII {
         return queue.size();
 
     }
+
+    // Input: schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+    // Output: [[3,4]]
+
+    public List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
+        PriorityQueue<Interval> que = new PriorityQueue<>((a, b) -> a.start - b.start);
+        
+        for (List<Interval> list : schedule) {
+            for (Interval i : list) {
+                que.add(i);
+            }
+        }
+        
+        List<Interval> rt = new ArrayList<>();
+        int max = -1;
+        while (!que.isEmpty()) {
+            Interval top = que.poll();
+            if (max != -1 && top.start > max) {
+                rt.add(new Interval(max, top.start));
+            }
+            max = Math.max(max, top.end);
+        }
+        
+        return rt;
+    }
+
+    
 }

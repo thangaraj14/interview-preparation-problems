@@ -16,14 +16,12 @@ class MinimumWindowSubstring {
     public static String minWindow(String s, String t) {
         if (t.length() > s.length()) {
             return "";
+        }
             Map<Character, Integer> map = new HashMap<>();
             for (char c : t.toCharArray()) {
                 map.put(c, map.getOrDefault(c, 0) + 1);
             }
-            Map<Character, Integer> map = new HashMap<>();
-            for (char c : t.toCharArray()) {
-                map.put(c, map.getOrDefault(c, 0) + 1);
-            }
+
             int counter = map.size();
 
             int begin = 0, end = 0;
@@ -62,4 +60,3 @@ class MinimumWindowSubstring {
             return s.substring(head, head + len);
         }
     }
-}

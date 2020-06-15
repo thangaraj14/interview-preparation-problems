@@ -24,9 +24,20 @@ public class ProductExceptSelf {
         int n = nums.length;
         int[] res = new int[n];
         res[0] = 1;
+        
         for (int i = 1; i < n; i++) {
             res[i] = res[i - 1] * nums[i - 1];
         }
+        // once building the left product instead of having a new array to calculate rightsum
+        // we use a variable to store last seen value 
+        // for number                 2    3    4     5
+        // the left product array is  1    2  2*3 2*3*4
+
+        // for rightProd during step1 2    3    4     5  right is 1 so last product value retained
+        //                                         2*3*4   
+        // during step 2 the right becomes 5(1*nums[i]=>5)
+        // so for value 4(length-2) the left product is 2*3 multiplying with 5 becomes 2*3*5
+        // during step 3 the right is updated to (5*nums[i]=>4) 20
         int right = 1;
         for (int i = n - 1; i >= 0; i--) {
             res[i] *= right;

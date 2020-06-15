@@ -35,7 +35,13 @@ public class MaximumUnsortedSubarray {
                 break;
             }
         }
-
+        //  [1, 3, 2, 0, -1, 7, 10] 
+        // the initial finding gives you 3 and -1 however the original sort array is
+        // [1, -1, 0, 2, 3, 7, 10], 
+        //The problem here is that the smallest number of our subarray is ‘-1’
+        // which dictates that we need to include more numbers from the beginning of the array
+        // We will have a similar problem 
+        //if the maximum of the subarray is bigger than some elements at the end of the array
         // find min and max in the range [start, end]
         int min = A.get(start);
         int max = A.get(start);
