@@ -38,9 +38,29 @@ public class MaximumSubarray {
         return maxSoFar;
     }
 
+    /**
+     * https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/
+     */
+    public static int maximumSum(int[] arr) {
+        int n = arr.length;
+        int[] maxWithOneDeletion = new int[n];
+        int[] maxWithNoDeletion = new int[n];
+        int max = Integer.MIN_VALUE;
+        maxWithNoDeletion[0] = arr[0];
+        max = Math.max(maxWithNoDeletion[0], max);
+        for (int i = 1; i < n; i++) {
+            maxWithOneDeletion[i] = Math.max(maxWithNoDeletion[i - 1], maxWithOneDeletion[i - 1] + arr[i]);
+            maxWithNoDeletion[i] = Math.max(maxWithNoDeletion[i - 1] + arr[i], arr[i]);
+            max = Math.max(maxWithOneDeletion[i], max);
+            max = Math.max(maxWithNoDeletion[i], max);
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
-        int arr[] = { 1, -2, -3, 0, 8, 7, -2 };
-        System.out.println("Maximum Sub array sum is " + maxSumSubArray(arr));
-        System.out.println("Maximum Sub array product is " + maxProductSubArray(arr));
+        int arr[] = { 2, -4, 7, -6, 1, 9, -3 };
+  /*      System.out.println("Maximum Sub array sum is " + maxSumSubArray(arr));
+        System.out.println("Maximum Sub array product is " + maxProductSubArray(arr));*/
+        System.out.println(maxSumSubArray(arr));
     }
 }

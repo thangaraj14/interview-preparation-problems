@@ -8,7 +8,9 @@ import java.util.PriorityQueue;
  */
 public class MedianOfRunningIntegers {
 
+    //   minimum of maximum
     PriorityQueue<Integer> min = new PriorityQueue<>();
+    //  maximum of minimum
     PriorityQueue<Integer> max = new PriorityQueue<>(Collections.reverseOrder());
 
     // 6,8,1,4,9,2,3,5

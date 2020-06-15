@@ -5,10 +5,9 @@ import java.util.Arrays;
 public class SpiralMatrixII {
 
     public static int[][] generateMatrix(int n) {
-        // Declaration
+
         int[][] matrix = new int[n][n];
 
-        // Edge Case
         if (n == 0) {
             return matrix;
         }
@@ -31,23 +30,23 @@ public class SpiralMatrixII {
             }
             colEnd--;
 
+
             for (int i = colEnd; i >= colStart; i--) {
-	            if (rowStart <= rowEnd) {
-		            matrix[rowEnd][i] = num++; // change
-	            }
+                if (rowStart <= rowEnd) {
+                    matrix[rowEnd][i] = num++; // change
+                }
             }
             rowEnd--;
 
             for (int i = rowEnd; i >= rowStart; i--) {
-	            if (colStart <= colEnd) {
-		            matrix[i][colStart] = num++; // change
-	            }
+                if (colStart <= colEnd) {
+                    matrix[i][colStart] = num++; // change
+                }
             }
             colStart++;
 
             System.out.println(Arrays.deepToString(matrix));
         }
-
         return matrix;
     }
 

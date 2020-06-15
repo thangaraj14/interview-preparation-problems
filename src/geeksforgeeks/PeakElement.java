@@ -23,15 +23,6 @@ public class PeakElement {
 
     int findPeakElement(int[] nums) {
         int n = nums.length;
-        if (n == 0) {
-            return -1;
-        }
-        if (n == 1) {
-            return 0;
-        }
-        if (n == 2) {
-            return nums[0] > nums[1] ? 0 : 1;
-        }
         int low = 0, high = n - 1;
         while (low + 2 <= high) {
             int mid = low + (high - low) / 2;
@@ -49,7 +40,7 @@ public class PeakElement {
 
     public static void main(String[] args) {
         PeakElement pe = new PeakElement();
-        int[] arr = { 1, 1, 1, 3, 2, 1, 2 };
+        int[] arr = { 1, 2, 1, 3, 5, 6, 4 };
         System.out.println(arr[pe.findPeakElement(arr)]);
     }
 
