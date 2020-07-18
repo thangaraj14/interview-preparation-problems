@@ -1,7 +1,6 @@
 package geeksforgeeks;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * https://www.geeksforgeeks.org/two-elements-whose-sum-is-closest-to-zero/

@@ -1,8 +1,13 @@
 package geeksforgeeks;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+/**
+ * https://leetcode.com/problems/word-break/
+ */
 
 class WordBreak {
 
@@ -62,7 +67,7 @@ j = 4 sub = code && T[4] and then break
 |T| | | |T| | | | T|
 0 1 2 3 4 5 6 7 8
 */
-    public boolean wordBreak(String s, List<String> wordDict) {
+    public static boolean wordBreak(String s, List<String> wordDict) {
         if (s == null) {
             return false;
         }
@@ -78,7 +83,12 @@ j = 4 sub = code && T[4] and then break
                 }
             }
         }
-
         return dp[s.length()];
+    }
+
+    public static void main(String[] args) {
+        String str = "leetcode";
+        String[] wordDict = { "leet", "code" };
+        wordBreak(str, Arrays.asList(wordDict));
     }
 }

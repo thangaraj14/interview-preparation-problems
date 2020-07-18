@@ -22,7 +22,10 @@ https://leetcode.com/discuss/interview-question/383669/
 public class UniquePathMaximum {
 
     public static void main(String[] args) {
-        int[][] matrix = { { 6, 7, 8 }, { 5, 4, 2 }, { 8, 7, 6 } };
+        int[][] matrix = {  { 6, 7, 8 },
+                            { 5, 4, 2 },
+                            { 8, 7, 6 }
+                        };
         System.out.println(findMaximumOfUniquePath(matrix));
     }
 

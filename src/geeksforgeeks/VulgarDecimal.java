@@ -1,10 +1,11 @@
 package geeksforgeeks;
 
-/*https://leetcode.com/problems/fraction-to-recurring-decimal/*/
-
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://leetcode.com/problems/fraction-to-recurring-decimal
+ */
 public class VulgarDecimal {
 
     public static String fractionToDecimal(long numerator, long denominator) {
@@ -17,9 +18,7 @@ public class VulgarDecimal {
         long numerL = Math.abs(numerator);
 
         Map<Long, Integer> map = new HashMap<>();
-
         StringBuilder sb = new StringBuilder();
-
         sb.append(numerL / denomiL);
 
         if (numerL % denomiL != 0) {
@@ -38,8 +37,8 @@ public class VulgarDecimal {
         while (numerL > 0) {
 
             numerL *= 10;
-            sb.append((numerL / denomiL));
-            numerL = (numerL % denomiL);
+            sb.append(numerL / denomiL);
+            numerL = numerL % denomiL;
 
             if (map.containsKey(numerL)) {
                 int index = map.get(numerL);
@@ -63,8 +62,8 @@ public class VulgarDecimal {
     public static boolean doTestsPass() {
         boolean testsPassed = true;
 
-        // testsPassed &= fractionToDecimal(1l, 2l).equals("0.5");
-        //testsPassed &= fractionToDecimal(1l, 3l).equals("0.(3)");
+        //         testsPassed &= fractionToDecimal(1l, 2l).equals("0.5");
+        //        testsPassed &= fractionToDecimal(1l, 3l).equals("0.(3)");
         //testsPassed &= fractionToDecimal(1l, 30l).equals("0.0(3)");
         //testsPassed &= fractionToDecimal(1l, 75l).equals("0.01(3)");
         testsPassed &= fractionToDecimal(4l, 7l).equals("0.(571428)");

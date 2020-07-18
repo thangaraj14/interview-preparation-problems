@@ -32,14 +32,12 @@ public class WordSearch {
             return true;
         }
         // resetting to old char since its DFS
-
         board[i][j] = word.charAt(index);
         return false;
     }
 
     public static void main(String[] args) {
         char[][] board = { { 'C', 'A', 'A' }, { 'A', 'A', 'A' }, { 'B', 'C', 'D' } };
-
         System.out.println(exist(board, "AAB"));
     }
 }

@@ -1,12 +1,14 @@
 package geeksforgeeks;
 
 /**
+ * https://leetcode.com/problems/valid-parenthesis-string/
  * https://leetcode.com/problems/valid-parenthesis-string/discuss/543521/Java-Count-Open-Parenthesis-O(n)-time-O(1)-space-Clean-Explain
  */
 public class ValidParenthesisString {
 
     public boolean checkValidString(String s) {
-        int cmin = 0, cmax = 0; // open parentheses count in range [cmin, cmax]
+        int cmin = 0;
+        int cmax = 0; // open parentheses count in range [cmin, cmax]
         for (char c : s.toCharArray()) {
             if (c == '(') {
                 cmax++;
@@ -31,6 +33,6 @@ public class ValidParenthesisString {
 
     public static void main(String[] args) {
         ValidParenthesisString validParenthesisString = new ValidParenthesisString();
-        validParenthesisString.checkValidString("(*)");
+        System.out.println(validParenthesisString.checkValidString("())("));
     }
 }

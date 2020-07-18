@@ -24,6 +24,6 @@ public class UniqueElementsInArray {
 
     public static void main(String[] args) {
         int[] nums = { 1, 2, 3, 2, 1, 4, 3 };
-        xorApproach(nums);
+        System.out.println(xorApproach(nums));
     }
 }

@@ -6,17 +6,18 @@ package geeksforgeeks;
 class ValidPalindromeII {
 
     public static boolean validPalindrome(String s) {
-        int i = 0, j = s.length() - 1;
-        while (i < j && s.charAt(i) == s.charAt(j)) {
-            i++;
-            j--;
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right && s.charAt(left) == s.charAt(right)) {
+            left++;
+            right--;
         }
 
-        if (i >= j) {
+        if (left >= right) {
             return true;
         }
 
-        if (isPalindrome(s, i + 1, j) || isPalindrome(s, i, j - 1)) {
+        if (isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1)) {
             return true;
         }
         return false;
@@ -35,6 +36,6 @@ class ValidPalindromeII {
     }
 
     public static void main(String[] args) {
-        System.out.println(validPalindrome("ddeeeef"));
+        System.out.println(validPalindrome("deedf"));
     }
 }

@@ -1,5 +1,6 @@
 package geeksforgeeks;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -53,6 +54,9 @@ public class WordLadder {
     }
 
     public static void main(String[] args) {
-        //        ladderLength()
+        String beginWord = "hit";
+        String endWord = "cog";
+        String[] wordList = { "hot", "dot", "dog", "lot", "log", "cog" };
+        System.out.println(ladderLength(beginWord, endWord, Arrays.asList(wordList)));
     }
 }

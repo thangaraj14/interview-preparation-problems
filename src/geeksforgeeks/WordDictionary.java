@@ -22,15 +22,12 @@ public class WordDictionary {
     public void addWord(String word) {
 
         TrieNode temp = root;
-
         for (char c : word.toCharArray()) {
             if (temp.children.get(c) == null) {
                 temp.children.put(c, new TrieNode());
             }
-
             temp = temp.children.get(c);
         }
-
         temp.eow = true;
     }
 
@@ -38,19 +35,19 @@ public class WordDictionary {
         return match(word.toCharArray(), 0, root);
     }
 
-    private boolean match(char[] chs, int k, TrieNode node) {
+    private boolean match(char[] ch, int k, TrieNode node) {
 
-        if (k == chs.length) {
+        if (k == ch.length) {
             return node.eow;
         }
-        if (chs[k] == '.') {
-            for (Character curr : node.children.keySet()) {
-                if (node.children.get(curr) != null && match(chs, k + 1, node.children.get(curr))) {
+        if (ch[k] == '.') {
+            for (Character curr : node.children.keySet()) { // traverse all the children
+                if (node.children.get(curr) != null && match(ch, k + 1, node.children.get(curr))) {
                     return true;
                 }
             }
         } else {
-            return node.children.get(chs[k]) != null && match(chs, k + 1, node.children.get(chs[k]));
+            return node.children.get(ch[k]) != null && match(ch, k + 1, node.children.get(ch[k]));
         }
         return false;
     }

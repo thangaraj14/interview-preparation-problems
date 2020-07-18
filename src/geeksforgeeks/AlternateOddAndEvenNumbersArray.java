@@ -5,22 +5,25 @@ package geeksforgeeks;
 
 /**
  * https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/
+ * https://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items-o1-extra-space/
  */
 class AlternateOddAndEvenNumbersArray {
 
     static void rearrange(int arr[], int n) {
         //-1, 2, -3, 4, 5, 6, -7, 8, 9
-        int i = -1, temp = 0;
+        int i = 0;
+        int temp;
         for (int j = 0; j < n; j++) {
             if (arr[j] < 0) {
-                i++;
                 temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
+                i++;
             }
         }
 
-        int pos = i + 1, neg = 0;
+        int pos = i;
+        int neg = 0;
 
         while (pos < n && neg < pos && arr[neg] < 0) {
             temp = arr[neg];
@@ -44,5 +47,4 @@ class AlternateOddAndEvenNumbersArray {
         System.out.println("Array after rearranging: ");
         printArray(arr, n);
     }
-
 }

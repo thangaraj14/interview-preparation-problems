@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+/**
+ * https://leetcode.com/problems/design-search-autocomplete-system/
+ */
 class AutoCompleteSystem {
 
     class TrieNode {
@@ -60,11 +63,9 @@ class AutoCompleteSystem {
             curr = curr.children.get(ch);
         }
 
-        Comparator<Map.Entry<String, Integer>> cmp = new Comparator<Map.Entry<String, Integer>>() {
-            public int compare(Map.Entry<String, Integer> a, Map.Entry<String, Integer> b) {
-                return a.getValue() == b.getValue() ? b.getKey().compareTo(a.getKey()) : a.getValue() - b.getValue();
-            }
-        };
+        Comparator<Map.Entry<String, Integer>> cmp = (a, b) -> a.getValue() == b.getValue() ?
+                b.getKey().compareTo(a.getKey()) :
+                a.getValue() - b.getValue();
         PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(cmp);
         int k = 3;
         for (Map.Entry<String, Integer> entry : curr.counts.entrySet()) {
