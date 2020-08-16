@@ -1,5 +1,10 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
+
 /**
  * Given a sorted array arr, two integers k and x, find the k closest elements to x in the array.
  * Input: arr = [1,2,3,4,5], k = 4, x = 3

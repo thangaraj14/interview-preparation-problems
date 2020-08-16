@@ -77,7 +77,8 @@ class CourseSchedule {
 		for(int[] preReq:prerequisites){
 			adjList[preReq[0]].add(preReq[1]);
 		}
-
+        // this visited array will maintain 3 values 0,1 and 2
+        // 0-unvisited, 1-being visited and 2 visited
 		int[] visited= new int[numCourses];
 		for(int i=0;i<numCourses;i++){
 
@@ -89,12 +90,12 @@ class CourseSchedule {
 	}
 
 	public boolean dfs( ArrayList<Integer>[] adjList, int[] visited, int vertex){
-		if(visited[vertex]==1) return false;
+		if(visited[vertex]==1) return false; // when a node comes with being visited state, we fail it
 		visited[vertex]=1;
 		for(int adj: adjList[vertex]){
 			if(!dfs(adjList, visited, adj)) return false;
 		}
-		visited[vertex]=2;
+		visited[vertex]=2; // finally we set visited to true
 		return true;
     }
     // this is to get the order of course as output

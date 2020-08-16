@@ -1,13 +1,7 @@
 package geeksforgeeks;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-// unresolved
 public class IsomorphicArray {
     public Collection<List<String>> groupIsomorphicStrings(List<String> strings) {
         if (strings == null || strings.isEmpty()) {
@@ -27,7 +21,12 @@ public class IsomorphicArray {
         }
         return hashToList.values();
     }
-
+    // this method returns a hash value for every string passed in
+    // apple = 12234
+    // apply = 12234
+    // dog = 123
+    // cog = 123
+    // romi = 1234
     private String hash(String s) {
         if (s.isEmpty()) {
             return "";
@@ -40,13 +39,18 @@ public class IsomorphicArray {
 
         for (char c : s.toCharArray()) {
 
-            if (map.containsKey(c)) {
-                hash.append(map.get(c));
-            } else {
+            if (!map.containsKey(c)) {
                 map.put(c, count++);
-                hash.append(map.get(c));
             }
+            hash.append(map.get(c));
         }
+        System.out.println(s +" = "+hash.toString() );
         return hash.toString();
+    }
+
+    public static void main(String[] args) {
+        Collection<List<String>> result = new IsomorphicArray()
+                .groupIsomorphicStrings(Arrays.asList("apple", "apply", "dog", "cog", "romi"));
+        result.stream().forEach(System.out::println);
     }
 }

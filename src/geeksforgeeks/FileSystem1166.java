@@ -1,4 +1,28 @@
 package geeksforgeeks;
+
+import java.util.HashMap;
+
+/**
+ * You are asked to design a file system which provides two functions:
+ *
+ * createPath(path, value): Creates a new path and associates a value to it if possible and returns True.
+ *                          Returns False if the path already exists or its parent path doesn't exist.
+ *
+ * get(path): Returns the value associated with a path or returns -1 if the path doesn't exist.
+ * 
+ *      ["FileSystem","createPath","createPath","get","createPath","get"]
+ *      [[],["/leet",1],["/leet/code",2],["/leet/code"],["/c/d",1],["/c"]]
+ * Output:
+ *      [null,true,true,2,false,-1]
+ * Explanation:
+ *        FileSystem fileSystem = new FileSystem();
+ *
+ *      fileSystem.createPath("/leet", 1); // return true
+ *      fileSystem.createPath("/leet/code", 2); // return true
+ *      fileSystem.get("/leet/code"); // return 2
+ *      fileSystem.createPath("/c/d", 1); // return false because the parent path "/c" doesn't exist.
+ *      fileSystem.get("/c"); // return -1 because this path doesn't exist.
+ */
 public class FileSystem1166 {
 
     private HashMap<String, Integer> m = new HashMap<>();
@@ -7,7 +31,7 @@ public class FileSystem1166 {
      * Initialization of class.
      * Use a hash map to store the path and value.
      */
-    public FileSystem_1166() {
+    public  FileSystem1166() {
         m.put("", -1);      // avoid initially when path is "/a" regarded as false
     }
 

@@ -49,7 +49,6 @@ public class FindMinimumInRotatedArray {
         
         return nums[start];
     }
-
     public static void main(String[] args) {
         int[] arr = { 7, 1, 2, 3, 4, 5, 6 };
         findMin(arr);

@@ -1,5 +1,17 @@
 package geeksforgeeks;
 
+/**
+ * Given a string array words, find the maximum value of length(word[i]) * length(word[j])
+ * where the two words do not share common letters.
+ * You may assume that each word will contain only lower case letters
+ * Input: ["abcw","baz","foo","bar","xtfn","abcdef"]
+ * Output: 16
+ * Explanation: The two words can be "abcw", "xtfn".
+ *
+ * Input: ["a","aa","aaa","aaaa"]
+ * Output: 0
+ * Explanation: No such pair of words.
+ */
 public class MaxProductString {
     public int maxProduct(String[] words) {
         int[] checker = new int[words.length];
@@ -8,11 +20,11 @@ public class MaxProductString {
         for (int i = 0; i < checker.length; i++) {
             int num = 0;
             for (int j = 0; j < words[i].length(); j++) {
-
-                // a 1->1
-                // b 2->10
+                // we are making char index in bit to be set
+                // a 1->1 making first bit marked
+                // b 2->10 
                 // c 4->100
-                // ab 3->11
+                // ab 3->11 // making first and secind marked
                 // ac 5->101
                 // abc 7->111
                 // az 33554433->10000000000000000000000001

@@ -1,8 +1,11 @@
 package geeksforgeeks;
 
-//https://leetcode.com/problems/ipo/
-// Input: distinctProjToFind=2, capital=0, Profits=[1,2,3], Capital=[0,1,1].
 
+
+import java.util.PriorityQueue;
+//https://leetcode.com/problems/ipo/
+
+// Input: distinctProjToFind=2, capital=0, Profits=[1,2,3], Capital=[0,1,1].
 // Output: 4
 
 // Explanation: Since your initial capital is 0, you can only start the project indexed 0.
@@ -19,25 +22,25 @@ public class IPOMaxProfit {
     // Poll one from pqPro, it's guaranteed to be the project with max profit and within current capital capability. 
     //Add the profit to capital W.
     //Repeat step 2 and 3 till finish k steps or no suitable project (pqPro.isEmpty()).
-    public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {
+    public int findMaximizedCapital(int steps, int initialCapital, int[] Profits, int[] Capital) {
         
-        PriorityQueue<int[]> minQueue= new PriorityQueue<>((a,b)->Integer.compare(a[0],b[0]));
+        PriorityQueue<int[]> minQueue= new PriorityQueue<>((a, b)->Integer.compare(a[0],b[0]));
         PriorityQueue<int[]> maxQueue= new PriorityQueue<>((a,b)->Integer.compare(b[1],a[1]));
         
         for(int i=0;i<Profits.length;i++){
             minQueue.offer(new int[]{Capital[i], Profits[i]});
         }
-        for (int i = 0; i < k; i++) {
-            while(!minQueue.isEmpty() && minQueue.peek()[0]<=W){
+        for (int i = 0; i < steps; i++) {
+            while(!minQueue.isEmpty() && minQueue.peek()[0]<=initialCapital){
                 maxQueue.offer(minQueue.poll());
             }
             
             if(maxQueue.isEmpty()) break;
             
-            W+=maxQueue.poll()[1];
+            initialCapital+=maxQueue.poll()[1];
            
         }
-        return W;
+        return initialCapital;
         
     }
 }

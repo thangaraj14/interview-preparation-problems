@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 // s = "3[a2[c]]", return "accaccacc".
 // s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
 public class DecodeString {
@@ -10,8 +13,9 @@ public class DecodeString {
         Deque<Integer> count = new ArrayDeque<>();
         Deque<String> result = new ArrayDeque<>();
         int start = 0;
-        StringBuilder tempRes = new StringBuilder();
+        StringBuilder tempResult = new StringBuilder();
         while (start < s.length()) {
+            // whenever we see number, we push to count queue
             if (Character.isDigit(s.charAt(start))) {
                 int num = 0;
                 while (Character.isDigit(s.charAt(start))) {
@@ -20,22 +24,26 @@ public class DecodeString {
                 }
                 count.push(num);
             } else if (s.charAt(start) == '[') {
-                result.push(tempRes.toString());
-                tempRes = new StringBuilder();
+                // whenever we see a open brace we push the string we have to result queue
+                result.push(tempResult.toString());
+                tempResult = new StringBuilder();
                 start++;
             } else if (s.charAt(start) == ']') {
+                // whenever a closing brace comes, we pop the last seen count and last seen string
+                // and replicate that string and stores in temp result
                 StringBuilder sb = new StringBuilder(result.pop());
                 int tempCount = count.pop();
                 for (int i = 0; i < tempCount; i++) {
-                    sb.append(tempRes);
+                    sb.append(tempResult);
                 }
-                tempRes = sb;
+                tempResult = sb;
                 start++;
             } else {
-                tempRes.append(s.charAt(start++));
+                // whenever we see a char, we push to result string
+                tempResult.append(s.charAt(start++));
             }
         }
 
-        return tempRes.toString();
+        return tempResult.toString();
     }
 }

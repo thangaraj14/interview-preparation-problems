@@ -24,7 +24,7 @@ public class CountAndSay {
             char val = result.charAt(p);
             int count = 0;
 
-            while (p < result.length() && result.charAt(p) == val) {
+            while (p < result.length() && result.charAt(p) == val) {  // note that p and val will be same in first run, to count single instance
                 p++;
                 count++;
             }

@@ -1,6 +1,6 @@
 package geeksforgeeks;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * https://www.geeksforgeeks.org/next-greater-element/
@@ -9,7 +9,7 @@ import java.util.Stack;
  */
 class NextGreaterElement {
 
-    static int arr[] = { 4, 5, 2, 25 };
+    static int arr[] = { 1,3,4,2 };
 
     // 9,1,2,3,4,5,6,7
     public static void printNGE() {
@@ -59,7 +59,7 @@ class NextGreaterElement {
 // Explanation: The first 1's next greater number is 2; 
 // The number 2 can't find next greater number; 
 // The second 1's next greater number needs to search circularly, which is also 2.
-    public static int[] nextGreaterElementCircular(int[] arr){
+    public static int[] nextGreaterElementCircular(int[] nums){
         if(nums==null || nums.length==0) return new int[0];
         int[] result= new int[nums.length];
         int n= nums.length;
@@ -67,13 +67,18 @@ class NextGreaterElement {
         Deque<Integer> deque= new ArrayDeque<>();
         // to mimic the circular array we iterate for 2*n because input [1,2,1] will be like [1,2,1,1,2,1]
         // and we take mod of 'n' to update the correct index
-        for(int i=0;i<2*nums.length;i++){
-            
-            while(!deque.isEmpty() && nums[deque.getLast()]<nums[i%n]){
-                result[deque.removeLast()]=nums[i%n];
+        for (int i = 2 * nums.length - 1; i >= 0; --i) {
+
+            while (!deque.isEmpty() && nums[deque.peek()] <= nums[i % nums.length]) {
+                deque.pop();
             }
-            deque.addLast(i%n);
-           
+            // The stack is either empty, when no "greater element" is found to the right of nums[i],
+            // or contains the next greater element of nums[i] at the top.
+            result[i % nums.length] = deque.isEmpty() ? -1 : nums[deque.peek()];
+
+            // Push i into stack, so that nums[i-1] will compare with nums[i] first, before falling back to
+            // the next greater element of nums[i]
+            deque.push(i % nums.length);
         }
         
         return result;
