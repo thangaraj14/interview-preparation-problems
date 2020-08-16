@@ -32,6 +32,21 @@ public class UniquePath {
         return dp[row - 1][col - 1];
     }
 
+     /**
+     * Now consider if some obstacles are added to the grids. How many unique paths would there be?
+     * Input:
+     * [
+     *   [0,0,0],
+     *   [0,1,0],
+     *   [0,0,0]
+     * ]
+     * Output: 2
+     * Explanation:
+     * There is one obstacle in the middle of the 3x3 grid above.
+     * There are two ways to reach the bottom-right corner:
+     * 1. Right -> Right -> Down -> Down
+     * 2. Down -> Down -> Right -> Right
+     */
     private static int uniquePathII(int[][] mat) {
 
         if (obstacleGrid[0][0] == 1)

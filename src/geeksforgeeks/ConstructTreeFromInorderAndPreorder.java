@@ -9,31 +9,40 @@ import java.util.Map;
  */
 class ConstructTreeFromInorderAndPreorder {
 
+    // The basic idea is here:
+    // Say we have 2 arrays, PRE and IN.
+    // Preorder traversing implies that PRE[0] is the root node.
+    // Then we can find this PRE[0] in IN, say it's IN[5].
+    // Now we know that IN[5] is root, so we know that IN[0] - IN[4] is on the left
+    // side, IN[6] to the end is on the right side.
+    // Recursively doing this on subarrays, we can build a tree out of it :)
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        Map<Integer, Integer> inMap = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> set = new LinkedList<>();
+
         for (int i = 0; i < inorder.length; i++) {
-            inMap.put(inorder[i], i);
+            map.put(inorder[i], i);
         }
-        List<Integer> pre = new LinkedList<>();
+
         for (int i = 0; i < preorder.length; i++) {
-            pre.add(preorder[i]);
+            set.add(preorder[i]);
         }
-        TreeNode root = buildTree(pre, 0, inorder.length - 1, inMap);
-        return root;
+
+        return buildTreeUtil(map, set, 0, inorder.length - 1);
+
     }
 
-    public TreeNode buildTree(ArrayList<Integer> pre, int inStart, int inEnd, Map<Integer, Integer> inMap) {
-        if (inStart > inEnd) {
+    public TreeNode buildTreeUtil(Map<Integer, Integer> map, List<Integer> set, int start, int end) {
+        if (start > end)
             return null;
-        }
-
-        TreeNode root = new TreeNode(pre.get(0));
-        int inRoot = inMap.get(root.val);
-        pre.remove(0);
-
-        root.left = buildTree(pre, inStart, inRoot - 1, inMap);
-        root.right = buildTree(pre, inRoot + 1, inEnd, inMap);
-
+        if (set.isEmpty())
+            return null;
+        int rootval = set.get(0);
+        set.remove(0);
+        TreeNode root = new TreeNode(rootval);
+        int inorderIndex = map.get(rootval);
+        root.left = buildTreeUtil(map, set, start, inorderIndex - 1);
+        root.right = buildTreeUtil(map, set, inorderIndex + 1, end);
         return root;
     }
 }

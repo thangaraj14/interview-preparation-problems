@@ -5,6 +5,8 @@ package geeksforgeeks;
 // Return any permutation of A that maximizes its advantage with respect to B.
 //Input: A = [12,24,8,32], B = [13,25,32,11]
 //Output: [24,32,8,12]
+// Input: A = [2,7,11,15], B = [1,10,4,11]
+// Output: [2,11,7,15]
 public class AdvantageShuffle {
     public int[] advantageCount(int[] A, int[] B) {
         Arrays.sort(A); 
@@ -15,6 +17,8 @@ public class AdvantageShuffle {
         }
         int[] result= new int[A.length]; // new placeholder for result;
         int lo=0; int hi= A.length-1; // start and end index
+          //B is transformed to [32,25,13,11]
+         //A is transformed to  [8,12,24,32]
         while(!pq.isEmpty()){
             Integer[] temp= pq.poll();
             int index=temp[1];

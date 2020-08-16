@@ -35,7 +35,11 @@ class CountingInversion {
                 temp[k++] = arr[i++];
             } else {
                 temp[k++] = arr[j++];
-
+                // the reason to put mid-i is take example of  [1,3,5] [2,4,6]
+                // left is 0 and right is mid at start
+                // when i=1 and j=0 (value 3 and 2) we see an inversion, since
+                // the first part is sorted and values after i=1(3) will be greater than j=0(2)
+                // so we consider all elements after 3 as inversions
                 invCount = invCount + (mid - i);
             }
         }

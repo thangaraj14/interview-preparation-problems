@@ -3,6 +3,7 @@ package geeksforgeeks;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/82241/AC-solution-using-Java-HashMap
@@ -25,6 +26,9 @@ public class IntersectionOfArrays {
     }
 
     public int[] intersect(int[] nums1, int[] nums2) {
+        //The first question is relatively easy, create a hashmap base on number frequency of nums1(whichever one is longer).
+
+        // Then for every element of nums2, look upon the hashmap. If we found an intersection, deduct by 1 to avoid duplicate.
         HashMap<Integer, Integer> map = new HashMap<>();
         ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i < nums1.length; i++) {
@@ -44,5 +48,32 @@ public class IntersectionOfArrays {
         }
 
         return r;
+    }
+
+    //What if the given array is already sorted? How would you optimize your algorithm?
+     // Classic two pointer iteration, i points to nums1 and j points to nums2.
+    // Because a sorted array is in ascending order, so if nums1[i] > nums[j], we need to increment j, and vice versa.
+    // Only when nums1[i] == nums[j], we add it to the result array. Time Complexity O(max(N, M))
+    public int[] intersectSorted(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int n = nums1.length, m = nums2.length;
+        int i = 0, j = 0;
+        List<Integer> list = new ArrayList<>();
+        while(i < n && j < m){
+            int a = nums1[i], b= nums2[j];
+            if(a == b){
+                list.add(a);
+                i++;
+                j++;
+            }else if(a < b){
+                i++;
+            }else{
+                j++;
+            }
+        }
+        int[] ret = new int[list.size()];
+        for(int k = 0; k < list.size();k++) ret[k] = list.get(k);
+        return ret;
     }
 }

@@ -1,5 +1,10 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:
    Si % Sj = 0 or Sj % Si = 0.
@@ -37,13 +42,13 @@ public class LargestDivisibleSubset {
         List<Integer> re;
 
         for(int i=nums.length-1;i>=0;i--){
-            result[i]=new ArrayList<>();
+            result[i]=new ArrayList<>(); // every element is an answer itself
             re= new ArrayList<>();
             result[i].add(nums[i]);
             for(int j=i+1;j<nums.length;j++){
                 if(nums[j]%nums[i]==0){ // when mod is zero, check for greater list size that posis has
-                    if(result[j].size() > re.size()){
-                        re=result[j];
+                    if(result[j].size() > re.size()){ // this is to take even if 1 element is at j position
+                        re=result[j]; // the reason we take list is consider 4,8,24 when i is at 4 and j is 8 mod is 0 means 4%24 is also zero
                     }
                 }
             }

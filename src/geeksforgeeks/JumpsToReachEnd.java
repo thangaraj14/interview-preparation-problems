@@ -3,11 +3,13 @@ package geeksforgeeks;
 import java.util.*;
 
 public class JumpsToReachEnd {
+
     public static boolean canReachEnd(List<Integer> maxAdvanceSteps) {
         int furthestReachSoFar = 0, lastlndex = maxAdvanceSteps.size() - 1;
         
+        //i <= furthestReachSoFar && furthestReachSoFar < lastlndex this is the imp part of the solution
         for (int i = 0; i <= furthestReachSoFar && furthestReachSoFar < lastlndex; ++i) {
-            // for every index store maxsteps it can take and i should be
+            // for every index store max-steps it can take and i should be
             // less than maxSteps to check if it can move further 
             // e.x (3, 2, 0, 0, 2, 0,1) when index i is 3 maxStpes is also 3, it cannot move further
             furthestReachSoFar = Math.max(furthestReachSoFar, i + maxAdvanceSteps.get(i));
@@ -15,10 +17,11 @@ public class JumpsToReachEnd {
         return furthestReachSoFar >= lastlndex;
     }
 
+
     // Given an array of non-negative integers arr, you are initially positioned at start index of the array.
     //  When you are at index i, you can jump to i + arr[i] or i - arr[i],
     //   check if you can reach to any index with value 0.
-    public boolean canReachIII(int[] arr, int start) {
+    public boolean canReach(int[] arr, int start) {
         // visited check included
         if(start>=arr.length || start<0 || arr[start]>arr.length || arr[start]<0) return false;
         if(arr[start]==0 ) return true;
@@ -27,7 +30,7 @@ public class JumpsToReachEnd {
 
     }
 
-    public int jump(int[] nums) {
+    public int minJump(int[] nums) {
         if(nums==null || nums.length==0) return 0;
         int currentMax=0;
         int currentEnd=0;
@@ -40,7 +43,9 @@ public class JumpsToReachEnd {
                 jumps++;
                 break;
             }
-            
+            //Once the current point reaches curEnd, 
+            //then trigger another jump, and set the new curEnd with curFarthest, 
+            //then keep the above steps, as the following:
             if(currentEnd==i){ // when the current pick of ladder reached last step
                 jumps++;
                 currentEnd=currentMax;

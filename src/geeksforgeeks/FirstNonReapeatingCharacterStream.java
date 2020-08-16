@@ -9,6 +9,16 @@ import java.util.List;
 public class FirstNonReapeatingCharacterStream {
     final static int MAX_CHAR = 256;
 
+    
+    // we need to maintain 2 array of size 26 and a doubly linkedlist where the hed element points to the first Non repeat
+    // 1) 1st array to store the corresponding node to the character position boolean[] visited= new boolean[26];
+    // 2nd array is to check if the character occurred 2>= times DLLNode[] node= new DLLNode[26];
+    // first condition whenever we see a value, we need to check it in visited array
+    // if(visited[c-'a']== true) do nothing because already added and deleted from the list(means this is 3rd occurrence of the array)
+    // else if(node[c-'a']!=null) removeNode(node[c-'a']); visited[c-'a']=true; 2nd occurrence we need to remove from list and set visited value to true 
+    // else create a node and add head if head null or add to tail means we are seeing first time and need to create an entry in list
+    
+    // this uses arraylist so remove and contains are O(N)
     static void findFirstNonRepeating() {
         // inDLL[x] contains pointer to a DLL node if x is present
         // in DLL. If x is not present, then inDLL[x] is NULL

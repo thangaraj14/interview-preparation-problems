@@ -4,51 +4,6 @@ package geeksforgeeks;
  * https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/
  */
 class BuyAndSellStockAtMostTwice {
-	// { 2, 30, 15, 10, 8, 25, 80 };
-	// 78,72,72,72,72,55
-	//
-	static int maxProfit(int price[], int n) {
-
-		int profit[] = new int[n];
-		/*
-		 * Get the maximum profit with only one transaction allowed. After this loop,
-		 * profit[i] contains maximum profit from price[i..n-1] using at most one trans.
-		 */
-		int max_price = price[n - 1];
-		for (int i = n - 2; i >= 0; i--) {
-			// max_price has maximum of price[i..n-1]
-			if (price[i] > max_price)
-				max_price = price[i];
-
-			// we can get profit[i] by taking maximum of:
-			// a) previous maximum, i.e., profit[i+1]
-			// b) profit by buying at price[i] and selling at
-			// max_price
-			profit[i] = Math.max(profit[i + 1], max_price - price[i]);
-		}
-
-		/*
-		 * Get the maximum profit with two transactions allowed After this loop,
-		 * profit[n-1] contains the result
-		 */
-		int min_price = price[0];
-		for (int i = 1; i < n; i++) {
-			// min_price is minimum price in price[0..i]
-			if (price[i] < min_price)
-				min_price = price[i];
-
-			// Maximum profit is maximum of:
-			// a) previous maximum, i.e., profit[i-1]
-			// b) (Buy, Sell) at (min_price, price[i]) and add
-			// profit of other trans. stored in profit[i]
-			profit[i] = Math.max(profit[i - 1], profit[i] + (price[i] - min_price));
-			
-			//1->28+72
-			//
-			
-		}
-		return profit[n - 1];
-	}
 
 	public static void main(String args[]) {
 		int price[] = { 2, 30, 15, 10, 8, 25, 80 };
@@ -56,20 +11,40 @@ class BuyAndSellStockAtMostTwice {
 		System.out.println("Maximum Profit = " + maxProfit(price, n));
 	}
 
+	/**
+	 * the idea is when we find a profit which is from 
+	 * i to n, we can break it in to i to k, k+1 to n
+	 * in this manner at each point we can calculate profit from
+	 * (left min element to current element) and (current element to right max element)
+	 * the second part of the above eq can be acieved by coming from right to left
+	 * for input          [3,3,5,0,0,3,1,4]
+	 * 	profit from	l->r  [0,0,2,2,2,3,3,4]
+	 *  profit from r->l  [4,4,4,4,4,3,3,0]
+	 * this simply states that at index 2 if we come from left the profit is 2
+	 * and we can initiate another transaction to obtain another profit
+	 */
 	public int maxProfit(int[] prices) {
-		int oneBuy = Integer.MIN_VALUE;
-		int oneBuyOneSell = 0;
-		int twoBuy = Integer.MIN_VALUE;
-		int twoBuyTwoSell = 0;
-		for(int i = 0; i < prices.length; i++){
-			oneBuy = Math.min(oneBuy, prices[i]);//we set prices to negative, so the calculation of profit will be
-			// convenient
-			oneBuyOneSell = Math.max(oneBuyOneSell, prices[i] + oneBuy);
-			twoBuy = Math.min(twoBuy, prices[i] - oneBuyOneSell);//we can buy the second only after first is sold
-			twoBuyTwoSell = Math.max(twoBuyTwoSell, twoBuy + prices[i]);
-		}
-
-		return Math.max(oneBuyOneSell, twoBuyTwoSell);
+		int ans = 0;
+        if (prices.length == 0 || prices.length == 1)
+            return ans;
+        int[] p = new int[prices.length];
+        int minBuy = prices[0];
+        int maxProfit = 0;
+        for (int i=1;i<prices.length;i++) {
+            minBuy = Math.min(minBuy, prices[i]);
+            maxProfit = Math.max(maxProfit, prices[i] - minBuy);
+            p[i] = maxProfit;
+        }
+        
+        int maxSell = prices[prices.length-1];
+        maxProfit = 0;
+        for (int i=prices.length-2;i>=0;i--) {
+            maxSell = Math.max(maxSell, prices[i]);
+            maxProfit = Math.max(maxProfit, maxSell - prices[i]);
+            p[i] += maxProfit;
+            ans = Math.max(p[i], ans);
+        }
+        return ans;
 	}
 
 }

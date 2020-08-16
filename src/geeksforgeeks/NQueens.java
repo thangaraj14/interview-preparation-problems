@@ -1,5 +1,26 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * https://leetcode.com/problems/n-queens/
+ *
+ * Input: 4
+ * Output: [
+ *  [".Q..",  // Solution 1
+ *   "...Q",
+ *   "Q...",
+ *   "..Q."],
+ *
+ *  ["..Q.",  // Solution 2
+ *   "Q...",
+ *   "...Q",
+ *   ".Q.."]
+ * ]
+ * Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.
+ */
 public class NQueens {
 
         public List<List<String>> solveNQueens(int n) {
@@ -25,9 +46,9 @@ public class NQueens {
                 return;
             }
             for(int i=0;i<n;i++){
-                // check if it can be placed in current i(col) of the row and explore possibilites
+                // check if it can be placed in current i(col) of the row and explore possibilities
                 if(isValidPlacement(row,i,board)){
-                    board[row][i]='Q'; // if yes proceed to next row and explore all possibilites
+                    board[row][i]='Q'; // if yes proceed to next row and explore all possibilities
                     nQueensHelper(row+1, n, board, result);
                     board[row][i]='.';
                 }

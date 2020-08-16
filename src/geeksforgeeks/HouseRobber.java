@@ -19,6 +19,25 @@ public class HouseRobber {
         return incl;
     }
 
+    public int robCircular(int[] nums) {
+        
+        if(nums.length==0) return 0;
+        if(nums.length==1) return nums[0];
+        return Math.max(helperFn(nums,0,nums.length-2), helperFn(nums,1,nums.length-1));
+        
+    }
+    
+    public int helperFn(int[] nums, int start, int end){
+        int pre=0; int cur=0;
+        for(int i=start;i<=end;i++){
+            int temp=Math.max(pre+nums[i],cur);
+            pre=cur;
+            cur=temp;
+            
+        }
+        return cur;
+    }
+
     public static void main(String[] args) {
         int[] arr = { 2, 7, 9, 3, 1 };
         HouseRobber houseRobber = new HouseRobber();

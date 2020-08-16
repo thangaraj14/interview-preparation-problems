@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.util.*;
+
 public class KmostFrequentLetters {
     public static void main(String[] args) {
         int k1 = 2;
@@ -21,7 +23,7 @@ public class KmostFrequentLetters {
         Map<String, Integer> map = new HashMap<>();
         for(String r : reviews) {
             String[] strs = r.split("\\W");
-            Set<String> added = new HashSet<>();
+            Set<String> added = new HashSet<>(); // creating a set per review to vaoid duplicate within a review
             for(String s : strs) {
                 s = s.toLowerCase();
                 if(set.contains(s) && !added.contains(s)) {
@@ -30,7 +32,7 @@ public class KmostFrequentLetters {
                 }
             }
         }
-        Queue<Map.Entry<String, Integer>> maxHeap = new PriorityQueue<>((a, b)->a.getValue() == b.getValue() ? a.getKey().compareTo(b.getKey()) : b.getValue() - a.getValue());
+        PriorityQueue<Map.Entry<String, Integer>> maxHeap = new PriorityQueue<>((a, b)->a.getValue() == b.getValue() ? a.getKey().compareTo(b.getKey()) : b.getValue() - a.getValue());
         maxHeap.addAll(map.entrySet());
         while(!maxHeap.isEmpty() && k-- > 0) {
             res.add(maxHeap.poll().getKey());

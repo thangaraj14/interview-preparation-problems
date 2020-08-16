@@ -1,6 +1,15 @@
 package geeksforgeeks;
 
+/**
+ * Given a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.
+ * Input: "cbbd"
+ * Output: 2
+ *
+ *
+ */
 class PalindromicSubSequence {
+    // genral solution if s[l]==s[r] ? 2 + longestPalindromeSubseq(l+1,r-1, s) :
+    //                                 max(longestPalindromeSubseq(l+1,r, s),longestPalindromeSubseq(l,r-1, s));
     public int longestPalindromeSubseq(String s) {
         if(s==null || s.length()==0) return 0;
         
@@ -9,7 +18,7 @@ class PalindromicSubSequence {
         for(int i=s.length()-1;i>=0;i--){
             for(int j=i;j<s.length();j++){
                if(i==j){ 
-                   dp[i][j]=1; 
+                   dp[i][j]=1; // every char is itself a palindrome
                    continue;
                 }
                 
