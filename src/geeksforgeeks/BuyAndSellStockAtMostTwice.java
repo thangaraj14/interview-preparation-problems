@@ -8,7 +8,7 @@ class BuyAndSellStockAtMostTwice {
 	public static void main(String args[]) {
 		int price[] = { 2, 30, 15, 10, 8, 25, 80 };
 		int n = price.length;
-		System.out.println("Maximum Profit = " + maxProfit(price, n));
+		System.out.println("Maximum Profit = " + maxProfit(price));
 	}
 
 	/**
@@ -23,7 +23,7 @@ class BuyAndSellStockAtMostTwice {
 	 * this simply states that at index 2 if we come from left the profit is 2
 	 * and we can initiate another transaction to obtain another profit
 	 */
-	public int maxProfit(int[] prices) {
+	public static int maxProfit(int[] prices) {
 		int ans = 0;
         if (prices.length == 0 || prices.length == 1)
             return ans;

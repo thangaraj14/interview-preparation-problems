@@ -1,5 +1,5 @@
 
-package adjacencyList;
+package graph.adjacencyList;
 
 import java.util.LinkedList;
 import java.util.List;

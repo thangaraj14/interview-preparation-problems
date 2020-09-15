@@ -1,4 +1,4 @@
-package bellmanFord;
+package graph.bellmanFord;
 
 import java.util.HashMap;
 import java.util.Map;

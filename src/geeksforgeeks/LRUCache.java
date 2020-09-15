@@ -1,4 +1,9 @@
 package geeksforgeeks;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 class LRUCache {
     
     class DLLNode{
@@ -76,7 +81,7 @@ class LRUCache {
     class LRUCache1 {
         LinkedHashMap<Integer, Integer> isbnToPrice;
     
-        LRUCache(final int capacity) {
+       public LRUCache1(final int capacity) {
             this.isbnToPrice
                     = new LinkedHashMap<Integer, Integer>(capacity, 1f, true) {
                 @Override

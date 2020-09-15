@@ -8,21 +8,21 @@ import java.util.Map;
 /**
  * https://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
  */
-class Pair {
-    int first, second;
 
-    Pair(int a, int b) {
-        first = a;
-        second = b;
-    }
-
-    public String toString() {
-        return this.first + "--" + this.second;
-    }
-}
 
 public class SumSubArrayZero {
+   private static class Pair {
+        int first, second;
 
+        Pair(int a, int b) {
+            first = a;
+            second = b;
+        }
+
+        public String toString() {
+            return this.first + "--" + this.second;
+        }
+    }
     static ArrayList<Pair> findSubArrays(int[] arr, int n) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         ArrayList<Pair> result = new ArrayList<>();

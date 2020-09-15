@@ -1,4 +1,4 @@
-package leetcode;
+package graph.leetcode;
 
 // similar to number of Islands
 public class FriendCircles {

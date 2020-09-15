@@ -1,6 +1,7 @@
-package com.safecabs.passenger;
+package multithreading.com.safecabs.passenger;
 
-import com.safecabs.Gender;
+
+import multithreading.com.safecabs.Gender;
 
 public class Passenger {
 

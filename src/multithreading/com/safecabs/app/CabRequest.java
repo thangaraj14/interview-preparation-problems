@@ -1,6 +1,7 @@
-package com.safecabs.app;
+package multithreading.com.safecabs.app;
 
-import com.safecabs.passenger.Passenger;
+
+import multithreading.com.safecabs.passenger.Passenger;
 
 public class CabRequest extends Thread {
 

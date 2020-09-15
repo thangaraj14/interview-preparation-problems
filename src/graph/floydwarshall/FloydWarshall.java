@@ -1,4 +1,4 @@
- package floydwarshall;
+ package graph.floydwarshall;
 
 public class FloydWarshall {
 

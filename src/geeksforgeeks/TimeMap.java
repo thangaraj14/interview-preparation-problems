@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.util.HashMap;
+
 class TimeMap {
 
     class Node{
@@ -12,7 +14,7 @@ class TimeMap {
         }
     }
     /** Initialize your data structure here. */
-    HashMap<String,Node>map;
+    HashMap<String,Node> map;
     
     public TimeMap() {
         map=new HashMap<>();

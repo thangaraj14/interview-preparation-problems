@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.util.PriorityQueue;
+
 public class MaxSoldiers {
     class Pair{
         int row;
@@ -12,7 +14,7 @@ public class MaxSoldiers {
     
     public int[] kWeakestRows(int[][] mat, int k) {
         int[] result= new int[k];
-        PriorityQueue<Pair> queue= new PriorityQueue<>((a,b)->a.soldiers==b.soldiers?Integer.compare(a.row,b.row):Integer.compare(a.soldiers,b.soldiers));
+        PriorityQueue<Pair> queue= new PriorityQueue<>((a, b)->a.soldiers==b.soldiers?Integer.compare(a.row,b.row):Integer.compare(a.soldiers,b.soldiers));
         int i=0;
         int soldiers=0;
         for(int []rows: mat){

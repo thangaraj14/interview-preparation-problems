@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ConstructTreeFromInorderAndPostorder {
     // idea is same as iorder preorder, but we take postOrder[lastIndex] as root;
     public TreeNode buildTree(int[] inorder, int[] postorder) {
@@ -13,7 +16,7 @@ public class ConstructTreeFromInorderAndPostorder {
     }
     
     public TreeNode helperFn(int[] inorder, int iStart, int iEnd, int[] postorder, int pstart, int pend, Map<Integer,Integer> map){
-        if(iStart>iEnd || ps>pe) return null;
+        if(iStart>iEnd || pstart>pend) return null;
         
         TreeNode root= new TreeNode(postorder[pend]);
         int divider=map.get(root.val);

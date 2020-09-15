@@ -1,6 +1,20 @@
 package geeksforgeeks;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 class Solution {
+    private static class Pair {
+        int x;
+        int y;
+        int level;
+
+        public Pair(int x, int y, int level) {
+            this.x = x;
+            this.y = y;
+            this.level = level;
+        }
+    }
     public void solve(char[][] board) {
         if (board == null || board.length == 0)
             return;
@@ -102,14 +116,3 @@ private void boundaryDFS(char[][] board, int i, int j) {
 }
 }
 
-class Pair {
-    int x;
-    int y;
-    int level;
-
-    public Pair(int x, int y, int level) {
-        this.x = x;
-        this.y = y;
-        this.level = level;
-    }
-}

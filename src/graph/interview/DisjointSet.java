@@ -1,4 +1,4 @@
-package com.interview;
+package graph.interview;
 
 import java.util.HashMap;
 import java.util.Map;

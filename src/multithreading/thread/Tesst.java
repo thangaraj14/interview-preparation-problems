@@ -1,4 +1,4 @@
-package thread;
+package multithreading.thread;
 
 public class Tesst {
 

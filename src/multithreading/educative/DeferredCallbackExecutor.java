@@ -1,4 +1,4 @@
-package educative;
+package multithreading.educative;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

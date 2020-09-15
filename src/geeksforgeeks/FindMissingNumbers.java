@@ -1,5 +1,9 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 // Input: [2, 3, 1, 8, 2, 3, 5, 1]
 // Output: 4, 6, 7
 public class FindMissingNumbers {

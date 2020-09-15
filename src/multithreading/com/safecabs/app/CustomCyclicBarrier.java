@@ -1,10 +1,13 @@
-package com.safecabs.app;
+package multithreading.com.safecabs.app;
 
-import com.safecabs.Constants;
-import com.safecabs.Gender;
-import com.safecabs.passenger.Passenger;
 
-import java.util.concurrent.*;
+import multithreading.com.safecabs.Constants;
+import multithreading.com.safecabs.Gender;
+import multithreading.com.safecabs.passenger.Passenger;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class CustomCyclicBarrier {

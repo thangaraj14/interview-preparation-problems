@@ -1,12 +1,17 @@
 package geeksforgeeks;
 
-public class FileSystem {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+ public class InMemeoryFIleSystem {
     class Dir {
-        HashMap < String, Dir > dirs = new HashMap < > ();
+        HashMap< String, Dir > dirs = new HashMap < > ();
         HashMap < String, String > files = new HashMap < > ();
     }
     Dir root;
-    public FileSystem() {
+    public InMemeoryFIleSystem() {
         root = new Dir();
     }
     public List < String > ls(String path) {
@@ -66,13 +71,13 @@ class FileSystem1 {
         String content = "";
     }
     File root;
-    public FileSystem() {
+    public void FileSystem() {
         root = new File();
     }
 
     public List < String > ls(String path) {
         File t = root;
-        List < String > files = new ArrayList < > ();
+        List< String > files = new ArrayList< >();
         if (!path.equals("/")) {
             String[] d = path.split("/");
             for (int i = 1; i < d.length; i++) {

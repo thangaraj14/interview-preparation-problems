@@ -1,4 +1,4 @@
-package educative.companies.netflix;
+package multithreading.educative.companies.netflix;
 
 public class Run {
 

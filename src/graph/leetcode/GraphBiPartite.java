@@ -1,4 +1,4 @@
-package leetcode;
+package graph.leetcode;
 
 /**
  * Recall that a graph is bipartite if we can split it's set of nodes into 

@@ -1,4 +1,4 @@
-package adjacencyMatrix;
+package graph.adjacencyMatrix;
 
 public class AdjacencyMatrix {
 

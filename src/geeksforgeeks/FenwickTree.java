@@ -58,7 +58,7 @@ public class FenwickTree{
 
     int[] fen; int[] arr;
     int n;
-    public NumArray(int[] nums) {
+    public void NumArray(int[] nums) {
         arr = nums;
         n = nums.length;
         fen = new int[n+1];

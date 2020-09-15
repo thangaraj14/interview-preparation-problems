@@ -1,4 +1,4 @@
-package primsAlgorithm;
+package graph.primsAlgorithm;
 
 import java.util.*;
 

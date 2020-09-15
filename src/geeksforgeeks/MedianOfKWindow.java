@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 public class MedianOfKWindow {
     public double[] medianSlidingWindow(int[] nums, int k) {
         MedianQueue medianHeap= new MedianQueue();

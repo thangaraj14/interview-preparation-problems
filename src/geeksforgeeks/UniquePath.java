@@ -47,7 +47,7 @@ public class UniquePath {
      * 1. Right -> Right -> Down -> Down
      * 2. Down -> Down -> Right -> Right
      */
-    private static int uniquePathII(int[][] mat) {
+    private static int uniquePathII(int[][] obstacleGrid) {
 
         if (obstacleGrid[0][0] == 1)
             return 0;

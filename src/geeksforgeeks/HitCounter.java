@@ -1,4 +1,7 @@
 package geeksforgeeks;
+
+import java.util.ArrayDeque;
+
 public class HitCounter {
     ArrayDeque trac;
     /** Initialize your data structure here. */

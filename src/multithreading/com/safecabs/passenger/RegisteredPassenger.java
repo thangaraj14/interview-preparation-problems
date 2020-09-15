@@ -1,4 +1,4 @@
-package com.safecabs.passenger;
+package multithreading.com.safecabs.passenger;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

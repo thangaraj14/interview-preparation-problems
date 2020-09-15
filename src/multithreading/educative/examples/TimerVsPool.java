@@ -1,4 +1,4 @@
-package educative.examples;
+package multithreading.educative.examples;
 
 import java.util.Timer;
 import java.util.TimerTask;

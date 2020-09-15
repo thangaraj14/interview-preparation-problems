@@ -2,7 +2,7 @@ package geeksforgeeks;
 
 public class RangeSum {
     int[] dp;
-    public NumArray(int[] nums) {
+    public void NumArray(int[] nums) {
         if(nums.length==0) return ;
         dp= new int[nums.length];
         dp[0]=nums[0];

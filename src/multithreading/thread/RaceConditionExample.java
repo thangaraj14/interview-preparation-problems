@@ -1,4 +1,4 @@
-package thread;
+package multithreading.thread;
 
 class Counter  implements Runnable{
     private  int c = 0;

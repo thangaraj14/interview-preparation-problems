@@ -1,10 +1,11 @@
-package com.safecabs.app;
+package multithreading.com.safecabs.app;
 
-import com.safecabs.Constants;
-import com.safecabs.cab.Cab;
-import com.safecabs.exceptions.UnRegisteredPassengerException;
-import com.safecabs.passenger.Passenger;
-import com.safecabs.passenger.RegisteredPassenger;
+
+import multithreading.com.safecabs.Constants;
+import multithreading.com.safecabs.cab.Cab;
+import multithreading.com.safecabs.exceptions.UnRegisteredPassengerException;
+import multithreading.com.safecabs.passenger.Passenger;
+import multithreading.com.safecabs.passenger.RegisteredPassenger;
 
 import java.util.concurrent.ArrayBlockingQueue;
 

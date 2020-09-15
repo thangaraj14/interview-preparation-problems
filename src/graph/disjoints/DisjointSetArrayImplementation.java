@@ -1,4 +1,4 @@
-package com.disjoints;
+package graph.disjoints;
 
 public class DisjointSetArrayImplementation {
 

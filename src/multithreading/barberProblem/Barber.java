@@ -1,4 +1,4 @@
-package barberProblem;
+package multithreading.barberProblem;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

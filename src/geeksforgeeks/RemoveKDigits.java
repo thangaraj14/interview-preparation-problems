@@ -1,6 +1,7 @@
 package geeksforgeeks;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * https://leetcode.com/problems/remove-k-digits/
@@ -39,6 +40,6 @@ public class RemoveKDigits {
     }
 
     public static void main(String[] args) {
-        System.out.println(removeKDigits("14232191", 3));
+        System.out.println(removeKdigits("14232191", 3));
     }
 }

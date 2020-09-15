@@ -1,4 +1,4 @@
-package educative;
+package multithreading.educative;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

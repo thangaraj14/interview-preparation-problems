@@ -1,4 +1,4 @@
-package dynamicProblems;
+package strings.dynamicProblems;
 
 public class PossibleCombinations {
 

@@ -107,36 +107,37 @@ public class InorderSuccessorPredecessor {
         }
         
     }
+    private TreeNode findPredecessor(TreeNode root, TreeNode node) {
+        TreeNode pre = null;
+        TreeNode cur = root;
+        while (cur != null) {
+            if (cur.val < node.val) {
+                pre = cur;
+                cur = cur.right;
+            } else {
+                cur = cur.left;
+            }
+        }
+        return pre;
+    }
+    private TreeNode findSuccessor(TreeNode root, TreeNode node) {
+        TreeNode succ = null;
+        TreeNode cur = root;
+        while (cur != null) {
+            if (cur.val > node.val) {
+                succ = cur;
+                cur = cur.left;
+            } else {
+                cur = cur.right;
+            }
+        }
+        return succ;
+    }
 }
 
-private TreeNode findPredecessor(TreeNode root, TreeNode node) {
-    TreeNode pre = null;
-    TreeNode cur = root;
-    while (cur != null) {
-        if (cur.val < node.val) {
-            pre = cur;
-            cur = cur.right;
-        } else {
-            cur = cur.left;
-        }
-    }
-    return pre;
-}
-private TreeNode findSuccessor(TreeNode root, TreeNode node) {
-    TreeNode succ = null;
-    TreeNode cur = root;
-    while (cur != null) {
-        if (cur.val > node.val) {
-            succ = cur;
-            cur = cur.left;
-        } else {
-            cur = cur.right;
-        }
-    }
-    return succ;
-}
 
-class TNode {
+
+ class TNode {
     int data;
     TNode left;
     TNode right;

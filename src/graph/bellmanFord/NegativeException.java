@@ -1,4 +1,4 @@
-package bellmanFord;
+package graph.bellmanFord;
 
 public class NegativeException extends RuntimeException {
 

@@ -8,7 +8,7 @@ import java.util.*;
 class OwnDataStructureUtil {
     ArrayList<Integer> list;
     HashMap<Integer, Integer> map;
-    java.util.Random rand = new java.util.Random();
+    Random rand = new Random();
 
     public OwnDataStructureUtil() {
         list = new ArrayList<>();

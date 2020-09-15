@@ -1,4 +1,4 @@
-package dijkstraAlgorithm;
+package graph.dijkstraAlgorithm;
 
 import java.util.ArrayList;
 import java.util.HashMap;

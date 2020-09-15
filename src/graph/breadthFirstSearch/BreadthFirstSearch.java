@@ -1,4 +1,4 @@
-package breadthFirstSearch;
+package graph.breadthFirstSearch;
 
 import java.util.LinkedList;
 import java.util.List;

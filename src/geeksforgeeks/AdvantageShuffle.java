@@ -2,6 +2,9 @@ package geeksforgeeks;
 
 // the advantage of A with respect to B is the number of indices i for which A[i] > B[i].
 
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 // Return any permutation of A that maximizes its advantage with respect to B.
 //Input: A = [12,24,8,32], B = [13,25,32,11]
 //Output: [24,32,8,12]
@@ -9,9 +12,9 @@ package geeksforgeeks;
 // Output: [2,11,7,15]
 public class AdvantageShuffle {
     public int[] advantageCount(int[] A, int[] B) {
-        Arrays.sort(A); 
+        Arrays.sort(A);
         
-        PriorityQueue<Integer[]> pq= new PriorityQueue<>((a,b)->Integer.compare(b[0],a[0]));
+        PriorityQueue<Integer[]> pq= new PriorityQueue<>((a, b)->Integer.compare(b[0],a[0]));
         for(int i=0;i<B.length;i++){
             pq.offer(new Integer[]{B[i],i}); // add elements of B along with it's index to max queue
         }

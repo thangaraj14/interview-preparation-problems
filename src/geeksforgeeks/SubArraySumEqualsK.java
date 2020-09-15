@@ -1,4 +1,8 @@
 package geeksforgeeks;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class SubArraySumEqualsK {
     public int subarraySum(int[] nums, int k) {
         int left=0;

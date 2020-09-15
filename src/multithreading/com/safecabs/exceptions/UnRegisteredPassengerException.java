@@ -1,4 +1,4 @@
-package com.safecabs.exceptions;
+package multithreading.com.safecabs.exceptions;
 
 public class UnRegisteredPassengerException extends Exception {
 

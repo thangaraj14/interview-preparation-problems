@@ -1,4 +1,4 @@
-package dijkstraAlgorithm;
+package graph.dijkstraAlgorithm;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ public class BinaryHeap {
 	}
 
 	protected Node extractMin() {
-		BinaryHeap.Node node = allNodes.get(0);
+		Node node = allNodes.get(0);
 		int size = allNodes.size() - 1;
 		allNodes.set(0, allNodes.get(size));
 		positionMap.remove(node.key);
@@ -51,7 +51,7 @@ public class BinaryHeap {
 			}
 			int smallValuePosition = ((rightNode != null) && (rightNode.weight < leftNode.weight)) ? right : left;
 
-			BinaryHeap.Node parentNode = allNodes.get(smallValuePosition);
+			Node parentNode = allNodes.get(smallValuePosition);
 			swapNodes(currentPosition, currentNode, smallValuePosition, parentNode);
 			updatePositionMap(currentPosition, smallValuePosition, currentNode.key, parentNode.key);
 
@@ -70,8 +70,8 @@ public class BinaryHeap {
 
 		positionMap.put(key, currentPosition);
 
-		BinaryHeap.Node parentNode = allNodes.get(parentPosition);
-		BinaryHeap.Node currentNode = allNodes.get(currentPosition);
+		Node parentNode = allNodes.get(parentPosition);
+		Node currentNode = allNodes.get(currentPosition);
 		while (parentNode.weight > currentNode.weight) {
 			swapNodes(currentPosition, currentNode, parentPosition, parentNode);
 			updatePositionMap(currentPosition, parentPosition, currentNode.key, parentNode.key);
@@ -89,8 +89,8 @@ public class BinaryHeap {
 		positionMap.put(parent, currentPosition);
 	}
 
-	private void swapNodes(int currentPosition, BinaryHeap.Node currentNode, int parentPosition,
-			BinaryHeap.Node parentNode) {
+	private void swapNodes(int currentPosition, Node currentNode, int parentPosition,
+			Node parentNode) {
 		allNodes.set(currentPosition, parentNode);
 		allNodes.set(parentPosition, currentNode);
 	}

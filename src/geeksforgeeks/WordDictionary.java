@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Design a data structure that supports the following two operations:
  * void addWord(word)

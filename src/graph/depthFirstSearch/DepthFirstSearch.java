@@ -1,4 +1,4 @@
-package depthFirstSearch;
+package graph.depthFirstSearch;
 
 import java.util.LinkedList;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package graph.leetcode;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

@@ -1,4 +1,4 @@
-package educative.examples;
+package multithreading.educative.examples;
 
 public class ThreadSleepExample {
 

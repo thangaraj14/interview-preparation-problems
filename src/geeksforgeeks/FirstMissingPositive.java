@@ -1,8 +1,9 @@
 package geeksforgeeks;
 
-import java.awt.List;
+
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -54,7 +55,7 @@ public class FirstMissingPositive {
         return -1;
     }
 
-    public List<Integer> findKMissingPossitiveNumber(int[] A){
+    public List<Integer> findKMissingPossitiveNumberOfSizeK(int[] A, int k){
         int i = 0;
         while (i < A.length) {
             // same cyclic sort, as missing numbers
@@ -74,7 +75,7 @@ public class FirstMissingPositive {
         while(i<A.length && missingNumber.size()<k){
             if(i+1!=A[i]){
                 missingNumber.add(i+1);
-                additionalNumber.add(nums[i]);
+                additionalNumber.add(A[i]);
             }
         }
 

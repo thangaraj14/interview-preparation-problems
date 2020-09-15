@@ -1,4 +1,4 @@
-package cycle;
+package graph.cycle;
 
 import java.util.HashSet;
 import java.util.Set;

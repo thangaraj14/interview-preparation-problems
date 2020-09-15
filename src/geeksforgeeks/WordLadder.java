@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.util.*;
+
 public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> set = new HashSet(wordList);

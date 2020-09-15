@@ -1,4 +1,4 @@
-package com.safecabs;
+package multithreading.com.safecabs;
 
 public class Constants {
     public static int CAB_CAPACITY = 4;

@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTreeCousins {
     public boolean isCousins(TreeNode root, int x, int y) {
         Queue<TreeNode> queue = new LinkedList<>();

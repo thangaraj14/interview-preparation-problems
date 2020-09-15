@@ -1,10 +1,15 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 class TopKFrequentElement{
     public List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer> result = new ArrayList<>();
  
-        HashMap<Integer, Integer> map = new HashMap<>(); //Key: val,  Val: #of freq
+        Map<Integer, Integer> map = new HashMap<>(); //Key: val,  Val: #of freq
         for (int num : nums) {
             if (map.containsKey(num)) {
                 map.put(num, map.get(num)+1);

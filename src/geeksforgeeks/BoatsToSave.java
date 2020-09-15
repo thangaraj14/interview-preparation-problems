@@ -1,4 +1,7 @@
 package geeksforgeeks;
+
+import java.util.Arrays;
+
 class BoatsToSave {
     public int numRescueBoats(int[] people, int limit) {
         if(people.length==0 || limit==0) return 0;

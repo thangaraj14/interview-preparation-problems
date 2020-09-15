@@ -1,4 +1,4 @@
-package com.disjoints;
+package graph.disjoints;
 
 import java.util.ArrayList;
 import java.util.List;

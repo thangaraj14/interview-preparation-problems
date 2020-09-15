@@ -1,4 +1,4 @@
-package educative;
+package multithreading.educative;
 
 class CountingSemaphore {
 

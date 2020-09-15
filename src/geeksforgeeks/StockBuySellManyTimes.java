@@ -7,6 +7,13 @@ class Interval {
     int buy, sell;
     int start; // for meeting problem
     int end;
+    Interval(int buy, int sell){
+        this.buy=buy;
+        this.sell=sell;
+    }
+    Interval(){
+
+    }
 }
 
 /**

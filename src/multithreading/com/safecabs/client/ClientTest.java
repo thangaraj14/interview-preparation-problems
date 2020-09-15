@@ -1,11 +1,12 @@
-package com.safecabs.client;
+package multithreading.com.safecabs.client;
 
-import com.safecabs.Gender;
-import com.safecabs.app.CabProvider;
-import com.safecabs.cab.Cab;
-import com.safecabs.exceptions.UnRegisteredPassengerException;
-import com.safecabs.passenger.Passenger;
-import com.safecabs.passenger.RegisteredPassenger;
+
+import multithreading.com.safecabs.Gender;
+import multithreading.com.safecabs.app.CabProvider;
+import multithreading.com.safecabs.cab.Cab;
+import multithreading.com.safecabs.exceptions.UnRegisteredPassengerException;
+import multithreading.com.safecabs.passenger.Passenger;
+import multithreading.com.safecabs.passenger.RegisteredPassenger;
 
 import java.util.Random;
 

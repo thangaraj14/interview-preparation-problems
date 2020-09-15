@@ -1,4 +1,4 @@
-package com.safecabs;
+package multithreading.com.safecabs;
 
 public enum Gender {
     MALE,

@@ -1,6 +1,9 @@
 package geeksforgeeks;
 
-class VulgarSuduko {
+import java.util.HashSet;
+import java.util.Set;
+
+public class ValidSuduko {
     public boolean isValidSudoku(char[][] board) {
         Set<String> seen = new HashSet<>();
 

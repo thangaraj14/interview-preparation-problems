@@ -1,6 +1,18 @@
 package geeksforgeeks;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
+
 class MinStepsToConvertXtoY {
+    private static class GFG{
+        int val;
+        int steps;
+         GFG(int source, int steps){
+            this.val=source;
+            this.steps=steps;
+        }
+    }
     private static int minOperations(int src, int target) {
 
         Set<GFG> visited = new HashSet<>(1000);

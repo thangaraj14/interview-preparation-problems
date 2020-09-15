@@ -1,4 +1,4 @@
-package stringProblems;
+package strings.stringProblems;
 
 import java.util.Map;
 import java.util.TreeMap;

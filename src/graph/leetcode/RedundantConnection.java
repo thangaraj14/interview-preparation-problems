@@ -1,4 +1,4 @@
-package leetcode;
+package graph.leetcode;
 
 /**
  * Input: [[1,2], [1,3], [2,3]]

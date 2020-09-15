@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given an array A of integers, return the number of (contiguous, non-empty) subarrays that have a sum divisible by K.
  * Input: A = [4,5,0,-2,-3,1], K = 5

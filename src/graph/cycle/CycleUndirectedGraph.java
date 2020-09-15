@@ -1,9 +1,10 @@
-package cycle;
+package graph.cycle;
+
+
+import graph.interview.DisjointSet;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import kruskalAlgorithm.DisjointSet;
 
 /**
  * Date 10/11/2014
@@ -28,8 +29,8 @@ public class CycleUndirectedGraph<T> {
 		}
 
 		for (Edge<T> edge : graph.getAllEdges()) {
-			long parent1 = disjointSet.findSet(edge.getVertex1().getId());
-			long parent2 = disjointSet.findSet(edge.getVertex2().getId());
+			long parent1 = disjointSet.findParent(edge.getVertex1().getId());
+			long parent2 = disjointSet.findParent(edge.getVertex2().getId());
 			if (parent1 == parent2) {
 				return true;
 			}

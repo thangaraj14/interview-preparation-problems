@@ -1,4 +1,4 @@
-package dynamicProblems;
+package strings.dynamicProblems;
 
 import java.util.Arrays;
 import java.util.Collections;

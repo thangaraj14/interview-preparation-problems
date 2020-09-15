@@ -2,6 +2,9 @@ package geeksforgeeks;
 
 // CombinationIterator iterator = new CombinationIterator("abc", 2); // creates the iterator.
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 // iterator.next(); // returns "ab"
 // iterator.hasNext(); // returns true
 // iterator.next(); // returns "ac"

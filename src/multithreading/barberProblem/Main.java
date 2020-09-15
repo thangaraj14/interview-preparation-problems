@@ -1,4 +1,4 @@
-package barberProblem;
+package multithreading.barberProblem;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

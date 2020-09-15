@@ -1,4 +1,4 @@
-package kruskalAlgorithm;
+package graph.kruskalAlgorithm;
 
 import java.util.HashMap;
 import java.util.Map;

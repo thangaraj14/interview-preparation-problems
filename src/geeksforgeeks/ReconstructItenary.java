@@ -1,4 +1,7 @@
 package geeksforgeeks;
+
+import java.util.*;
+
 /**
  * Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], reconstruct the itinerary in order. 
  * All of the tickets belong to a man who departs from JFK. 
@@ -16,7 +19,7 @@ public class ReconstructItenary {
         public List<String> findItinerary(List<List<String>> tickets) {
            if(tickets==null || tickets.size()==0) return Collections.emptyList();
    
-           Map<String, PriorityQueue<String> > map= new HashMap<>();
+           Map<String, PriorityQueue<String>> map= new HashMap<>();
    
            for(List<String> ticket: tickets){
                map.putIfAbsent(ticket.get(0), new PriorityQueue<>());

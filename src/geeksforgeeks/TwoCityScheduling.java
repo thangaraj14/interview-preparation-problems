@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.util.PriorityQueue;
+
 /**
  * There are 2N people a company is planning to interview. 
  * The cost of flying the i-th person to city A is costs[i][0], and the cost of flying the i-th person to city B is costs[i][1].
@@ -26,7 +28,7 @@ public class TwoCityScheduling {
         // what the above array indicates is that for i'th candidate=>[10,20] we will save 10 in sending to A
         // when i=2 we will have to spend 350 more to bring to A city so we sort by arr[0]-arr[1]
         // greedily we take negative val candidates to A and rest to B for this input 
-        PriorityQueue<int[]> queue= new PriorityQueue<>((a,b)->(a[0] - a[1]) - (b[0] - b[1]));
+        PriorityQueue<int[]> queue= new PriorityQueue<>((a, b)->(a[0] - a[1]) - (b[0] - b[1]));
         
         for(int[] cost: costs){
             queue.offer(cost);

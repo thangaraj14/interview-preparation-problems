@@ -1,4 +1,4 @@
-package thread;
+package multithreading.thread;
 public class PrintOddEvenByTwoThreads {
     static int number = 1;
     static Thread odd;

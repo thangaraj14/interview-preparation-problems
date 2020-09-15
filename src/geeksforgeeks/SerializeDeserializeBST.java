@@ -9,6 +9,10 @@ package geeksforgeeks;
 // rootValue (<rootValue) (<rootValue) (<rootValue) |separate line| (>rootValue) (>rootValue)
 // Because of BST's property: before the |separate line| all the node values are less than root value, all the node values after |separate line| are greater than root value. We will utilize this to build left and right tree.
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 class SerializeDeserializeBST{
         private static final String SEP = ",";
         private static final String NULL = "null";

@@ -1,4 +1,4 @@
-package educative.superman;
+package multithreading.educative.superman;
 
 public class SupermanWithFlaws {
 

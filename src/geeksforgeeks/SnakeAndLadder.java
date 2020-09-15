@@ -44,7 +44,7 @@ public class SnakeAndLadder {
             }
 
         }
-        return qEntry.noOfMoves;
+        return queue.peek().steps;
     }
 
     private int[] numToPos(int target) {

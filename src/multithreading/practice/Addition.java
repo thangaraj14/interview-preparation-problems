@@ -1,4 +1,4 @@
-package practice;
+package multithreading.practice;
 
 
 class Demonstration {

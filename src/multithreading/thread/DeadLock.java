@@ -1,4 +1,4 @@
-package thread;
+package multithreading.thread;
 
 public class DeadLock {
     public static void main(String[] args) {

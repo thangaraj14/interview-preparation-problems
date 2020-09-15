@@ -1,4 +1,4 @@
-package practice;
+package multithreading.practice;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;

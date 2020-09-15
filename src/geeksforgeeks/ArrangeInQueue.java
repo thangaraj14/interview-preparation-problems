@@ -3,6 +3,10 @@ package geeksforgeeks;
 // Input:
 // [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 // Output:
 // [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
 public class ArrangeInQueue {
@@ -14,7 +18,7 @@ public class ArrangeInQueue {
 // 2.c  Keep repeating
     public int[][] reconstructQueue(int[][] people) {
         List<int[]> result= new ArrayList<>();
-        Arrays.sort(people,(a,b)->{
+        Arrays.sort(people,(a, b)->{
            if(a[0]==b[0]) return a[1]-b[1];
             return b[0]-a[0];
         });

@@ -1,4 +1,4 @@
-package shortestPath;
+package graph.shortestPath;
 
 import java.util.ArrayList;
 import java.util.HashMap;

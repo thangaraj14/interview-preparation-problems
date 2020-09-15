@@ -7,8 +7,8 @@ import java.util.Arrays;
  */
 class IsomorphicString {
     static boolean isIsomorphic(String s, String t) {
-        char m1[] = new int[256];
-        char m2[] = new int[256];
+        char[] m1 = new char[256];
+        char[] m2 = new char[256];
         int n = s.length();
         for (int i = 0; i < n; ++i) {
             // it checks the count of the character in the array ;
@@ -17,8 +17,8 @@ class IsomorphicString {
             if (m1[s.charAt(i)] != m2[t.charAt(i)]) {
                 return false;
             }
-            m1[s.charAt(i)] = i + 1;
-            m2[t.charAt(i)] = i + 1;
+            m1[s.charAt(i)] = (char) (i + 1);
+            m2[t.charAt(i)] = (char) (i + 1);
         }
         System.out.println(Arrays.toString(m1));
         System.out.println(Arrays.toString(m2));

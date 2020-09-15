@@ -1,5 +1,8 @@
 package geeksforgeeks;
-class RemoveParanthesisValid {
+
+import java.util.*;
+
+public class RemoveParanthesisValid {
     
     public List<String> removeInvalidParentheses(String s) {
     if (isValid(s))

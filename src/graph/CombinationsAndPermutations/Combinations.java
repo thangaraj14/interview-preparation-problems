@@ -1,4 +1,4 @@
-package CombinationsAndPermutations;
+package graph.CombinationsAndPermutations;
 
 import java.util.ArrayList;
 import java.util.Arrays;

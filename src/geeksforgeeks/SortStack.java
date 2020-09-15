@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.util.Stack;
+
 class SortStack {
     // Input : [34, 3, 31, 98, 92, 23]
    //    Output : [3, 23, 31, 34, 92, 98]

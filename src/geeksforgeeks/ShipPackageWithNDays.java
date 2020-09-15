@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.util.Arrays;
+
 public class ShipPackageWithNDays{
     public int shipWithinDays(int[] weights, int D) {
         if(weights.length==0 || D==0) return 0;
