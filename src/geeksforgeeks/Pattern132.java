@@ -2,7 +2,11 @@ package geeksforgeeks;
 
 import java.util.Arrays;
 
-/*https://leetcode.com/problems/132-pattern/discuss/94089/Java-solutions-from-O(n3)-to-O(n)-for-%22132%22-pattern-(updated-with-one-pass-slution)*/
+/**
+ * https://leetcode.com/problems/132-pattern/discuss/94089/Java-solutions-from-O(n3)-to-O(n)-for-%22132%22-pattern-
+ * (updated-with-one-pass-slution)
+ * UnResolved
+ */
 public class Pattern132 {
 
     public static boolean find132pattern(int[] arr) {
@@ -29,7 +33,7 @@ public class Pattern132 {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 3, 4, 1, 2, 9, 6, 7, 8 };
+        int[] arr = { -1, 3, 2, 0 };
         find132pattern(arr);
     }
 }

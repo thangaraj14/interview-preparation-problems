@@ -5,12 +5,12 @@ import java.util.Stack;
 /**
  * https://leetcode.com/problems/decode-string/
  */
-//unresolved
 public class DecodeString {
+
     public static String decodeString(String s) {
-        String res = "";
+        String result = "";
         Stack<Integer> countStack = new Stack<>();
-        Stack<String> resStack = new Stack<>();
+        Stack<String> resultStack = new Stack<>();
         int idx = 0;
         while (idx < s.length()) {
             if (Character.isDigit(s.charAt(idx))) {
@@ -21,25 +21,26 @@ public class DecodeString {
                 }
                 countStack.push(count);
             } else if (s.charAt(idx) == '[') {
-                resStack.push(res);
-                res = "";
+                resultStack.push(result);
+                result = "";
                 idx++;
             } else if (s.charAt(idx) == ']') {
-                StringBuilder temp = new StringBuilder(resStack.pop());
+                StringBuilder temp = new StringBuilder(resultStack.pop());
                 int repeatTimes = countStack.pop();
                 for (int i = 0; i < repeatTimes; i++) {
-                    temp.append(res);
+                    temp.append(result);
                 }
-                res = temp.toString();
+                result = temp.toString();
                 idx++;
             } else {
-                res += s.charAt(idx++);
+                result += s.charAt(idx++);
             }
         }
-        return res;
+        return result;
     }
 
+    //3[a]2[bc]
     public static void main(String[] args) {
-        decodeString("3[a]2[bc]");
+        System.out.println(decodeString("3[a2[c]]"));
     }
 }

@@ -1,7 +1,7 @@
 package geeksforgeeks;
 
 /**
- * https://leetcode.com/problems/maximum-number-of-balloons/discuss/382401/WithComments-StraightForward-Java-Simple-count-of-chars
+ * https://leetcode.com/problems/maximum-number-of-balloons
  */
 public class NumberOfBallons {
 

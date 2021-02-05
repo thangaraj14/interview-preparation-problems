@@ -3,7 +3,9 @@ package geeksforgeeks;
 import java.util.ArrayList;
 import java.util.List;
 
-/*https://leetcode.com/problems/majority-element/*/
+/**
+ * https://leetcode.com/problems/majority-element/
+ */
 public class MajorityVoting {
 
     public static List<Integer> majorityElementII(int[] nums) {
@@ -77,7 +79,7 @@ public class MajorityVoting {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 1, 1, 1, 1, 1, 2, 2, 4, 4, 4, 4, 4, 2, 2 };
+        int[] arr = { 1, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4, 4, 4, 1 };
         System.out.println(majorityElementI(arr));
         System.out.println(majorityElementII(arr));
 

@@ -2,7 +2,6 @@ package geeksforgeeks;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-import java.util.LinkedList;
 
 /**
  * https://leetcode.com/problems/snakes-and-ladders/
@@ -12,17 +11,10 @@ import java.util.LinkedList;
 public class SnakeAndLadder {
 
     static class Entry {
-        int v;// Vertex number
-        int dist;// Distance of this vertex from source
+        int v;
+        int dist;
     }
 
-    // This function returns minimum number of dice
-    // throws required to Reach last cell from 0'th cell
-    // in a snake and ladder game. move[] is an array of
-    // size N where N is no. of cells on board If there
-    // is no snake or ladder from cell i, then move[i]
-    // is -1 Otherwise move[i] contains cell to which
-    // snake or ladder at i takes to.
     static int getMinDiceThrows(int move[], int n) {
         int visited[] = new int[n];
         Queue<Entry> q = new ArrayDeque<>();
@@ -30,36 +22,23 @@ public class SnakeAndLadder {
         entry.v = 0;
         entry.dist = 0;
 
-        // Mark the node 0 as visited and enqueue it.
         visited[0] = 1;
         q.add(entry);
 
-        // Do a BFS starting from vertex at index 0
         while (!q.isEmpty()) {
             entry = q.remove();
             int v = entry.v;
 
-            // If front vertex is the destination
-            // vertex, we are done
             if (v == n - 1) {
                 break;
             }
 
-            // Otherwise dequeue the front vertex and
-            // enqueue its adjacent vertices (or cell
-            // numbers reachable through a dice throw)
             for (int j = v + 1; j <= (v + 6) && j < n; ++j) {
-                // If this cell is already visited, then ignore
                 if (visited[j] == 0) {
-                    // Otherwise calculate its distance and
-                    // mark it as visited
                     Entry a = new Entry();
                     a.dist = (entry.dist + 1);
                     visited[j] = 1;
 
-                    // Check if there a snake or ladder at 'j'
-                    // then tail of snake or top of ladder
-                    // become the adjacent of 'i'
                     if (move[j] != -1) {
                         a.v = move[j];
                     } else {
@@ -69,14 +48,10 @@ public class SnakeAndLadder {
                 }
             }
         }
-
-        // We reach here when 'entry' has last vertex
-        // return the distance of vertex in 'entry'
         return entry.dist;
     }
 
     public static void main(String[] args) {
-        // Let us construct the board given in above diagram
         int N = 30;
         int moves[] = new int[N];
         for (int i = 0; i < N; i++)

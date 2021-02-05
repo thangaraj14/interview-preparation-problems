@@ -35,6 +35,5 @@ class PartitionLabel {
         String S = "ababcbacadefegdehijhklij";
         PartitionLabel partition = new PartitionLabel();
         System.out.println(partition.partitionLabels(S));
-
     }
 }

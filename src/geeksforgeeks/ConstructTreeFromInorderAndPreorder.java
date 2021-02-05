@@ -10,6 +10,7 @@ import java.util.Map;
 class ConstructTreeFromInorderAndPreorder {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
+        
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);

@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class QueensAttacktheKing {
+class QueensAttackTheKing {
 
-    public static List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
+    public static List<List<Integer>> queensAttackTheKing(int[][] queens, int[] king) {
         List<List<Integer>> result = new ArrayList<>();
         boolean[][] visited = new boolean[8][8];
         int[][] dirs = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }, { -1, -1 }, { 1, 1 }, { 1, -1 }, { -1, 1 } };
 
-        for (int[] qu : queens) {
-            visited[qu[0]][qu[1]] = true;
+        for (int[] queen : queens) {
+            visited[queen[0]][queen[1]] = true;
         }
 
         for (int[] dir : dirs) {
@@ -21,9 +21,7 @@ class QueensAttacktheKing {
                 result.add(temp);
             }
         }
-
         return result;
-
     }
 
     public static List<Integer> findQueensPositions(int[] king, int x, int y, boolean[][] visited) {
@@ -36,7 +34,6 @@ class QueensAttacktheKing {
             }
             newX += x;
             newY += y;
-
         }
 
         return null;
@@ -45,6 +42,6 @@ class QueensAttacktheKing {
     public static void main(String[] args) {
         int[][] queens = { { 0, 1 }, { 1, 0 }, { 4, 0 }, { 0, 4 }, { 3, 3 }, { 2, 4 } };
         int[] king = { 0, 0 };
-        System.out.println(queensAttacktheKing(queens, king));
+        System.out.println(queensAttackTheKing(queens, king));
     }
 }

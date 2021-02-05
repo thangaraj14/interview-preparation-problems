@@ -4,6 +4,23 @@ package geeksforgeeks;
  * https://www.youtube.com/watch?v=YDf982Lb84o&t=277s
  * <p>
  * https://leetcode.com/problems/unique-binary-search-trees/
+ * <p>
+ * if n=4:, 10,11,12,13
+ * then
+ * if 10: root
+ * root : 10 --right : 11,12,13
+ * T[0] * T[3]
+ * 11: root
+ * left : 10 -- right : 12,13
+ * T[1] * T[2]
+ * 12: root
+ * left : 10,11 -- right 13
+ * T[2] * T[1]
+ * 13: root
+ * left : 10,11,12 --root 13
+ * T[3] * T[1]
+ * <p>
+ * sum of all will give the answer:
  */
 public class CatalanNumberBinarySearchTree {
 
@@ -21,7 +38,7 @@ public class CatalanNumberBinarySearchTree {
 
     public static void main(String args[]) {
         CatalanNumberBinarySearchTree cnt = new CatalanNumberBinarySearchTree();
-        System.out.println(cnt.numTrees(3));
+        System.out.println(cnt.numTrees(4));
     }
 
   /*  public int numTrees(int n) {

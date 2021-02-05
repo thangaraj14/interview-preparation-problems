@@ -53,36 +53,17 @@ public class SerializeAndDeserialize {
         return newNode;
     }
 
-    public TreeNode deserializeBST(Queue<Integer> treeVals) {
-        if (treeVals.isEmpty()) {
-            return null;
-        }
-
-        Integer rootVal = treeVals.poll();
-        TreeNode root = new TreeNode(rootVal);
-
-        Queue<Integer> smallerVals = new LinkedList<>();
-
-        while (!treeVals.isEmpty() && treeVals.peek() < rootVal) {
-            smallerVals.offer(treeVals.poll());
-        }
-        root.left = deserializeBST(smallerVals);
-        root.right = deserializeBST(treeVals);
-        return root;
-
-    }
-
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
         root.right.left = new TreeNode(4);
         root.right.right = new TreeNode(5);
-        SerializeAndDeserialize sede = new SerializeAndDeserialize();
-        String serialize = sede.serialize(root);
+        SerializeAndDeserialize serializeAndDeserialize = new SerializeAndDeserialize();
+        String serialize = serializeAndDeserialize.serialize(root);
         System.out.println(serialize);
-        TreeNode deserialze = sede.deserialize(serialize);
-        sede.printTree(deserialze);
+        TreeNode deserialize = serializeAndDeserialize.deserialize(serialize);
+        serializeAndDeserialize.printTree(deserialize);
     }
 
     public void printTree(TreeNode node) {

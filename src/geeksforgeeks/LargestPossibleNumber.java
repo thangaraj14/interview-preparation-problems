@@ -2,11 +2,21 @@ package geeksforgeeks;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
  * https://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
+ * <p>
+ * 3,30,34,9
+ * 1st iteration:
+ * 330>303 no swap required
+ * 334>343 swap
+ * 34,30,3,9
+ * 349>934 swap
+ * 9,30,3,34
+ * 2nd iteration:
+ * 303>330 swap required
+ * 9,3,30,34
  */
 class LargestPossibleNumber {
 
@@ -16,6 +26,7 @@ class LargestPossibleNumber {
 
         Collections.sort(numbers, (a, b) -> (b + a).compareTo(a + b));
         numbers.stream().forEach(System.out::print);
+        System.out.println();
         System.out.println(new LargestPossibleNumber().largestNumber(nums));
     }
 
@@ -25,9 +36,7 @@ class LargestPossibleNumber {
             arr[i] = String.valueOf(nums[i]);
         }
 
-        Arrays.sort(arr, (a, b) -> {
-            return (b + a).compareTo(a + b);
-        });
+        Arrays.sort(arr, (a, b) -> (b + a).compareTo(a + b));
 
         StringBuilder sb = new StringBuilder();
         for (String s : arr) {

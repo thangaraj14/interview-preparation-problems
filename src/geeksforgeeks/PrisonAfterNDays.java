@@ -2,8 +2,9 @@ package geeksforgeeks;
 
 import java.util.Arrays;
 import java.util.HashSet;
-/*
-https://leetcode.com/problems/prison-cells-after-n-days/
+
+/**
+ * https://leetcode.com/problems/prison-cells-after-n-days/
  */
 
 class PrisonAfterNDays {
@@ -28,6 +29,8 @@ class PrisonAfterNDays {
             cells = next;
         }
         if (hasCycle) {
+            // if no.of.days is 10 and if cycle is there at 3rd loop, then we have to execute the loop for remaining
+            // one which is 3+3+3 +remaining
             N %= cycle;
             for (int i = 0; i < N; i++) {
                 cells = nextDay(cells);

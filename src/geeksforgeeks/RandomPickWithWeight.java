@@ -2,12 +2,14 @@ package geeksforgeeks;
 
 import java.util.stream.IntStream;
 
+/**
+ * https://leetcode.com/problems/random-pick-with-weight/
+ */
 class RandomPickWithWeight {
     private int sum;
     private int[] arr;
 
     public RandomPickWithWeight(int[] w) {
-        sum = 0;
         arr = new int[w.length];
         for (int i = 0; i < w.length; ++i) {
             sum += w[i];
@@ -36,10 +38,10 @@ class RandomPickWithWeight {
     }
 
     public static void main(String[] args) {
-        RandomPickWithWeight randomPickWithWeight = new RandomPickWithWeight(new int[] { 1, 3, 5, 4, 2 });
-        //        randomPickWithWeight.pickIndex();
+        int[] arr = { 1, 3 };
+        RandomPickWithWeight randomPickWithWeight = new RandomPickWithWeight(arr);
 
-        IntStream.range(0, 10).forEach(i -> System.out.println((int)(Math.random() * 3)));
+        IntStream.range(0, 4).forEach(e -> System.out.println(arr[randomPickWithWeight.pickIndex()]));
     }
 
 }

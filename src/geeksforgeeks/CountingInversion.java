@@ -39,7 +39,6 @@ class CountingInversion {
                 temp[k++] = arr[i++];
             } else {
                 temp[k++] = arr[j++];
-
                 invCount = invCount + (mid - i);
             }
         }

@@ -1,14 +1,15 @@
 package geeksforgeeks;
 
 import java.util.ArrayDeque;
-import java.util.Queue;
 
-// https://leetcode.com/discuss/interview-question/347457/Amazon-or-OA-2019-or-Treasure-Island
+/**
+ * https://leetcode.com/discuss/interview-question/347457/Amazon-or-OA-2019-or-Treasure-Island
+ */
 public class TreasureIsland {
     private static final int[][] DIRS = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 
     public static int minSteps(char[][] grid) {
-        Queue<Point> q = new ArrayDeque<>();
+        ArrayDeque<Point> q = new ArrayDeque<>();
         q.add(new Point(0, 0, 0));
         grid[0][0] = 'D';
         while (!q.isEmpty()) {

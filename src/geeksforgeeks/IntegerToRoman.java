@@ -3,10 +3,13 @@ package geeksforgeeks;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://leetcode.com/problems/roman-to-integer/
+ */
 public class IntegerToRoman {
 
-    public int romanToInteger(String s) {
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
+    public static int romanToInteger(String s) {
+        Map<Character, Integer> map = new HashMap<>();
 
         map.put('I', 1);
         map.put('V', 5);
@@ -27,4 +30,9 @@ public class IntegerToRoman {
         return sum;
 
     }
+
+    public static void main(String[] args) {
+        System.out.println(romanToInteger("LIV"));
+    }
+
 }

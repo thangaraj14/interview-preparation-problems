@@ -5,6 +5,13 @@ package geeksforgeeks;
  */
 public class MaximumSubarray {
 
+    /**
+     * https://leetcode.com/problems/maximum-product-subarray/
+     *
+     * @param A
+     *
+     * @return
+     */
     // 1, -2, -3, 0, 8, 7, -2
     public static int maxProductSubArray(int[] A) {
 
@@ -14,18 +21,23 @@ public class MaximumSubarray {
 
         int maxHerePre = A[0];
         int minHerePre = A[0];
-        int maxsofar = A[0];
+        int maxSoFar = A[0];
 
         for (int i = 1; i < A.length; i++) {
             int maxHere = Math.max(Math.max(maxHerePre * A[i], minHerePre * A[i]), A[i]);
             int minHere = Math.min(Math.min(maxHerePre * A[i], minHerePre * A[i]), A[i]);
-            maxsofar = Math.max(maxHere, maxsofar);
+            maxSoFar = Math.max(maxHere, maxSoFar);
             maxHerePre = maxHere;
             minHerePre = minHere;
         }
-        return maxsofar;
+        return maxSoFar;
     }
 
+    /**
+     * @param nums https://leetcode.com/problems/maximum-subarray/
+     *
+     * @return
+     */
     public static int maxSumSubArray(int[] nums) {
 
         int maxSoFar = nums[0];

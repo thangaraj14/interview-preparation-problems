@@ -29,7 +29,6 @@ class MakeAnArrayPalindrome {
                 ans++;
             }
         }
-
         return ans;
     }
 

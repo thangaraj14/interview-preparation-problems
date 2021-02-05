@@ -5,6 +5,12 @@ import java.util.Map;
 
 /**
  * https://leetcode.com/problems/lfu-cache/discuss/94547/Java-O(1)-Solution-Using-Two-HashMap-and-One-DoubleLinkedList
+ * <p>
+ * https://leetcode.com/problems/lfu-cache/
+ * <p>https://bit.ly/3iFaNxw
+ * <p>
+ * it removes the least frequently used element which is 3:
+ * 1,1-> 2,2-> get(2) ,get(2)-> get(3) -> put(3,3)
  */
 public class LFUCache {
     class Node {
@@ -118,6 +124,7 @@ public class LFUCache {
         lfuCache.put(2, 2);
         lfuCache.put(3, 3);
         lfuCache.get(2);
+        lfuCache.get(1);
         lfuCache.put(4, 4);
     }
 }

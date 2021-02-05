@@ -3,6 +3,8 @@ package geeksforgeeks;
 // (0, 2, 4,..) and negative numbers at odd indexes (1, 3, 
 // 5, ..) 
 
+import java.util.Arrays;
+
 /**
  * https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/
  * https://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items-o1-extra-space/
@@ -34,17 +36,10 @@ class AlternateOddAndEvenNumbersArray {
         }
     }
 
-    static void printArray(int arr[], int n) {
-        for (int i = 0; i < n; i++)
-            System.out.print(arr[i] + " ");
-    }
-
     public static void main(String[] args) {
         int arr[] = { -1, 2, -3, 4, 5, 6, -7, 8, 9 };
         int n = arr.length;
-        printArray(arr, n);
         rearrange(arr, n);
-        System.out.println("Array after rearranging: ");
-        printArray(arr, n);
+        System.out.println(Arrays.toString(arr));
     }
 }

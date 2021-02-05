@@ -1,73 +1,40 @@
 package geeksforgeeks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * https://leetcode.com/problems/different-ways-to-add-parentheses/
  */
+// TODO: Unresolved
 class DifferentWaysToAddParenthesis {
 
-  /*  List<Integer> diffWaysToCompute(String input) {
-
-        List<Integer> nums;
-        List<Integer> operators;
-        int num = 0;
+    public List<Integer> diffWaysToCompute(String input) {
+        List<Integer> res = new ArrayList<Integer>();
         for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == '*' || input.charAt(i) == '-' || input.charAt(i) == '+') {
-                nums.emplace_back(num);
-                operators.emplace_back(input.charAt(i));
-                num = 0;
-            } else {
-                num = num * 10 + (input.charAt(i) - 48);
-            }
-        }
-        nums.emplace_back(num);
-
-        int n = nums.size();
-        vector<int> dp[ n][n];
-
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-                vector<int> x;
-                dp[i][j] = x;
-                if (i == j) {
-                    dp[i][i].push_back(nums[i]);
-                }
-            }
-        }
-
-        for (int l = 1; l <= n; l++) {
-            for (int i = 0; i <= n - l; i++) {
-                int j = i + l - 1;
-                for (int k = i; k < j; k++) {
-                    for (int m : dp[i][k]) {
-                        for (int o : dp[k + 1][j]) {
-                            char operat = operators[k];
-                            int result;
-                            switch (operat) {
-                                case '+':
-                                    result = m + o;
-                                    break;
-                                case '-':
-
-                                    result = m - o;
-                                    break;
-                                case '*':
-                                    result = m * o;
-                                    break;
-
-                            }
-                            dp[i][j].emplace_back(result);
+            char c = input.charAt(i);
+            if (c == '-' || c == '+' || c == '*') {
+                String a = input.substring(0, i);
+                String b = input.substring(i + 1);
+                List<Integer> al = diffWaysToCompute(a);
+                List<Integer> bl = diffWaysToCompute(b);
+                for (int x : al) {
+                    for (int y : bl) {
+                        if (c == '-') {
+                            res.add(x - y);
+                        } else if (c == '+') {
+                            res.add(x + y);
+                        } else if (c == '*') {
+                            res.add(x * y);
                         }
-
                     }
-
                 }
             }
         }
+        if (res.size() == 0) {
+            res.add(Integer.valueOf(input));
+        }
+        return res;
+    }
 
-        sort(dp[0][n - 1].begin(), dp[0][n - 1].end());
-        return dp[0][n - 1];
-
-    }*/
-};
+}

@@ -15,6 +15,9 @@ import java.util.HashMap;
  * <p>
  * Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
  * Output: [4,9]
+ * <p>
+ * https://leetcode.com/problems/intersection-of-two-arrays/
+ * https://leetcode.com/problems/intersection-of-two-arrays-ii/
  */
 public class IntersectionOfArrays {
     public static void main(String[] args) {

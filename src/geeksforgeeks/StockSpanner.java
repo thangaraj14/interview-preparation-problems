@@ -21,9 +21,7 @@ class StockSpanner {
         while (!stack.isEmpty() && stack.peek().getKey() <= price) {
             value += stack.pop().getValue();
         }
-
         stack.push(new Pair(price, value));
-
         return stack.peek().getValue();
     }
 

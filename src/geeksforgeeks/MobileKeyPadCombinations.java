@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * https://www.geeksforgeeks.org/find-possible-words-phone-digits/
+ * <p>
+ * https://leetcode.com/problems/letter-combinations-of-a-phone-number/
  */
 public class MobileKeyPadCombinations {
 
@@ -36,7 +38,7 @@ public class MobileKeyPadCombinations {
     }
 
     public static void main(String[] args) {
-        new MobileKeyPadCombinations().letterCombinations("23").stream().forEach(System.out::println);
+        new MobileKeyPadCombinations().letterCombinations("23").forEach(System.out::println);
     }
 
     public List<String> letterCombinationsIterative(String digits) {

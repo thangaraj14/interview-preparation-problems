@@ -2,10 +2,13 @@ package geeksforgeeks;
 
 import java.util.*;
 
-/*https://leetcode.com/problems/design-twitter/discuss/82825/Java-OO-Design-with-most-efficient-function-getNewsFeed*/
+/**
+ * https://leetcode.com/problems/design-twitter/
+ * /*https://leetcode.com/problems/design-twitter/discuss/82825/Java-OO-Design-with-most-efficient-function-getNewsFeed
+ */
 public class Twitter {
-    private static int timeStamp = 0;
 
+    private static int timeStamp = 0;
     private Map<Integer, User> userMap;
 
     // Tweet link to next Tweet so that we can save a lot of time
@@ -76,6 +79,7 @@ public class Twitter {
     // So after adding all heads we only need to add 9 tweets at most into this
     // heap before we get the 10 most recent tweet.
     public List<Integer> getNewsFeed(int userId) {
+
         List<Integer> result = new LinkedList<>();
 
         if (!userMap.containsKey(userId)) {
@@ -83,7 +87,7 @@ public class Twitter {
         }
 
         Set<Integer> users = userMap.get(userId).following;
-        PriorityQueue<Tweet> q = new PriorityQueue<>(users.size(), (a, b) -> (b.time - a.time));
+        PriorityQueue<Tweet> q = new PriorityQueue<>((a, b) -> (b.time - a.time));
         for (int user : users) {
             Tweet t = userMap.get(user).tweet_head;
             // very important! If we add null to the head we are screwed.

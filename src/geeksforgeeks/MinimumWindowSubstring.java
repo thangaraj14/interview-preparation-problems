@@ -9,8 +9,8 @@ import java.util.Map;
 class MinimumWindowSubstring {
 
     public static void main(String[] args) {
-        System.out.println(minWindow("AADOBECODEBANC", "ABC"));
-        System.out.println(minWindow("abcdebdde", "bde"));
+        System.out.println(minWindow("ADOBECODEBANC", "ABC"));
+        //        System.out.println(minWindow("abcdebdde", "bde"));
     }
 
     public static String minWindow(String s, String t) {
@@ -23,35 +23,35 @@ class MinimumWindowSubstring {
         }
         int counter = map.size();
 
-        int begin = 0, end = 0;
+        int left = 0;
+        int right = 0;
         int head = 0;
         int len = Integer.MAX_VALUE;
 
-        while (end < s.length()) {
-            char c = s.charAt(end);
+        while (right < s.length()) {
+            char c = s.charAt(right);
             if (map.containsKey(c)) {
                 map.put(c, map.get(c) - 1);
                 if (map.get(c) == 0) {
                     counter--;
                 }
             }
-            end++;
+            right++;
 
             while (counter == 0) {
-                char tempc = s.charAt(begin);
+                char tempc = s.charAt(left);
                 if (map.containsKey(tempc)) {
                     map.put(tempc, map.get(tempc) + 1);
                     if (map.get(tempc) > 0) {
                         counter++;
                     }
                 }
-                if (end - begin < len) {
-                    len = end - begin;
-                    head = begin;
+                if (right - left < len) {
+                    len = right - left;
+                    head = left;
                 }
-                begin++;
+                left++;
             }
-
         }
         if (len == Integer.MAX_VALUE) {
             return "";

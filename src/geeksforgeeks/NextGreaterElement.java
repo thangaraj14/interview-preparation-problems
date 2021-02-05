@@ -1,5 +1,6 @@
 package geeksforgeeks;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -14,19 +15,21 @@ class NextGreaterElement {
     // 9,1,2,3,4,5,6,7
     public static void printNGE() {
         Stack<Integer> s = new Stack<>();
-        int[] nge = new int[arr.length];
+        int[] result = new int[arr.length];
 
         for (int i = arr.length - 1; i >= 0; i--) {
 
             while (!s.empty() && s.peek() <= arr[i]) {
                 s.pop();
             }
-            nge[i] = s.empty() ? -1 : s.peek();
+            result[i] = s.empty() ? -1 : s.peek();
             s.push(arr[i]);
 
         }
         for (int i = 0; i < arr.length; i++)
-            System.out.println(arr[i] + " --> " + nge[i]);
+            System.out.println(arr[i] + " --> " + result[i]);
+
+        System.out.println(Arrays.toString(result));
 
     }
 

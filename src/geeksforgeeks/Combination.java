@@ -11,48 +11,48 @@ import java.util.Set;
  */
 class Combination {
 
-    public List<List<Integer>> subsets(int[] nums) {
+    public List<List<Integer>> subsets(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
-        backtrack(result, new ArrayList<>(), nums, 0);
+        backtrack(result, new ArrayList<>(), arr, 0);
         return result;
     }
 
-    private void backtrack(List<List<Integer>> result, List<Integer> tempList, int[] nums, int start) {
-        result.add(new ArrayList<>(tempList));
-        for (int i = start; i < nums.length; i++) {
-            tempList.add(nums[i]);
-            backtrack(result, tempList, nums, i + 1);
-            tempList.remove(tempList.size() - 1);
+    private void backtrack(List<List<Integer>> result, List<Integer> currList, int[] arr, int start) {
+        result.add(new ArrayList<>(currList));
+        for (int i = start; i < arr.length; i++) {
+            currList.add(arr[i]);
+            backtrack(result, currList, arr, i + 1);
+            currList.remove(currList.size() - 1);
         }
     }
 
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
+    public List<List<Integer>> subsetsWithDup(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(nums);
-        dfs(nums, new ArrayList<>(), 0, result);
+        Arrays.sort(arr);
+        dfs(arr, new ArrayList<>(), 0, result);
         return result;
     }
 
-    private void dfs(int[] nums, List<Integer> curr, int index, List<List<Integer>> result) {
-        result.add(new ArrayList<>(curr));
-        if (index == nums.length) {
+    private void dfs(int[] arr, List<Integer> currList, int index, List<List<Integer>> result) {
+        result.add(new ArrayList<>(currList));
+        if (index == arr.length) {
             return;
         }
         Set<Integer> visited = new HashSet<>();
-        for (int i = index; i < nums.length; i++) {
-            if (visited.add(nums[i])) {
-                curr.add(nums[i]);
-                dfs(nums, curr, i + 1, result);
-                curr.remove(curr.size() - 1);
+        for (int i = index; i < arr.length; i++) {
+            if (visited.add(arr[i])) {
+                currList.add(arr[i]);
+                dfs(arr, currList, i + 1, result);
+                currList.remove(currList.size() - 1);
             }
         }
     }
 
     public static void main(String[] args) {
         Combination subSet = new Combination();
-        subSet.subsets(new int[] { 1, 2, 3 });
+/*        List<List<Integer>> subsets = subSet.subsets(new int[] { 1, 2, 3 });
+        subsets.forEach(System.out::println);*/
         List<List<Integer>> lists = subSet.subsetsWithDup(new int[] { 1, 1, 2, 4 });
-        lists.stream().forEach(System.out::print);
-
+        lists.forEach(System.out::print);
     }
 }

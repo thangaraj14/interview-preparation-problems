@@ -1,6 +1,8 @@
 package geeksforgeeks;
 
 /**
+ * https://leetcode.com/discuss/general-discussion/605740/day-30-check-if-a-string-is-a-valid-sequence-from-root-to-leaves-path-in-a-binary-tree
+ * <p>
  * Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree
  * <p>
  * Input: root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,0,1]
@@ -19,6 +21,7 @@ package geeksforgeeks;
  * Input: root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,1]
  * Output: false
  * Explanation: The path 0 -> 1 -> 1 is a sequence, but it is not a valid sequence.
+ * Unresolved
  */
 public class TreePattern {
 
@@ -62,7 +65,7 @@ public class TreePattern {
     public static void main(String[] args) {
         TreePattern treePattern = new TreePattern();
         TreeNode root = treePattern.constructTree();
-        System.out.println(treePattern.isValidSequence(root, new int[] { 0 }));
+        System.out.println(treePattern.isValidSequence(root, new int[] { 0, 1, 0, 1 }));
 
     }
 

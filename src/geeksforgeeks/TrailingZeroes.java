@@ -1,6 +1,8 @@
 package geeksforgeeks;
 
-/*https://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/*/
+/**
+ * https://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/
+ */
 class TrailingZeroes {
     public int trailingZeroes(int n) {
 

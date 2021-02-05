@@ -9,6 +9,7 @@ import java.util.PriorityQueue;
 
 /**
  * https://leetcode.com/problems/design-search-autocomplete-system/
+ * https://cheonhyangzhang.gitbooks.io/leetcode-solutions/content/642-design-search-autocomplete-system.html
  */
 class AutoCompleteSystem {
 
@@ -66,6 +67,7 @@ class AutoCompleteSystem {
         Comparator<Map.Entry<String, Integer>> cmp = (a, b) -> a.getValue() == b.getValue() ?
                 b.getKey().compareTo(a.getKey()) :
                 a.getValue() - b.getValue();
+
         PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(cmp);
         int k = 3;
         for (Map.Entry<String, Integer> entry : curr.counts.entrySet()) {
@@ -84,7 +86,7 @@ class AutoCompleteSystem {
 
     public static void main(String[] args) {
         String[] sentences = { "i love you", "island", "ironman", "i love leetcode" };
-        int[] times = { 5, 3, 2, 2 };
+        int[] times = { 5, 3, 2, 9 };
         AutoCompleteSystem autoCompleteSystem = new AutoCompleteSystem(sentences, times);
         System.out.println(autoCompleteSystem.input('i'));
         System.out.println(autoCompleteSystem.input(' '));

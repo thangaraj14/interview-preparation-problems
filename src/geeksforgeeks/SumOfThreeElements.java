@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  *
  */
+
 public class SumOfThreeElements {
 
     public static void main(String[] args) {
@@ -36,7 +37,6 @@ public class SumOfThreeElements {
                 }
             }
         }
-
         return false;
     }
 }

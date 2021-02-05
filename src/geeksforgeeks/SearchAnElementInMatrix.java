@@ -1,15 +1,17 @@
 package geeksforgeeks;
 
-/*https://www.youtube.com/watch?v=FOa55B9Ikfg
-* https://leetcode.com/problems/search-a-2d-matrix-ii/
-https://leetcode.com/problems/search-a-2d-matrix/*/
+/**
+ * https://www.youtube.com/watch?v=FOa55B9Ikfg
+ * https://leetcode.com/problems/search-a-2d-matrix-ii/
+ * https://leetcode.com/problems/search-a-2d-matrix/
+ */
 
 public class SearchAnElementInMatrix {
 
     private static boolean searchII(int[][] mat, int n, int x) {
 
         int i = 0;
-        int j = n - 1; // set indexes for top right element
+        int j = n - 1;
 
         while (i < n && j >= 0) {
             if (mat[i][j] == x) {
@@ -18,8 +20,7 @@ public class SearchAnElementInMatrix {
             }
             if (mat[i][j] > x) {
                 j--;
-            } else // if mat[i][j] < x
-            {
+            } else {
                 i++;
             }
         }
@@ -40,6 +41,7 @@ public class SearchAnElementInMatrix {
         int end = rows * cols - 1;
         while (start <= end) {
             int mid = (start + end) / 2;
+            //Another way to took at it is: lets say you have a matrix M with 4 rows and 3 columns. When we want to access M[2][1], the way the memory address is calculated is 2*3+1 = 7. so you are just reversing the calculation , row number is given by 7/3 = 2, and column is the offset in that row so for 7th element it is 7%3 = 1. This link helped me understand it.
             if (matrix[mid / cols][mid % cols] == target) {
                 return true;
             }
@@ -55,10 +57,11 @@ public class SearchAnElementInMatrix {
     public static void main(String[] args) {
         int[][] mat = { { 10, 20, 30, 40 }, { 15, 25, 35, 45 }, { 27, 29, 37, 48 }, { 32, 33, 39, 50 } };
 
-        int[][] matI = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 50 } };
+        int[][] matI = { { 1, 4, 7, 11, 15 }, { 2, 5, 8, 12, 19 }, { 3, 6, 9, 16, 22 }, { 10, 13, 14, 17, 24 },
+                { 18, 21, 23, 26, 30 } };
 
-        System.out.println(searchI(matI, 11));
-        System.out.println(searchII(mat, 4, 33));
+        System.out.println(searchI(mat, 11));
+        System.out.println(searchII(matI, 5, 8));
 
     }
 

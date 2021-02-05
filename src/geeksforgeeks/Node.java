@@ -14,15 +14,11 @@ class RemoveBSTGivenOutsideRange {
         root.right = removeOutsideRange(root.right, min, max);
 
         if (root.data < min) {
-            BSTNode rchild = root.right;
-            root = null;
-            return rchild;
+            return root.right;
         }
 
         if (root.data > max) {
-            BSTNode lchild = root.left;
-            root = null;
-            return lchild;
+            return root.left;
         }
         return root;
     }

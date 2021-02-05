@@ -2,13 +2,17 @@ package geeksforgeeks;
 
 import java.util.HashMap;
 
-/*https://www.geeksforgeeks.org/longest-span-sum-two-binary-arrays/*/
+/**
+ * https://www.geeksforgeeks.org/longest-span-sum-two-binary-arrays/
+ */
 class LongestSpanWithSameSumArray {
 
     static int longestCommonSum(int[] arr1, int[] arr2, int n) {
+
         int[] arr = new int[n];
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             arr[i] = arr1[i] - arr2[i];
+        }
 
         HashMap<Integer, Integer> map = new HashMap<>();
 
@@ -32,11 +36,9 @@ class LongestSpanWithSameSumArray {
     }
 
     public static void main(String args[]) {
-       /* int[] arr1 = {0, 1, 0, 1, 1, 1, 1};
-        int[] arr2 = {1, 1, 1, 1, 1, 0, 1};*/
-        int arr1[] = { 0, 1, 0, 0, 1, 1, 1, 0 };
-        int arr2[] = { 1, 1, 1, 1, 1, 1, 0, 1 };
-        //{-1,0,-1,0,0,1,0}
+        int arr1[] = { 0, 1, 0, 0, 0, 0 };
+        int arr2[] = { 1, 0, 1, 0, 0, 1 };
+        //{-1,1,-1,0,0,-1}
         int n = arr1.length;
         System.out.println(longestCommonSum(arr1, arr2, n));
     }

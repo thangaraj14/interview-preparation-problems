@@ -10,7 +10,7 @@ import java.util.Deque;
 // Output: 23
 public class BasicCalculator {
 
-    public int calculate(String s) {
+    public static int calculate(String s) {
 
         if (s == null || s.length() == 0) {
             return -1;
@@ -36,9 +36,9 @@ public class BasicCalculator {
         for (int i = 0; i < s.length(); i++) {
             char temp = s.charAt(i);
             if (Character.isDigit(temp)) {
-                number = number * 10 + temp - '0';
+                number = number * 10 + (temp - '0');
             } else if (temp == '+') {
-                result += sign * number;
+                result += sign * number; // to do operations like (-4-5)
                 number = 0;
                 sign = 1;
             } else if (temp == '-') {
@@ -66,7 +66,6 @@ public class BasicCalculator {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(calculate("(1+(4+5+2)-3)+(6+8)"));
     }
-
 }

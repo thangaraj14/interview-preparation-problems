@@ -3,10 +3,10 @@ package geeksforgeeks;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/*https://www.geeksforgeeks.org/count-number-of-substrings-with-exactly-k-distinct-characters/
-CountKSubStr number of substrings with exactly distinct characters in a given string
-*/
-
+/**
+ * https://www.geeksforgeeks.org/count-number-of-substrings-with-exactly-k-distinct-characters/
+ * CountKSubStr number of substrings with exactly distinct characters in a given string
+ */
 public class CountDistinctKSubString {
 
     private int countKDist(String str, int k) {
@@ -40,7 +40,6 @@ public class CountDistinctKSubString {
 
     {
         HashMap<Character, Integer> map = new HashMap<>();
-        int res = 0;
         for (int i = 0; i < "in".length(); ++i) {
             int dist = 0;
             map.clear();
@@ -52,7 +51,6 @@ public class CountDistinctKSubString {
                     map.put("in".charAt(j), 1 + map.get("in".charAt(j)));
                 }
                 if (dist == 2) {
-                    res++;
                 }
             }
         }

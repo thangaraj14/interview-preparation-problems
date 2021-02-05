@@ -3,8 +3,12 @@ package geeksforgeeks;
 import java.util.HashSet;
 import java.util.Set;
 
-class LongestConsequtiveSequence {
-    public int longestConsecutive(int[] nums) {
+/**
+ * https://leetcode.com/problems/longest-consecutive-sequence/
+ */
+class LongestConsecutiveSequence {
+
+    public static int longestConsecutive(int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
@@ -17,7 +21,7 @@ class LongestConsequtiveSequence {
         for (Integer i : nums) {
             int num = i;
             int count = 1;
-            // looking left;
+
             while (set.contains(--num)) {
                 count++;
                 set.remove(num);
@@ -32,5 +36,9 @@ class LongestConsequtiveSequence {
         }
 
         return max;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longestConsecutive(new int[] { 100, 4, 200, 1, 3, 2 }));
     }
 }

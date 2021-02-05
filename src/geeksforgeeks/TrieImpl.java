@@ -10,14 +10,11 @@ public class TrieImpl {
     private void insert(String word) {
 
         TrieNode curr = root;
-        for (int i = 0; i < word.length(); i++) {
-            TrieNode node = curr.children.get(word.charAt(i));
-            if (null == node) {
-                node = new TrieNode();
-                node.endOfWord = false;
-                curr.children.put(word.charAt(i), node);
+        for (char ch : word.toCharArray()) {
+            if (null == curr.children.get(ch)) {
+                curr.children.put(ch, new TrieNode());
             }
-            curr = node;
+            curr = curr.children.get(ch);
         }
         curr.endOfWord = true;
     }

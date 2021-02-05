@@ -7,41 +7,29 @@ import java.util.Set;
 
 /**
  * https://leetcode.com/problems/perfect-squares/
+ * <p>
+ * https://www.youtube.com/watch?v=dOOzOsfj31I&ab_channel=KnowledgeCenter
  */
 class PerfectSquare {
 
-    public int numSquares(int n) {
-        Queue<Integer> q = new LinkedList<>();
-        Set<Integer> visited = new HashSet<>();
-        q.offer(0);
-        visited.add(0);
-        int depth = 0;
-        while (!q.isEmpty()) {
-            int size = q.size();
-            depth++;
-            while (size > 0) {
-                int removed = q.poll();
-                for (int i = 1; i * i <= n; i++) {
-                    int v = removed + i * i;
-                    if (v == n) {
-                        return depth;
-                    }
-                    if (v > n) {
-                        break;
-                    }
-                    if (!visited.contains(v)) {
-                        q.offer(v);
-                        visited.add(v);
-                    }
-                }
-                size--;
+    public int numSquaresDp(int n) {
+        int[] dp = new int[n + 1];
+        for (int x = 1; x <= n; ++x) {
+            int minVal = x;
+            int temp = 1;
+            int square = 1;
+            while (square <= x) {
+                minVal = Math.min(minVal, 1 + dp[x - square]);
+                temp++;
+                square = temp * temp;
             }
+            dp[x] = minVal;
         }
-        return depth;
+        return dp[n];
     }
 
     public static void main(String[] args) {
         PerfectSquare ps = new PerfectSquare();
-        System.out.println(ps.numSquares(13));
+        System.out.println(ps.numSquaresDp(13));
     }
 }

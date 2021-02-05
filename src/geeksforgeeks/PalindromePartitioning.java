@@ -31,7 +31,7 @@ class PalindromePartitioning {
             String temp = s.substring(0, i);
             if (isPalindrome(temp)) {
                 tempList.add(temp);
-                backtrackingUtil(s.substring(i, s.length()), result, tempList);
+                backtrackingUtil(s.substring(i), result, tempList);
                 tempList.remove(tempList.size() - 1);
             }
         }
@@ -52,6 +52,6 @@ class PalindromePartitioning {
 
     public static void main(String[] args) {
         PalindromePartitioning partitioning = new PalindromePartitioning();
-        partitioning.partition("aab");
+        System.out.println(partitioning.partition("aabcb"));
     }
 }

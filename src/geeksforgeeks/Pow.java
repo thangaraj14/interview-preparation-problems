@@ -7,11 +7,11 @@ public class Pow {
 
     public static void main(String[] args) {
         Pow pow = new Pow();
-        System.out.println(pow.pow(2.00000, 10));
+        System.out.println(pow.powIterative(2.00000, 10));
     }
 
     public double pow(double x, int m) {
-        double temp = x;
+        double temp;
         if (m == 0) {
             return 1;
         }
@@ -27,6 +27,9 @@ public class Pow {
         }
     }
 
+    /**
+     * 2 pow 10 ,
+     */
     public double powIterative(double x, int n) {
         double result = 1.0;
         for (int i = n; i != 0; i /= 2, x *= x) {

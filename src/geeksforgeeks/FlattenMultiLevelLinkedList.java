@@ -17,8 +17,9 @@ class FlattenMultiLevelLinkedList {
             /* CASE 2: got child, find the tail of the child and link it to p.next */
             Node temp = p.child;
 
-            while (temp.next != null)
+            while (temp.next != null) {
                 temp = temp.next;
+            }
             // Connect tail with p.next, if it is not null
             temp.next = p.next;
             if (p.next != null) {

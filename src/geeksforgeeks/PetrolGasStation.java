@@ -1,9 +1,12 @@
 package geeksforgeeks;
 
+/**
+ * https://leetcode.com/problems/gas-station/
+ */
 public class PetrolGasStation {
 
-    // gas means amount of gas which we have in our car
-    // cost means amount of gas to reach next station
+    // gas is amount of gas which we have in our car
+    // cost is amount of gas is required to reach next station
     public static int canCompleteCircuit(int[] gas, int[] cost) {
         int sumGas = 0;
         int sumCost = 0;
@@ -29,8 +32,8 @@ public class PetrolGasStation {
 
     public static void main(String[] args) {
 
-        int[] gas = { 4, 6, 7, 4 };
-        int[] cost = { 6, 5, 3, 5 };
+        int[] gas = { 1, 2, 3, 4, 5 };
+        int[] cost = { 3, 4, 5, 1, 2 };
         int start = canCompleteCircuit(gas, cost);
         System.out.println(start == -1 ? "No Solution" : "Start = " + start);
     }

@@ -1,7 +1,7 @@
 package geeksforgeeks;
 
 /*https://www.geeksforgeeks.org/find-smallest-value-represented-sum-subset-given-array/*/
-class FindSmallestInteger {
+class FindSmallestSubsetInteger {
 
     int findSmallest(int arr[], int n) {
         int result = 1;
@@ -17,7 +17,7 @@ class FindSmallestInteger {
     }
 
     public static void main(String[] args) {
-        FindSmallestInteger small = new FindSmallestInteger();
+        FindSmallestSubsetInteger small = new FindSmallestSubsetInteger();
         int arr1[] = { 1, 3, 4, 5 };
         int n1 = arr1.length;
         System.out.println(small.findSmallest(arr1, n1));

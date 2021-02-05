@@ -9,6 +9,7 @@ import java.util.Map;
 
 // unresolved
 public class IsomorphicArray {
+    
     public Collection<List<String>> groupIsomorphicStrings(List<String> strings) {
         if (strings == null || strings.isEmpty()) {
             return Collections.EMPTY_LIST;

@@ -5,11 +5,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-/*https://www.techiedelight.com/sort-k-sorted-array/*/
+/**
+ * https://www.techiedelight.com/sort-k-sorted-array/
+ */
 class SortANearlySortedArray {
 
     public static void sortKSortedArray(List<Integer> list, int k) {
-        // create an empty min heap and insert first k+1 elements in the heap
+
         PriorityQueue<Integer> pq = new PriorityQueue<>(list.subList(0, k + 1));
 
         int index = 0;

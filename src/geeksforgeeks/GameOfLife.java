@@ -14,10 +14,14 @@ public class GameOfLife {
     int die = 2;
     int live = 3;
 
+    /**
+     * idea behind the die/live is to check the status of next state. for an example if it changes its state from
+     * 0->1, we will set it as 3,so that we will be sure that it was dead and now its live.
+     */
     void gameOfLife(int[][] board) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                int neighbors = getLiveNeigborCount(board, i, j);
+                int neighbors = getLiveNeighborCount(board, i, j);
                 if (board[i][j] == 0 && neighbors == 3) {
                     board[i][j] = live;
                 } else if (board[i][j] == 1) {
@@ -42,7 +46,7 @@ public class GameOfLife {
         }
     }
 
-    int getLiveNeigborCount(int[][] board, int i, int j) {
+    int getLiveNeighborCount(int[][] board, int i, int j) {
 
         int count = 0;
         for (int m = 0; m < board.length; m++) {

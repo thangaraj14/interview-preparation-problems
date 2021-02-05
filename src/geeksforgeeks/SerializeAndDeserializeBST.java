@@ -44,14 +44,12 @@ public class SerializeAndDeserializeBST {
         if (q.isEmpty()) {
             return null;
         }
-        TreeNode root = new TreeNode(Integer.valueOf(q.poll()));//root (5)
+        TreeNode root = new TreeNode(Integer.parseInt(q.poll()));//root (5)
         Queue<String> smallerQueue = new LinkedList<>();
-        while (!q.isEmpty() && Integer.valueOf(q.peek()) < root.val) {
+        while (!q.isEmpty() && Integer.parseInt(q.peek()) < root.val) {
             smallerQueue.offer(q.poll());
         }
-        //smallerQueue : 3,2   storing elements smaller than 5 (root)
         root.left = getNode(smallerQueue);
-        //q: 6,7   storing elements bigger than 5 (root)
         root.right = getNode(q);
         return root;
     }

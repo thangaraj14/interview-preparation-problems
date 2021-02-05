@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * https://www.geeksforgeeks.org/check-if-two-given-strings-are-isomorphic-to-each-other/
+ * https://leetcode.com/problems/isomorphic-strings/
  */
 class IsomorphicString {
     static boolean isIsomorphic(String s, String t) {
@@ -16,6 +17,9 @@ class IsomorphicString {
             if (m1[s.charAt(i)] != m2[t.charAt(i)]) {
                 return false;
             }
+            //to maintain index, for an example :
+            //"bbbaaaba"
+            //"aaabbbba"
             m1[s.charAt(i)] = i + 1;
             m2[t.charAt(i)] = i + 1;
         }

@@ -5,6 +5,8 @@ import java.util.Queue;
 
 /**
  * https://baihuqian.github.io/2018-08-12-design-snake-game/
+ * <p>
+ * https://leetcode.com/problems/design-snake-game/
  */
 class SnakeGame {
 

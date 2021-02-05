@@ -2,6 +2,9 @@ package geeksforgeeks;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/spiral-matrix-ii/
+ */
 public class SpiralMatrixII {
 
     public static int[][] generateMatrix(int n) {
@@ -30,16 +33,15 @@ public class SpiralMatrixII {
             }
             colEnd--;
 
-
-            for (int i = colEnd; i >= colStart; i--) {
-                if (rowStart <= rowEnd) {
+            if (rowStart <= rowEnd) {
+                for (int i = colEnd; i >= colStart; i--) {
                     matrix[rowEnd][i] = num++; // change
                 }
             }
             rowEnd--;
 
-            for (int i = rowEnd; i >= rowStart; i--) {
-                if (colStart <= colEnd) {
+            if (colStart <= colEnd) {
+                for (int i = rowEnd; i >= rowStart; i--) {
                     matrix[i][colStart] = num++; // change
                 }
             }

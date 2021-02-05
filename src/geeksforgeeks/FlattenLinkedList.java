@@ -6,6 +6,7 @@ package geeksforgeeks;
  * https://www.geeksforgeeks.org/flattening-a-linked-list/
  */
 class FlattenLinkedList {
+    
     Node head;
 
     class Node {

@@ -9,31 +9,32 @@ class WaterTrapping {
         int result = 0;
         int leftMax = 0;
         int rightMax = 0;
-        int low = 0;
-        int high = n - 1;
+        int left = 0;
+        int right = n - 1;
 
-        while (low < high) {
-            if (arr[low] < arr[high]) {
-                if (arr[low] > leftMax) {
-                    leftMax = arr[low];
+        while (left < right) {
+            if (arr[left] < arr[right]) {
+                if (arr[left] > leftMax) {
+                    leftMax = arr[left];
                 } else {
-                    result += leftMax - arr[low];
+                    result += leftMax - arr[left];
                 }
-                low++;
+                left++;
             } else {
-                if (arr[high] > rightMax) {
-                    rightMax = arr[high];
+                if (arr[right] > rightMax) {
+                    rightMax = arr[right];
                 } else {
-                    result += rightMax - arr[high];
+                    result += rightMax - arr[right];
                 }
-                high--;
+                right--;
             }
         }
         return result;
     }
 
     public static void main(String[] args) {
-        int arr[] = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1 };
+        //1, 0, 0, 0
+        int arr[] = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
         int n = arr.length;
         System.out.println("Maximum water that " + "can be accumulated is " + findWater(arr, n));
     }

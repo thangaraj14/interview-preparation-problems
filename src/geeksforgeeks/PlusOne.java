@@ -9,29 +9,25 @@ class PlusOne {
 
     public static int[] plusOne(int[] digits) {
 
-        StringBuilder sb = new StringBuilder();
-        int remainder = 0;
-        for (int i = digits.length - 1; i >= 0; i--) {
-            int num = 0;
-            if (i == digits.length - 1) {
-                num = digits[i] + 1;
-            } else {
-                num = digits[i] + remainder;
+        int n = digits.length;
+        // move along the input array starting from the end
+        for (int idx = n - 1; idx >= 0; --idx) {
+            // set all the nines at the end of array to zeros
+            if (digits[idx] == 9) {
+                digits[idx] = 0;
             }
-            int count = String.valueOf(num).length();
-            if (count > 1) {
-                sb.append(num % 10);
-                remainder = num / 10;
-            } else {
-                remainder = 0;
-                sb.append(num);
+            // here we have the rightmost not-nine
+            else {
+                // increase this rightmost not-nine by 1
+                digits[idx]++;
+                // and the job is done
+                return digits;
             }
         }
-        if (remainder != 0) {
-            sb.append(remainder);
-        }
-
-        return sb.reverse().toString().chars().map(i -> i - '0').toArray();
+        // we're here because all the digits are nines
+        digits = new int[n + 1];
+        digits[0] = 1;
+        return digits;
     }
 
     public static void main(String[] args) {

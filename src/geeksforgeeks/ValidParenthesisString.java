@@ -33,6 +33,6 @@ public class ValidParenthesisString {
 
     public static void main(String[] args) {
         ValidParenthesisString validParenthesisString = new ValidParenthesisString();
-        System.out.println(validParenthesisString.checkValidString("())("));
+        System.out.println(validParenthesisString.checkValidString("((*)))"));
     }
 }

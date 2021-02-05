@@ -16,7 +16,7 @@ class LongestSubArraySumUtmostK {
                 sum += arr[i];
                 count++;
             } else if (sum != 0) {
-                sum = sum - arr[i - count] + arr[i];
+                sum = sum - arr[i - count] + arr[i]; // shrinking the window
             }
             maxCount = Math.max(count, maxCount);
         }

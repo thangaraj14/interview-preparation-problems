@@ -6,6 +6,7 @@ import java.util.*;
  * https://leetcode.com/problems/insert-delete-getrandom-o1/
  */
 class OwnDataStructureUtil {
+
     ArrayList<Integer> list;
     HashMap<Integer, Integer> map;
     java.util.Random rand = new java.util.Random();

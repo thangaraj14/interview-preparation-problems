@@ -36,23 +36,21 @@ public class BitonicSearch {
         return -1;
     }
 
-    // -3,1,-2,-3,-4,-5,-6
-    static int findBitonicPoint(int arr[], int n, int l, int r) {
-        int mid = ((r + l) / 2) + l;
-        if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]) {
-            return mid;
-        } else {
-            // towards right if next number is greater
-            if (arr[mid] > arr[mid - 1] && arr[mid] < arr[mid + 1]) {
-                mid = findBitonicPoint(arr, n, mid, r);
+    public static int peakIndexInMountainArray(int[] A) {
+
+        int left = 0;
+        int right = A.length - 1;
+        int mid;
+
+        while (left < right) {
+            mid = (left + right) / 2;
+            if (A[mid] < A[mid + 1]) {
+                left = mid + 1;
             } else {
-                // towards left if next number is smaller
-                if (arr[mid] < arr[mid - 1] && arr[mid] > arr[mid + 1]) {
-                    mid = findBitonicPoint(arr, n, l, mid);
-                }
+                right = mid;
             }
         }
-        return mid;
+        return left;
     }
 
     static int searchBitonic(int arr[], int n, int key, int index) {
@@ -73,9 +71,7 @@ public class BitonicSearch {
         int arr[] = { -3, 3, 9, 8, 20, 17, 5, 3, 1 };
         int key = 3;
         int n = arr.length;
-        int l = 0;
-        int r = n - 1;
-        int index = findBitonicPoint(arr, n, l, r);
+        int index = peakIndexInMountainArray(arr);
 
         int x = searchBitonic(arr, n, key, index);
 

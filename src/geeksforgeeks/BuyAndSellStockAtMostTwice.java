@@ -2,6 +2,9 @@ package geeksforgeeks;
 
 /**
  * https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+ * <p>
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/discuss/135704/Detail-explanation-of-DP-solution
  */
 class BuyAndSellStockAtMostTwice {
     // { 2, 30, 15, 10, 8, 25, 80 };

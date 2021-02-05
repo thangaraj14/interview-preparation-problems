@@ -2,7 +2,9 @@ package geeksforgeeks;
 
 import java.util.Arrays;
 
-/*https://leetcode.com/articles/reorder-log-files/*/
+/**
+ * https://leetcode.com/problems/reorder-data-in-log-files/
+ */
 class ReorderLogs {
 
  /*   Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]

@@ -7,7 +7,8 @@ class ReorganizeString {
         for (int i = 0; i < S.length(); i++) {
             hash[S.charAt(i) - 'a']++;
         }
-        int max = 0, letter = 0;
+        int max = 0;
+        int letter = 0;
         for (int i = 0; i < hash.length; i++) {
             if (hash[i] > max) {
                 max = hash[i];
@@ -39,6 +40,7 @@ class ReorganizeString {
 
     // aabccddeee
     public static void main(String[] args) {
-        reorganizeString("aabccddeee");
+        String aabccddeee = reorganizeString("aabccddeee");
+        System.out.println(aabccddeee);
     }
 }

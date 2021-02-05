@@ -29,7 +29,8 @@ public class PalindromeSinglyLinkedList {
     }
 
     public boolean isPalindrome(Node head) {
-        Node fast = head, slow = head;
+        Node fast = head;
+        Node slow = head;
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
@@ -50,13 +51,13 @@ public class PalindromeSinglyLinkedList {
         return true;
     }
 
-    public Node reverse(Node slow) {
+    public Node reverse(Node curr) {
         Node prev = null;
-        while (slow != null) {
-            Node next = slow.next;
-            slow.next = prev;
-            prev = slow;
-            slow = next;
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
         return prev;
     }

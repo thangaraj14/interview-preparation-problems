@@ -1,9 +1,5 @@
 package geeksforgeeks;
 
-/*
-https://leetcode.com/discuss/interview-question/383669/
-*/
-
 /**
  * find the maximum score of a path starting at [0, 0] and ending at [r-1, c-1]. The score of a path is the minimum value in that path.
  * <p>
@@ -18,14 +14,12 @@ https://leetcode.com/discuss/interview-question/383669/
  * 1-> 2 -> 5 -> 1
  * 1-> 4 -> 5 -> 1
  * So min of all the paths = [2, 2, 4]. Note that we don't include the first and final entry.
+ * https://leetcode.com/discuss/interview-question/383669/
  */
 public class UniquePathMaximum {
 
     public static void main(String[] args) {
-        int[][] matrix = {  { 6, 7, 8 },
-                            { 5, 4, 2 },
-                            { 8, 7, 6 }
-                        };
+        int[][] matrix = { { 6, 7, 8 }, { 5, 4, 2 }, { 8, 7, 6 } };
         System.out.println(findMaximumOfUniquePath(matrix));
     }
 

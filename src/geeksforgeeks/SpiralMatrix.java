@@ -43,20 +43,19 @@ class SpiralMatrix {
             rowEnd--;
 
             if (colBegin <= colEnd) {
-                // Traver Up
+                // Traverse Up
                 for (int j = rowEnd; j >= rowBegin; j--) {
                     result.add(matrix[j][colBegin]);
                 }
             }
             colBegin++;
         }
-
         return result;
     }
 
     public static void main(String[] args) {
 
-        int a[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+        int a[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
         spiralOrder(a);
     }
 }

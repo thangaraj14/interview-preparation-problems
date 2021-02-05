@@ -10,7 +10,8 @@ import java.util.Map;
  * https://www.techiedelight.com/find-sub-array-with-0-sum/
  */
 class Pair {
-    int first, second;
+    int first;
+    int second;
 
     Pair(int a, int b) {
         first = a;
@@ -47,7 +48,7 @@ public class SumSubArrayZero {
     }
 
     public static void main(String args[]) {
-        int[] arr = { 6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7 };
+        int[] arr = { 4, 2, -3, -1, 0, 4 };
         int n = arr.length;
 
         ArrayList<Pair> out = findSubArrays(arr, n);

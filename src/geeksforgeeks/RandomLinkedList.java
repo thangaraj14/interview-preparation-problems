@@ -4,7 +4,7 @@ package geeksforgeeks;
  * https://leetcode.com/problems/copy-list-with-random-pointer/
  */
 class RandomLinkedList {
-    
+
     public LLNode copyRandomList(LLNode head) {
         if (head == null) {
             return null;
@@ -15,20 +15,20 @@ class RandomLinkedList {
             temp.next = LLNode;
             temp = temp.next.next;
         }
-        LLNode randomLLNode = head;
-        while (randomLLNode != null) {
-            randomLLNode.next.random = randomLLNode.random.next;
-            randomLLNode = randomLLNode.next.next;
+        LLNode curr = head;
+        while (curr != null) {
+            curr.next.random = curr.random.next;
+            curr = curr.next.next;
         }
-        LLNode copyHead = head.next;
-        LLNode tempHead = copyHead;
+        LLNode nextHead = head.next;
+        LLNode tempHead = nextHead;
         while (head != null && tempHead != null) {
             head.next = head.next == null || head.next.next == null ? head.next : head.next.next;
             tempHead.next = tempHead.next == null || tempHead.next.next == null ? tempHead.next : tempHead.next.next;
             head = head.next;
             tempHead = tempHead.next;
         }
-        return copyHead;
+        return nextHead;
     }
 
     public static void main(String[] args) {
@@ -42,6 +42,7 @@ class RandomLinkedList {
         head.next.next.next.random = head;
         RandomLinkedList solution = new RandomLinkedList();
         solution.copyRandomList(head);
+        System.out.println(head);
     }
 }
 

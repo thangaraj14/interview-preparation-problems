@@ -16,7 +16,6 @@ public class ClosestNumbers {
             return;
         }
 
-        // Sort array elements
         Arrays.sort(arr);
 
         // Compare differences of adjacent

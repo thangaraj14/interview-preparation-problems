@@ -1,31 +1,43 @@
 package geeksforgeeks;
 
-class lengthOfLongestSubstringWithoutRepeatingCharacters {
-    public int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        int begin = 0, end = 0, counter = 0, d = 0;
+import java.util.HashMap;
+import java.util.Map;
 
-        while (end < s.length()) {
-            // > 0 means repeating character
-            //if(map[s.charAt(end++)]-- > 0) counter++;
-            char c = s.charAt(end);
+/**
+ * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ */
+class LongestSubstringWithoutRepeatingCharacters {
+
+    public static int lengthOfLongestSubstring(String s) {
+
+        Map<Character, Integer> map = new HashMap<>();
+        int left = 0;
+        int right = 0;
+        int counter = 0;
+        int result = 0;
+
+        while (right < s.length()) {
+            char c = s.charAt(right);
             map.put(c, map.getOrDefault(c, 0) + 1);
             if (map.get(c) > 1) {
                 counter++;
             }
-            end++;
-            
+            right++;
+
             while (counter > 0) {
-                //if (map[s.charAt(begin++)]-- > 1) counter--;
-                char charTemp = s.charAt(begin);
+                char charTemp = s.charAt(left);
                 if (map.get(charTemp) > 1) {
                     counter--;
                 }
-                map.put(charTemp, map.get(charTemp)-1);
-                begin++;
+                map.put(charTemp, map.get(charTemp) - 1);
+                left++;
             }
-            d = Math.max(d, end - begin);
+            result = Math.max(result, right - left);
         }
-        return d;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring("abcabcbb"));
     }
 }

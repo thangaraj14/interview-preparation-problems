@@ -38,13 +38,12 @@ public class HouseRobber {
     }
 
     public int helperFn(int[] nums, int start, int end) {
-        int incl = 0;
+        int incl = nums[0];
         int excl = 0;
-        for (int i = start; i <= end; i++) {
-            int temp = Math.max(excl + nums[i], incl);
-            excl = incl;
-            incl = temp;
-
+        for (int i = 1; i < nums.length; i++) {
+            int temp = incl;
+            incl = Math.max(incl, excl + nums[i]);
+            excl = temp;
         }
         return incl;
     }

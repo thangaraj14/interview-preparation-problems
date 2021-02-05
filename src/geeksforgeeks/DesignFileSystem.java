@@ -7,14 +7,14 @@ import java.util.HashMap;
  */
 public class DesignFileSystem {
 
-    private HashMap<String, Integer> m = new HashMap<>();
+    private HashMap<String, Integer> map = new HashMap<>();
 
     /**
      * Initialization of class.
      * Use a hash map to store the path and value.
      */
     public DesignFileSystem() {
-        m.put("", -1);      // avoid initially when path is "/a" regarded as false
+        map.put("", -1);      // avoid initially when path is "/a" regarded as false
     }
 
     /**
@@ -33,15 +33,15 @@ public class DesignFileSystem {
             return false;
         }
         String parent = path.substring(0, path.lastIndexOf("/"));
-        if (!m.containsKey(parent)) {
+        if (!map.containsKey(parent)) {
             return false;
         }
 
-        return m.putIfAbsent(path, value) == null;      // if the path exist, m.putIfAbsent(path, value) will be null
+        return map.putIfAbsent(path, value) == null;      // if the path exist, m.putIfAbsent(path, value) will be null
     }
 
     public int get(String path) {
-        return m.getOrDefault(path, -1);
+        return map.getOrDefault(path, -1);
     }
 
     public static void main(String[] args) {

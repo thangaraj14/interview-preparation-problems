@@ -2,7 +2,9 @@ package geeksforgeeks;
 
 import java.util.HashMap;
 
-/*https://www.geeksforgeeks.org/largest-subarray-with-equal-number-of-0s-and-1s/*/
+/**
+ * https://www.geeksforgeeks.org/largest-subarray-with-equal-number-of-0s-and-1s/
+ */
 class LargestSubArrayWithZeroesAndOnes {
 
     int maxLen(int arr[], int n) {

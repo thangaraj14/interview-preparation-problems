@@ -1,6 +1,5 @@
 package geeksforgeeks;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,53 +18,49 @@ Input:[[1,2],[3],[4,5,6]]
 Output:[1,2,3,4,5,6]
 
 */
-public class Flatten2DVector implements Iterator<Integer> {
+public class Flatten2DVector {
 
-    List<List<Integer>> result;
-    int index = 0;
-    int subIndex = 0;
+    private int x;
+    private int y;
+    private List<List<Integer>> list;
 
     public Flatten2DVector(List<List<Integer>> vec2d) {
-        result = vec2d;
-    }
-
-    @Override
-    public Integer next() {
-        int temp = index;
-        int tempSubIndex = subIndex;
-        if (hasNext()) {
-
-            if (index < result.size()) {
-
-                List<Integer> value = result.get(index);
-
-                while (value.size() == 0) {
-                    value = result.get(++index);
-                    temp = index;
-                }
-
-                if (subIndex + 1 < value.size()) {
-                    subIndex++;
-                } else {
-                    index++;
-                    subIndex = 0;
-                }
-            }
-            return result.get(temp).get(tempSubIndex);
+        if (vec2d == null) {
+            return;
         }
-        return -1;
+        this.x = 0;
+        this.y = 0;
+        this.list = vec2d;
     }
 
-    @Override
+    public int next() {
+        int rst = list.get(x).get(y);
+        // when y(column) reaches end increment row(x) and reset y
+        if (y + 1 >= list.get(x).size()) {
+            y = 0;
+            x++;
+        } else {
+            y++;
+        }
+        return rst;
+    }
+
     public boolean hasNext() {
-        if (index < result.size()) {
-            return true;
+        if (list == null) {
+            return false;
         }
-        return false;
-    }
-
-    @Override
-    public void remove() {
+        // this condition is to check for empty rows
+        while (x < list.size() && list.get(x).size() == 0) {
+            x++;
+            y = 0;
+        }
+        if (x >= list.size()) {
+            return false;
+        }
+        if (y >= list.get(x).size()) {
+            return false;
+        }
+        return true;
     }
 }
 

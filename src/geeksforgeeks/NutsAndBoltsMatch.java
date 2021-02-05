@@ -31,7 +31,7 @@ public class NutsAndBoltsMatch {
     // Method which works just like quick sort
     private static void matchPairs(char[] nuts, char[] bolts, int low, int high) {
         if (low < high) {
-            
+
             // Choose last character of bolts array for nuts partition.
             int pivot = partition(nuts, low, high, bolts[high]);
 

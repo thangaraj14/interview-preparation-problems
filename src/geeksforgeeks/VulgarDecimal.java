@@ -12,7 +12,8 @@ public class VulgarDecimal {
         if (denominator == 0) {
             return null;
         }
-        boolean isNegative = (numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0) ? true : false;
+
+        boolean isNegative = (numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0);
 
         long denomiL = Math.abs(denominator);
         long numerL = Math.abs(numerator);
@@ -62,7 +63,7 @@ public class VulgarDecimal {
     public static boolean doTestsPass() {
         boolean testsPassed = true;
 
-        //         testsPassed &= fractionToDecimal(1l, 2l).equals("0.5");
+        testsPassed &= fractionToDecimal(4l, 333l).equals("0.5");
         //        testsPassed &= fractionToDecimal(1l, 3l).equals("0.(3)");
         //testsPassed &= fractionToDecimal(1l, 30l).equals("0.0(3)");
         //testsPassed &= fractionToDecimal(1l, 75l).equals("0.01(3)");

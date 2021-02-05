@@ -1,7 +1,9 @@
 package geeksforgeeks;
 
-/*https://leetcode.com/problems/unique-paths-ii/
-  https://leetcode.com/problems/unique-paths/*/
+/**
+ * https://leetcode.com/problems/unique-paths-ii/
+ * https://leetcode.com/problems/unique-paths/
+ */
 public class UniquePath {
 
     public static void main(String[] args) {

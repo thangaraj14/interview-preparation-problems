@@ -6,6 +6,7 @@ import java.util.Queue;
 /**
  * https://github.com/bibhas-abhishek/projects/tree/master/MinTimeRotOranges
  * https://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-rotten/
+ * https://leetcode.com/problems/rotting-oranges/solution/
  */
 
 public class MinTimeRotOranges {

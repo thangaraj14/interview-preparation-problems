@@ -21,13 +21,13 @@ public class Permutation {
     private void constructPermutation(List<List<Integer>> result, List<Integer> list, int[] nums) {
         if (nums.length == list.size()) {
             result.add(new ArrayList<>(list));
-        } else {
-            for (int i = 0; i < nums.length; i++) {
-                if (!list.contains(nums[i])) {
-                    list.add(nums[i]);
-                    constructPermutation(result, list, nums);
-                    list.remove(list.size() - 1);
-                }
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (!list.contains(nums[i])) {
+                list.add(nums[i]);
+                constructPermutation(result, list, nums);
+                list.remove(list.size() - 1);
             }
         }
     }
@@ -39,20 +39,20 @@ public class Permutation {
         return list;
     }
 
-    private void backtrack(List<List<Integer>> result, List<Integer> list, int[] nums, boolean[] used) {
-        if (list.size() == nums.length) {
+    private void backtrack(List<List<Integer>> result, List<Integer> list, int[] arr, boolean[] used) {
+        if (list.size() == arr.length) {
             result.add(new ArrayList<>(list));
-        } else {
-            for (int i = 0; i < nums.length; i++) {
-                if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
-                    continue;
-                }
-                used[i] = true;
-                list.add(nums[i]);
-                backtrack(result, list, nums, used);
-                used[i] = false;
-                list.remove(list.size() - 1);
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (used[i] || i > 0 && arr[i] == arr[i - 1] && !used[i - 1]) {
+                continue;
             }
+            used[i] = true;
+            list.add(arr[i]);
+            backtrack(result, list, arr, used);
+            used[i] = false;
+            list.remove(list.size() - 1);
         }
     }
 

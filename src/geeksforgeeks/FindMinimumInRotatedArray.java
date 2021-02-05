@@ -3,23 +3,23 @@ package geeksforgeeks;
 /*https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/*/
 public class FindMinimumInRotatedArray {
 
-    public static int findMin(int[] nums) {
-        if (nums.length == 0) {
+    public static int findMin(int[] arr) {
+        if (arr.length == 0) {
             return -1;
         }
-        if (nums.length == 1) {
-            return nums[0];
+        if (arr.length == 1) {
+            return arr[0];
         }
         int start = 0;
-        int end = nums.length - 1;
+        int end = arr.length - 1;
         while (start <= end) {
             int mid = ((end - start) / 2) + start;
 
-            if (nums[start] <= nums[end]) {
-                return nums[start];
+            if (arr[start] <= arr[end]) {
+                return arr[start];
             }
 
-            if (nums[mid] < nums[end]) {
+            if (arr[mid] < arr[end]) {
                 end = mid;
             } else {
                 start = mid + 1;
