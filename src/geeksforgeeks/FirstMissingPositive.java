@@ -8,6 +8,16 @@ import java.util.Set;
 
 /**
  * https://leetcode.com/problems/first-missing-positive/
+ * Given an unsorted integer array nums, find the smallest missing positive integer.
+ *
+ * Follow up: Could you implement an algorithm that runs in O(n) time
+ * and uses constant extra space.?
+ *
+ * Input: nums = [1,2,0]
+ * Output: 3
+ *
+ * Input: nums = [7,8,9,11,12]
+ * Output: 1
  */
 public class FirstMissingPositive {
 
@@ -55,7 +65,7 @@ public class FirstMissingPositive {
         return -1;
     }
 
-    public List<Integer> findKMissingPossitiveNumberOfSizeK(int[] A, int k){
+    public List<Integer> findKMissingPositiveNumberOfSizeK(int[] A, int k){
         int i = 0;
         while (i < A.length) {
             // same cyclic sort, as missing numbers

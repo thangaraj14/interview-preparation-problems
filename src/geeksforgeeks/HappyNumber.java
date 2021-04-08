@@ -42,6 +42,7 @@ class HappyNumber {
         
         while ( i2 != i1)
         {
+            System.out.println("i1: "+ i1+" i2: "+ i2);
             i1 = next(i1);
             i2 = next(next(i2));
         }
@@ -51,6 +52,6 @@ class HappyNumber {
 
     public static void main(String[] args) {
         HappyNumber hn = new HappyNumber();
-        System.out.println(hn.isHappy(19));
+        System.out.println(hn.isHappyOpt(19));
     }
 }

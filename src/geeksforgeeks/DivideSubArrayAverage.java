@@ -2,6 +2,17 @@ package geeksforgeeks;
 
 /**
  * https://www.geeksforgeeks.org/divide-array-two-sub-arrays-averages-equal/
+ *
+ * Given an integer array, the task is to divide an integer array into
+ * two sub-arrays to make their averages equal if possible.
+ *
+ * Input : arr[] = {1, 5, 7, 2, 0};
+ * Output : (0  1) and (2  4)
+ * Subarrays arr[0..1] and arr[2..4] have
+ * same average.
+ *
+ * Input : arr[] = {4, 3, 5, 9, 11};
+ * Output : Not possible
  */
 class DivideSubArrayAverage {
 

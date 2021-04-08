@@ -6,7 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:
+ * Given a set of distinct positive integers,
+ * find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:
    Si % Sj = 0 or Sj % Si = 0.
    If there are multiple solutions, return any subset is fine.
    Input: [2,3,4,6,10,8,24]
@@ -17,7 +18,8 @@ public class LargestDivisibleSubset {
     /**
      * if a%b==0 means a>b, if b>a then the ans is b itself
      *inorder to have that we need to sort the array in increasing order
-     at first each val is ans to itself, then we come from last so a is higher in a%b 
+     at first each val is ans to itself, then we come from last so a is higher in a%b
+     for ex if 2 is factor of 4 then include  the set involve in available. This is DP problem
                                 [2,   3,   4,  6,     8,   10,  24] 
                                  {2}  {3} {4}  {6}   {8}  {10} {24}
                                                    {8,24}

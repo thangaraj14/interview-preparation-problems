@@ -1,0 +1,35 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÆŒÏÊ
+^
+java:S2259_"HA "NullPointerException" could be thrown; "assignTemp" is nullable here.(ŽÇÈ”
+M
+java:S2589^"7Remove this expression which always evaluates to "true"(öÆ™°
+V	java:S125"<This block of commented-out lines of code should be removed.(Œ”©Ôüÿÿÿÿ
+M	java:S106""9Replace this use of System.out or System.err by a logger.(’ÚÕ`
+S	java:S106("9Replace this use of System.out or System.err by a logger.(Ñ×¿’ýÿÿÿÿ
+N	java:S106e"9Replace this use of System.out or System.err by a logger.(¾“„ˆ
+O	java:S106‰"9Replace this use of System.out or System.err by a logger.(¡‚âÁ
+O	java:S106‘"9Replace this use of System.out or System.err by a logger.(§®Ž
+O	java:S106ž"9Replace this use of System.out or System.err by a logger.(é¬ƒÂ
+T	java:S106¿"9Replace this use of System.out or System.err by a logger.(ý¡³Áúÿÿÿÿ
+O	java:S106Ç"9Replace this use of System.out or System.err by a logger.(¿±²è
+T	java:S106Ì"9Replace this use of System.out or System.err by a logger.(­á˜¥þÿÿÿÿ
+T	java:S106Ï"9Replace this use of System.out or System.err by a logger.(Ø•Ö„üÿÿÿÿ
+O	java:S106â"9Replace this use of System.out or System.err by a logger.(‰”Í°
+O	java:S106ê"9Replace this use of System.out or System.err by a logger.(§®Ž
+P
+java:S11449":Remove this unused private "cloneRandomLinkedList" method.(œÊÛ
+Y
+java:S1144y"CRemove this unused private "reversePairLinkedListIterative" method.(þ­Ûä
+V
+java:S1144–":Remove this unused private "middleOfTheLinkedList" method.(…­ÿÿÿÿÿ
+R
+java:S1144£"6Remove this unused private "reverseLinkedList" method.(ØÏ®êúÿÿÿÿ
+U
+java:S1144³">Remove this unused private "reverseLinkedListPractise" method.(Ó‘žØ
+K
+java:S1144Ä"/Remove this unused private "findCyclic" method.(™Œ—Ñýÿÿÿÿ
+G
+java:S1144Ô"0Remove this unused private "findNthNode" method.(ç¤Š¬
+E
+java:S1144æ".Remove this unused private "printList" method.(Õüé„

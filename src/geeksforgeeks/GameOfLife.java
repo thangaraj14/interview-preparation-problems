@@ -4,8 +4,8 @@ package geeksforgeeks;
  * https://forum.letstalkalgorithms.com/t/game-of-life/516/2
  * <p>
  * https://leetcode.com/problems/game-of-life/
- * Given a board with m by n cells, each cell has an initial state live (1) or dead (0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rules (taken from the above Wikipedia article):
- *
+ * Given a board with m by n cells, each cell has an initial state live (1) or dead (0).
+ * Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rules
  * Any live cell with fewer than two live neighbors dies, as if caused by under-population.
  * Any live cell with two or three live neighbors lives on to the next generation.
  * Any live cell with more than three live neighbors dies, as if by over-population..

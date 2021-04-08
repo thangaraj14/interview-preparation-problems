@@ -16,7 +16,7 @@ class ConstructTreeFromInorderAndPreorder {
     // Then we can find this PRE[0] in IN, say it's IN[5].
     // Now we know that IN[5] is root, so we know that IN[0] - IN[4] is on the left
     // side, IN[6] to the end is on the right side.
-    // Recursively doing this on subarrays, we can build a tree out of it :)
+    // Recursively doing this on sub arrays, we can build a tree out of it :)
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         Map<Integer, Integer> map = new HashMap<>();
         List<Integer> set = new LinkedList<>();
@@ -38,10 +38,10 @@ class ConstructTreeFromInorderAndPreorder {
             return null;
         if (set.isEmpty())
             return null;
-        int rootval = set.get(0);
+        int rootVal = set.get(0);
         set.remove(0);
-        TreeNode root = new TreeNode(rootval);
-        int inorderIndex = map.get(rootval);
+        TreeNode root = new TreeNode(rootVal);
+        int inorderIndex = map.get(rootVal);
         root.left = buildTreeUtil(map, set, start, inorderIndex - 1);
         root.right = buildTreeUtil(map, set, inorderIndex + 1, end);
         return root;

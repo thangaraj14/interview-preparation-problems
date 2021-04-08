@@ -16,10 +16,6 @@ public class Agoda {
 		head.next.next.next.next.next = new Node(6);
 
 		Agoda agoda = new Agoda();
-
-		// agoda.findNthNodeFromEnd(head, 4);
-		// agoda.reversePairNodes(head);
-//		agoda.reverseKNode(head, null);
 		agoda.slidingWindow();
 	}
 

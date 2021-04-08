@@ -3,7 +3,9 @@ package geeksforgeeks;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// https://leetcode.com/discuss/interview-question/347457/Amazon-or-OA-2019-or-Treasure-Island
+/**
+ * https://leetcode.com/discuss/interview-question/347457/Amazon-or-OA-2019-or-Treasure-Island
+ */
 public class TreasureIsland {
     private static final int[][] DIRS = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 

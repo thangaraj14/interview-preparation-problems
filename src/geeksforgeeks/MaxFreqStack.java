@@ -9,7 +9,8 @@ import java.util.PriorityQueue;
  *
  * push(int x), which pushes an integer x onto the stack.
  * pop(), which removes and returns the most frequent element in the stack.
- * If there is a tie for most frequent element, the element closest to the top of the stack is removed and returned.
+ * If there is a tie for most frequent element,
+ * the element closest to the top of the stack is removed and returned.
  * ["FreqStack","push","push","push","push","push","push","pop","pop","pop","pop"],
  * [[],[5],[7],[5],[7],[4],[5],[],[],[],[]]
  * Output: [null,null,null,null,null,null,null,5,7,5,4]

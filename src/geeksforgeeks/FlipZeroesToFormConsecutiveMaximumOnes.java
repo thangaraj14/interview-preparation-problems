@@ -2,7 +2,7 @@ package geeksforgeeks;
 
 /**
  * https://www.geeksforgeeks.org/find-zeroes-to-be-flipped-so-that-number-of-consecutive-1s-is-maximized/
- * <p>
+
  * https://www.techiedelight.com/find-maximum-sequence-of-continuous-1s-can-formed-replacing-k-zeroes-ones/
  */
 class FlipZeroesToFormConsecutiveMaximumOnes {
@@ -50,7 +50,7 @@ class FlipZeroesToFormConsecutiveMaximumOnes {
     // main function
     public static void main(String[] args) {
         int[] A = { 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0 };
-        int k = 1;
+        int k = 2;
 
         longestSeq(A, k);
     }

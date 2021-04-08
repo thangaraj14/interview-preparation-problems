@@ -6,7 +6,7 @@ import java.util.Deque;
 // s = "3[a2[c]]", return "accaccacc".
 // s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
 public class DecodeString {
-    public String decodeString(String s) {
+    public static String decodeString(String s) {
         if (s == null)
             return "";
 
@@ -33,9 +33,7 @@ public class DecodeString {
                 // and replicate that string and stores in temp result
                 StringBuilder sb = new StringBuilder(result.pop());
                 int tempCount = count.pop();
-                for (int i = 0; i < tempCount; i++) {
-                    sb.append(tempResult);
-                }
+                sb.append(tempResult.toString().repeat(tempCount));
                 tempResult = sb;
                 start++;
             } else {
@@ -45,5 +43,9 @@ public class DecodeString {
         }
 
         return tempResult.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(decodeString("3[a2[c]]"));
     }
 }

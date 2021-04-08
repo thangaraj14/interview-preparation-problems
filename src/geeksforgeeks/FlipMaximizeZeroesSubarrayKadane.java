@@ -2,12 +2,12 @@ package geeksforgeeks;
 
 /**
  * https://www.geeksforgeeks.org/maximize-number-0s-flipping-subarray/
- * <p>
+ *
  * Problem : flip 1's to 0's so that total no.of 0's in array is maximized
  */
 class FlipMaximizeZeroesSubarrayKadane {
 
-    public static int findMaxZeroCount(int arr[], int n) {
+    public static int findMaxZeroCount(int[] arr, int n) {
         int zeroCount = 0;
         int maxSoFar = Integer.MIN_VALUE;
         int sum = 0;
@@ -33,7 +33,7 @@ class FlipMaximizeZeroesSubarrayKadane {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 0, 1, 0, 0, 1, 1, 0 };
+        int[] arr = { 0, 1, 0, 0, 1, 1, 0 };
 
         System.out.println(findMaxZeroCount(arr, arr.length));
     }

@@ -69,7 +69,7 @@ public class FutureTaskExample {
 
         // Submit 10 trivial tasks.
         for (int i = 0; i < 10; i++) {
-            service.submit(new TrivialTask(i), new Integer(i));
+            service.submit(new TrivialTask(i), (i));
         }
 
         // wait for all tasks to get done

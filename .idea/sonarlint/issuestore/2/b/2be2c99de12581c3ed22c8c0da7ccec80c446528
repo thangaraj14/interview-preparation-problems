@@ -1,0 +1,13 @@
+
+c	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è•Ü³
+V	java:S125R"<This block of commented-out lines of code should be removed.(ÞŽËÑúÿÿÿÿ
+S
+java:S1117S"8Rename "time" which hides the field declared at line 43.(â´ÿøÿÿÿÿ
+V	java:S125X"<This block of commented-out lines of code should be removed.(Ç¾ûÝúÿÿÿÿ
+M
+java:S1117Y"8Rename "time" which hides the field declared at line 43.(¤‹ãj
+S
+java:S1197e"8Move the array designator from the variable to the type.(¡þÏÖøÿÿÿÿ
+V	java:S125g"<This block of commented-out lines of code should be removed.(å¤½„øÿÿÿÿ
+V	java:S125y"<This block of commented-out lines of code should be removed.(•â±îþÿÿÿÿ
+O	java:S106‚"9Replace this use of System.out or System.err by a logger.(„ýÑ¶

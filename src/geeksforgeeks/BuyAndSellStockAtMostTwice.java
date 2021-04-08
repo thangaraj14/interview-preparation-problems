@@ -16,7 +16,7 @@ class BuyAndSellStockAtMostTwice {
 	 * i to n, we can break it in to i to k, k+1 to n
 	 * in this manner at each point we can calculate profit from
 	 * (left min element to current element) and (current element to right max element)
-	 * the second part of the above eq can be acieved by coming from right to left
+	 * the second part of the above eq can be achieved by coming from right to left
 	 * for input          [3,3,5,0,0,3,1,4]
 	 * 	profit from	l->r  [0,0,2,2,2,3,3,4]
 	 *  profit from r->l  [4,4,4,4,4,3,3,0]

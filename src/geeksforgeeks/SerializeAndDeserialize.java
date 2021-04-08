@@ -46,7 +46,7 @@ public class SerializeAndDeserialize {
             return null;
         }
 
-        TreeNode newNode = new TreeNode(Integer.valueOf(valueForNode));
+        TreeNode newNode = new TreeNode(Integer.parseInt(valueForNode));
         newNode.left = deserializeHelper(nodesLeftToMaterialize);
         newNode.right = deserializeHelper(nodesLeftToMaterialize);
 

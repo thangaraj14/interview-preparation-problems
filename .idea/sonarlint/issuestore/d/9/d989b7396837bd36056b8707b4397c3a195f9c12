@@ -1,0 +1,31 @@
+
+G
+java:S1444",Make this "public static head_1" field final(ˆ¨®´şÿÿÿÿ
+B
+java:S1444",Make this "public static head_2" field final(‘ê®±
+@
+java:S1444"*Make this "public static head" field final(Î÷ÅË
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ò¾Ûûÿÿÿÿ
+e	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éå
+k	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ò¾Ûûÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÆŒÏÊ
+m
+java:S1104"RMake head_1 a static final constant or non-public and provide accessors if needed.(ˆ¨®´şÿÿÿÿ
+h
+java:S1104"RMake head_2 a static final constant or non-public and provide accessors if needed.(‘ê®±
+f
+java:S1104"PMake head a static final constant or non-public and provide accessors if needed.(Î÷ÅË
+M
+java:S2589)"7Remove this expression which always evaluates to "true"(‚Ùñó
+R
+java:S2589/"7Remove this expression which always evaluates to "true"(«èÑ„şÿÿÿÿ
+l
+java:S3008"QRename this field "head_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ¨®´şÿÿÿÿ
+g
+java:S3008"QRename this field "head_2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ê®±
+N	java:S106"9Replace this use of System.out or System.err by a logger.(§®
+N	java:S106G"9Replace this use of System.out or System.err by a logger.(›®«©
+S	java:S106K"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+M	java:S106O"9Replace this use of System.out or System.err by a logger.(ìÉºZ
+S	java:S106R"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+S	java:S106S"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ

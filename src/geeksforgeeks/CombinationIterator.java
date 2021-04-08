@@ -17,7 +17,7 @@ public class CombinationIterator {
     public CombinationIterator(String characters, int combinationLength) {
         deque= new ArrayDeque<>();
         visited= new boolean[characters.length()];
-        generateCombinations(characters,deque, new StringBuilder(), combinationLength, 0, visited);
+        generateCombinations(characters,deque, new StringBuilder(), combinationLength, 0);
     }
     
     public String next() {
@@ -30,18 +30,24 @@ public class CombinationIterator {
         return !deque.isEmpty();
     }
     
-    public void generateCombinations(String characters, Deque<String> deque,StringBuilder sb, int limit, int start, boolean[] visited){
+    public void generateCombinations(String characters, Deque<String> deque,StringBuilder sb, int limit, int start){
         
         if(sb.length()==limit){
-            deque.offer(new String(sb.toString()));
+            deque.offer(sb.toString());
             return;
         }
         
         for(int i=start; i<characters.length();i++){
-            if(visited[i]) continue;
             sb.append(""+characters.charAt(i));
-            generateCombinations(characters,deque, sb, limit, i+1, visited);
+            generateCombinations(characters,deque, sb, limit, i+1);
             sb.deleteCharAt(sb.length()-1);
         }
+    }
+
+    public static void main(String[] args){
+        CombinationIterator cb= new CombinationIterator("abc",2);
+        System.out.println(cb.next());
+        System.out.println(cb.next());
+        System.out.println(cb.next());
     }
 }

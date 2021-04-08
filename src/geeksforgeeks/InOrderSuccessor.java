@@ -11,7 +11,7 @@ public class InOrderSuccessor {
             return result;
     }
     // Inorder traversal is obtained by going right first and follow the left path till end
-    // while traversing right we record the right before taking left turn, incase the left path is null
+    // while traversing right we record the right before taking left turn, in case the left path is null
 
     public void helperFn(TreeNode root, TreeNode p){
         if(root==null) return;
@@ -21,7 +21,6 @@ public class InOrderSuccessor {
             result=root;
             helperFn(root.left,p);
         }else{
-           
              helperFn(root.right,p);
         }
         

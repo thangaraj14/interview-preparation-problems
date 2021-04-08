@@ -1,0 +1,16 @@
+
+N
+java:S1197"8Move the array designator from the variable to the type.(­Öçç
+S
+java:S1197+"8Move the array designator from the variable to the type.(¤õ°‚ýÿÿÿÿ
+o
+java:S3012%"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(Ú¥·…
+N
+java:S1197"8Move the array designator from the variable to the type.(­Öçç
+S
+java:S1197"8Move the array designator from the variable to the type.(°Ùžœüÿÿÿÿ
+S
+java:S1197"8Move the array designator from the variable to the type.(°Ùžœüÿÿÿÿ
+N
+java:S1197*"8Move the array designator from the variable to the type.(š›‹Ó
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(×Æáî

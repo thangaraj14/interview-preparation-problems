@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConstructTreeFromInorderAndPostorder {
-    // idea is same as iorder preorder, but we take postOrder[lastIndex] as root;
+    // idea is same as inorder-preorder, but we take postOrder[lastIndex] as root;
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if(inorder==null || postorder==null) return null;
         Map<Integer,Integer> map= new HashMap<Integer,Integer>();

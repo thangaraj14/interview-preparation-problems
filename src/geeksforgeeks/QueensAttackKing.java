@@ -21,7 +21,7 @@ class QueensAttackKing {
       }
         
         for(int[] dir: dirs){
-            List<Integer> temp= findQueensPosistions(king,dir[0],dir[1],visited);
+            List<Integer> temp= findQueensPositions(king,dir[0],dir[1],visited);
             if(temp!=null) result.add(temp);
         }
         
@@ -29,17 +29,17 @@ class QueensAttackKing {
         
     }
     
-    public List<Integer> findQueensPosistions(int[] king, int x, int y, boolean[][] visited){
-        int newX= x+king[0];
-        int newY= y+king[1];
-        // going to walk along x,y only, not 8 directions at smae time;
+    public List<Integer> findQueensPositions(int[] king, int xDir, int yDir, boolean[][] visited){
+        int newX= xDir+king[0];
+        int newY= yDir+king[1];
+        // going to walk along x,y only not 8 directions at same time
         while(newX<8 && newY<8 && newX>=0 && newY>=0){
             if(visited[newX][newY]){
                 return Arrays.asList(newX,newY); // returns when first queen is met in row or column
             }
                                                                    
-            newX+=x;
-            newY+=y;
+            newX+=xDir;
+            newY+=yDir;
             
         }
         

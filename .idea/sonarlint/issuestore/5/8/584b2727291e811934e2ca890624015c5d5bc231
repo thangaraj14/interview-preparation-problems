@@ -1,0 +1,7 @@
+
+N
+java:S1197"8Move the array designator from the variable to the type.(©œ£Ä
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(þÝÌ¨þÿÿÿÿ
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(ÆÀûý
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ¥„ëûÿÿÿÿ

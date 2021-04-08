@@ -24,9 +24,12 @@ class PerfectSquare {
             int sqrt = (int)Math.sqrt(i); // because i can have max of sqrt(i) perfect squares
             for(int j=sqrt;j>0;j--){
                 int result = i - j*j;
-                // the reason to take min is for i=5 j=sqrt(5)=2
-                // when subract 1 we are left with 4
-                // when subract 4 we are left with 1 so minimum is 1 and add 1 to it
+                // the reason to add 1 to the ns[result] is, we take away
+                // a square from 'i' initially (j*j) and check for best answer in the 1-D arr
+                // we add back the 'taken out' square to min value
+                // for e.x if i=13, sqrt is 3, while iterating
+                // we subtract 1*1 from 13 and check for best possible answer for 12 ns[result]
+                // finally we add back the 1*1 as +1 (ns[result]+1)
                 min = Math.min(min, ns[result]+1);
             }
             ns[i] = min;

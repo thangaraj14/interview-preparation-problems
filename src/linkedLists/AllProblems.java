@@ -4,7 +4,7 @@ public class AllProblems {
 
 	static Node head;
 	static int size;
-	static RandomNode randomHead;
+	static RandomListNode randomHead;
 
 	public static void main(String[] args) {
 		addNode(2);
@@ -56,11 +56,11 @@ public class AllProblems {
 
 	private static void cloneRandomLinkedList() {
 
-		RandomNode node1 = new RandomNode(1);
-		RandomNode node2 = new RandomNode(2);
-		RandomNode node3 = new RandomNode(3);
-		RandomNode node4 = new RandomNode(4);
-		RandomNode node5 = new RandomNode(5);
+		RandomListNode node1 = new RandomListNode(1);
+		RandomListNode node2 = new RandomListNode(2);
+		RandomListNode node3 = new RandomListNode(3);
+		RandomListNode node4 = new RandomListNode(4);
+		RandomListNode node5 = new RandomListNode(5);
 
 		randomHead = node1;
 
@@ -76,14 +76,14 @@ public class AllProblems {
 		node5.random = node2;
 
 		// create cloned node between original nodes
-		RandomNode temp = randomHead;
+		RandomListNode temp = randomHead;
 		while (null != temp) {
-			RandomNode rn = new RandomNode(temp.data + 0.5);
+			RandomListNode rn = new RandomListNode(temp.data + 0.5);
 			rn.next = temp.next;
 			temp.next = rn;
 			temp = rn.next;
 		}
-		RandomNode assignTemp = randomHead;
+		RandomListNode assignTemp = randomHead;
 		while (null != assignTemp) {
 			assignTemp.next.random = assignTemp.random.next;
 
@@ -96,7 +96,7 @@ public class AllProblems {
 
 		}
 
-		RandomNode tempp = randomHead;
+		RandomListNode tempp = randomHead;
 		while (tempp != null) {
 			System.out.println(tempp.data);
 			tempp = tempp.next;

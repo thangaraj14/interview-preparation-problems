@@ -1,0 +1,6 @@
+
+`
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(õ‘„øÿÿÿÿ8Ë“¹½÷.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÆŒÏÊ
+k
+java:S2272"NAdd a "NoSuchElementException" for iteration beyond the end of the collection.(şÿøë8Ë“¹½÷.

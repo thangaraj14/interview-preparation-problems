@@ -30,12 +30,10 @@ public class StackOperationUsingLinkedList {
 
 	private static void push(int data) {
 		Node node = new Node(data);
-		if (null == head) {
-			head = node;
-		} else {
+		if (null != head) {
 			node.setNode(head);
-			head = node;
 		}
+		head = node;
 	}
 
 }

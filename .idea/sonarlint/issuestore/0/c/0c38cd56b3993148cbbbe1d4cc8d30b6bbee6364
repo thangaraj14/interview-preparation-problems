@@ -1,0 +1,13 @@
+
+H
+java:S1144"(Remove this unused private "map" method.(²«”²ÿÿÿÿÿ8‘ôÃÒ…/
+[	java:S125"<This block of commented-out lines of code should be removed.(²ÿÿÿÿÿÿ8‘ôÃÒ…/
+r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¼¸åÒÿÿÿÿÿ
+s
+java:S1602"SRemove useless curly braces around statement and then remove useless return keyword(‚“‘Ôûÿÿÿÿ8İ–ËÒ…/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(—’‰’8ìû¶Ó…/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(³¥»Ø8³ôØ…/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(š® üÿÿÿÿ8şè¹Ó…/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(‹ëÏÎÿÿÿÿÿ8½–ËØ…/
+I
+java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8ã´´ò…/

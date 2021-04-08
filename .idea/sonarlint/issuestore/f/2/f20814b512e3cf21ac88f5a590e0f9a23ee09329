@@ -1,0 +1,6 @@
+
+o
+java:S30125"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(Ú¥·…
+S
+java:S1197;"8Move the array designator from the variable to the type.(ÕÛ ¥úÿÿÿÿ
+S	java:S106<"9Replace this use of System.out or System.err by a logger.(ââÝÿÿÿÿÿ

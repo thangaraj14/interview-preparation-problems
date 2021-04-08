@@ -14,7 +14,7 @@ public class RotateList {
             tempHead=tempHead.next;
         }
         tempHead.next=head;
-        // if(k%length==0) return head;
+        // if(k%length==0) return head
         k%=length;
         for(int i=0;i<length-k;i++){
             tempHead=tempHead.next;

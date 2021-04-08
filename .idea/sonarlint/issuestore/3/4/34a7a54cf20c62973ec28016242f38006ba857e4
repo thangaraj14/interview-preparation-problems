@@ -1,0 +1,4 @@
+
+f	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¡¹¥
+o
+java:S3012:"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(´‡„¤

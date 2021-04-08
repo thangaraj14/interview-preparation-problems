@@ -1,0 +1,10 @@
+
+T
+java:S11559">Use isEmpty() to check whether the collection is empty or not.(Åå §
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(Æ şûÿÿÿÿ
+[
+java:S1124
+"EReorder the modifiers to comply with the Java Language Specification.(‰­‘¢
+N	java:S106;"9Replace this use of System.out or System.err by a logger.(Îâ‰é
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(ûäôšùÿÿÿÿ
+]	java:S125"<This block of commented-out lines of code should be removed.(õÀ¢ùÿÿÿÿ8›®…ñ.

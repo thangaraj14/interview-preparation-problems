@@ -1,7 +1,4 @@
 package geeksforgeeks;
-// A JAVA program to put positive numbers at even indexes
-// (0, 2, 4,..) and negative numbers at odd indexes (1, 3, 
-// 5, ..) 
 
 import java.util.Arrays;
 
@@ -27,10 +24,12 @@ class AlternateOddAndEvenNumbers {
                 i++;
             }
         }
-       // we have seggregated positive and negative elements
-        System.out.println(Arrays.toString(arr));
+       // we have segregated positive and negative elements
+        System.out.println(Arrays.toString(arr)+" :i - "+i);
+        // now the 'pos' indicates start of positive integer, 'neg' starts from 0;
         int pos = i , neg = 0;
-      // pos indicates start of positive integer, neg starts from 0;
+
+
 
         while (pos < n && neg < pos && arr[neg] < 0) {
             temp = arr[neg];
@@ -38,19 +37,14 @@ class AlternateOddAndEvenNumbers {
             arr[pos] = temp;
             pos++;
             neg += 2; // need to skip next element as output should be alternative
+            System.out.println(Arrays.toString(arr));
         }
-    }
-
-    static void printArray(int arr[], int n) {
-        for (int i = 0; i < n; i++)
-            System.out.print(arr[i] + " ");
     }
 
     public static void main(String[] args) {
         int arr[] = { -1, 2, -3, 4, 5, 6, -7, 8, 9 };
         int n = arr.length;
         rearrange(arr, n);
-        System.out.println("Array after rearranging: ");
-        printArray(arr, n);
+        System.out.println("Array after rearranging: "+ Arrays.toString(arr));
     }
 }

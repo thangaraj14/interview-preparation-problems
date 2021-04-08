@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/move-zeroes/
+ * [[4,2,4,0,0,3,0,5,1,0]]
  */
 class MoveZeroes {
 

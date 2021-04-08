@@ -33,7 +33,6 @@ public class GraphBiPartite {
                 return false;
             }
         }
-        
         return true;
     }
     

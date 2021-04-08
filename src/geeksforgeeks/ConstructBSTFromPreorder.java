@@ -4,8 +4,15 @@ import java.util.Stack;
 
 /**
  * https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
+ * Return the root node of a binary search tree that matches the given preorder traversal.
+ *
+ * (Recall that a binary search tree is a binary tree where for every node,
+ * any descendant of node.left has a value < node.val,
+ * and any descendant of node.right has a value > node.val.
+ * Also recall that a preorder traversal displays the value of the node first,
+ * then traverses node.left, then traverses node.right.)
  */
-class ConstructBSTFromPreorder {
+public class ConstructBSTFromPreorder {
 
     public static void main(String[] args) {
         int[] arr = { 8, 3, 1, 6, 4, 7, 10, 14, 13 };

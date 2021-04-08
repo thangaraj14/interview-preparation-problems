@@ -2,83 +2,59 @@ package strings.stringmatching;
 
 public class RabinKarp {
 
-	public static void main(String[] args) {
-		String givenValue = "abaaab";
-		String input = "aaa";
+    private int prime = 101;
 
-//		char[] givenArr = givenValue.toCharArray();
-//		char[] inputArr = input.toCharArray();
-//
-//		int inputHash = createHash(inputArr, inputArr.length);
-//		int previousValue = 0;
-//		for (int i = 0; i < (givenArr.length - inputArr.length + 1); i++) {
-//			previousValue = givenHash(givenArr, i, previousValue);
-//			if (inputHash == previousValue && matchString(inputArr, givenArr, i)) {
-//				System.out.println("It exists");
-//			}
-//		}
+    public int patternSearch(char[] text, char[] pattern) {
+        int m = pattern.length;
+        int n = text.length;
+        long patternHash = createHash(pattern, m - 1);
+        long textHash = createHash(text, m - 1);
+        for (int i = 1; i <= n - m + 1; i++) {
+            if (patternHash == textHash && checkEqual(text, i - 1, i + m - 2, pattern, 0, m - 1)) {
+                return i - 1;
+            }
+            if (i < n - m + 1) {
+                textHash = recalculateHash(text, i - 1, i + m - 1, textHash, m);
+            }
+        }
+        return -1;
+    }
 
-		rabinKarp(givenValue, input);
-	}
+    private long recalculateHash(char[] str, int oldIndex, int newIndex, long oldHash, int patternLen) {
+        long newHash = oldHash - str[oldIndex];
+        newHash = newHash / prime;
+        newHash += str[newIndex] * Math.pow(prime, patternLen - 1);
+        return newHash;
+    }
 
-	private static int givenHash(char[] givenArr, int i, int previousValue) {
+    private long createHash(char[] str, int end) {
+        long hash = 0;
+        for (int i = 0; i <= end; i++) {
+            hash += str[i] * Math.pow(prime, i);
+        }
+        return hash;
+    }
 
-		if (previousValue == 0) {
-			return createHash(givenArr, 3);
-		}
+    private boolean checkEqual(char[] str1, int start1, int end1, char[] str2, int start2, int end2) {
+        if (end1 - start1 != end2 - start2) {
+            return false;
+        }
+        while (start1 <= end1 && start2 <= end2) {
+            if (str1[start1] != str2[start2]) {
+                return false;
+            }
+            start1++;
+            start2++;
+        }
+        return true;
+    }
 
-		int currentValue = previousValue - givenArr[i - 1];
-		System.out.println(currentValue + givenArr[i + 2] * 100);
-		return currentValue + givenArr[i + 2] * 100;
-
-	}
-
-	private static int createHash(char[] inputArr, int length) {
-		int hash = 0;
-		double power = 0;
-		for (int i = 0; i < length; i++) {
-			hash = hash + (int) Math.pow(10, power++) * inputArr[i];
-		}
-		return hash;
-	}
-
-	private static boolean matchString(char[] inputArr, char[] givenArr, int i) {
-		int index = 0;
-		for (int j = i; j < inputArr.length; j++) {
-			if (inputArr[index++] != givenArr[j]) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	//the time complexity is O(m + n)
-	public static int rabinKarp(String t, String s) {
-		if (s.length() > t.length()) {
-			return -1; // s is not a substring of t.
-		}
-		final int BASE = 26;
-		int tHash = 0, sHash = 0; // Hash codes for the substring of t and s.
-		int powerS = 1; // this will be used to calculate the rolling hash when current window moves out
-		for (int i = 0; i < s.length(); i++) {
-			powerS = i > 0 ? powerS * BASE : 1;
-			tHash = tHash * BASE + t.charAt(i);
-			sHash = sHash * BASE + s.charAt(i);
-		}
-		for (int i = s.length(); i < t.length(); i++) {
-// Checks the two substrings are actually equal or not, to protect
-// against hash collision.
-			if (tHash == sHash ){   //&& t.substring(i - s.length(), i).equals(s)) {
-				return i - s.length(); // Found a match.
-			}
-// Uses rolling hash to compute the new hash code.
-			tHash -= t.charAt(i - s.length()) * powerS;
-			tHash = tHash * BASE + t.charAt(i);
-		}
-// Tries to match s and t.substring(t.length() - s.lengthO).
-		if (tHash == sHash){ // && t .substring(t.length() - s.length()).equals(s)){
-			return t.length() - s.length();
-		}
-		return -1;
-	}
+    public static void main(String args[]) {
+        RabinKarp rks = new RabinKarp();
+        //        System.out.println(rks.patternSearch("TusharRoy".toCharArray(), "sharRoy".toCharArray()));
+        System.out.println(rks.patternSearch("TusharRoy".toCharArray(), "Roy".toCharArray()));
+/*        System.out.println(rks.patternSearch("TusharRoy".toCharArray(), "shas".toCharArray()));
+       System.out.println(rks.patternSearch("TusharRoy".toCharArray(), "usha".toCharArray()));
+       System.out.println(rks.patternSearch("TusharRoy".toCharArray(), "Tus".toCharArray()));*/
+    }
 }

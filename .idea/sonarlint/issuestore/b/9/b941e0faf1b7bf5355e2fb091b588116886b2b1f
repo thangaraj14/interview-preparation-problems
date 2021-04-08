@@ -1,0 +1,6 @@
+
+Z	java:S106)"9Replace this use of System.out or System.err by a logger.(ü±‡¼ûÿÿÿÿ8Íµ¹–î.
+U	java:S1062"9Replace this use of System.out or System.err by a logger.(–·Ó8Â´–î.
+Z	java:S106,"9Replace this use of System.out or System.err by a logger.(’ïŞøÿÿÿÿ8üàŒ–î.
+Q
+java:S1128"4Remove this unused import 'java.lang.reflect.Array'.(‡¡É˜8ƒº––î.

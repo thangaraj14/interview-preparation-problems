@@ -22,7 +22,7 @@ public class FrequencySort {
         }
 				
         StringBuilder sb = new StringBuilder();
-        // since this is max frequency are iterating from last else we'd go from start
+        // since this is max frequency we are iterating from last else we'd go from start
         for (int pos = bucket.length - 1; pos >= 0; pos--)
             if (bucket[pos] != null)
                 for (char c : bucket[pos])

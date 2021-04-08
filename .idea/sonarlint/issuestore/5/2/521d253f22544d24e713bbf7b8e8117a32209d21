@@ -1,0 +1,33 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÆŒÏÊ
+<
+java:S3010"!Remove this assignment of "head".(‡¦€æúÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(Ü·Œûùÿÿÿÿ
+V	java:S125""<This block of commented-out lines of code should be removed.(ÃÛ”Õøÿÿÿÿ
+N	java:S106)"9Replace this use of System.out or System.err by a logger.(•¾°ñ
+N
+java:S1854U"8Remove this useless assignment to local variable "curr".(‚û²±
+8
+java:S1659^""Declare "next" on a separate line.(«àØ—
+R
+java:S1117j"7Rename "head" which hides the field declared at line 9.(Ï»³Ãÿÿÿÿÿ
+M	java:S106x"9Replace this use of System.out or System.err by a logger.(âäÛp
+M	java:S106{"9Replace this use of System.out or System.err by a logger.(âäÛp
+M
+java:S1117"7Rename "head" which hides the field declared at line 9.(½öèœ
+?
+java:S1481U")Remove this unused "curr" local variable.(‚û²±
+E
+java:S1481V"*Remove this unused "carry" local variable.(ãÀà†ýÿÿÿÿ
+C
+java:S1481W"(Remove this unused "sum" local variable.(©ŒºÉûÿÿÿÿ
+?
+java:S1481X")Remove this unused "temp" local variable.(Œµ•£
+P
+java:S1144T"5Remove this unused private "add1ToLinkedList" method.(à¤…ºüÿÿÿÿ
+_
+java:S1144i"IRemove this unused private "removeDuplicatesFromSortedLinkedList" method.(ªž¦Â
+M
+java:S1144Œ"6Remove this unused private "flattenLinkedList" method.(´‡ÃÝ
+S
+java:S1144"7Remove this unused private "printMiddleElement" method.(îÞž÷üÿÿÿÿ

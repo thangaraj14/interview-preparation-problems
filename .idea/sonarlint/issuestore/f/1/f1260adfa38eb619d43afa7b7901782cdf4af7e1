@@ -1,0 +1,20 @@
+
+V	java:S125"<This block of commented-out lines of code should be removed.(ÁÉÔ§ûÿÿÿÿ
+S
+java:S1197&"8Move the array designator from the variable to the type.(âØ—™úÿÿÿÿ
+N
+java:S1197'"8Move the array designator from the variable to the type.(Ö¯ÈÏ
+\
+java:S1126"AReplace this if-then-else statement by a single return statement.(™¨Àııÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì”ª 
+f	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ ¥î
+N
+java:S11971"8Move the array designator from the variable to the type.(Åê—¦
+k	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôïºıÿÿÿÿ
+:
+java:S16590"Declare "y" on a separate line.(¡Ê²‘şÿÿÿÿ
+S
+java:S1197$"8Move the array designator from the variable to the type.(ôïºıÿÿÿÿ
+S
+java:S1197$"8Move the array designator from the variable to the type.(ôïºıÿÿÿÿ
+N	java:S106Y"9Replace this use of System.out or System.err by a logger.(«¼„š

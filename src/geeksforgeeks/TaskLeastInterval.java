@@ -2,14 +2,17 @@ package geeksforgeeks;
 
 import java.util.*;
 
-/*https://leetcode.com/problems/task-scheduler/*/
+/**
+ * https://leetcode.com/problems/task-scheduler/
+ */
+
 
 public class TaskLeastInterval {
 
     public static int leastInterval(char[] tasks, int n) {
         Map<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < tasks.length; i++) {
-            map.put(tasks[i], map.getOrDefault(tasks[i], 0) + 1);
+        for (char task : tasks) {
+            map.put(task, map.getOrDefault(task, 0) + 1);
         }
         PriorityQueue<Map.Entry<Character, Integer>> queue = new PriorityQueue<>(
                 (a, b) -> Integer.compare(b.getValue(), a.getValue()));
@@ -17,8 +20,8 @@ public class TaskLeastInterval {
         queue.addAll(map.entrySet());
 
         int count = 0;
-        //At each iteration, we process at most 'n' elements, 
-        //and move forwards exactly n+1 in time (regardless of how many elements we processed:
+        // At each iteration, we process at most 'n' elements,
+        // and move forwards exactly n+1 in time (regardless of how many elements we processed:
         // Read the topmost from the queue and increment the time. Add it to a temp list to be added later.
         // Add the element back to the queue from the temp list if count is > 0.
         // if al elements are done, we're done too.
@@ -46,7 +49,7 @@ public class TaskLeastInterval {
     }
 
     public static void main(String[] args) {
-        char[] arr = "AAAAAABCDEFG".toCharArray();
+        char[] arr = "A".toCharArray();
         System.out.println(leastInterval(arr, 2));
     }
 }

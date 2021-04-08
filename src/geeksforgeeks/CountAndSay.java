@@ -28,7 +28,7 @@ public class CountAndSay {
                 p++;
                 count++;
             }
-            builder.append(String.valueOf(count));
+            builder.append(count);
             builder.append(val);
         }
         return builder.toString();

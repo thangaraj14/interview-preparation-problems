@@ -20,33 +20,23 @@ index 6, so the distance is 1
 class MinimumDistanceBetweenTwoNumbers {
 
     int minDist(int arr[], int n, int x, int y) {
-
-        int i = 0;
+        Integer xIndex = null;
+        Integer yIndex = null;
         int minDist = Integer.MAX_VALUE;
-        int prev = 0;
 
-        // Find the first occurrence of any of the two numbers (x or y)
-        // and store the index of this occurrence in prev
-        for (i = 0; i < n; i++) {
-            if (arr[i] == x || arr[i] == y) {
-                prev = i;
-                break;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == x) {
+                xIndex = i;
+            }
+            if (arr[i] == y) {
+                yIndex = i;
+            }
+
+            if (xIndex != null && yIndex != null) {
+                minDist = Math.min(minDist, Math.abs(xIndex - yIndex));
             }
         }
-        // sort of like sliding window tracks the first occurence 
-        // of the element and check if both are not same and calculates the distance
-        for (; i < n; i++) {
-            if (arr[i] == x || arr[i] == y) {
-                // check if current element and prev element are different
-                // Also check if this value is smaller than minimum distance
-                // so far
-                if (arr[prev] != arr[i] && (i - prev) < minDist) {
-                    minDist = i - prev;
-                }
-                prev = i;
-            }
-        }
-        return minDist;
+        return minDist == Integer.MAX_VALUE ? -1 : minDist;
     }
 
     public static void main(String[] args) {

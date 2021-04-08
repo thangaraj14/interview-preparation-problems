@@ -12,11 +12,12 @@ public class KMP {
 		System.out.println(kmp(arr, given.toCharArray(), pattern.toCharArray()));
 	}
 
+
 	private static boolean kmp(int[] arr, char[] charArray, char[] cs) {
 
 		int j = 0;
 		int i = 0;
-		for (; j < cs.length && i < charArray.length;) {
+		while (j < cs.length && i < charArray.length) {
 			if (cs[j] == charArray[i]) {
 				j++;
 				i++;
@@ -29,11 +30,7 @@ public class KMP {
 			}
 		}
 
-		if (j == arr.length) {
-			return true;
-		}
-
-		return false;
+		return j == arr.length;
 	}
 
 	private static int[] formPrefixAndSuffixArray(String pattern) {

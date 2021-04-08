@@ -1,6 +1,22 @@
 package geeksforgeeks;
 
-class IsEditOneDistanceAway {
+/**
+ * Given two strings first and second, determine if they are both one edit distance apart.
+ * One edit distance means doing one of these operation:
+ *
+ * insert one character in any position of S
+ * delete one character in S
+ * change one character in S to other character
+ *
+ * Input: s = "ab", t = "ab"
+ * Output: false
+ * Explanation:
+ * s=t ,so they aren't one edit distance apart
+ *
+ * Input: s = "aDb", t = "adb"
+ * Output: true
+ */
+public class IsEditOneDistanceAway {
     static boolean isOneEdit(String first, String second) {
         // if the input string are same
         if (first.equals(second))
@@ -19,10 +35,13 @@ class IsEditOneDistanceAway {
             char s = second.charAt(j);
             if (f != s) {
                 diff++;
+                // delete a character
                 if (len1 > len2)
                     i++;
+                // add a character
                 if (len2 > len1)
                     j++;
+                // replace a character
                 if (len1 == len2)
                     i++;
                 j++;

@@ -1,0 +1,17 @@
+
+N	java:S106~"9Replace this use of System.out or System.err by a logger.(ùÔ‚¬
+S	java:S106{"9Replace this use of System.out or System.err by a logger.(«’ùÿÿÿÿ
+T	java:S106Š"9Replace this use of System.out or System.err by a logger.(«’ùÿÿÿÿ
+Z
+java:S2259$"?A "NullPointerException" could be thrown; "o" is nullable here.(â¿»£üÿÿÿÿ
+k
+java:S1206#"PThis class overrides "equals()" and should therefore also override "hashCode()".(İ¢êÍıÿÿÿÿ
+S	java:S106k"9Replace this use of System.out or System.err by a logger.(ª“ç¹ûÿÿÿÿ
+S	java:S106n"9Replace this use of System.out or System.err by a logger.(èáÕıÿÿÿÿ
+a	java:S116"LRename this field "V" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ€ü¬
+\
+java:S1126$"AReplace this if-then-else statement by a single return statement.(â¿»£üÿÿÿÿ
+m
+java:S3776@"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(³¦ ¤øÿÿÿÿ
+t
+java:S22934"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıĞ¹ğüÿÿÿÿ

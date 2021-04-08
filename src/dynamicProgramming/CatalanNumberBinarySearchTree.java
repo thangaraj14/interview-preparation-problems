@@ -1,7 +1,6 @@
 package dynamicProgramming;
 
 /**
- * @author i312458
  *
  *         https://www.youtube.com/watch?v=YDf982Lb84o&t=277s
  */

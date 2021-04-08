@@ -1,6 +1,7 @@
 package geeksforgeeks;
 
 public class FirstAndLastOccurence {
+
     public int[] searchRange(int[] nums, int target) {
         if(nums.length==0) return new int[]{-1,-1};
         int[] result= new int[2];

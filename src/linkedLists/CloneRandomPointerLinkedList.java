@@ -1,6 +1,9 @@
 package linkedLists;
 
-// Java program to clone a linked list with next 
+import java.util.HashMap;
+import java.util.Map;
+
+// Java program to clone a linked list with next
 // and arbit pointers in O(n) time 
 class CloneRandomPointerLinkedList {
 
@@ -27,6 +30,7 @@ class CloneRandomPointerLinkedList {
 	// This function clones a given
 	// linked list in O(1) space
 	static Node clone(Node start) {
+		if(start==null) return null;
 		Node curr = start, temp = null;
 
 		// insert additional node after
@@ -43,13 +47,12 @@ class CloneRandomPointerLinkedList {
 
 		// adjust the random pointers of the
 		// newly added nodes
-		while (curr != null) {
-			if (curr.next != null)
-				curr.next.random = (curr.random != null) ? curr.random.next : curr.random;
-
+		while (curr != null && curr.next!=null) {
+			if (curr.random != null)
+				curr.next.random =  curr.random.next;
 			// move to the next newly added node by
 			// skipping an original node
-			curr = (curr.next != null) ? curr.next.next : curr.next;
+			curr =curr.next.next;
 		}
 
 		Node original = start, copy = start.next;
@@ -66,6 +69,28 @@ class CloneRandomPointerLinkedList {
 			copy = copy.next;
 		}
 		return temp;
+	}
+
+	public RandomListNode copyRandomList(RandomListNode head) {
+		if (head == null) {
+			return null;
+		}
+
+		final Map<RandomListNode, RandomListNode> map = new HashMap<>();
+
+		RandomListNode cur = head;
+		while(cur != null) {
+			map.put(cur, new RandomListNode(cur.data));
+			cur = cur.next;
+		}
+
+		for (Map.Entry<RandomListNode, RandomListNode> entry : map.entrySet()) {
+			final RandomListNode newNode = entry.getValue();
+			newNode.next = map.get(entry.getKey().next);
+			newNode.random = map.get(entry.getKey().random);
+		}
+
+		return map.get(head);
 	}
 
 	// Driver code
@@ -98,5 +123,3 @@ class CloneRandomPointerLinkedList {
 
 	}
 }
-
-// This code is contributed by Prerna Saini.

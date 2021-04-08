@@ -28,7 +28,9 @@ class PrisonAfterNDays {
             cells = next;
         }
         if (hasCycle) {
-            N %= cycle;
+            N %= cycle; // calculating the reminder day after excluding the cycle
+                        // let's say N=10 and we hit cycle at 3, we need 10%3=1 remaining calculation
+                        // to be done
             for (int i = 0; i < N; i++) {
                 cells = nextDay(cells);
             }

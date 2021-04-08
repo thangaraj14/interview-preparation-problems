@@ -1,0 +1,14 @@
+
+S
+java:S1197"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(Úóüó
+M
+java:S1144N"2Remove this unused private "findSuccessor" method.(×ÍæÇúÿÿÿÿ
+?
+java:S1659")Declare "predecessor" on a separate line.(íò
+X
+java:S2696"6Make the enclosing method "static" or remove this set.(úÌúøÿÿÿÿ8¡«üò.
+I
+java:S1144A"4Remove this unused private "findPredecessor" method.(Ï¥ğ'
+S
+java:S2696"6Make the enclosing method "static" or remove this set.(‰™¡8¡«üò.

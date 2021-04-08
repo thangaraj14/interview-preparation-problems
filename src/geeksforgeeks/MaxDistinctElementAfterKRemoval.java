@@ -6,7 +6,8 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 /**
- * Given an array arr[] containing n elements. The problem is to find maximum number of distinct elements (non-repeating) after removing k elements from the array.
+ * Given an array arr[] containing n elements.
+ * The problem is to find maximum number of distinct elements (non-repeating) after removing k elements from the array.
  * Input : arr[] = {5, 7, 5, 5, 1, 2, 2}, k = 3
  * Output : 4
  *

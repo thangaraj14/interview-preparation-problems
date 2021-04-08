@@ -14,7 +14,7 @@ package geeksforgeeks;
 //output 7
 
 // the trick here is to  go bottom up, start from the last cell, 
-// inorder to reach there he should have atleast 6 as health, so that 
+// inorder to reach there he should have at-least 6 as health, so that
 // when he reaches -5(energy is consumed) and he's left with +1 health
 // likewise if we backtrack from end to start, we'll need +7 as min initial health to
 // play the game

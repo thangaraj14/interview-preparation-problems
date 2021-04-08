@@ -23,17 +23,17 @@ public class GraphSplitwiseSimplify {
         LinkedList<AdjNode>[] adjNodesList;
 
         static class AdjNode {
-            int adjV;
+            int adjVertices;
             int debt;
 
-            public AdjNode(int adjV, int debt) {
-                this.adjV = adjV;
+            public AdjNode(int adjVertices, int debt) {
+                this.adjVertices = adjVertices;
                 this.debt = debt;
             }
 
             @Override
             public boolean equals(Object o) {
-                if (this.adjV == ((AdjNode) o).adjV) {
+                if (this.adjVertices == ((AdjNode) o).adjVertices) {
                     return true;
                 } else {
                     return false;
@@ -41,7 +41,7 @@ public class GraphSplitwiseSimplify {
             }
 
             public String toString() {
-                return adjV + "->" + debt;
+                return adjVertices + "->" + debt;
             }
         }
 
@@ -68,7 +68,7 @@ public class GraphSplitwiseSimplify {
             for (int i = 0; i < V; i++) {
                 for (AdjNode adjNode : adjNodesList[i]) {
                     debts[i] -= adjNode.debt;
-                    debts[adjNode.adjV] += adjNode.debt;
+                    debts[adjNode.adjVertices] += adjNode.debt;
                 }
             }
             for (int i = 0; i < V; i++) {
@@ -107,7 +107,7 @@ public class GraphSplitwiseSimplify {
             System.out.println("depts are: ");
             for (int i = 0; i < V; i++) {
                 for (AdjNode adjNode : adjNodesList[i]) {
-                    System.out.println(i + " owes " + adjNode.adjV + " " + adjNode.debt + " bucks.");
+                    System.out.println(i + " owes " + adjNode.adjVertices + " " + adjNode.debt + " bucks.");
                 }
             }
         }

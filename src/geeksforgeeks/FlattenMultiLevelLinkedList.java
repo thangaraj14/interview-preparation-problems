@@ -1,6 +1,8 @@
 package geeksforgeeks;
 
-/*https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/discuss/150321/Easy-Understanding-Java-beat-95.7-with-Explanation*/
+/**
+ * https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/discuss/150321/Easy-Understanding-Java-beat-95.7-with-Explanation
+* */
 class FlattenMultiLevelLinkedList {
 
     public Node flatten(Node head) {
@@ -17,8 +19,9 @@ class FlattenMultiLevelLinkedList {
             /* CASE 2: got child, find the tail of the child and link it to p.next */
             Node temp = p.child;
 
-            while (temp.next != null)
+            while (temp.next != null) {
                 temp = temp.next;
+            }
             // Connect tail with p.next, if it is not null
             temp.next = p.next;
             if (p.next != null) {
@@ -32,7 +35,7 @@ class FlattenMultiLevelLinkedList {
         return head;
     }
 
-    class Node {
+    static class Node {
         long data;
         Node next;
         Node prev;

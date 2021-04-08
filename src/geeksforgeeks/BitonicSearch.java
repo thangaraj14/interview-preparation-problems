@@ -3,7 +3,7 @@ package geeksforgeeks;
 /* A Bitonic Sequence is a sequence of numbers which is first strictly increasing then after a point strictly decreasing.*/
 public class BitonicSearch {
 
-    static int ascendingBinarySearch(int arr[], int low, int high, int key) {
+    static int ascendingBinarySearch(int[] arr, int low, int high, int key) {
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (arr[mid] == key) {
@@ -18,7 +18,7 @@ public class BitonicSearch {
         return -1;
     }
 
-    static int descendingBinarySearch(int arr[], int low, int high, int key) {
+    static int descendingBinarySearch(int[] arr, int low, int high, int key) {
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (arr[mid] == key) {
@@ -33,7 +33,7 @@ public class BitonicSearch {
         return -1;
     }
 
-    // instead of writing two methods, we can write a method which contains order aganostic 
+    // instead of writing two methods, we can write a method which contains order agnostic
     // binary search, which compares the first and last element at first and inside while
     // if ascending add below 
     // if (arr[mid] > key) {
@@ -83,7 +83,7 @@ public class BitonicSearch {
     }
 
     public static void main(String args[]) {
-        int arr[] = { -3, 3, 9, 8, 20, 17, 5, 3, 1 };
+        int[] arr = { -3, 3, 9, 8, 20, 17, 5, 3, 1 };
         int key = 3;
         int n = arr.length;
         int l = 0;
