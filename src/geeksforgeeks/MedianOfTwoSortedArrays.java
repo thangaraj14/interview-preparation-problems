@@ -5,7 +5,7 @@ package geeksforgeeks;
  */
 public class MedianOfTwoSortedArrays {
 
-    public double findMedianSortedArrays(int input1[], int input2[]) {
+    public double findMedianSortedArrays(int[] input1, int[] input2) {
         //if input1 length is greater than switch them so that input1 is smaller than input2.
         if (input1.length > input2.length) {
             return findMedianSortedArrays(input2, input1);
@@ -13,13 +13,23 @@ public class MedianOfTwoSortedArrays {
         int x = input1.length;
         int y = input2.length;
 
+        // the whole idea is to partition the 2 arrays so that the left side and right side has same number of elements
+        // let's take example A= 1,3,7 and B= 2,6,8,9,10
+        // so if we assume both are combined the median would be at 6(6+7/2= 6.5 to be exact)
+
+        // first take (low + high) / 2 for A it'd be 1 in this example. we partition at 1, [1 ||, 3,7] (1 element on left and 2 on right)
+        // for B we need to do this,  {(x + y + 1) / 2 - partitionX} = (3+5+1/2)-1=3 [2,6,8||,9,10] (3 elements on left and 2 on right)
+        // add the total left and right elements for both arrays would come to be equal 3+1(left partition) and 2+2(right partition)
+
+        // the reason to add 1 ((x + y + 1) / 2 ) is to account for both odd and even lengths
+
         int low = 0;
         int high = x;
         while (low <= high) {
             int partitionX = (low + high) / 2;
             int partitionY = (x + y + 1) / 2 - partitionX;
 
-            //if partitionX is 0 it means nothing is there on left side. Use -INF for maxLeftX
+            //if partitionX is 0 it means nothing is there on left side to partition. [|| 1]  Use -INF for maxLeftX
             //if partitionX is length of input then there is nothing on right side. Use +INF for minRightX
             int maxLeftX = (partitionX == 0) ? Integer.MIN_VALUE : input1[partitionX - 1];
             int minRightX = (partitionX == x) ? Integer.MAX_VALUE : input1[partitionX];
