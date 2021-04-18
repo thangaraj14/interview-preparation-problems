@@ -1,14 +1,0 @@
-
->
-java:S1659	"#Declare "headY" on a separate line.(¿öáÿÿÿÿÿ
-t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·¼ï¦ûÿÿÿÿ
-\
-java:S1126?"AReplace this if-then-else statement by a single return statement.(Š‰èùûÿÿÿÿ
-b
-java:S1871J"LThis branch's code block is the same as the block for the branch on line 69.(å¥‡
-:
-java:S1659"Declare "n" on a separate line.(âş©Éÿÿÿÿÿ
-t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¬—™úûÿÿÿÿ
-N	java:S1064"9Replace this use of System.out or System.err by a logger.(ÖÄ…ê

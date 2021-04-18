@@ -1,14 +1,0 @@
-
-N
-java:S1197"8Move the array designator from the variable to the type.(°ÂÖ€
-M	java:S106"9Replace this use of System.out or System.err by a logger.(ú’ò#
-M	java:S1060"9Replace this use of System.out or System.err by a logger.(Ïªè
-N
-java:S1197-"8Move the array designator from the variable to the type.(ö¡Õ¯
-8
-java:S1659""Declare "temp" on a separate line.(ÖÕÝ‚
-X	java:S125"<This block of commented-out lines of code should be removed.(¶È²§8ÀÆ¼“î.
-<
-java:S1659"!Declare "neg" on a separate line.(ÃÃä ýÿÿÿÿ
-X	java:S125"<This block of commented-out lines of code should be removed.(¶È²§8ÀÆ¼“î.
-U	java:S106("9Replace this use of System.out or System.err by a logger.(×Æáî8³ñ€•î.

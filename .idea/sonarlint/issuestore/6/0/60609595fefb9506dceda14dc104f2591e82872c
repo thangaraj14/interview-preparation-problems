@@ -1,12 +1,0 @@
-
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ö•ÛÃùÿÿÿÿ8ÏÏµ¼÷.
-D
-java:S1659"""Declare "temp" on a separate line.(¾Åøúÿÿÿÿ8ÏÏµ¼÷.
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÆŒÏÊ
-A
-java:S1659"$Declare "random" on a separate line.(ûÇÒË8ÏÏµ¼÷.
-r	java:S117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ñ‹şÿÿÿÿ8«ø¿¼÷.
-?
-java:S1659:""Declare "copy" on a separate line.(ï¡Üú8«ø¿¼÷.
-Z	java:S106u"9Replace this use of System.out or System.err by a logger.(ø‰÷³şÿÿÿÿ8«ø¿¼÷.
-T	java:S106x"9Replace this use of System.out or System.err by a logger.(Ñ‘ŞS8«ø¿¼÷.

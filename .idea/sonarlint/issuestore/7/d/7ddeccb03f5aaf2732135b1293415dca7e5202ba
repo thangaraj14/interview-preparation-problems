@@ -1,9 +1,0 @@
-
-?
-java:S5413:")Verify that "remove()" is used correctly.(÷ä£Ô
-V	java:S125 "<This block of commented-out lines of code should be removed.(ÁÑÜ×úÿÿÿÿ
-t
-java:S22935"YReplace the type specification in this constructor call with the diamond operator ("<>").(ö…ÂÜûÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åÁ
-D
-java:S5413")Verify that "remove()" is used correctly.(ˆ·èùÿÿÿÿ

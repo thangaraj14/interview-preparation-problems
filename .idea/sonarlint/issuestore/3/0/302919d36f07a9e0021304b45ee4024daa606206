@@ -1,13 +1,0 @@
-
-9
-java:S16597"#Declare "right" on a separate line.(§®ÙÛ
-7
-java:S16597"!Declare "mid" on a separate line.(§®ÙÛ
-N	java:S106"9Replace this use of System.out or System.err by a logger.(³ ½Î
-m
-java:S3776Q"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(‡‹Üÿÿÿÿÿ
-N	java:S106"9Replace this use of System.out or System.err by a logger.(¥¾Â¸
-m
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(›¹ê¢ùÿÿÿÿ
-m
-java:S37766"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¦»Òîøÿÿÿÿ

@@ -1,11 +1,0 @@
-
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÍØâûÿÿÿÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÍØâûÿÿÿÿ
-t
-java:S2234"YParameters to findKth have the same names but not the same order as the method arguments.(º‚ıÿÿÿÿ
-S
-java:S1197 "8Move the array designator from the variable to the type.(¤„Ä¾ÿÿÿÿÿ
-N
-java:S1197!"8Move the array designator from the variable to the type.(ÅìñÌ
-S	java:S106&"9Replace this use of System.out or System.err by a logger.(¢£›»üÿÿÿÿ
-M	java:S106("9Replace this use of System.out or System.err by a logger.(ü„ê!

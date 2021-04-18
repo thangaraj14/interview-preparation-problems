@@ -1,11 +1,0 @@
-
-N
-java:S1197"8Move the array designator from the variable to the type.(ú˜À
-S	java:S106"9Replace this use of System.out or System.err by a logger.(µ„‘àıÿÿÿÿ
-P
-java:S1854A"5Remove this useless assignment to local variable "n".(ùòË™üÿÿÿÿ
-Q	java:S125;"<This block of commented-out lines of code should be removed.( ¡‘ 
-A
-java:S1481A"&Remove this unused "n" local variable.(ùòË™üÿÿÿÿ
-f
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(éñ‚¢

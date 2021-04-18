@@ -1,9 +1,0 @@
-
-W
-java:S1126:"AReplace this if-then-else statement by a single return statement.( ìé›
-h
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ß½…ö
-:
-java:S1659"Declare "j" on a separate line.(á”æåþÿÿÿÿ
-\
-java:S1118":Add a private constructor to hide the implicit public one.(›Îí‡úÿÿÿÿ8Ôè¾˜ó.
