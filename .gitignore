@@ -5,3 +5,5 @@
 AmazonProblems.iml
 
 *.json
+/.idea/*
+/.idea/

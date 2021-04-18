@@ -22,6 +22,7 @@ public class MedianOfTwoSortedArrays {
         // add the total left and right elements for both arrays would come to be equal 3+1(left partition) and 2+2(right partition)
 
         // the reason to add 1 ((x + y + 1) / 2 ) is to account for both odd and even lengths
+        // for odd length the left half should be greater, the +1 is to adjust for that
 
         int low = 0;
         int high = x;
@@ -31,11 +32,22 @@ public class MedianOfTwoSortedArrays {
 
             //if partitionX is 0 it means nothing is there on left side to partition. [|| 1]  Use -INF for maxLeftX
             //if partitionX is length of input then there is nothing on right side. Use +INF for minRightX
+
+            // to understand it further let's take an edge case A=[2] B=[1,3]
+            // partitionX=0+1/2 => 0
+            // partitionY= 1+2+1/2 - 0 => 2 , the partition would look like this
+            // A= [-inf || 2]
+            // B= [2,3 || +inf]
             int maxLeftX = (partitionX == 0) ? Integer.MIN_VALUE : input1[partitionX - 1];
             int minRightX = (partitionX == x) ? Integer.MAX_VALUE : input1[partitionX];
 
             int maxLeftY = (partitionY == 0) ? Integer.MIN_VALUE : input2[partitionY - 1];
             int minRightY = (partitionY == y) ? Integer.MAX_VALUE : input2[partitionY];
+
+            // for the example given above, at right partition the elements would be grouped like below
+            //      A=>    1,3 || 7
+            //      B=>    2,6 || 8,9,10
+            // 3<8 and 6<7 so we take max of left and min of right
 
             if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
                 //We have partitioned array at correct place

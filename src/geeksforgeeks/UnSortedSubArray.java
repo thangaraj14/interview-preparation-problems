@@ -25,17 +25,6 @@ public class UnSortedSubArray {
             return 0;
         }
 
-        int max = Integer.MIN_VALUE;
-        int end = -2;
-        //iterate from beginning of array
-        //find the last element which is smaller than the last seen max from
-        //its left side and mark it as end
-        for (int i = 0; i < nums.length; i++) {
-            max = Math.max(max, nums[i]);
-            if (nums[i] < max) {
-                end = i;
-            }
-        }
 
         int min = Integer.MAX_VALUE;
         int begin = -1;
@@ -46,6 +35,18 @@ public class UnSortedSubArray {
             min = Math.min(min, nums[i]);
             if (nums[i] > min) {
                 begin = i;
+            }
+        }
+
+        int max = Integer.MIN_VALUE;
+        int end = -2;
+        //iterate from beginning of array
+        //find the last element which is smaller than the last seen max from
+        //its left side and mark it as end
+        for (int i = 0; i < nums.length; i++) {
+            max = Math.max(max, nums[i]);
+            if (nums[i] < max) {
+                end = i;
             }
         }
         return end - begin + 1;

@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package binarysearch;
 
 import java.util.Arrays;
 

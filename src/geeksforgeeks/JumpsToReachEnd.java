@@ -19,17 +19,14 @@ public class JumpsToReachEnd {
      * Explanation: You will always arrive at index 3 no matter what.
      * Its maximum jump length is 0, which makes it impossible to reach the last index.
      */
-    public static boolean canReachEnd(List<Integer> maxAdvanceSteps) {
-        int furthestReachSoFar = 0, lastlndex = maxAdvanceSteps.size() - 1;
-        
-        //i <= furthestReachSoFar && furthestReachSoFar < lastlndex this is the imp part of the solution
-        for (int i = 0; i <= furthestReachSoFar && furthestReachSoFar < lastlndex; ++i) {
-            // for every index store max-steps it can take and i should be
-            // less than maxSteps to check if it can move further 
-            // e.x (3, 2, 0, 0, 2, 0,1) when index i is 3 maxStpes is also 3, it cannot move further
-            furthestReachSoFar = Math.max(furthestReachSoFar, i + maxAdvanceSteps.get(i));
+    public static boolean canReachEnd(Integer[] nums) {
+
+        int curMax = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (curMax < i) return false; //means we are not able to reach position i
+            curMax = Math.max(curMax, i + nums[i]);
         }
-        return furthestReachSoFar >= lastlndex;
+        return true;
     }
 
 
@@ -78,7 +75,11 @@ public class JumpsToReachEnd {
             }
             //Once the current point reaches curEnd, 
             //then trigger another jump, and set the new curEnd with curFarthest, 
-            //then keep the above steps, as the following:
+            //then keep the above steps, as the following
+
+            //This is an implicit bfs solution. i == curEnd means you visited all the items on the current level.
+            // Incrementing jumps++ is like incrementing the level you are on.
+            // And curEnd = curFarthest is like getting the queue size (level size) for the next level you are traversing.
             if(currentEnd==i){ // when the current pick of ladder reached last step
                 jumps++;
                 currentEnd=currentMax;
@@ -90,6 +91,6 @@ public class JumpsToReachEnd {
     public static void main(String[] args) {
        
         List<Integer> list= Arrays.asList(3,3,1,0, 2,0,1);
-        System.out.println(canReachEnd(list));
+        System.out.println(canReachEnd(list.toArray(new Integer[list.size()])));
     }
 }
