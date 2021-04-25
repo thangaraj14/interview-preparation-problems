@@ -1,4 +1,4 @@
-package behaviouralpattern.chainofresponsibility;
+package designpattern.behaviouralpattern.chainofresponsibility;
 
 class PositiveProcessor implements Chain {
 

@@ -23,7 +23,7 @@ class GenerateParenthesis {
         }
     }
 
-    static void printParenthesis(char str[], int n) {
+    static void printParenthesis(char[] str, int n) {
         if (n > 0) {
             formParenthesis(str, 0, n, 0, 0);
         }

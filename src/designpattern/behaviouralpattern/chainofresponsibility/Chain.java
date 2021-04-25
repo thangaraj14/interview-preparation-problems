@@ -1,4 +1,4 @@
-package behaviouralpattern.chainofresponsibility;
+package designpattern.behaviouralpattern.chainofresponsibility;
 
 interface Chain {
     void setNext(Chain nextInChain);

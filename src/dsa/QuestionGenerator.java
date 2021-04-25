@@ -31,7 +31,6 @@ public class QuestionGenerator {
             reader.lines().filter(e -> e.contains("http") || e.contains("https")).forEach(System.out::println);
         }
         //filesInFolder.forEach(System.out::println);
-
     }
 }
 
