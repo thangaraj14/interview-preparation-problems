@@ -1,4 +1,4 @@
-package strings.common.sorting;
+package sorting;
 /*
   A min heap implementation
 

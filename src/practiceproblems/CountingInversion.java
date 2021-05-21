@@ -56,7 +56,8 @@ class CountingInversion {
     }
 
     public static void main(String[] args) {
-        int arr[] = new int[] { 4, 6, 2, 1, 9, 7 };
+        //int arr[] = new int[] { 4, 6, 2, 1, 9, 7 };
+        int arr[] = new int[]{5, 1, 4, 2};
         System.out.println("Number of inversions are " + mergeSort(arr, arr.length));
     }
 }

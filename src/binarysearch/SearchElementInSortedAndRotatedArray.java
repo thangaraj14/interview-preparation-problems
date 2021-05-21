@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package binarysearch;
 
 /**
  * https://leetcode.com/problems/search-in-rotated-sorted-array/

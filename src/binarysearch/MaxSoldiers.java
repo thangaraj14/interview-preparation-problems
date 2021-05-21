@@ -1,9 +1,13 @@
-package geeksforgeeks;
+package binarysearch;
 
+import java.util.Objects;
 import java.util.PriorityQueue;
 
+/**
+ * https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
+ */
 public class MaxSoldiers {
-    class Pair<T, S> {
+    static class Pair<T, S> {
         T row;
         S soldiers;
 
@@ -15,9 +19,8 @@ public class MaxSoldiers {
 
     public int[] kWeakestRows(int[][] mat, int k) {
         int[] result = new int[k];
-        PriorityQueue<Pair<Integer, Integer>> queue = new PriorityQueue<>((a, b) -> a.soldiers == b.soldiers ? Integer.compare(a.row, b.row) : Integer.compare(a.soldiers, b.soldiers));
+        PriorityQueue<Pair<Integer, Integer>> queue = new PriorityQueue<>((a, b) -> a.soldiers.equals(b.soldiers) ? Integer.compare(a.row, b.row) : Integer.compare(a.soldiers, b.soldiers));
         int i = 0;
-        int soldiers = 0;
         for (int[] rows : mat) {
             int temp = binarySearchUtil(rows, 0, rows.length);
             queue.offer(new Pair<>(i, temp));
@@ -25,7 +28,7 @@ public class MaxSoldiers {
         }
         int ind = 0;
         while (ind < k) {
-            result[ind++] = (int) queue.poll().row;
+            result[ind++] = Objects.requireNonNull(queue.poll()).row;
         }
         return result;
 

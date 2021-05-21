@@ -1,37 +1,42 @@
-package geeksforgeeks;
+package binarysearch;
 
+/**
+ * https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/
+ */
 public class FirstAndLastOccurence {
 
     public int[] searchRange(int[] nums, int target) {
-        if(nums.length==0) return new int[]{-1,-1};
-        int[] result= new int[2];
-        result[0]=binarySearch(nums,target,false);
-        if(result[0]==-1){
-            result[1]=-1;
-            return result;
-        }
-        result[1]=binarySearch(nums,target,true);
+        int[] result = new int[]{-1, -1};
+        if (nums.length == 0) return result;
+
+        int first = binarySearch(nums, target);
+
+        if (first == nums.length || nums[first] != target) return result;
+
+        result[0] = first;
+        int last = binarySearch(nums, target + 1);
+
+        result[1] = nums[last] == target ? last : last - 1;
+
         return result;
+
     }
-    
-    public int binarySearch(int[]nums, int target, boolean findMaxIndex){
-        int start=0;
-        int end=nums.length-1;
-        int key=-1;
-        while(start<=end){
-            int mid= start + (end-start)/2;
-            
-            if(nums[mid]<target){
-                start=mid+1;
-            }else if(nums[mid]>target){
-                end=mid-1;
-            }else{
-                key=mid;
-                if(findMaxIndex) start=mid+1;
-                else end=mid-1;
+
+    public int binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+
             }
         }
-        
-        return key;
+
+        return left;
     }
 }

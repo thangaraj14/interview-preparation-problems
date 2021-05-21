@@ -3,7 +3,8 @@
 .classpath
 .project
 AmazonProblems.iml
-
+out/
 *.json
 /.idea/*
 /.idea/
+/out/*.class

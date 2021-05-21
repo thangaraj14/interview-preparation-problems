@@ -1,40 +1,47 @@
-package geeksforgeeks;
+package binarysearch;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * https://leetcode.com/problems/find-peak-element/
- *
+ * <p>
  * A peak element is an element that is greater than its neighbors.
- *
+ * <p>
  * Given an input array nums, where nums[i] ≠ nums[i+1], find a peak element and return its index.
- *
+ * <p>
  * The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.
- *
+ * <p>
  * You may imagine that nums[-1] = nums[n] = -∞.
  */
 public class PeakElement {
 
-    public int findPeakElement(int[] nums) {
-        if (nums == null || nums.length == 0) return -1;
-        int result = -1;
-
-        int start = 0;
-        int end = nums.length - 1;
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-
-            if ((mid == 0 || nums[mid] > nums[mid - 1]) && (mid == nums.length - 1 || nums[mid] > nums[mid + 1]))
-                return mid;
-            else if (mid > 0 && nums[mid - 1] > nums[mid]) end = mid - 1;
-            else if (nums[mid + 1] > nums[mid]) start = mid + 1;
-
-        }
-        return result;
-    }
 
     public static void main(String[] args) {
-        PeakElement pe = new PeakElement();
-        int[] arr = {1, 1, 1, 3, 2, 1, 2};
-        System.out.println(arr[pe.findPeakElement(arr)]);
+        Map<Employee, String> map= new TreeMap<>();
+        map.put(new Employee(9,"aaa"),"");
+        map.put(new Employee(2,"ttt"),"sd");
+
+        for (Map.Entry entry: map.entrySet()){
+            System.out.println(entry.getKey());
+        }
+
     }
 
+}
+class Employee {
+    int id;
+    String name;
+    Employee (int id, String name){
+        this.id=id;
+        this.name=name;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

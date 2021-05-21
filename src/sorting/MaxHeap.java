@@ -1,4 +1,4 @@
-package strings.common.sorting;
+package sorting;
 
 public class MaxHeap {
 
