@@ -33,7 +33,9 @@ public class SubarrayK {
 
         for (int val : nums) {
             sum += val;
-            result = preSum.getOrDefault(sum - k, 0) + result;
+            if (preSum.containsKey(sum - k)) {
+                result += preSum.get(sum - k);
+            }
             preSum.put(sum, preSum.getOrDefault(sum, 0) + 1);
         }
         return result;

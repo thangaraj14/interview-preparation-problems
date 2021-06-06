@@ -15,8 +15,8 @@ public class SnakeAndLadder {
         int dist;
     }
 
-    static int getMinDiceThrows(int move[], int n) {
-        int visited[] = new int[n];
+    static int getMinDiceThrows(int[] move, int n) {
+        int[] visited = new int[n];
         Queue<Entry> q = new ArrayDeque<>();
         Entry entry = new Entry();
         entry.v = 0;
@@ -33,7 +33,7 @@ public class SnakeAndLadder {
                 break;
             }
 
-            for (int j = v + 1; j <= (v + 6) && j < n; ++j) {
+            for (int j = v + 1; j <= (v + 6) && j < n; j++) {
                 if (visited[j] == 0) {
                     Entry a = new Entry();
                     a.dist = (entry.dist + 1);
@@ -53,7 +53,7 @@ public class SnakeAndLadder {
 
     public static void main(String[] args) {
         int N = 30;
-        int moves[] = new int[N];
+        int[] moves = new int[N];
         for (int i = 0; i < N; i++)
             moves[i] = -1;
 

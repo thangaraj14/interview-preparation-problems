@@ -1,12 +1,15 @@
 package dsa;
 
 /**
- * @param s https://leetcode.com/problems/is-subsequence/
+ * https://leetcode.com/problems/is-subsequence/
+ *
+ * @param s
  * @param t
  *
  * @return
  */
 public class IsSubsequence {
+
     // Input: s = "abc", t = "ahbgdc"
     // Output: true
     // Input: s = "axc", t = "ahbgdc"
@@ -15,6 +18,7 @@ public class IsSubsequence {
         if (s == null || t == null) {
             return false;
         }
+
         int i = 0;
         int j = 0;
 
@@ -24,7 +28,6 @@ public class IsSubsequence {
             }
             j++;
         }
-
         return i == s.length();
     }
 }

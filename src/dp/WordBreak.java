@@ -25,15 +25,12 @@ import java.util.*;
  * https://leetcode.com/problems/word-break-ii/
  */
 public class WordBreak {
-    // old approach
-    public String breakWordDP(String word, Set<String> dict) {
-        int[][] T = new int[word.length()][word.length()];
 
-        for (int i = 0; i < T.length; i++) {
-            for (int j = 0; j < T[i].length; j++) {
-                T[i][j] = -1;
-            }
-        }
+    public static String breakWordDP(String word, Set<String> dict) {
+
+        int[][] arr = new int[word.length()][word.length()];
+
+        Arrays.stream(arr).forEach(ar -> Arrays.fill(ar, -1));
 
         for (int level = 1; level <= word.length(); level++) {
             for (int i = 0; i < word.length() - level + 1; i++) {
@@ -41,19 +38,19 @@ public class WordBreak {
                 String str = word.substring(i, j + 1);
 
                 if (dict.contains(str)) {
-                    T[i][j] = i;
+                    arr[i][j] = i;
                     continue;
                 }
-                // find a k between i+1 to j such that T[i][k-1] && T[k][j] are both true
+                // find a k between i+1 to j such that arr[i][k-1] && arr[k][j] are both true
                 for (int k = i + 1; k <= j; k++) {
-                    if (T[i][k - 1] != -1 && T[k][j] != -1) {
-                        T[i][j] = k;
+                    if (arr[i][k - 1] != -1 && arr[k][j] != -1) {
+                        arr[i][j] = k;
                         break;
                     }
                 }
             }
         }
-        if (T[0][word.length() - 1] == -1) {
+        if (arr[0][word.length() - 1] == -1) {
             return null;
         }
 
@@ -62,7 +59,7 @@ public class WordBreak {
         int i = 0;
         int j = word.length() - 1;
         while (i < j) {
-            int k = T[i][j];
+            int k = arr[i][j];
             if (i == k) {
                 buffer.append(word.substring(i, j + 1));
                 break;
@@ -81,7 +78,7 @@ public class WordBreak {
         dictionary.add("ace");
         String str = "Iamace";
         WordBreak bmw = new WordBreak();
-        //  String result1 = bmw.breakWordDP(str, dictionary);
+        String result1 = bmw.breakWordDP(str, dictionary);
         // System.out.println(bmw.wordBreakBottomUp(str, dictionary));
 
         String s = "catsanddog";
@@ -91,8 +88,7 @@ public class WordBreak {
         list.add("and");
         list.add("sand");
         list.add("dog");
-
-        wordBreak(s, list).forEach(System.out::println);
+        //        wordBreak(s, list).forEach(System.out::println);
 
         // System.out.print(result1);
     }

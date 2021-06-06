@@ -32,7 +32,7 @@ public class MedianOfRunningIntegers {
 
     public static void main(String[] args) {
         MedianOfRunningIntegers median = new MedianOfRunningIntegers();
-        int A[] = { 5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4 };
+        int[] A = { 5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4 };
         for (int num : A) {
             median.addNum(num);
             System.out.println(median.findMedian());

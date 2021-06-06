@@ -12,7 +12,7 @@ public class SerializeAndDeserializeBST {
     private static final String DELIMITER = ",";
     private static final String NULL = "null";
 
-    // Encodes a tree to a single string.
+    // Encodes a tree to a single string by using preorder.
     public String serialize(TreeNode root, StringBuilder sb) {
         if (root == null) {
             return null;

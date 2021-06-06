@@ -12,18 +12,14 @@ import java.util.PriorityQueue;
  */
 
 public class MeetingRooms {
-    /**
-     * @param intervals: an array of meeting time intervals
-     *
-     * @return: the minimum number of conference rooms required
-     */
+
     // [(0,30),(5,10),(15,20)]
     public static int minMeetingRooms(List<Interval> intervals) {
-        if (intervals == null || intervals.size() == 0) {
+        if (intervals == null || intervals.isEmpty()) {
             return -1;
         }
 
-        Collections.sort(intervals, Comparator.comparingInt(a -> a.start));
+        Collections.sort(intervals, Comparator.comparing(Interval::getStart));
 
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         queue.offer(intervals.get(0).end);
@@ -41,7 +37,7 @@ public class MeetingRooms {
         if (intervals == null) {
             return false;
         }
-        Arrays.sort(intervals, Comparator.comparingInt(a -> a.start));
+        Arrays.sort(intervals, Comparator.comparing(Interval::getStart));
         for (int i = 1; i < intervals.length; i++)
             if (intervals[i].start < intervals[i - 1].end) {
                 return false;
@@ -61,6 +57,10 @@ public class MeetingRooms {
 class Interval {
     int start;
     int end;
+
+    public int getStart() {
+        return start;
+    }
 
     public Interval(int start, int end) {
         this.start = start;

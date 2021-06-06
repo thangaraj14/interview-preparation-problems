@@ -41,7 +41,7 @@ class DutchNationalFlag {
 
     public static void main(String[] args) {
         DutchNationalFlag dutchNationalFlag = new DutchNationalFlag();
-        int[] arr = new int[] { 2, 0, 2, 1, 1, 0 };
+        int[] arr = new int[] { 2, 0, 2, 1, 1, 2 };
         dutchNationalFlag.sortColors(arr);
         System.out.println(Arrays.toString(arr));
     }

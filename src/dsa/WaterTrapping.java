@@ -5,7 +5,7 @@ package dsa;
  */
 class WaterTrapping {
 
-    static int findWater(int arr[], int n) {
+    static int findWater(int[] arr, int n) {
         int result = 0;
         int leftMax = 0;
         int rightMax = 0;

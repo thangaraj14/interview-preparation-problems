@@ -42,11 +42,11 @@ public class SerializeAndDeserialize {
 
         String value = nodesLeftToMaterialize.poll();
 
-        if (value.equals(NULL_SYMBOL)) {
+        if (NULL_SYMBOL.equals(value)) {
             return null;
         }
 
-        TreeNode newNode = new TreeNode(Integer.valueOf(value));
+        TreeNode newNode = new TreeNode(Integer.parseInt(value));
         newNode.left = deserializeHelper(nodesLeftToMaterialize);
         newNode.right = deserializeHelper(nodesLeftToMaterialize);
 
@@ -54,6 +54,8 @@ public class SerializeAndDeserialize {
     }
 
     public static void main(String[] args) {
+
+
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);

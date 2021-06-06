@@ -20,7 +20,7 @@ public class CatalanNumberBinarySearchTree {
         return T[n];
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         CatalanNumberBinarySearchTree cnt = new CatalanNumberBinarySearchTree();
         System.out.println(cnt.countTrees(3));
     }

@@ -17,9 +17,12 @@ public class TrieImpl {
         curr.endOfWord = true;
     }
 
+    public TrieImpl() {
+        root = new TrieNode();
+    }
+
     public static void main(String[] args) {
         TrieImpl trie = new TrieImpl();
-        root = new TrieNode();
 
         trie.insert("hero");
         trie.insert("help");

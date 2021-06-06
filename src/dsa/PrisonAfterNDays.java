@@ -49,7 +49,7 @@ class PrisonAfterNDays {
 
     public static void main(String[] args) {
         int[] cells = { 0, 1, 0, 1, 1, 0, 0, 1 };
-        int N = 7;
+        int N = 50;
         System.out.println(Arrays.toString(prisonAfterNDays(cells, N)));
     }
 }

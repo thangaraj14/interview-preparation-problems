@@ -1,0 +1,20 @@
+
+<
+java:S1860
+"&Synchronize on a new "Object" instead.(Ü²€ÿ
+t
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾
+Y
+java:S2276"CReplace the call to "Thread.sleep(...)" with a call to "wait(...)".(á˜ ¶
+>	java:S108")Either remove or fill this block of code.(”ı¾
+A
+java:S1860"&Synchronize on a new "Object" instead.(öÈ­ıÿÿÿÿ
+A
+java:S1860"&Synchronize on a new "Object" instead.(öÈ­ıÿÿÿÿ
+t
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾
+Y
+java:S2276"CReplace the call to "Thread.sleep(...)" with a call to "wait(...)".(á˜ ¶
+>	java:S108")Either remove or fill this block of code.(”ı¾
+<
+java:S1860""&Synchronize on a new "Object" instead.(Ü²€ÿ

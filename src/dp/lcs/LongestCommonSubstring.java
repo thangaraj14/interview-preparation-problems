@@ -6,7 +6,7 @@ package dp.lcs;
 public class LongestCommonSubstring {
 
     public int longestCommonSubstring(char[] str1, char[] str2) {
-        int T[][] = new int[str1.length + 1][str2.length + 1];
+        int[][] T = new int[str1.length + 1][str2.length + 1];
 
         int max = 0;
         for (int i = 1; i <= str1.length; i++) {

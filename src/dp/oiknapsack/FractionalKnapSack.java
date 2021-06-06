@@ -1,6 +1,7 @@
 package dp.oiknapsack;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class FractionalKnapSack {
 
@@ -11,7 +12,7 @@ public class FractionalKnapSack {
             iVal[i] = new ItemValue(wt[i], val[i], i);
         }
 
-        Arrays.sort(iVal, (o1, o2) -> o2.cost.compareTo(o1.cost));
+        Arrays.sort(iVal, Comparator.comparing(ItemValue::getCost));
 
         double totalValue = 0d;
 
@@ -45,7 +46,11 @@ public class FractionalKnapSack {
             this.wt = wt;
             this.val = val;
             this.ind = ind;
-            cost = (double) val / (double) wt;
+            this.cost = (double) val / (double) wt;
+        }
+
+        public Double getCost() {
+            return cost;
         }
     }
 

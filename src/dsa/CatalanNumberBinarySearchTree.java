@@ -24,6 +24,14 @@ package dsa;
  */
 public class CatalanNumberBinarySearchTree {
 
+    /**
+     * dp[1] +=  dp[0] * dp[0]
+     * dp[2] +=  dp[0] * dp[1]
+     * dp[2] +=  dp[1] * dp[0]
+     * dp[3] +=  dp[0] * dp[2]
+     * dp[3] +=  dp[1] * dp[1]
+     * dp[3] +=  dp[2] * dp[0]
+     */
     public int numTrees(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 1;
@@ -36,7 +44,7 @@ public class CatalanNumberBinarySearchTree {
         return dp[n];
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         CatalanNumberBinarySearchTree cnt = new CatalanNumberBinarySearchTree();
         System.out.println(cnt.numTrees(4));
     }

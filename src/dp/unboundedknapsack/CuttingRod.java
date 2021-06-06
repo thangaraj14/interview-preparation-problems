@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * http://www.geeksforgeeks.org/dynamic-programming-set-13-cutting-a-rod/
+ * https://www.youtube.com/watch?v=IRwVmTmN6go&ab_channel=TusharRoy-CodingMadeSimple
  */
 public class CuttingRod {
 
@@ -17,6 +18,7 @@ public class CuttingRod {
                 System.out.println(
                         "max[" + j + "] : " + max[j] + " , max[" + (j - i) + "] : " + max[j - i] + "+  price[" + (i - 1)
                                 + "] : " + price[i - 1]);
+                // add previous value or current value
                 max[j] = Math.max(max[j], max[j - i] + price[i - 1]);
                 System.out.println(Arrays.toString(max));
             }

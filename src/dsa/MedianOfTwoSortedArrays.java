@@ -3,6 +3,8 @@ package dsa;
 /**
  * https://github.com/mission-peace/interview/blob/master/src/com/interview/binarysearch/MedianOfTwoSortedArrayOfDifferentLength.java
  * https://leetcode.com/problems/median-of-two-sorted-arrays/
+ * <p>
+ * https://www.youtube.com/watch?v=yD7wV8SyPrc&ab_channel=KeertiPurswani
  */
 
 public class MedianOfTwoSortedArrays {
@@ -50,18 +52,18 @@ public class MedianOfTwoSortedArrays {
         throw new IllegalArgumentException();
     }
 
-    double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    double findMedianSortedArraysKP(int[] nums1, int[] nums2) {
         int n1 = nums1.length;
         int n2 = nums2.length;
 
         if (n1 > n2) {
-            return findMedianSortedArrays(nums2, nums1);    // Make sure A2 is the shorter one.
+            return findMedianSortedArraysKP(nums2, nums1);    // Make sure arr1 is the shorter one.
         }
 
-        int lo = 0;
-        int hi = n1;
-        while (lo <= hi) {
-            int cut1 = (lo + hi) / 2;
+        int low = 0;
+        int high = n1;
+        while (low <= high) {
+            int cut1 = (low + high) / 2;
             int cut2 = (n1 + n2 + 1) / 2 - cut1;
 
             int l1 = cut1 == 0 ? Integer.MIN_VALUE : nums1[cut1 - 1];
@@ -71,9 +73,9 @@ public class MedianOfTwoSortedArrays {
             int r2 = cut2 == n2 ? Integer.MAX_VALUE : nums2[cut2];
             System.out.println(l1 + "" + l2 + "" + r1 + "" + r2);
             if (l1 > r2) {
-                hi = cut1 - 1;
+                high = cut1 - 1;
             } else if (l2 > r1) {
-                lo = cut1 + 1;
+                low = cut1 + 1;
             } else {
                 return (n1 + n2) % 2 == 0 ? ((double) Math.max(l1, l2) + Math.min(r1, r2)) / 2 : Math.max(l1, l2);
             }
@@ -82,12 +84,12 @@ public class MedianOfTwoSortedArrays {
     }
 
     public static void main(String[] args) {
-        int[] x = { 1, 3 };
-        int[] y = { 2 };
+        int[] x = { 1, 5, 8, 10, 18, 20 };
+        int[] y = { 2, 3, 6, 7 };
 
         MedianOfTwoSortedArrays mm = new MedianOfTwoSortedArrays();
         System.out.println(mm.findMedianSortedArraysTR(x, y));
         System.out.println("----------------");
-        System.out.println(mm.findMedianSortedArrays(x, y));
+        System.out.println(mm.findMedianSortedArraysKP(x, y));
     }
 }

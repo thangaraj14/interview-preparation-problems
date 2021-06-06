@@ -56,6 +56,8 @@ public class Permutation {
 
     public static void main(String[] args) {
         Permutation permutation = new Permutation();
+        permutation.permute(new int[] { 1, 2, 3 }).forEach(System.out::println);
+
         List<List<Integer>> lists = permutation.permuteUnique(new int[] { 1, 1, 2 });
         lists.forEach(System.out::print);
         System.out.println();

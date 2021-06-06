@@ -1,6 +1,7 @@
 package thread.educative;
 
 class SemaphoreImpl {
+    
     public static void main(String[] args) throws InterruptedException {
 
         final CountingSemaphore cs = new CountingSemaphore(2);

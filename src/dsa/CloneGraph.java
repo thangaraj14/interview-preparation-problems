@@ -1,11 +1,9 @@
 package dsa;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
 /**
  * https://leetcode.com/problems/clone-graph/
@@ -54,28 +52,25 @@ public class CloneGraph {
         }
     }
 
+    public Map<Integer, Node> map = new HashMap<>();
+
     public Node cloneGraph(Node node) {
+        return clone(node);
+    }
+
+    public Node clone(Node node) {
         if (node == null) {
-            return node;
+            return null;
         }
 
-        Map<Node, Node> map = new HashMap<>();
-        Queue<Node> queue = new ArrayDeque<>();
-        queue.offer(node);
-        map.put(node, new Node(node.val));
-
-        while (!queue.isEmpty()) {
-            Node current = queue.poll();
-
-            for (Node neighbors : current.neighbors) {
-                if (!map.containsKey(neighbors)) {
-                    Node neighborClone = new Node(neighbors.val);
-                    map.put(neighbors, neighborClone);
-                    queue.offer(neighbors);
-                }
-                map.get(current).neighbors.add(map.get(neighbors));
-            }
+        if (map.containsKey(node.val)) {
+            return map.get(node.val);
         }
-        return map.get(node);
+
+        Node newNode = new Node(node.val, new ArrayList<>());
+        map.put(newNode.val, newNode);
+        for (Node neighbor : node.neighbors)
+            newNode.neighbors.add(clone(neighbor));
+        return newNode;
     }
 }

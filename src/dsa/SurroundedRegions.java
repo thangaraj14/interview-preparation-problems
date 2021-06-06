@@ -8,7 +8,7 @@ import java.util.Arrays;
 class SurroundedRegions {
 
     public static void solve(char[][] board) {
-        
+
         if (board.length == 0 || board[0].length == 0) {
             return;
         }
@@ -16,7 +16,7 @@ class SurroundedRegions {
             return;
         }
         int m = board.length, n = board[0].length;
-        // Any 'O' connected to a boundary can't be turned to 'X', so ...
+        // Any 'O' connected to a boundary and linked to boundary also can't be turned to 'X',
         // Start from first and last column, turn 'O' to '*'.
         for (int i = 0; i < m; i++) {
             if (board[i][0] == 'O') {

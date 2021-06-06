@@ -2,14 +2,18 @@ package dsa;
 
 import java.util.PriorityQueue;
 
-/*https://www.geeksforgeeks.org/kth-smallest-element-in-a-row-wise-and-column-wise-sorted-2d-array-set-1/*/
+/**
+ * https://www.geeksforgeeks.org/kth-smallest-element-in-a-row-wise-and-column-wise-sorted-2d-array-set-1/
+ */
 public class KthSmallestMatrix {
+
     public static int kthSmallest(int[][] matrix, int k) {
         int n = matrix.length;
         PriorityQueue<Points> pq = new PriorityQueue<>();
         // add first row elements
-        for (int j = 0; j <= n - 1; j++)
+        for (int j = 0; j <= n - 1; j++) {
             pq.offer(new Points(0, j, matrix[0][j]));
+        }
         for (int i = 0; i < k - 1; i++) {
             Points t = pq.poll();
             System.out.println(t.x);
@@ -22,8 +26,8 @@ public class KthSmallestMatrix {
     }
 
     public static void main(String[] args) {
-        int[][] matrix = { { 1, 2, 9 }, { 3, 11, 13 }, { 4, 13, 15 } };
-        int k = 4;
+        int[][] matrix = { { 10, 20, 30, 40 }, { 15, 25, 35, 45 }, { 24, 29, 37, 48 } };
+        int k = 3;
 
         System.out.println(kthSmallest(matrix, k));
     }

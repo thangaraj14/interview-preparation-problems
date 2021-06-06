@@ -2,13 +2,12 @@ package dsa;
 
 /**
  * https://www.geeksforgeeks.org/check-given-sentence-given-set-simple-grammer-rules/
+ * #Ignore
  */
 class GrammarMistake {
 
-    // Method to check a given sentence for given rules
     static boolean checkSentence(char[] str) {
 
-        // Calculate the length of the string.
         int len = str.length;
 
         // Check that the first character lies in [A-Z].

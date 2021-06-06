@@ -13,14 +13,16 @@ import java.util.LinkedList;
  * complexity - O(number of transactions * number of days)
  * <p>
  * https://leetcode.com/discuss/15153/a-clean-dp-solution-which-generalizes-to-k-transactions
+ * <p>
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
  */
 public class StockBuySellKTransactions {
 
-    public int maxProfit(int prices[], int K) {
+    public int maxProfit(int[] prices, int K) {
         if (K == 0 || prices.length == 0) {
             return 0;
         }
-        int T[][] = new int[K + 1][prices.length];
+        int[][] T = new int[K + 1][prices.length];
 
         for (int i = 1; i < T.length; i++) {
             int maxDiff = -prices[0];

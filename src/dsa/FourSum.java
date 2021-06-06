@@ -19,8 +19,8 @@ public class FourSum {
             }
         }
         
-        for (int k = 0; k < A.length; k++) {
-            for (int z = 0; z < C.length; z++) {
+        for (int k = 0; k < C.length; k++) {
+            for (int z = 0; z < D.length; z++) {
                 // if above sum is +3, then we are looking for -3, so we are negating the value.
                 int sum = -(C[k] + D[z]);
                 if (sums.containsKey(sum)) {

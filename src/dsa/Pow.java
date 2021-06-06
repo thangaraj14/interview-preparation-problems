@@ -7,7 +7,7 @@ public class Pow {
 
     public static void main(String[] args) {
         Pow pow = new Pow();
-        System.out.println(pow.powIterative(2.00000, 10));
+        System.out.println(pow.myPow(2.00000, 10));
     }
 
     public double pow(double x, int m) {
@@ -38,6 +38,16 @@ public class Pow {
             }
         }
         return n < 0 ? 1.0 / result : result;
+    }
+
+    public double myPow(double x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n < 0) {
+            return 1 / x * myPow(1 / x, -(n + 1));
+        }
+        return (n % 2 == 0) ? myPow(x * x, n / 2) : x * myPow(x * x, n / 2);
     }
 
 }

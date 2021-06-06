@@ -10,22 +10,24 @@ import java.util.Map;
  * https://www.techiedelight.com/find-sub-array-with-0-sum/
  */
 class Pair {
-    int first;
-    int second;
+    int sum;
+    int index;
 
-    Pair(int a, int b) {
-        first = a;
-        second = b;
+    Pair(int sum, int index) {
+        this.sum = sum;
+        this.index = index;
     }
 
     public String toString() {
-        return this.first + "--" + this.second;
+        return this.sum + "--" + this.index;
     }
 }
 
 public class SumSubArrayZero {
 
-    static ArrayList<Pair> findSubArrays(int[] arr, int n) {
+    static ArrayList<Pair> findSubArrays(int[] arr) {
+
+        int n = arr.length;
         Map<Integer, List<Integer>> map = new HashMap<>();
         ArrayList<Pair> result = new ArrayList<>();
         int sum = 0;
@@ -34,24 +36,23 @@ public class SumSubArrayZero {
             if (sum == 0) {
                 result.add(new Pair(0, i));
             }
-            List<Integer> al = new ArrayList<>();
+            List<Integer> list = new ArrayList<>();
             if (map.containsKey(sum)) {
-                al = map.get(sum);
-                for (int it = 0; it < al.size(); it++) {
-                    result.add(new Pair(al.get(it) + 1, i));
+                list = map.get(sum);
+                for (int val : list) {
+                    result.add(new Pair(val + 1, i));
                 }
             }
-            al.add(i);
-            map.put(sum, al);
+            list.add(i);
+            map.put(sum, list);
         }
         return result;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int[] arr = { 4, 2, -3, -1, 0, 4 };
-        int n = arr.length;
 
-        ArrayList<Pair> out = findSubArrays(arr, n);
+        ArrayList<Pair> out = findSubArrays(arr);
 
         if (out.size() == 0) {
             System.out.println("No subarray exists");
@@ -63,7 +64,7 @@ public class SumSubArrayZero {
     static void print(ArrayList<Pair> out) {
         for (int i = 0; i < out.size(); i++) {
             Pair p = out.get(i);
-            System.out.println("Subarray found from Index " + p.first + " to " + p.second);
+            System.out.println("Subarray found from Index " + p.sum + " to " + p.index);
         }
     }
 }

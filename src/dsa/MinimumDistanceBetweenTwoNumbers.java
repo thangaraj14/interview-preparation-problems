@@ -6,7 +6,7 @@ package dsa;
 
 class MinimumDistanceBetweenTwoNumbers {
 
-    int minDist(int arr[], int n, int x, int y) {
+    int minDist(int[] arr, int n, int x, int y) {
         Integer xIndex = null;
         Integer yIndex = null;
         int minDist = Integer.MAX_VALUE;
@@ -28,7 +28,7 @@ class MinimumDistanceBetweenTwoNumbers {
 
     public static void main(String[] args) {
         MinimumDistanceBetweenTwoNumbers min = new MinimumDistanceBetweenTwoNumbers();
-        int arr[] = { 3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3 };
+        int[] arr = { 3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3 };
         int n = arr.length;
         int x = 3;
         int y = 6;

@@ -8,16 +8,15 @@ public class TestDL {
         Runnable runnable = () -> {
             synchronized (resource1) {
                 System.out.println(Thread.currentThread().getName() + ":");
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 synchronized (resource2) {
                     System.out.println(Thread.currentThread().getName() + ":");
                 }
             }
-
 
         };
 
@@ -33,7 +32,6 @@ public class TestDL {
                     System.out.println(Thread.currentThread().getName() + ":");
                 }
             }
-
 
         };
 

@@ -1,6 +1,10 @@
 package dsa;
 
+/**
+ * https://leetcode.com/problems/string-compression/
+ */
 class StringCompression {
+
     public static int compress(char[] chars) {
         int indexAns = 0;
         int index = 0;

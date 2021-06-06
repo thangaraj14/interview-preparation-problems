@@ -21,7 +21,7 @@ public class LongestIncreasingSubsequence {
     public static void main(String[] args) {
         int[] nums = { 10, 22, 9, 33, 21, 50, 41, 60, 80 };
         LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
-        lis.lengthOfLIS(nums);
+        System.out.println(lis.lengthOfLIS(nums));
       /*  if (nums.length == 0) {
             return;
         }
@@ -42,7 +42,7 @@ public class LongestIncreasingSubsequence {
         System.out.println(maximumSoFar);*/
     }
 
-    public static int findPositionToReplace(int[] a, int low, int high, int x) {
+    public int findPositionToReplace(int[] a, int low, int high, int x) {
         int mid;
         while (low <= high) {
             mid = low + (high - low) / 2;
@@ -57,7 +57,8 @@ public class LongestIncreasingSubsequence {
         return low;
     }
 
-    public static int lengthOfLIS(int[] nums) {
+    // 10, 22, 9, 33, 21, 50, 41, 60, 80
+    public int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }

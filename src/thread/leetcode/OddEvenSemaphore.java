@@ -19,7 +19,7 @@ public class OddEvenSemaphore {
     }
 }
 
-class OddSemaphore implements Callable {
+class OddSemaphore implements Callable<String> {
 
     PrinterSemaphore print;
 
@@ -36,7 +36,7 @@ class OddSemaphore implements Callable {
     }
 }
 
-class EvenSemaphore implements Callable {
+class EvenSemaphore implements Callable<String> {
 
     PrinterSemaphore print;
 
@@ -54,6 +54,7 @@ class EvenSemaphore implements Callable {
 }
 
 class PrinterSemaphore {
+
     Semaphore semOdd = new Semaphore(1);
     Semaphore semEven = new Semaphore(0);
 

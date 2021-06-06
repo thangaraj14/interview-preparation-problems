@@ -8,7 +8,6 @@ class ReadWriteLockImpl {
 
         Thread t1Writer = new Thread(() -> {
             try {
-
                 System.out.println("Attempting to acquire write lock in t1Writer: " + System.currentTimeMillis());
                 rwl.acquireWriteLock();
                 System.out.println("write lock acquired t1Writer: " + +System.currentTimeMillis());
@@ -18,32 +17,25 @@ class ReadWriteLockImpl {
                 //                    Thread.sleep(500);
                 //                }
                 rwl.releaseWriteLock();
-
             } catch (InterruptedException ie) {
-
             }
         });
 
         Thread t2Writer = new Thread(() -> {
             try {
-
                 System.out.println("Attempting to acquire write lock in t2: " + System.currentTimeMillis());
                 rwl.acquireWriteLock();
                 System.out.println("write lock acquired t2: " + System.currentTimeMillis());
-
             } catch (InterruptedException ie) {
-
             }
         });
 
         Thread tReader1 = new Thread(() -> {
             try {
-
                 rwl.acquireReadLock();
                 System.out.println("Read lock acquired: " + System.currentTimeMillis());
 
             } catch (InterruptedException ie) {
-
             }
         });
 
@@ -71,11 +63,9 @@ class ReadWriteLock {
     int readers = 0;
 
     public synchronized void acquireReadLock() throws InterruptedException {
-
         while (isWriteLocked) {
             wait();
         }
-
         readers++;
     }
 
@@ -85,11 +75,9 @@ class ReadWriteLock {
     }
 
     public synchronized void acquireWriteLock() throws InterruptedException {
-
         while (isWriteLocked || readers != 0) {
             wait();
         }
-
         isWriteLocked = true;
     }
 

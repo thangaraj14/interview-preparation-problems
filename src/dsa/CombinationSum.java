@@ -60,7 +60,8 @@ public class CombinationSum {
     public static void main(String[] args) {
         int[] candidates = new int[] { 10, 1, 2, 7, 6, 1, 5 };
         int target = 8;
-        List<List<Integer>> lists = combinationSum2(candidates, target);
+        combinationSum2(candidates, target).forEach(System.out::println);
+        List<List<Integer>> lists = combinationSum(new int[] { 2, 3, 6, 7 }, 7);
         lists.forEach(System.out::println);
     }
 }

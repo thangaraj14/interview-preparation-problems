@@ -3,9 +3,11 @@ package dsa;
 import java.util.HashMap;
 
 /**
+ * https://leetcode.com/problems/counting-elements/
+ * <p>
  * Given an integer array arr, count element x such that x + 1 is also in arr.
  * <p>
- * If there're duplicates in arr, count them separetely.
+ * If there're duplicates in arr, count them separately.
  * <p>
  * <p>
  * <p>
@@ -54,7 +56,7 @@ public class CountElements {
     }
 
     public static void main(String[] args) {
-        System.out.println(countElements(new int[] {  3, 2, 3, 5, 0,1,2 }));
+        System.out.println(countElements(new int[] { 1, 2, 3 }));
     }
 }
 // 0-> 1,1->2,2->1,

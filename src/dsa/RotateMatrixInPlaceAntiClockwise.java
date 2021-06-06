@@ -10,33 +10,33 @@ package dsa;
  */
 class RotateMatrixInPlaceAntiClockwise {
 
-    static void rotateMatrix(int N, int mat[][]) {
+    static void rotateMatrix(int n, int[][] mat) {
 
-        for (int x = 0; x < N / 2; x++) {
+        for (int x = 0; x < n / 2; x++) {
 
-            for (int y = x; y < N - x; y++) {
+            for (int y = x; y < n - x; y++) {
 
                 // store current cell in temp variable
                 int temp = mat[x][y];
 
                 // move values from right to top
-                mat[x][y] = mat[y][N - x];
+                mat[x][y] = mat[y][n - x];
 
                 // move values from bottom to right
-                mat[y][N - x] = mat[N - x][N - y];
+                mat[y][n - x] = mat[n - x][n - y];
 
                 // move values from left to bottom
-                mat[N - x][N - y] = mat[N - y][x];
+                mat[n - x][n - y] = mat[n - y][x];
 
                 // assign temp to left
-                mat[N - y][x] = temp;
+                mat[n - y][x] = temp;
             }
         }
     }
 
-    static void displayMatrix(int N, int mat[][]) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++)
+    static void displayMatrix(int n, int[][] mat) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++)
                 System.out.print(" " + mat[i][j]);
 
             System.out.print("\n");

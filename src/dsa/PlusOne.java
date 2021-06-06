@@ -34,5 +34,7 @@ class PlusOne {
         int[] digits = { 1, 2, 9 };
         int[] endpointUrl = plusOne(digits);
         Arrays.stream(endpointUrl).forEach(System.out::println);
+        Arrays.stream(plusOne(new int[] { 1, 2, 3 })).forEach(System.out::println);
+        Arrays.stream(plusOne(new int[] { 3, 9, 9, 9 })).forEach(System.out::println);
     }
 }

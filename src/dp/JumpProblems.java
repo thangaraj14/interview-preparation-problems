@@ -29,6 +29,7 @@ public class JumpProblems {
         return jump[jump.length - 1];
     }
 
+    // 2, 3, 1, 1, 4
     public int jump(int[] arr) {
         int jumps = 0;
         int curEnd = 0;
@@ -65,6 +66,6 @@ public class JumpProblems {
         int[] nums = { 3, 2, 1, 0, 4 };
         boolean result = mj.canJump(nums);
         System.out.println(result);
-        System.out.println(mj.jump(arr));
+        System.out.println(mj.jump(new int[] { 2, 3, 0, 1, 4 }));
     }
 }

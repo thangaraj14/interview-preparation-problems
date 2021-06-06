@@ -80,7 +80,7 @@ class DisjointSet {
     }
 
     public boolean unionSet(Edge edge) {
-        
+
         Node srcNode = allNodes.get(edge.vertex1.data);
         Node destNode = allNodes.get(edge.vertex2.data);
 
@@ -107,8 +107,21 @@ class Node {
     long data;
     Node parent;
     Node child;
+    Node left;
+    Node right;
+    Node prev;
+    Node next;
+
+    public long getData() {
+        return data;
+    }
 
     public Node(long id) {
         this.data = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" + "data= " + data + '}';
     }
 }

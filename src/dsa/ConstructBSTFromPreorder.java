@@ -1,6 +1,7 @@
 package dsa;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
@@ -16,7 +17,7 @@ class ConstructBSTFromPreorder {
         if (preorder == null || preorder.length == 0) {
             return null;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode root = new TreeNode(preorder[0]);
         stack.push(root);
         for (int i = 1; i < preorder.length; i++) {

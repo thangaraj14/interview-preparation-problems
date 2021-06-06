@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 
 public class TestThread {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Runnable runnable = () -> {
             for (int i = 0; i < 5; i++) {
                 try {

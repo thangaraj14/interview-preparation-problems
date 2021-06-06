@@ -1,29 +1,29 @@
 package dsa;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
  */
 class ConstructTreeFromInorderAndPreorder {
 
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    public static TreeNode buildTree(int[] preorder, int[] inorder) {
 
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderMap.put(inorder[i], i);
         }
-        ArrayList<Integer> preorderList = new ArrayList<>();
-        for (int i = 0; i < preorder.length; i++) {
-            preorderList.add(preorder[i]);
-        }
-        return buildTree(preorderList, 0, inorder.length - 1, inorderMap);
+        List<Integer> preorderList = Arrays.stream(preorder).boxed().collect(Collectors.toList());
+        return buildTreeUtil(preorderList, 0, inorder.length - 1, inorderMap);
     }
 
-    public TreeNode buildTree(List<Integer> pre, int inorderStart, int inorderEnd, Map<Integer, Integer> inMap) {
+    public static TreeNode buildTreeUtil(List<Integer> pre, int inorderStart, int inorderEnd,
+            Map<Integer, Integer> inMap) {
 
         if (inorderStart > inorderEnd) {
             return null;
@@ -33,9 +33,14 @@ class ConstructTreeFromInorderAndPreorder {
         int inRoot = inMap.get(root.val);
         pre.remove(0);
 
-        root.left = buildTree(pre, inorderStart, inRoot - 1, inMap);
-        root.right = buildTree(pre, inRoot + 1, inorderEnd, inMap);
+        root.left = buildTreeUtil(pre, inorderStart, inRoot - 1, inMap);
+        root.right = buildTreeUtil(pre, inRoot + 1, inorderEnd, inMap);
 
         return root;
+    }
+
+    public static void main(String[] args) {
+
+        TreeNode treeNode = buildTree(new int[] { 3, 9, 20, 15, 7 }, new int[] { 9, 3, 15, 20, 7 });
     }
 }

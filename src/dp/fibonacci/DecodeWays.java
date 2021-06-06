@@ -70,7 +70,8 @@ public class DecodeWays {
 
     public static void main(String[] args) {
         DecodeWays decode = new DecodeWays();
-        System.out.println(decode.numDecodingsRecur("216"));
+        //        System.out.println(decode.numDecodingsRecur("216"));
+        System.out.println(decode.numDecodingsRecur("226"));
     }
 
 }

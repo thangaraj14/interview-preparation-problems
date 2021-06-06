@@ -10,9 +10,9 @@ class BuyAndSellStockAtMostTwice {
     // { 2, 30, 15, 10, 8, 25, 80 };
     // 78,72,72,72,72,55
     //
-    static int maxProfit(int price[], int n) {
+    static int maxProfit(int[] price, int n) {
 
-        int profit[] = new int[n];
+        int[] profit = new int[n];
         /*
          * Get the maximum profit with only one transaction allowed. After this loop,
          * profit[i] contains maximum profit from price[i..n-1] using at most one trans.

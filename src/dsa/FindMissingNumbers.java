@@ -51,6 +51,7 @@ public class FindMissingNumbers {
     }
 
     public static void main(String[] args) {
-        findDisappearedNumbers(new int[] { 2, 3, 7, 8, 2, 3, 5, 7 });
+        List<Integer> list = findDisappearedNumbers(new int[] { 4, 3, 2, 7, 8, 2, 3, 1 });
+        list.forEach(System.out::println);
     }
 }

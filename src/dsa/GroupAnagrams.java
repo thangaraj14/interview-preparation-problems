@@ -2,31 +2,34 @@ package dsa;
 
 import java.util.*;
 
+/**
+ * https://leetcode.com/problems/group-anagrams/
+ */
 public class GroupAnagrams {
 
-    public List<List<String>> groupAnagrams(String[] strs) {
-        List<List<String>> result = new ArrayList<>();
+    public static List<List<String>> groupAnagrams(String[] strs) {
 
-        if (strs == null || strs.length == 0) {
-            return result;
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for (String str : strs) {
+            int[] sum = new int[26];
+
+            for (int i = 0; i < str.length(); i++) {
+                sum[str.charAt(i) - 'a']++;
+            }
+
+            String key = Arrays.toString(sum);
+            if (map.containsKey(key)) {
+                map.get(key).add(str);
+            } else {
+                map.put(key, new ArrayList<>(Arrays.asList(str)));
+            }
         }
-        Map<String, List<String>> map = new HashMap<>();
+        return new ArrayList<>(map.values());
+    }
 
-        for (String s : strs) {
-            // int[] cache= new int[26];
-            // for(char ch: s.toCharArray()){
-            //     cache[ch-'a']++;
-            // }
-            // String hash=Arrays.toString(cache);
-            char[] te = s.toCharArray();
-            Arrays.sort(te);
-            String hash = new String(te);
-
-            List<String> list = map.getOrDefault(hash, new LinkedList<>());
-            list.add(s);
-            map.put(hash, list);
-        }
-
-        return new ArrayList(map.values());
+    public static void main(String[] args) {
+        List<List<String>> lists = groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" });
+        lists.forEach(System.out::println);
     }
 }

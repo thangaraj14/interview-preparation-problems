@@ -8,46 +8,46 @@ import java.util.Map;
  */
 public class VulgarDecimal {
 
-    public static String fractionToDecimal(long numerator, long denominator) {
-        if (denominator == 0) {
+    public static String fractionToDecimal(long num, long denom) {
+        if (denom == 0) {
             return null;
         }
 
-        boolean isNegative = (numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0);
+        boolean isNegative = (num < 0 && denom > 0) || (num > 0 && denom < 0);
 
-        long denomiL = Math.abs(denominator);
-        long numerL = Math.abs(numerator);
+        long denominator = Math.abs(denom);
+        long numerator = Math.abs(num);
 
         Map<Long, Integer> map = new HashMap<>();
         StringBuilder sb = new StringBuilder();
-        sb.append(numerL / denomiL);
+        sb.append(numerator / denominator);
 
-        if (numerL % denomiL != 0) {
+        if (numerator % denominator != 0) {
             sb.append(".");
         }
         if (isNegative) {
             sb.insert(0, "-");
         }
-        numerL %= denomiL;
-        if (numerL == 0) {
+        numerator %= denominator;
+        if (numerator == 0) {
             return sb.toString();
         }
 
-        map.put(numerL, sb.length());
+        map.put(numerator, sb.length());
 
-        while (numerL > 0) {
+        while (numerator > 0) {
 
-            numerL *= 10;
-            sb.append(numerL / denomiL);
-            numerL = numerL % denomiL;
+            numerator *= 10;
+            sb.append(numerator / denominator);
+            numerator = numerator % denominator;
 
-            if (map.containsKey(numerL)) {
-                int index = map.get(numerL);
+            if (map.containsKey(numerator)) {
+                int index = map.get(numerator);
                 sb.insert(index, "(");
                 sb.append(")");
                 break;
             } else {
-                map.put(numerL, sb.length());
+                map.put(numerator, sb.length());
             }
         }
 

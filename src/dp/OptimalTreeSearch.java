@@ -5,8 +5,8 @@ package dp;
  */
 public class OptimalTreeSearch {
 
-    public int minCost(int input[], int freq[]) {
-        int T[][] = new int[input.length][input.length];
+    public int minCost(int[] input, int[] freq) {
+        int[][] T = new int[input.length][input.length];
 
         for (int i = 0; i < T.length; i++) {
             T[i][i] = freq[i];

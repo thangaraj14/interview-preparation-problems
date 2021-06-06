@@ -1,6 +1,7 @@
 package dsa;
 
 public class MinimumStack {
+    
     public static void main(String[] args) {
         MinStack s = new MinStack();
         s.push(3);
@@ -21,9 +22,9 @@ class MinStack {
 
     public void push(int x) {
         if (head == null) {
-            head = new Node(x, x);
+            head = new Node(x, x, null);
         } else {
-            head = new Node(x, Math.min(x, head.min), head);
+            head = new Node(x, Math.min(x, head.minSoFar), head);
         }
     }
 
@@ -36,21 +37,17 @@ class MinStack {
     }
 
     public int getMin() {
-        return head.min;
+        return head.minSoFar;
     }
 
     private class Node {
         int val;
-        int min;
+        int minSoFar;
         Node next;
 
-        private Node(int val, int min) {
-            this(val, min, null);
-        }
-
-        private Node(int val, int min, Node next) {
+        private Node(int val, int minSoFar, Node next) {
             this.val = val;
-            this.min = min;
+            this.minSoFar = minSoFar;
             this.next = next;
         }
     }

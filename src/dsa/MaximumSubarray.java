@@ -7,10 +7,6 @@ public class MaximumSubarray {
 
     /**
      * https://leetcode.com/problems/maximum-product-subarray/
-     *
-     * @param A
-     *
-     * @return
      */
     // 1, -2, -3, 0, 8, 7, -2
     public static int maxProductSubArray(int[] A) {
@@ -57,9 +53,8 @@ public class MaximumSubarray {
         int n = arr.length;
         int[] maxWithOneDeletion = new int[n];
         int[] maxWithNoDeletion = new int[n];
-        int max = Integer.MIN_VALUE;
         maxWithNoDeletion[0] = arr[0];
-        max = Math.max(maxWithNoDeletion[0], max);
+        int max = arr[0];
         for (int i = 1; i < n; i++) {
             maxWithOneDeletion[i] = Math.max(maxWithNoDeletion[i - 1], maxWithOneDeletion[i - 1] + arr[i]);
             maxWithNoDeletion[i] = Math.max(maxWithNoDeletion[i - 1] + arr[i], arr[i]);

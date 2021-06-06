@@ -24,9 +24,10 @@ class LRUCache {
         DNode next;
     }
 
-    private Map<Integer, DNode> hashtable = new HashMap<>();
-    private DNode head, tail;
-    private int maxCapacity;
+    private final Map<Integer, DNode> hashtable = new HashMap<>();
+    private final DNode head;
+    private final DNode tail;
+    private final int maxCapacity;
 
     public LRUCache(int maxCapacity) {
 

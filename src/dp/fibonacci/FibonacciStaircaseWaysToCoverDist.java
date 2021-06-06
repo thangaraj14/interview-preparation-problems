@@ -6,7 +6,7 @@ package dp.fibonacci;
  */
 public class FibonacciStaircaseWaysToCoverDist {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         FibonacciStaircaseWaysToCoverDist fs = new FibonacciStaircaseWaysToCoverDist();
         System.out.println(fs.fibonacciSeries(5));
         System.out.println(climbStairs(5));

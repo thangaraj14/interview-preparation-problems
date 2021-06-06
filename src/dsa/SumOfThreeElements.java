@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class SumOfThreeElements {
 
     public static void main(String[] args) {
-        int arr[] = { 1, 4, 45, 6, 10, 8 };
+        int[] arr = { 1, 4, 45, 6, 10, 8 };
         int sum = 22;
         SumOfThreeElements ste = new SumOfThreeElements();
         ste.findTriplets(arr, sum);

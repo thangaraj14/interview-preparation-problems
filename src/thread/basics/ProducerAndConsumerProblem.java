@@ -31,19 +31,20 @@ public class ProducerAndConsumerProblem {
                 int count = 1;
 
                 for (; count < 5; count++) {
-                    System.out.println("Producers call" + count);
+                    System.out.println("Producers call : " + Thread.currentThread().getName() + "::" + count);
                     try {
                         lock.lock();
-                        while (buffer.size() == 3)
+                        while (buffer.size() == 3) {
+                            System.out.println("buffer is full : " + Thread.currentThread().getName() + "::" + count);
                             producer.await();
-
+                        }
                         buffer.add("" + count);
                         consumer.signalAll();
                     } finally {
                         lock.unlock();
                     }
                 }
-                return count + "";
+                return buffer.size() + "";
             }
         }
 
@@ -53,11 +54,13 @@ public class ProducerAndConsumerProblem {
             public String call() throws InterruptedException {
                 int count = 1;
                 for (; count < 5; count++) {
-                    System.out.println("Consumers call" + count);
+                    System.out.println("Consumers call : " + Thread.currentThread().getName() + "::" + count);
                     lock.lock();
                     try {
-                        while (buffer.size() == 0)
+                        while (buffer.isEmpty()) {
+                            System.out.println("buffer is empty : " + Thread.currentThread().getName() + "::" + count);
                             consumer.await();
+                        }
 
                         buffer.remove(buffer.size() - 1);
                         producer.signalAll();
@@ -65,7 +68,7 @@ public class ProducerAndConsumerProblem {
                         lock.unlock();
                     }
                 }
-                return count + "";
+                return buffer.size() + "";
             }
         }
 

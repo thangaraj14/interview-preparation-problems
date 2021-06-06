@@ -47,11 +47,9 @@ class FlipZeroesToFormConsecutiveMaximumOnes {
                         - 1));
     }
 
-    // main function
     public static void main(String[] args) {
-        int[] A = { 0, 1, 0, 0, 1, 1, 0 };
-        int k = 2;
+        int[] A = { 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0 };
 
-        longestSeq(A, k);
+        longestSeq(A, 2);
     }
 }

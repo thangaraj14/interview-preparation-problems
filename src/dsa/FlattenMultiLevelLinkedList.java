@@ -1,15 +1,19 @@
 package dsa;
 
-/*https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/discuss/150321/Easy-Understanding-Java-beat-95.7-with-Explanation*/
+/**
+ * https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/discuss/150321/Easy-Understanding-Java-beat-95.7-with-Explanation
+ * https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/
+ */
 class FlattenMultiLevelLinkedList {
 
     public Node flatten(Node head) {
+
         if (head == null) {
-            return head;
+            return null;
         }
-        // Pointer
         Node p = head;
         while (p != null) {
+
             if (p.child == null) {
                 p = p.next;
                 continue;
@@ -31,6 +35,10 @@ class FlattenMultiLevelLinkedList {
             p.child = null;
         }
         return head;
+    }
+
+    public static void main(String[] args) {
+
     }
 
     class Node {

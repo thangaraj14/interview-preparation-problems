@@ -12,18 +12,18 @@ import java.util.Set;
  */
 public class CourseScheduling {
 
-    Map<Integer, List<Integer>> graph = new HashMap<>();
-    int[][] p;
+    Map<Integer, List<Integer>> graphMap = new HashMap<>();
+    Set<Integer> visited = new HashSet<>();
+    Set<Integer> recur = new HashSet<>();
 
-    public boolean canFinishI(int numCourses, int[][] prerequisites) {
-        p = prerequisites;
-        for (int i = 0; i < p.length; i++) {
-            List<Integer> l = graph.getOrDefault(p[i][1], new ArrayList<>());
-            l.add(p[i][0]);
-            graph.put(p[i][1], l);
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        for (int i = 0; i < prerequisites.length; i++) {
+            List<Integer> list = graphMap.getOrDefault(prerequisites[i][1], new ArrayList<>());
+            list.add(prerequisites[i][0]);
+            graphMap.put(prerequisites[i][1], list);
         }
         for (int i = 0; i < numCourses; i++) {
-            if (!vis.contains(i)) {
+            if (!visited.contains(i)) {
                 if (cycleExist(i)) {
                     return false;
                 }
@@ -32,33 +32,29 @@ public class CourseScheduling {
         return true;
     }
 
-    Set<Integer> vis = new HashSet<>();
-    Set<Integer> recur = new HashSet<>();
-
     public boolean cycleExist(int u) {
-        if (!graph.containsKey(u)) {
+        if (!graphMap.containsKey(u) || visited.contains(u)) {
             return false;
         }
         if (recur.contains(u)) {
             return true;
         }
-        if (vis.contains(u)) {
-            return false;
-        }
         recur.add(u);
-        for (int i : graph.get(u)) {
-            if (!vis.contains(i)) {
+        for (int i : graphMap.get(u)) {
+            if (!visited.contains(i)) {
                 if (cycleExist(i)) {
                     return true;
                 }
             }
         }
         recur.remove(u);
-        vis.add(u);
+        visited.add(u);
         return false;
     }
 
     public static void main(String[] args) {
-
+        CourseScheduling courseScheduling = new CourseScheduling();
+        boolean b = courseScheduling.canFinish(4, new int[][] { { 0, 1 }, { 0, 2 }, { 0, 3 }, { 2, 3 } });
+        System.out.println(b);
     }
 }

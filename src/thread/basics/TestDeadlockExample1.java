@@ -1,6 +1,7 @@
 package thread.basics;
 
 public class TestDeadlockExample1 {
+    
     public static void main(String[] args) {
         final String resource1 = "ratan jaiswal";
         final String resource2 = "vimal jaiswal";

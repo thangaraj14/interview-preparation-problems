@@ -1,0 +1,13 @@
+
+y
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(øôÔ×ûÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ë§ç¶ûÿÿÿÿ
+C	java:S108")Either remove or fill this block of code.(øôÔ×ûÿÿÿÿ
+y
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(øôÔ×ûÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ë§ç¶ûÿÿÿÿ
+C	java:S108")Either remove or fill this block of code.(øôÔ×ûÿÿÿÿ
+K
+java:S24469"0"notify" may not wake up the appropriate thread.(óÄ£¶øÿÿÿÿ
+K
+java:S2446D"0"notify" may not wake up the appropriate thread.(óÄ£¶øÿÿÿÿ

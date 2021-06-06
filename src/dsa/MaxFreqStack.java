@@ -58,6 +58,19 @@ public class MaxFreqStack {
 
         return temp.val;
     }
+
+    public static void main(String[] args) {
+        MaxFreqStack maxFreqStack = new MaxFreqStack();
+        maxFreqStack.push(1);
+        maxFreqStack.push(2);
+        maxFreqStack.push(2);
+        System.out.println(maxFreqStack.pop());
+        System.out.println(maxFreqStack.pop());
+        maxFreqStack.push(1);
+        maxFreqStack.push(1);
+        maxFreqStack.push(1);
+
+    }
 }
 
 // 1. val = value of the number

@@ -24,7 +24,7 @@ public class MaxSoldiers {
                 Integer.compare(a.soldiers, b.soldiers));
         int i = 0;
         for (int[] rows : mat) {
-            int temp = binarySearchUtil(rows, 0, rows.length);
+            int temp = binarySearchUtil(rows);
             queue.offer(new Pair(i, temp));
             i++;
         }
@@ -36,7 +36,7 @@ public class MaxSoldiers {
 
     }
 
-    public int binarySearchUtil(int[] row, int start, int end) {
+    public int binarySearchUtil(int[] row) {
         int lo = 0;
         int hi = row.length;
 
@@ -49,7 +49,6 @@ public class MaxSoldiers {
                 hi = mid;
             }
         }
-
         return lo;
     }
 }

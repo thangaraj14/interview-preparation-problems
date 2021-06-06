@@ -9,22 +9,19 @@ import java.util.Set;
  */
 class PalindromeSubset {
 
-    // Expand in both directions of `low` and `high` to find all palindromes
     public static void expand(String str, int low, int high, Set<String> set) {
         // run till `str[low.high]` is not a palindrome
         while (low >= 0 && high < str.length() && str.charAt(low) == str.charAt(high)) {
-            // push all palindromes into a set
+
             set.add(str.substring(low, high + 1));
 
-            // Expand in both directions
             low--;
             high++;
         }
     }
 
-    // Function to find all unique palindromic substrings of a given string
     public static void allPalindromicSubstrings(String str) {
-        // create an empty set to store all unique palindromic substrings
+
         Set<String> set = new HashSet<>();
 
         for (int i = 0; i < str.length(); i++) {
@@ -36,8 +33,7 @@ class PalindromeSubset {
             expand(str, i, i + 1, set);
         }
 
-        // print all unique palindromic substrings
-        System.out.print(set);
+        set.forEach(System.out::println);
     }
 
     public static void main(String[] args) {

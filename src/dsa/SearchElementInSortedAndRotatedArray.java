@@ -23,6 +23,7 @@ public class SearchElementInSortedAndRotatedArray {
         int start = 0;
         int end = arr.length - 1;
         while (start <= end) {
+
             int mid = (start + end) / 2;
             if (arr[mid] == target) {
                 return mid;
@@ -34,9 +35,7 @@ public class SearchElementInSortedAndRotatedArray {
                 } else {
                     start = mid + 1;
                 }
-            }
-
-            if (arr[mid] <= arr[end]) {
+            } else {
                 if (target > arr[mid] && target <= arr[end]) {
                     start = mid + 1;
                 } else {
@@ -47,13 +46,13 @@ public class SearchElementInSortedAndRotatedArray {
         return -1;
     }
 
-    //[1,0,1,1,1]
+    // [1,0,1,1,1]
     //        0
-    //duplicates, we know nums[mid] != target, so nums[start] != target //based on current information,
+    // duplicates, we know nums[mid] != target, so nums[start] != target //based on current information,
     // we can only move left pointer to skip one cell //thus in the worst case,
     // we would have target: 2, and array like 11111111,
     // then //the running time would be O(n)
-    //[1,0,1,1,1]
+    // [1,0,1,1,1]
     public boolean searchII(int[] nums, int target) {
 
         int start = 0;

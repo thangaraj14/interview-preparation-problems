@@ -14,10 +14,6 @@ import java.util.stream.Collectors;
 public class QuestionGenerator {
 
     public static void main(String[] args) throws IOException {
-/*
-        List<String> lines = Files.readAllLines(Paths.get("AmazonProblems/src/geeksforgeeks/questions.txt"));
-        Random random = new Random();
-        System.out.println(lines.get(random.nextInt(226)));*/
 
         List<File> filesInFolder = Files.walk(
                 Paths.get("/Users/i312458/OneDrive - SAP SE/iStreet_WS/AmazonProblems/src/dsa"))
@@ -30,7 +26,5 @@ public class QuestionGenerator {
         try (BufferedReader reader = new BufferedReader(new FileReader(filesInFolder.get(rand)))) {
             reader.lines().filter(e -> e.contains("http") || e.contains("https")).forEach(System.out::println);
         }
-        //filesInFolder.forEach(System.out::println);
     }
 }
-
