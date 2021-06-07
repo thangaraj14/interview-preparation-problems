@@ -1,4 +1,4 @@
-package structuralpattern.decorator;
+package gof.structuralpattern.decorator;
 
 public class Espresso extends Beverage {
 	public Espresso() {

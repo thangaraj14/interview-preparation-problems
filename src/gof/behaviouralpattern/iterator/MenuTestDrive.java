@@ -1,6 +1,7 @@
-package behaviouralpattern.iterator;
+package gof.behaviouralpattern.iterator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MenuTestDrive {
 
@@ -8,11 +9,10 @@ public class MenuTestDrive {
 
         PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
         DinerMenu dinerMenu = new DinerMenu();
-        ArrayList<Menu> menus = new ArrayList<>();
+        List<Menu> menus = new ArrayList<>();
         menus.add(pancakeHouseMenu);
         menus.add(dinerMenu);
         Waitress waitress = new Waitress(menus);
         waitress.printMenu();
-
     }
 }

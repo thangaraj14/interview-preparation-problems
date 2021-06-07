@@ -1,4 +1,4 @@
-package structuralpattern.bridge;
+package gof.structuralpattern.bridge;
 
 // abstraction in bridge pattern 
 abstract class Vehicle {

@@ -1,4 +1,4 @@
-package behaviouralpattern.strategy;
+package gof.behaviouralpattern.strategy;
 
 public abstract class Duck {
 

@@ -1,4 +1,4 @@
-package structuralpattern.facade;
+package gof.structuralpattern.facade;
 
 import java.util.Date;
 import java.util.List;

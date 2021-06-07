@@ -1,4 +1,4 @@
-package behaviouralpattern.command;
+package gof.behaviouralpattern.command;
 
 //Invoker
 public class RemoteControl {

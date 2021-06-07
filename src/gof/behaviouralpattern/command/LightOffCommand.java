@@ -1,15 +1,16 @@
-package behaviouralpattern.command;
+package gof.behaviouralpattern.command;
 
 //Concrete Command
 public class LightOffCommand implements Command {
 
-	Light light;
+    Light light;
 
-	public LightOffCommand(Light light) {
-		this.light = light;
-	}
+    public LightOffCommand(Light light) {
+        this.light = light;
+    }
 
-	public void execute() {
-		light.switchOff();
-	}
+    @Override
+    public void execute() {
+        light.switchOff();
+    }
 }

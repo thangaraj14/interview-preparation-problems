@@ -1,4 +1,4 @@
-package structuralpattern.decorator;
+package gof.structuralpattern.decorator;
 
 public class Soy extends CondimentDecorator {
 
@@ -10,7 +10,6 @@ public class Soy extends CondimentDecorator {
 
 	@Override
 	public String getDescription() {
-
 		return beverage.getDescription() + ", Soy";
 	}
 

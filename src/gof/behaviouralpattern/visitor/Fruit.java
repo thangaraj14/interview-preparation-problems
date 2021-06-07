@@ -1,4 +1,4 @@
-package behaviouralpattern.visitor;
+package gof.behaviouralpattern.visitor;
 class Fruit implements ItemElement {
 	private int pricePerKg;
 	private int weight;

@@ -1,4 +1,4 @@
-package behaviouralpattern.chainofresponsibility;
+package gof.behaviouralpattern.chainofresponsibility;
 
 class ZeroProcessor implements Chain {
 

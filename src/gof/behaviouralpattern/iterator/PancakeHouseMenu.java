@@ -1,17 +1,16 @@
-package behaviouralpattern.iterator;
+package gof.behaviouralpattern.iterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class PancakeHouseMenu implements Menu {
-    ArrayList<MenuItem> menuItems;
+    List<MenuItem> menuItems;
 
     public PancakeHouseMenu() {
+
         menuItems = new ArrayList<>();
-
         addItem("Blueberry Pancakes", "Pancakes made with fresh blueberries, and blueberry syrup", true, 3.49);
-
         addItem("Waffles", "Waffles, with your choice of blueberries or strawberries", true, 3.59);
     }
 

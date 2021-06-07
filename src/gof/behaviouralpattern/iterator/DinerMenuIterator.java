@@ -1,4 +1,4 @@
-package behaviouralpattern.iterator;
+package gof.behaviouralpattern.iterator;
  
 import java.util.Iterator;
   

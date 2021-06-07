@@ -1,4 +1,4 @@
-package behaviouralpattern.visitor;
+package gof.behaviouralpattern.visitor;
 
 class Book implements ItemElement {
 

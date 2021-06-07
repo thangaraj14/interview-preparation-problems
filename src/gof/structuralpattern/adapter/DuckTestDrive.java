@@ -1,4 +1,4 @@
-package structuralpattern.adapter;
+package gof.structuralpattern.adapter;
 
 public class DuckTestDrive {
 

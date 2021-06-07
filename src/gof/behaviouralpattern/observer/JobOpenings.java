@@ -1,4 +1,4 @@
-package behaviouralpattern.observer;
+package gof.behaviouralpattern.observer;
 
 public class JobOpenings {
 
@@ -13,5 +13,4 @@ public class JobOpenings {
         consultant.notifyObservers();
 
     }
-
 }

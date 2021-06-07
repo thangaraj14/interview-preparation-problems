@@ -1,10 +1,10 @@
-package behaviouralpattern.state;
+package gof.behaviouralpattern.state;
 
 public interface State {
 
-    void insertRuppee();
+    void insertRupee();
 
-    void ejectRuppee();
+    void ejectRupee();
 
     void turnOn();
 

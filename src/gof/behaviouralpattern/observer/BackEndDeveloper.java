@@ -1,4 +1,4 @@
-package behaviouralpattern.observer;
+package gof.behaviouralpattern.observer;
 
 public class BackEndDeveloper implements Observer, DisplayElements {
 
@@ -14,10 +14,7 @@ public class BackEndDeveloper implements Observer, DisplayElements {
 	}
 
 	@Override
-	public void update(String profile, int experience, int salary) {
-		this.profile = profile;
-		this.experience = experience;
-		this.salary = salary;
+	public void update() {
 		display();
 	}
 

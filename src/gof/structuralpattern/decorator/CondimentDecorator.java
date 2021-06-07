@@ -1,5 +1,6 @@
-package structuralpattern.decorator;
+package gof.structuralpattern.decorator;
 
 public abstract class CondimentDecorator extends Beverage {
-	public abstract String getDescription();
+    
+    public abstract String getDescription();
 }

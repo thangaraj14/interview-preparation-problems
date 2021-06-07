@@ -1,17 +1,18 @@
-package behaviouralpattern.state;
+package gof.behaviouralpattern.state;
 
 public class SoldOutState implements State {
+    
     GumballMachine gumballMachine;
 
     public SoldOutState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 
-    public void insertRuppee() {
+    public void insertRupee() {
         System.out.println("You can't insert a ruppee, the machine is sold out");
     }
 
-    public void ejectRuppee() {
+    public void ejectRupee() {
         System.out.println("You can't eject, you haven't inserted a ruppee yet");
     }
 
@@ -24,7 +25,7 @@ public class SoldOutState implements State {
     }
 
     public void refill() {
-        gumballMachine.setState(gumballMachine.getNoRuppeeState());
+        gumballMachine.setState(gumballMachine.getNoRupeeState());
     }
 
     public String toString() {

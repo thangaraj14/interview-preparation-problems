@@ -1,6 +1,7 @@
-package behaviouralpattern.chainofresponsibility;
+package gof.behaviouralpattern.chainofresponsibility;
 
 class TestChain {
+    
     public static void main(String[] args) {
 
         Chain c1 = new NegativeProcessor();

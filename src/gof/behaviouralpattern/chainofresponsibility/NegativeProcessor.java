@@ -1,6 +1,7 @@
-package behaviouralpattern.chainofresponsibility;
+package gof.behaviouralpattern.chainofresponsibility;
 
 class NegativeProcessor implements Chain {
+    
     private Chain nextInChain;
 
     @Override

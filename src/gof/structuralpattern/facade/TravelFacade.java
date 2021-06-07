@@ -1,6 +1,7 @@
-package structuralpattern.facade;
+package gof.structuralpattern.facade;
 
 public class TravelFacade {
+
     FlightBooking flightBooking;
     TrainBooking trainBooking;
     HotelBooking hotelBooking;
@@ -35,7 +36,6 @@ public class TravelFacade {
             case Train_And_Hotel:
                 trainBooking.bookTrain(info);
                 hotelBooking.bookHotel(info);
-                return;
         }
     }
 }

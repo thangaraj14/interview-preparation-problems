@@ -1,18 +1,18 @@
-package behaviouralpattern.state;
+package gof.behaviouralpattern.state;
 
-public class NoRuppeeState implements State {
+public class NoRupeeState implements State {
     GumballMachine gumballMachine;
 
-    public NoRuppeeState(GumballMachine gumballMachine) {
+    public NoRupeeState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 
-    public void insertRuppee() {
+    public void insertRupee() {
         System.out.println("You inserted a ruppee");
-        gumballMachine.setState(gumballMachine.getHasRuppeeState());
+        gumballMachine.setState(gumballMachine.getHasRupeeState());
     }
 
-    public void ejectRuppee() {
+    public void ejectRupee() {
         System.out.println("You haven't inserted a ruppee");
     }
 

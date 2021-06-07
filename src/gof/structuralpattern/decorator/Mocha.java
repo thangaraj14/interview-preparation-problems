@@ -1,4 +1,4 @@
-package structuralpattern.decorator;
+package gof.structuralpattern.decorator;
 
 public class Mocha extends CondimentDecorator {
 

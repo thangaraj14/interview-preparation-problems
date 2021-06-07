@@ -1,8 +1,9 @@
-package structuralpattern.composite;
+package gof.structuralpattern.composite;
 
 public class Company {
 
     public static void main(String[] args) {
+
         Developer dev1 = new Developer(100, "Lokesh Sharma", "Pro Developer");
         Developer dev2 = new Developer(101, "Vinay Sharma", "Developer");
 

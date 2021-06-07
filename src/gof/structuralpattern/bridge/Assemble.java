@@ -1,4 +1,4 @@
-package structuralpattern.bridge;
+package gof.structuralpattern.bridge;
 
 class Assemble implements Workshop {
 

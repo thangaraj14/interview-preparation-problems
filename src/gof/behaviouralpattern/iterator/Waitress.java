@@ -1,17 +1,18 @@
-package behaviouralpattern.iterator;
+package gof.behaviouralpattern.iterator;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
 
 public class Waitress {
 
-    List<Menu> menus;
+    List<Menu> menuList;
 
-    public Waitress(List<Menu> menus) {
-        this.menus = menus;
+    public Waitress(List<Menu> menuList) {
+        this.menuList = menuList;
     }
 
     public void printMenu() {
-        Iterator<?> menuIterator = menus.iterator();
+        Iterator<?> menuIterator = menuList.iterator();
         while (menuIterator.hasNext()) {
             Menu menu = (Menu) menuIterator.next();
             printMenu(menu.createIterator());

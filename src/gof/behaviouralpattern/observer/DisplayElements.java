@@ -1,4 +1,4 @@
-package behaviouralpattern.observer;
+package gof.behaviouralpattern.observer;
 
 public interface DisplayElements {
 

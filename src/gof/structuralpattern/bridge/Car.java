@@ -1,5 +1,5 @@
 
-package structuralpattern.bridge;
+package gof.structuralpattern.bridge;
 
 class Car extends Vehicle {
 

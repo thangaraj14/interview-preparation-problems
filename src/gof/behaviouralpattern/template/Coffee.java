@@ -1,4 +1,4 @@
-package behaviouralpattern.template;
+package gof.behaviouralpattern.template;
 
 public class Coffee extends CaffeineBeverage {
 

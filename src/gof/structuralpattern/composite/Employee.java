@@ -1,4 +1,4 @@
-package structuralpattern.composite;
+package gof.structuralpattern.composite;
 
 interface Employee {
     void showEmployeeDetails();

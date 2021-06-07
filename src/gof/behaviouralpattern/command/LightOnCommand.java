@@ -1,4 +1,4 @@
-package behaviouralpattern.command;
+package gof.behaviouralpattern.command;
 
 //Concrete Command
 public class LightOnCommand implements Command {

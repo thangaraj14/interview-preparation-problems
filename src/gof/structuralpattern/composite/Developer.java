@@ -1,4 +1,4 @@
-package structuralpattern.composite;
+package gof.structuralpattern.composite;
 
 class Developer implements Employee {
     private String name;

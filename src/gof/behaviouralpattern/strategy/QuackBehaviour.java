@@ -1,7 +1,7 @@
-package behaviouralpattern.strategy;
+package gof.behaviouralpattern.strategy;
 
 public interface QuackBehaviour {
-	
-	public void quack();
+
+    void quack();
 
 }

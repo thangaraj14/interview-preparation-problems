@@ -1,8 +1,9 @@
-package structuralpattern.composite;
+package gof.structuralpattern.composite;
 
 import java.util.ArrayList;
 
 class Manager implements Employee {
+    
     private String name;
     private long empId;
     private String position;

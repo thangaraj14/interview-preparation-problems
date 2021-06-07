@@ -1,4 +1,4 @@
-package behaviouralpattern.strategy;
+package gof.behaviouralpattern.strategy;
 
 public class FlyWithWings implements FlyBehaviour {
 

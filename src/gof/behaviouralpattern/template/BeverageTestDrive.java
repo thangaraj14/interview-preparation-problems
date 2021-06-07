@@ -1,6 +1,7 @@
-package behaviouralpattern.template;
+package gof.behaviouralpattern.template;
 
 public class BeverageTestDrive {
+    
     public static void main(String[] args) {
 
         Tea tea = new Tea();

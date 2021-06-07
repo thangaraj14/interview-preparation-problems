@@ -1,10 +1,11 @@
-package behaviouralpattern.observer;
+package gof.behaviouralpattern.observer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JobConsultancy implements Subject {
 
-    private ArrayList<Observer> subscriptionList;
+    private final List<Observer> subscriptionList;
 
     String profile;
     int experience;
@@ -30,7 +31,7 @@ public class JobConsultancy implements Subject {
     @Override
     public void notifyObservers() {
         for (Observer observer : subscriptionList) {
-            observer.update(profile, experience, salary);
+            observer.update();
         }
     }
 }

@@ -1,4 +1,4 @@
-package behaviouralpattern.strategy;
+package gof.behaviouralpattern.strategy;
 
 import com.sun.tools.javac.util.List;
 

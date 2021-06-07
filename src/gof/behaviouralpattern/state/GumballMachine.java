@@ -1,10 +1,10 @@
-package behaviouralpattern.state;
+package gof.behaviouralpattern.state;
 
 public class GumballMachine {
 
     State soldOutState;
-    State noRuppeeState;
-    State hasRuppeeState;
+    State noRupeeState;
+    State hasRupeeState;
     State soldState;
     State winnerState;
 
@@ -12,23 +12,23 @@ public class GumballMachine {
     int count = 0;
 
     public GumballMachine(int numberGumballs) {
-        noRuppeeState = new NoRuppeeState(this);
-        hasRuppeeState = new HasRuppeeState(this);
+        noRupeeState = new NoRupeeState(this);
+        hasRupeeState = new HasRupeeState(this);
         soldState = new SoldState(this);
         soldOutState = new SoldOutState(this);
 
         this.count = numberGumballs;
         if (numberGumballs > 0) {
-            state = noRuppeeState;
+            state = noRupeeState;
         }
     }
 
-    public void insertRuppee() {
-        state.insertRuppee();
+    public void insertRupee() {
+        state.insertRupee();
     }
 
-    public void ejectRuppee() {
-        state.ejectRuppee();
+    public void ejectRupee() {
+        state.ejectRupee();
     }
 
     public void turnOn() {
@@ -65,12 +65,12 @@ public class GumballMachine {
         return soldOutState;
     }
 
-    public State getNoRuppeeState() {
-        return noRuppeeState;
+    public State getNoRupeeState() {
+        return noRupeeState;
     }
 
-    public State getHasRuppeeState() {
-        return hasRuppeeState;
+    public State getHasRupeeState() {
+        return hasRupeeState;
     }
 
     public State getSoldState() {

@@ -1,4 +1,4 @@
-package behaviouralpattern.state;
+package gof.behaviouralpattern.state;
 
 public class SoldState implements State {
 
@@ -8,11 +8,11 @@ public class SoldState implements State {
         this.gumballMachine = gumballMachine;
     }
 
-    public void insertRuppee() {
+    public void insertRupee() {
         System.out.println("Please wait, we're already giving you a gumball");
     }
 
-    public void ejectRuppee() {
+    public void ejectRupee() {
         System.out.println("Sorry, you already turned the crank");
     }
 
@@ -23,7 +23,7 @@ public class SoldState implements State {
     public void dispense() {
         gumballMachine.releaseBall();
         if (gumballMachine.getCount() > 0) {
-            gumballMachine.setState(gumballMachine.getNoRuppeeState());
+            gumballMachine.setState(gumballMachine.getNoRupeeState());
         } else {
             System.out.println("Oops, out of gumballs!");
             gumballMachine.setState(gumballMachine.getSoldOutState());
