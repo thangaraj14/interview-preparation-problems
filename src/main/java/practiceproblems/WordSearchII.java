@@ -50,7 +50,7 @@ public class WordSearchII {
         return root;
     }
 
-    private static class TrieNode {
+    static class TrieNode {
         TrieNode[] children = new TrieNode[26];
         String word;
     }

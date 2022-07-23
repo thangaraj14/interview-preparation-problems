@@ -1,6 +1,5 @@
 package trees;
 
-import trees.TreeNode;
 
 import java.util.HashMap;
 import java.util.LinkedList;

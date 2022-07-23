@@ -4,6 +4,9 @@ package trees;
  * https://leetcode.com/problems/binary-tree-upside-down/
  */
 public class BinaryTreesUpsideDown {
+    /**
+     * tricky tree swap
+     */
     public TreeNode upsideDownBinaryTree(TreeNode root) {
         TreeNode curr = root;
         TreeNode next = null;

@@ -4,6 +4,11 @@ package practiceproblems;
  * https://leetcode.com/problems/word-search/
  *
  * tricky dfs
+ *
+ * I don't think BFS is feasible here.
+ * This is because we would need to separately track visited_elements for each entry in the queue which will increase the Space Complexity to skyrocket.
+ * Every time you dequeue and move in 3 other directions (worst case), you will be creating clones of the visited array for each of 3 directions.
+ * In case of BFS, space complexity will be O(nm3^(n^2 * m^2))
  */
 public class WordSearch {
 

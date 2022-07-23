@@ -102,6 +102,12 @@ public class ConcurrentHashMap<K, V> {
 
     private MyHashMap myHashMap = new MyHashMap();
 
+    public ConcurrentHashMap(int concurrencyLevel) {
+        locks = new Lock[concurrencyLevel];
+        for (int i = 0; i < concurrencyLevel; i++) {
+            locks[i] = new ReentrantLock();
+        }
+    }
     private class MyHashMap {
         private LinkedList[] lists = new LinkedList[INITIAL_CAPACITY];
 
@@ -182,13 +188,10 @@ public class ConcurrentHashMap<K, V> {
             return capacity;
         }
     }
-
-    public ConcurrentHashMap(int concurrencyLevel) {
-        locks = new Lock[concurrencyLevel];
-        for (int i = 0; i < concurrencyLevel; i++) {
-            locks[i] = new ReentrantLock();
-        }
+    int capacity() {
+        return capacity;
     }
+
 
     public ConcurrentHashMap() {
         this(DEFAULT_CONCURRENCY_LEVEL);

@@ -1,6 +1,5 @@
 package multithreading.practice;
 
-import org.junit.Test;
 
 import java.util.concurrent.Semaphore;
 
@@ -102,7 +101,6 @@ class PrintInOrder {
         });
     }
 
-    @Test
     public void test0() throws InterruptedException {
         Foo foo = new Foo();
         int[] input = {1, 2, 3};
@@ -112,7 +110,6 @@ class PrintInOrder {
         }
     }
 
-    @Test
     public void test1() throws InterruptedException {
         Foo foo = new Foo();
         int[] input = {1, 3, 2};

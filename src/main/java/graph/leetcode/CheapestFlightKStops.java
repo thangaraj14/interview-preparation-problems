@@ -45,7 +45,7 @@ public class CheapestFlightKStops {
             int[] node = queue.poll();
             int current = node[0], cost = node[1], stop = node[2];
 
-            //System.out.println(currNode+" - "+cost+" - "+stop);
+
             if(current==dst) return cost;
 
 

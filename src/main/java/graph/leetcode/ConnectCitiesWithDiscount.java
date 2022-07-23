@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /**
+ * revise
  * https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts
  * highways[i] = [city1i, city2i, tolli]
  *

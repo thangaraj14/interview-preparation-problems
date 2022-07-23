@@ -12,7 +12,7 @@ public class WordLadder {
         if (!set.contains(endWord)) return 0; // end word itself not in set
         Queue<String> queue = new LinkedList<>();
         queue.add(beginWord);
-        int count = 1;
+        int level = 1;
 
         while (!queue.isEmpty()) {
 
@@ -30,8 +30,8 @@ public class WordLadder {
                         charArray[j] = ch;
                         String newWord = String.valueOf(charArray);
                         if (set.contains(newWord)) {
-                            if (newWord.equals(endWord)) { // if found return count
-                                return count + 1;
+                            if (newWord.equals(endWord)) { // if found return level
+                                return level + 1;
                             }
                             queue.add(newWord);// else add to queue and continue
                             set.remove(newWord);// because you already reached this word, no need to see again
@@ -41,7 +41,7 @@ public class WordLadder {
                 }
 
             }
-            count++;
+            level++;
         }
 
         return 0;

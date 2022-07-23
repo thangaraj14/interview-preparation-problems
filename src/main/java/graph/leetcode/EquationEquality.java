@@ -1,6 +1,8 @@
 package graph.leetcode;
 
 /**
+ * tricky UF
+ *
  * https://leetcode.com/problems/satisfiability-of-equality-equations/
  * <p>
  * Intuition:

@@ -1,4 +1,4 @@
-package CombinationsAndPermutations;
+package combinationsandpermutations;
 
 // CombinationIterator iterator = new CombinationIterator("abc", 2); // creates the iterator.
 

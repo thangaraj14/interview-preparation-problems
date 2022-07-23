@@ -10,7 +10,7 @@ public class NextPermutation {
         // pivot is the element just before the non-increasing (weakly decreasing) suffix
         /*2*/
         int pivot = indexOfLastPeak(nums) - 1;
-        // paritions nums into [prefix pivot suffix]
+        // partitions nums into [prefix pivot suffix]
         if (pivot != -1) {
             int nextPrefix = lastIndexOfGreater(nums, nums[pivot]); // in the worst case it's suffix[0]
             // next prefix must exist because pivot < suffix[0], otherwise pivot would be part of suffix
@@ -60,4 +60,6 @@ public class NextPermutation {
         nums[i] = nums[j];
         nums[j] = temp;
     }
+
+
 }

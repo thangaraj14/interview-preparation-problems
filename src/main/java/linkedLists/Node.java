@@ -2,8 +2,8 @@ package linkedLists;
 
 public class Node {
 
-	Node left;
-	Node right;
+	public Node left;
+	public Node right;
 	public Node next;
 	public int data;
 	public Node child;

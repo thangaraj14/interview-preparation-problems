@@ -28,10 +28,10 @@ public class FlattenNestedIterator implements Iterator<Integer> {
     }
 
     private void populateList(List<NestedInteger> nestedList) {
-        if (nestedList == null || nestedList.size() == 0) return;
-        for (int i = 0; i < nestedList.size(); i++) {
-            populateList(nestedList.get(i).getList());
-            if (nestedList.get(i).getInteger() != null) flattenedList.add(nestedList.get(i).getInteger());
+        if (nestedList == null || nestedList.isEmpty()) return;
+        for (NestedInteger nestedInteger : nestedList) {
+            populateList(nestedInteger.getList());
+            if (nestedInteger.getInteger() != null) flattenedList.add(nestedInteger.getInteger());
         }
     }
 }

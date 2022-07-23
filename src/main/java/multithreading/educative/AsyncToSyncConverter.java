@@ -3,9 +3,7 @@ package multithreading.educative;
 public class AsyncToSyncConverter {
     public static void main(String args[]) throws Exception {
         SynchronousExecutor executor = new SynchronousExecutor();
-        executor.asynchronousExecution(() -> {
-            System.out.println("I am done");
-        });
+        executor.asynchronousExecution(() -> System.out.println("I am done"));
 
         System.out.println("main thread exiting...");
     }

@@ -39,19 +39,19 @@ class SerializeDeserializeBST {
         return queue;
     }
 
-    public TreeNode bulidTreeFromArray(Queue<Integer> treeVals) {
-        if (treeVals.isEmpty()) return null;
+    public TreeNode bulidTreeFromArray(Queue<Integer> treeValues) {
+        if (treeValues.isEmpty()) return null;
 
-        Integer rootVal = treeVals.poll();
+        Integer rootVal = treeValues.poll();
         TreeNode root = new TreeNode(rootVal);
 
-        Queue<Integer> smallerVals = new LinkedList<>();
+        Queue<Integer> smallerValues = new LinkedList<>();
 
-        while (!treeVals.isEmpty() && treeVals.peek() < rootVal) {
-            smallerVals.offer(treeVals.poll());
+        while (!treeValues.isEmpty() && treeValues.peek() < rootVal) {
+            smallerValues.offer(treeValues.poll());
         }
-        root.left = bulidTreeFromArray(smallerVals);
-        root.right = bulidTreeFromArray(treeVals);
+        root.left = bulidTreeFromArray(smallerValues);
+        root.right = bulidTreeFromArray(treeValues);
         return root;
 
 

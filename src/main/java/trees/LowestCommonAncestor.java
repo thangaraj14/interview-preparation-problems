@@ -5,6 +5,18 @@ import java.util.Set;
 
 public class LowestCommonAncestor {
 
+    public TreeNode lowestCommonAncestorBinarySearchTree(TreeNode root, TreeNode p, TreeNode q) {
+        while (root != null) {
+            if (root.val > p.val && root.val > q.val)
+                root = root.left;
+            else if (root.val < p.val && root.val < q.val)
+                root = root.right;
+            else
+                return root;
+        }
+        return root;
+    }
+
     /**
      * It is guaranteed that both p and q are in the tree.
      * A node can be a descendant of itself.
@@ -144,10 +156,10 @@ public class LowestCommonAncestor {
     }
 
     static class Node {
-        Node left;
-        Node right;
-        Node parent;
-        int data;
+        public Node left;
+        public Node right;
+        public Node parent;
+        public int data;
     }
 
 }
