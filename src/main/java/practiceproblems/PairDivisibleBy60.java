@@ -18,7 +18,16 @@ public class PairDivisibleBy60 {
 
         //2 SUM PROBLEM WITH K = 60
         //O(n) time
-        int c[] = new int[60]; //because we know its going upto 0 to 59
+        /**
+         *  the solution is (time[i]+time[j]%60 == 0)
+         *  if we replace time[j] = 20
+         *  then we can have time[i] as either 40 , 100 or 160
+         *  the 40, 100 and 160 if we mod with 60 the results would be 40
+         *
+         *  let's take this arr =                         [60, 30, 20, 150, 120, 100, 30]
+         *  if we mod with 60 then the arr would look like [0, 30, 20, 30, 0, 40, 30]
+         */
+        int[] c = new int[60]; //because we know its going upto 0 to 59
         int result = 0;
         for (int t : time) {
             // System.out.println(t % 60)
