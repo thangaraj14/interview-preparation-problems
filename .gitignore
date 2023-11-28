@@ -2,9 +2,12 @@
 .DS_Store
 .classpath
 .project
-AmazonProblems.iml
+*.iml
 out/
 *.json
 /.idea/*
 /.idea/
 /out/*.class
+
+target/
+.idea/
