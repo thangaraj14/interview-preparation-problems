@@ -1,7 +1,7 @@
 package practiceproblems.stack;
 
 
-import javafx.util.Pair;
+import graph.leetcode.Pair;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

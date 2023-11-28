@@ -1,6 +1,5 @@
 package practiceproblems;
 
-import javafx.util.Pair;
 
 /**
  * https://www.geeksforgeeks.org/maximize-number-0s-flipping-subarray/

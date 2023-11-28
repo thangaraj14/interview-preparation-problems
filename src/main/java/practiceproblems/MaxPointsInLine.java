@@ -1,6 +1,8 @@
 package practiceproblems;
 
-import javafx.util.Pair;
+
+
+import graph.leetcode.Pair;
 
 import java.util.HashMap;
 import java.util.Map;

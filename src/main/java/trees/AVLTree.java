@@ -101,18 +101,50 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
         return root == null;
     }
 
+    /**
+     * LL Rotation
+     *      It is a type of single rotation that is performed when the tree gets unbalanced,
+     *      upon insertion of a node into the left subtree of the left child of the imbalance node i.e., upon Left-Left (LL) insertion.
+     *      This imbalance indicates that the tree is heavy on the left side.
+     *      Hence, a right rotation is applied, left heaviness imbalance is countered and the tree becomes a balanced tree
+     * RR Rotation
+     *      It is a type of single rotation that is performed when the tree gets unbalanced,
+     *      upon insertion of a node into the right subtree of the right child of the imbalance node i.e., upon Right-Right (RR) insertion.
+     *      This imbalance indicates that the tree is heavy on the right side.
+     *      Hence, a left rotation is applied, right heaviness imbalance is countered and the tree becomes a balanced tree
+     * LR Rotation
+     *      It is a type of double rotation that is performed when the tree gets unbalanced,
+     *      upon insertion of a node into the right subtree of the left child of the imbalance node i.e., upon Left-Right (LR) insertion.
+     *      Apply RR Rotation on the left subtree of the imbalanced node as the left child of the imbalanced node is right-heavy.
+     *      This process flips the tree and converts it into a left-skewed tree
+     *      This is now the case of LL rotation and by rotating the tree along the edge of the imbalanced node.
+     * RL Rotation
+     *      It is similar to LR rotation but it is performed when the tree gets unbalanced,
+     *      upon insertion of a node into the left subtree of the right child of the imbalance node
+     *      Apply LL Rotation on the right subtree of the imbalanced node as the right child of the imbalanced node is left-heavy.
+     *      This process flips the tree and converts it into a right-skewed tree.
+     *      Perform RR Rotation on the imbalanced node to balance the right-skewed tree.
+     *
+     *
+     * @param node
+     * @return
+     */
     private Node<T> applyRotation(Node<T> node) {
-        int balance = balance(node);
-        if (balance > 1) {
-            if (balance(node.getLeftChild()) < 0) {
+        // left heavy situation
+        if (height(node.getLeftChild()) - height(node.getRightChild()) > 1) {
+            if (height(node.getLeftChild().getLeftChild()) - height(node.getLeftChild().getRightChild()) < 0) {
+                // LR situation
                 node.setLeftChild(rotateLeft(node.getLeftChild()));
             }
+            // LL situation
             return rotateRight(node);
         }
-        if (balance < -1) {
-            if (balance(node.getRightChild()) > 0) {
+        if (height(node.getLeftChild()) - height(node.getRightChild()) < -1) { // right heavy situation
+            if (height(node.getRightChild()) > 0) {
+                // RL situation
                 node.setRightChild(rotateRight(node.getRightChild()));
             }
+            // RR situation
             return rotateLeft(node);
         }
         return node;
@@ -144,10 +176,6 @@ public class AVLTree<T extends Comparable<T>> implements Tree<T> {
                 height(node.getRightChild())
         );
         node.setHeight(maxHeight + 1);
-    }
-
-    private int balance(Node<T> node) {
-        return node != null ? height(node.getLeftChild()) - height(node.getRightChild()) : 0;
     }
 
     private int height(Node<T> node) {

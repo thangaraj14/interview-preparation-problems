@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class RandomProblemGenerator {
     public static void main(String[] args) throws IOException {
-        List<File> filesInFolder = Files.walk(Paths.get("/Users/vignesh_rajarajan/Documents/learning/Problems/src"))
+        List<File> filesInFolder = Files.walk(Paths.get("src/main/java"))
                 .filter(Files::isRegularFile)
                 .map(Path::toFile)
                 .filter(file -> !(file.getPath().contains("lld") ||

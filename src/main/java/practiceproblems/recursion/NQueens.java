@@ -1,6 +1,7 @@
 package practiceproblems.recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,9 +19,7 @@ public class NQueens {
         List<List<String>> result = new ArrayList<>();
         char[][] board = new char[n][n];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                board[i][j] = '.';
-            }
+            Arrays.fill(board[i], '.');
         }
 
         nQueensHelper(0, n, board, result);
