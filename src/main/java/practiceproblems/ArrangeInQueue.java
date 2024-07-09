@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+//https://leetcode.com/problems/queue-reconstruction-by-height/description/
 public class ArrangeInQueue {
 
     // 1.   Sort people by their height, shortest to tallest
@@ -17,7 +19,13 @@ public class ArrangeInQueue {
             if (a[0] == b[0]) return a[1] - b[1];
             else return b[0] - a[0];
         });
-        System.out.println("Sorted values: " + Arrays.deepToString(people));
+        //Here's a potential algorithm:
+        //a. Sort the people array in descending order of height. If heights are equal, sort by ascending order of 'k'.
+        //b. Create an empty result array to represent the queue.
+        //c. Iterate through the sorted people array:
+        //
+        //For each person, insert them into the result array at index 'k'.
+        //This works because we're inserting taller people first, so the 'k' value directly corresponds to their position.
         for (int[] x : people) {
             result.add(x[1], x);
             System.out.println(Arrays.deepToString(result.toArray(new int[people.length][2])));

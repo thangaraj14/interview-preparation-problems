@@ -1,4 +1,4 @@
-package strings.stringmatching;
+package bitwise;
 
 public class MaxProductString {
 
@@ -27,10 +27,10 @@ public class MaxProductString {
 
         for (int i = 0; i < words.length; i++) {
             for (int j = i + 1; j < words.length; j++) {
-                // abcd efgd
-                // 11110000 -> abcd
-                // and-ing these two might say if even a single char is present in other
-                if ((checker[i] & checker[j]) == 0) //checking if the two strings have common character
+                // bitwise and operation between two numbers
+                // if the result is 0, then there is no common character
+                // if the result is not 0, then there is a common character
+                if ((checker[i] & checker[j]) == 0)
                     max = Math.max(max, words[i].length() * words[j].length());
             }
         }
@@ -40,8 +40,9 @@ public class MaxProductString {
 
 
     public static void main(String[] args) {
-       // new MaxProductString().maxProduct(new String[]{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"});
-
-        //new MaxProductString().backspaceCompare("isfcow#", "isfco#w#");
+        MaxProductString m = new MaxProductString();
+        m.maxProduct(new String[]{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"});
+        m.maxProduct(new String[]{"a", "ab", "abc", "d", "cd", "bcd", "abcd"});
+        m.maxProduct(new String[]{"a", "aa", "aaa", "aaaa"});
     }
 }

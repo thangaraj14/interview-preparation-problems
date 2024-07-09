@@ -1,7 +1,6 @@
 package practiceproblems;
 
 public class AngleOfClock {
-
     public double angleClock(int hours, int minutes) {
         // every hour is 30(deg) (360 (deg)/12) because 12 hrs in clock
         // every min is 6(deg) (360(deg)/60) because 60 mins per hr

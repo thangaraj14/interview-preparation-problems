@@ -7,7 +7,7 @@ import java.util.*;
  * Given 2 lists a and b. Each element is a pair of integers where the first integer represents the unique id and the second integer represents a value. 
  * Your task is to find an element from a and an element form b such that the sum of their values is less or equal to target and as close to target as possible.
  * Return a list of ids of selected elements. If no pair is possible, return an empty list.
- * 
+ *
  * a = [[1, 2], [2, 4], [3, 6]]
    b = [[1, 2]]
    target = 7
@@ -36,7 +36,7 @@ public class AircraftOptimization {
 
             if (currentSum > max && currentSum <= capacity) {
                 max = currentSum;
-                // Initializing new list
+                // got a new max so Initializing new list
                 result = new LinkedList<>();
                 result.add(new ArrayList<>(Arrays.asList(forwardList.get(i).get(0), returnList.get(j).get(0))));
                 i++;

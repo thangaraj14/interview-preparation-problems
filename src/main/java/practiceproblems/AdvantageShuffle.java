@@ -22,7 +22,7 @@ public class AdvantageShuffle {
     public static int[] advantageCount(int[] A, int[] B) {
         Arrays.sort(A);
 
-        PriorityQueue<Integer[]> pq = new PriorityQueue<>((a, b) -> Integer.compare(b[0], a[0]));
+        var pq = new PriorityQueue<Integer[]>((a, b) -> Integer.compare(b[0], a[0]));
         for (int i = 0; i < B.length; i++) {
             pq.offer(new Integer[]{B[i], i}); // add elements of B along with its index to max queue
         }
@@ -32,7 +32,7 @@ public class AdvantageShuffle {
         //B is transformed to [32,25,13,11]
         //A is transformed to  [8,12,24,32]
         while (!pq.isEmpty()) {
-            Integer[] temp = pq.poll();
+            var temp = pq.poll();
             int index = temp[1];
             int val = temp[0];
             /**

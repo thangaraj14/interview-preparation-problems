@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/
+ *
  * An array contains both positive and negative numbers in random order.
  * Rearrange the array elements so that positive and negative numbers are placed alternatively.
  * If there are more positive numbers they appear at the end of the array.
@@ -13,9 +14,9 @@ import java.util.Arrays;
  */
 class AlternateOddAndEvenNumbers {
 
-    static void rearrange(int arr[], int n) {
+    static void rearrange(int[] arr, int n) {
         //-1, 2, -3, 4, 5, 6, -7, 8, 9
-        int i = 0, temp = 0;
+        int i = 0, temp;
         for (int j = 0; j < n; j++) {
             if (arr[j] < 0) {
                 temp = arr[i];
@@ -26,17 +27,16 @@ class AlternateOddAndEvenNumbers {
         }
         // we have segregated positive and negative elements
         System.out.println(Arrays.toString(arr) + " :i - " + i);
-        // now the 'pos' indicates start of positive integer, 'neg' starts from 0
-        int pos = i, neg = 0;
+        // now the 'pos' indicates start of positive integer, 'negPos' starts from 0
+        int pos = i, negPos = 0;
 
 
-        while (pos < n && neg < pos && arr[neg] < 0) {
-            temp = arr[neg];
-            arr[neg] = arr[pos];
+        while (pos < n && negPos < pos && arr[negPos] < 0) {
+            temp = arr[negPos];
+            arr[negPos] = arr[pos];
             arr[pos] = temp;
             pos++;
-            neg += 2; // need to skip next element as output should be alternative
-            System.out.println(Arrays.toString(arr));
+            negPos += 2; // need to skip next element as output should be alternative
         }
     }
 

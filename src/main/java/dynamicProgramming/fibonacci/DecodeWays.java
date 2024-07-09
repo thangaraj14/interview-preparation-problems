@@ -15,7 +15,7 @@ package dynamicProgramming.fibonacci;
 public class DecodeWays {
 
     public int numDecodings(String s) {
-        if (s == null || s.length() == 0) {
+        if (s == null || s.isEmpty()) {
             return 0;
         }
         int n = s.length();
@@ -36,29 +36,29 @@ public class DecodeWays {
     }
 
     public int numDecodings1(String s) {
-        if (s == null || s.length() == 0) return 0;
+        if (s == null || s.isEmpty()) return 0;
         Integer[] cache = new Integer[s.length() + 1];
         return helperFn(s, 0, cache);
     }
 
     public int helperFn(String s, int index, Integer[] cache) {
-//        When we reach the end of the string this means that we have found a possible way to decode.
-//        Thus, this will contribute to answer and return 1.
-        if (index >= s.length()) return 0;
+        //When we reach the end of the string this means that we have found a possible way to decode.
+        //Thus, this will contribute to answer and return 1.
+        if (index >= s.length()) return 1;
 
         if (cache[index] != null) return cache[index];
         int total = 0;
         if (index + 1 <= s.length()) {
             String temp1 = s.substring(index, index + 1);
             if (valid(temp1)) {
-                total += 1+helperFn(s, index + 1, cache);
+                total += helperFn(s, index + 1, cache);
             }
         }
 
         if (index + 2 <= s.length()) {
             String temp2 = s.substring(index, index + 2);
             if (valid(temp2)) {
-                total += 1+helperFn(s, index + 2, cache);
+                total += helperFn(s, index + 2, cache);
             }
         }
 
@@ -68,7 +68,7 @@ public class DecodeWays {
     }
 
     public boolean valid(String s1) {
-        if (s1.length() == 0) return false;
+        if (s1.isEmpty()) return false;
         if (s1.charAt(0) == '0') return false; //If current element is 0, we simply return 0 as it is not possible to get a character using 0.
 
         int val = Integer.parseInt(s1);
