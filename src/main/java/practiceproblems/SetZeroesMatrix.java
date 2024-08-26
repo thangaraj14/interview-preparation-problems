@@ -18,7 +18,7 @@ public class SetZeroesMatrix {
                      // Use first row and first column as markers.
                      // if matrix[i][j] = 0, mark respected row and col marker = 0; indicating
                      that later this respective row and col must be marked 0;
-                     // And because you are altering first row and collumn,
+                     // And because you are altering first row and column,
                      you need to  have two variables to track their own status.
                      // So, for ex, if any one of the first row is 0, fr = 0,
                      and at the end set all first row to 0;
@@ -49,4 +49,26 @@ public class SetZeroesMatrix {
         }
     }
 
+    public void setZeroesExtraSpace(int[][] matrix){
+        int[] row = new int[matrix.length];
+        int[] col = new int[matrix[0].length];
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 0){
+                    row[i] = 1;
+                    col[j] = 1;
+                }
+            }
+        }
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (row[i] == 1 || col[j] == 1) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+    }
 }

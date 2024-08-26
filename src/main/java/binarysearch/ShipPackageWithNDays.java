@@ -9,6 +9,8 @@ public class ShipPackageWithNDays {
     public static int shipWithinDays(int[] weights, int D) {
         if (weights.length == 0 || D == 0) return 0;
 
+        // this is because the ship should carry atleast the max weight
+        // else the max would be rejected
         int lowerBound = Arrays.stream(weights).max().orElse(0);
         int upperBound = Arrays.stream(weights).sum();
         int mid = 0;

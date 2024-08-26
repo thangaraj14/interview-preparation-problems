@@ -53,4 +53,25 @@ public class CountBinaryStrings {
         result += Math.min(prevCount, currCount);
         return result;
     }
+
+    public int countBinarySubstringsExtraSpace(String s) {
+        //We can convert the string s into an array groups that represents the length of same-character contiguous blocks
+        // within the string. For example, if s = "110001111000000", then groups = [2, 3, 4, 6].
+        int[] groups = new int[s.length()];
+        int t = 0;
+        groups[0] = 1;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i-1) != s.charAt(i)) {
+                groups[++t] = 1;
+            } else {
+                groups[t]++;
+            }
+        }
+
+        int ans = 0;
+        for (int i = 1; i <= t; i++) {
+            ans += Math.min(groups[i-1], groups[i]);
+        }
+        return ans;
+    }
 }

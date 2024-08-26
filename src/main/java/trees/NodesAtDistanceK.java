@@ -11,6 +11,9 @@ import java.util.Set;
 
 /**
  * https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
+ *
+ * this problem can be asked as Min time taken to burn a binary tree starting from target node
+ * https://www.geeksforgeeks.org/minimum-time-to-burn-a-tree-starting-from-a-leaf-node/
  */
 public class NodesAtDistanceK {
 

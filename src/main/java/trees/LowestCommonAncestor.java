@@ -3,45 +3,51 @@ package trees;
 import java.util.HashSet;
 import java.util.Set;
 
+//https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+//https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 public class LowestCommonAncestor {
 
     public TreeNode lowestCommonAncestorBinarySearchTree(TreeNode root, TreeNode p, TreeNode q) {
         while (root != null) {
+            // 1st one is that if both p & q are smaller than the root then call the left subtree
             if (root.val > p.val && root.val > q.val)
                 root = root.left;
+            // 2nd if both p & q are greater than the root then call the right subtree
             else if (root.val < p.val && root.val < q.val)
                 root = root.right;
             else
                 return root;
         }
+        // if(root==null) return null;
+        //
+        //        if(root.val>p.val && root.val>q.val){
+        //            return lowestCommonAncestor(root.left,p,q);
+        //        }else if(root.val<p.val && root.val<q.val){
+        //            return lowestCommonAncestor(root.right,p,q);
+        //        }
+        //        return root;
         return root;
     }
 
     /**
      * It is guaranteed that both p and q are in the tree.
      * A node can be a descendant of itself.
-     *
-     * @param root
-     * @param p
-     * @param q
-     * @return
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
         if (root == null || root == p || root == q) return root;
 
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        TreeNode lcaLeft = lowestCommonAncestor(root.left, p, q);
+        TreeNode lcaRight = lowestCommonAncestor(root.right, p, q);
 
-        if (left != null && right != null) return root;
+        if (lcaLeft != null && lcaRight != null) return root;
 
-        if (left == null) return right;
+        if (lcaLeft == null) return lcaRight;
 
-        return left;
+        return lcaLeft;
     }
 
     public TreeNode lowestCommonAncestorII(TreeNode root, TreeNode p, TreeNode q) {
-
         boolean[] exists = new boolean[2];
         TreeNode lca = LCAHelper(root, p, q, exists);
         return (exists[0] && exists[1] ? lca : null);

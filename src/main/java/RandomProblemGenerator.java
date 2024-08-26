@@ -21,6 +21,7 @@ public class RandomProblemGenerator {
                         file.getPath().contains("internals")))
                 .filter(file -> file.getName().contains(".java"))
                 .collect(Collectors.toList());
+
         int rand=  (new Random().nextInt(filesInFolder.size()));
         System.out.println(rand+" "+filesInFolder.get(rand).getName());
         try (BufferedReader reader =
@@ -28,7 +29,7 @@ public class RandomProblemGenerator {
             reader.lines().filter(e->e.contains("http") || e.contains("https")).forEach(System.out::println);
         }
 
-        System.out.println(filesInFolder.size());
+        System.out.println("Total files: "+filesInFolder.size());
     }
 
 }

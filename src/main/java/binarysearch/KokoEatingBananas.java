@@ -30,15 +30,12 @@ public class KokoEatingBananas {
     }
 
     public boolean isFeasible(int[] piles, int mid, int h) {
-        int hour = 0;
+        int time = 0;
 
-        for (int pile : piles) {
-            hour += pile / mid;
-            if (pile % mid != 0) {
-                hour++;
-            }
+        for (int p : piles) {
+            time += (int) Math.ceil((double) (p) / (double) (mid));
         }
 
-        return hour <= h;
+        return time <= h;
     }
 }

@@ -37,7 +37,7 @@ public class FindMinimumInRotatedArray {
         while (start < end) {
 
             if (nums[start] == nums[end]) {
-                start++; // we need to find the imbalance in the array to start the alg. 
+                start++; // conservative approach that ensures we don't accidentally skip over the minimum element.
             } else {
                 int mid = start + (end - start) / 2;
                 if (nums[mid] > nums[end]) {

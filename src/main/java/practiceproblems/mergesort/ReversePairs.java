@@ -3,62 +3,37 @@ package practiceproblems.mergesort;
 public class ReversePairs {
 
     public int reversePairs(int[] nums) {
-        int[] temp = new int[nums.length];
-        return mergeSort(nums, temp, 0, nums.length - 1);
+        return mergeSort(nums, 0, nums.length - 1);
 
     }
 
-    int mergeSort(int[] arr, int[] temp, int left, int right) {
-        int mid;
-        int invCount = 0;
-        if (left < right) {
-
-            mid = ((right + left) / 2);
-
-            invCount = mergeSort(arr, temp, left, mid);
-            invCount += mergeSort(arr, temp, mid + 1, right);
-
-            invCount += merge(arr, temp, left, mid, right);
+    int mergeSort(int[] arr, int left, int right) {
+        if (left >= right) {
+            return 0;
         }
+        int invCount = 0;
+        int mid = ((right + left) / 2);
+
+        invCount += mergeSort(arr, left, mid);
+        invCount += mergeSort(arr, mid + 1, right);
+        // Count reverse pairs across the two sorted halves
+        int i = left, j = mid + 1;
+        while (i <= mid && j <= right) {
+            if ((long) arr[i] > 2 * (long) arr[j]) {
+                invCount += (mid - i + 1); // All elements from i to mid are greater than 2*nums[j]
+                j++;
+            } else {
+                i++;
+            }
+        }
+        merge(arr, left, mid, right);
         return invCount;
     }
 
-    int merge(int[] arr, int[] temp, int left, int mid, int right) {
+    void merge(int[] arr, int left, int mid, int right) {
         int invCount = 0;
         int rightArrStart = mid + 1;
-
-        /**
-         * the idea is move the rightArrStart for all the valid 2 * arr[j]
-         * fox ex leftArr = [12,19,28] and rightArr = [2,10,12]
-         *
-         *  when  leftArrPointer = 12
-         *        rightArrPointer = 10
-         *     the while loop breaks and the count is added as (rightArrPointer - mid+1) => 1
-         *
-         *  we then increment leftArrPointer
-         *
-         *  when  leftArrPointer = 19
-         *        rightArrPointer = 10
-         *       the while loop is skipped and the count is added as (rightArrPointer - mid+1) => 1  because the previous 2 values is
-         *       lesser than the 19(2*2 < 19)
-         *
-         *   we then increment leftArrPointer
-         *
-         *   when  leftArrPointer = 28
-         *         rightArrPointer = 10
-         *
-         *         the while loop breaks because no more value in rightArr
-         *         and the count is added as (rightArrPointer - mid+1) => 3
-         *
-         *
-         */
-        for (int leftArrStart = left; leftArrStart <= mid; leftArrStart++) {
-
-            while (rightArrStart <= right && arr[leftArrStart] > 2 * (long) arr[rightArrStart]) {
-                rightArrStart++;
-            }
-            invCount += (rightArrStart - (mid + 1)); // this gives the length of right array's valid window
-        }
+        int[] temp = new int[arr.length];
 
         int i = left;
         int j = mid + 1;
@@ -78,8 +53,6 @@ public class ReversePairs {
 
         for (i = left; i <= right; i++)
             arr[i] = temp[i];
-
-        return invCount;
     }
 
 }

@@ -1,48 +1,49 @@
 package practiceproblems;
 
+import java.util.ArrayList;
+
 /**
  * https://www.geeksforgeeks.org/find-the-row-with-maximum-number-1s/
  */
 public class MatrixRowWithMax1 {
 
-    public static void main(String[] args) {
-        int[][] mat = {{0, 0, 0, 1}, {0, 1, 1, 1}, {1, 1, 1, 1}, {0, 0, 0, 0}};
-        System.out.println(rowWithMax1s(mat));
+    public int[] rowAndMaximumOnes(int[][] mat) {
+
+        var result = new ArrayList<Integer>();
+        int maxSoFar=-1;
+        int m = mat.length;
+        int n = mat[0].length;
+
+        for(int i=0;i<m;i++){
+            int onesCount = n-lowerBound(mat[i],1);
+            if(onesCount>maxSoFar){
+                maxSoFar = onesCount;
+                result = new ArrayList<Integer>();
+                result.add(i);
+            }else if(onesCount==maxSoFar){
+                result.add(i);
+            }
+
+        }
+
+        return result.stream().mapToInt(i->i).toArray();
+
     }
 
-    static int rowWithMax1s(int mat[][]) {
+    public int lowerBound(int[] arr, int x){
+        int left=0;
+        int right=arr.length-1;
 
-        int R = mat.length;
-        int C = mat[0].length;
-        int max_row_index = 0;
+        while(left<right){
+            int mid = (left+right)/2;
 
-        int j = findFirstIndex(mat[0], 0, C - 1);
-        if (j == -1) {
-            j = C - 1;
-        }
-
-        for (int i = 1; i < R; i++) {
-            while (j >= 0 && mat[i][j] == 1) {
-                j = j - 1;
-                max_row_index = i;
+            if(arr[mid]==x){
+                right=mid;
+            }else{
+                left=mid+1;
             }
         }
-        return max_row_index;
-    }
-
-    static int findFirstIndex(int arr[], int low, int high) {
-        if (high >= low) {
-            int mid = low + (high - low) / 2;
-
-            if ((mid == 0 || (arr[mid - 1] == 0)) && arr[mid] == 1) {
-                return mid;
-            } else if (arr[mid] == 0) {
-                return findFirstIndex(arr, (mid + 1), high);
-            } else {
-                return findFirstIndex(arr, low, (mid - 1));
-            }
-        }
-        return -1;
+        return left;
     }
 
 }

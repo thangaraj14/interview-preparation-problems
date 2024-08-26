@@ -10,17 +10,17 @@ public class Sqrt {
      * since 3 is a number but sqrt 3 is greater than its half.
      */
     public int mySqrt(int x) {
-        if (x <= 0) return 0;
-        int left = 1, right = x, res = 1;
-        while (left < right) {
-            int mid = (left + right) / 2;
-            if (mid > x / mid) {
-                right = mid;
-            } else {
-                res = mid;
-                left = mid + 1;
+        if(x <= 1)return x;
+        long min = 1, max = x / 2, ans = -1, mid;
+        while(min <= max){
+            mid =  (max + min) / 2;
+            if (mid*mid == x)return (int)mid;
+            if (mid*mid <= x){
+                ans = mid;
+                min = mid + 1;
             }
+            else max = mid - 1;
         }
-        return res;
+        return (int)ans;
     }
 }

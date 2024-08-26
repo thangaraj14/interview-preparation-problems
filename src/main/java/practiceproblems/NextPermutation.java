@@ -5,54 +5,53 @@ package practiceproblems;
  * https://www.youtube.com/watch?v=LuLCLgMElus
  */
 public class NextPermutation {
-
     public void nextPermutation(int[] nums) {
-        // pivot is the element just before the non-increasing (weakly decreasing) suffix
-        /*2*/
-        int pivot = indexOfLastPeak(nums) - 1;
-        // partitions nums into [prefix pivot suffix]
-        if (pivot != -1) {
-            int nextPrefix = lastIndexOfGreater(nums, nums[pivot]); // in the worst case it's suffix[0]
-            // next prefix must exist because pivot < suffix[0], otherwise pivot would be part of suffix
-            /*4*/
-            swap(nums, pivot, nextPrefix); // this minimizes the change in prefix
-        }
-        /*5*/
-        reverseSuffix(nums, pivot + 1); // reverses the whole list if there was no pivot
-        /*6*/
-    }
+        if (nums.length == 0)
+            return;
 
-    /**
-     * Find the last element which is a peak.
-     * In case there are multiple equal peaks, return the first of those.
-     *
-     * @return first index of last peak
-     */
-     int indexOfLastPeak(int[] nums) {
-        for (int i = nums.length - 1; 0 < i; --i) {
-            if (nums[i - 1] < nums[i]) return i;
+        //Find the break-point, i:first index i from the back of the given array arr[i] becomes smaller than arr[i+1].
+        //For example, if the given array is {2,1,5,4,3,0,0}, the break-point will be index 1(0-based indexing).
+        // Here from the back of the array, index 1 is the first index where arr[1] i.e. 1 is smaller than arr[i+1] i.e. 5.
+        int idx = -1;
+        int n = nums.length;
+        // the reason for starting backwards is we need to find a sub-array in descending order
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                idx = i;
+                break;
+            }
         }
-        return 0;
-    }
 
-    /**
-     * @return last index where the {@code num > threshold} or -1 if not found
-     */
-    /*3*/ int lastIndexOfGreater(int[] nums, int threshold) {
-        for (int i = nums.length - 1; 0 <= i; --i) {
-            if (threshold < nums[i]) return i;
+        if (idx == -1) {
+            //If such a break-point does not exist i.e. if the array is sorted in decreasing order,
+            // the given permutation is the last one in the sorted order of all possible permutations.
+            // So, the next permutation must be the first i.e. the permutation in increasing order.
+            //So, in this case, we will reverse the whole array and will return it as our answer.
+            for (int i = 0; i < n / 2; i++) {
+                swap(nums, i, n - i - 1);
+            }
+            return;
         }
-        return -1;
-    }
 
-    /**
-     * Reverse numbers starting from an index till the end.
-     */
-    void reverseSuffix(int[] nums, int start) {
-        int end = nums.length - 1;
+        //Find the smallest number i.e. > arr[i] and in the right half of index i
+        // (i.e. from index i+1 to n-1) and swap it with arr[i].
+        for (int i = n - 1; i >= idx; i--) {
+            if (nums[i] > nums[idx]) {
+                swap(nums, i, idx);
+                break;
+            }
+        }
+
+        //Reverse the entire right half(i.e. from index i+1 to n-1) of index i. And finally, return the array.
+        int start = idx + 1;
+        int end = n - 1;
         while (start < end) {
-            swap(nums, start++, end--);
+            swap(nums, start, end);
+            start++;
+            end--;
         }
+        return;
+
     }
 
     void swap(int[] nums, int i, int j) {

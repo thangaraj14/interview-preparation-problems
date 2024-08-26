@@ -1,14 +1,13 @@
 package practiceproblems;
 
 /**
- * https://leetcode.com/problems/can-place-flowers/submissions/
+ * https://leetcode.com/problems/can-place-flowers/
  */
 public class CanPlaceFlower {
 
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
 
         int flowerCounts = 0;
-
         for (int i = 0; i < flowerbed.length && flowerCounts < n; i++) {
             if (flowerbed[i] == 0) {
                 int prev = i > 0 ? flowerbed[i - 1] : 0;

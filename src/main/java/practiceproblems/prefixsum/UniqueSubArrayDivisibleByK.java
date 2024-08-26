@@ -7,14 +7,11 @@ import java.util.Set;
  * https://leetcode.com/problems/k-divisible-elements-subarrays/
  *
  * It's tempting to apply a sliding window technique here, however, it won't help us identify distinct subarrays.
- *
  * Because constraints are low (n <= 200), we can just identify all valid subarrays O(n ^ 2),
  * and use a set to dedup them O(n). So, the overall complexity would be O(n ^ 3).
  *
  * For O(n ^ 2) solution, we can use a rolling hash (Rabin-Karp).
  * Note that we only need to check hashes for arrays of the same size, which reduces the collision probability.
- *
- * We can also use a Trie to achieve a quadratic complexity - check the second solution below.
  *
  * Rolling Hash (Simple)
  * We need to do the collision check, but here I omitted it for simplicity (see third solution below if you want to handle collisions).
@@ -39,5 +36,26 @@ public class UniqueSubArrayDivisibleByK {
             }
         }
         return ways.size();
+    }
+    // for (int i = 0; i < n; i++) {
+    //            StringBuilder sb = new StringBuilder();
+    //            int t = 0;
+    //            for (int j = i; j < n ; j++) {
+    //                sb.append(nums[j] + ",");
+    //                if(nums[j] % p == 0){
+    //                    t++;
+    //                }
+    //                if(t > k){
+    //                    break;
+    //                }
+    //
+    //                set.add(sb.toString());
+    //            }
+    //        }
+
+    public static void main(String[] args) {
+        UniqueSubArrayDivisibleByK uniqueSubArrayDivisibleByK = new UniqueSubArrayDivisibleByK();
+        System.out.println(uniqueSubArrayDivisibleByK.countDistinct(new int[]{2,3,3,2,2}, 2, 2));
+        System.out.println(uniqueSubArrayDivisibleByK.countDistinct(new int[]{1, 2, 3, 4}, 4, 1));
     }
 }

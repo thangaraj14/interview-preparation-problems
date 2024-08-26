@@ -41,72 +41,30 @@ public class MaximumProductSubarray {
         return maxsofar;
     }
 
-    /**
-     * Simplest case.
-     * Consider this array [1,2,3,-4,5,6].
-     * We can think of -4 as dividing the array into 2 halves, [1,2,3] and [5,6].
-     * The forward traversal yields the max as 6, while the reverse traversal yields 30.
-     * <p>
-     * Say the array has even number of negative numbers eg. [1,2,-3,-4,5,6].
-     * Both forward and reverse traversals yield the same result, so it doesnt matter.
-     * <p>
-     * Say the array has multiple odd number of negative integers. eg. [1,2,-3,-4,-5, 6].
-     * We can think of the "last" negative number in each traversal breaks the array to 2 halves.
-     * In this case , the max array in forward traversal is the maximum of ([1,2,-3,-4] and [6]) which is 24.
-     * In the reverse, the split is delimited by -3. So the max subarrray is teh maximum of ([6,-5,-4] and [2])
-     * <p>
-     * Hence, in the end, its all about the presence of odd or even number of negative integers.
-     * In case of even, the product is always positive. In case of odd, the max product is limited by the last negative integer in each traversal.
-     *
-     * @param nums
-     * @return
-     */
-    public int maxProduct(int[] nums) {
-        int max = Integer.MIN_VALUE, product = 1;
-        int len = nums.length;
+    public static MaxSubarray getMaxSubarray(int[] inputArr) {
+        MaxSubarray result;
+        int start = 0;
+        int end = 0;
+        int maxSum = Integer.MIN_VALUE;
+        int currSum = 0;
+        int actualStart = 0;
+        for (int i = 0; i < inputArr.length; i++) {
 
-        for (int num : nums) {
-            product *= num;
-            max = Math.max(product, max);
-            if (num == 0) product = 1;
-        }
+            currSum += inputArr[i];
 
-        product = 1;
-        for (int i = len - 1; i >= 0; i--) {
-            product *= nums[i];
-            max = Math.max(product, max);
-            if (nums[i] == 0) product = 1;
-        }
-
-        return max;
-
-    }
-
-
-    public static MaxSubarray getMaxSubarray(int[] inputArr){
-        MaxSubarray result ;
-        int start=0;
-        int end=0;
-        int maxSum=Integer.MIN_VALUE;
-        int currSum=0;
-        int actualStart=0;
-        for(int i=0;i<inputArr.length;i++){
-
-            currSum+=inputArr[i];
-
-            if(currSum>maxSum){
-                maxSum =currSum;
+            if (currSum > maxSum) {
+                maxSum = currSum;
                 actualStart = start;
-                end=i;
+                end = i;
             }
 
-            if(currSum<0){
+            if (currSum < 0) {
                 currSum = 0;
-                start =i+1;
+                start = i + 1;
             }
         }
-        if(start>end) {
-            start=end;
+        if (start > end) {
+            start = end;
         }
 
         result = new MaxSubarray(maxSum, actualStart, end);
@@ -133,15 +91,53 @@ public class MaximumProductSubarray {
         System.out.println("Maximum Sub array product is " + maxProductSubArray(arr));
     }
 
-    static class  MaxSubarray {
+    /**
+     * Simplest case.
+     * Consider this array [1,2,3,-4,5,6].
+     * We can think of -4 as dividing the array into 2 halves, [1,2,3] and [5,6].
+     * The forward traversal yields the max as 6, while the reverse traversal yields 30.
+     * <p>
+     * Say the array has even number of negative numbers eg. [1,2,-3,-4,5,6].
+     * Both forward and reverse traversals yield the same result, so it doesnt matter.
+     * <p>
+     * Say the array has multiple odd number of negative integers. eg. [1,2,-3,-4,-5, 6].
+     * We can think of the "last" negative number in each traversal breaks the array to 2 halves.
+     * In this case , the max array in forward traversal is the maximum of ([1,2,-3,-4] and [6]) which is 24.
+     * In the reverse, the split is delimited by -3. So the max subarrray is teh maximum of ([6,-5,-4] and [2])
+     * <p>
+     * Hence, in the end, its all about the presence of odd or even number of negative integers.
+     * In case of even, the product is always positive. In case of odd, the max product is limited by the last negative integer in each traversal.
+     *
+     * @param nums
+     * @return
+     */
+    public int maxProduct(int[] nums) {
+
+        int n = nums.length;
+        double left = 1;
+        double right = 1;
+        double ans = nums[0];
+        for (int i = 0; i < n; i++) {
+            left = left == 0 ? 1 : left;
+            right = right == 0 ? 1 : right;
+
+            left *= nums[i];
+            right *= nums[n - i - 1];
+            ans = Math.max(ans, Math.max(left, right));
+        }
+        return (int) ans;
+
+    }
+
+    static class MaxSubarray {
         int maxSum;
         int startIndex;
         int endIndex;
 
-        public MaxSubarray(int maxSum,int startIndex,int endIndex){
+        public MaxSubarray(int maxSum, int startIndex, int endIndex) {
             this.maxSum = maxSum;
-            this.startIndex= startIndex;
-            this.endIndex =endIndex;
+            this.startIndex = startIndex;
+            this.endIndex = endIndex;
         }
     }
 }

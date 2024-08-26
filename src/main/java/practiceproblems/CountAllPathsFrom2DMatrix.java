@@ -10,7 +10,7 @@ class CountAllPathsFrom2DMatrix {
     static int numberOfPaths(int m, int n) {
         // Create a 2D table to store results
         // of subproblems
-        int count[][] = new int[m][n];
+        int[][] count = new int[m][n];
 
         // Count of paths to reach any cell in
         // first row is 1

@@ -2,37 +2,31 @@ package practiceproblems;
 
 /**
  * https://leetcode.com/problems/sort-colors/
- * tricky
  */
 class DutchNationalFlag {
     public void sortColors(int[] arr) {
         if (arr.length == 0) {
             return;
         }
-        int pivot = 1;
-        int i = 0;
-        int j = arr.length - 1;
-        int zeroPos = 0;
+        int low = 0;
+        int mid = 0;
+        int high = arr.length - 1;
 
-        while (i <= j) {
-            if (arr[i] > pivot) {
-                swap(arr, i, j);
-                /**
-                 * I guess to answer why we increment i when nums[i] == 0 and not do the same when nums[i] == 2,
-                 * the easy way for me to remember is, after we swap the 2 we still need to check the current idx
-                 * because it maybe 1 or 0 at the current index.
-                 * But when nums[i] == 0, we pretty sure there are no 2 to the left of current idx since we walked from the left to right and
-                 * already swapped all the 2.
-                 */
-                // no need to increment i here
-                // ex case [1,2,0]
-                j--;
-            } else if (arr[i] == pivot) {
-                i++;
+        while (mid <= high) {
+            if (arr[mid] == 0) {
+                //whatever comes from the low index has already been processed,
+                // so it's safe to increment both low and mid
+                swap(arr, low, mid);
+                low++;
+                mid++;
+            } else if (arr[mid] == 1) {
+                mid++;
             } else {
-                swap(arr, zeroPos, i);
-                zeroPos++;
-                i++;
+                swap(arr, mid, high);
+                //The reason we don't increment mid in this case is that after the swap,
+                // we're not sure what value is now at arr[mid].
+                // It could be 0, 1, or 2. We need to examine this new value in the next iteration.
+                high--;
             }
         }
     }

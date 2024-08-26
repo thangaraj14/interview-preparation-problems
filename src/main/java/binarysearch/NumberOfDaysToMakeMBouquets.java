@@ -8,7 +8,9 @@ import java.util.Arrays;
 public class NumberOfDaysToMakeMBouquets {
 
     public int minDays(int[] bloomDay, int m, int k) {
-        if(bloomDay.length< m*k) return -1;
+        if ((long) m * k > bloomDay.length) {
+            return -1;
+        }
 
         int left=1;
         int right= Arrays.stream(bloomDay).max().orElse(0);

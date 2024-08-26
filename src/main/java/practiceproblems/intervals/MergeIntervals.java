@@ -14,20 +14,20 @@ class MergeIntervals {
         if (intervals.length <= 1) {
             return intervals;
         }
-        Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
-
         List<int[]> result = new ArrayList<>();
-        int[] prevInterval = intervals[0];
-        result.add(prevInterval);
-        for (int[] currInterval : intervals) {
-            if (currInterval[0] <= prevInterval[1]) // Overlapping intervals, move the end if needed
-            {
-                prevInterval[1] = Math.max(prevInterval[1], currInterval[1]);
-            } else {                             // Disjoint intervals, add the new interval to the list
-                prevInterval = currInterval;
-                result.add(prevInterval);
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+
+        for (int[] interval : intervals) {
+            int start = interval[0];
+            int end = interval[1];
+
+            if (result.isEmpty() || start > result.get(result.size() - 1)[1]) {
+                result.add(new int[]{start, end});
+            } else {
+                result.get(result.size() - 1)[1] = Math.max(end, result.get(result.size() - 1)[1]);
             }
         }
+
         return result.toArray(new int[result.size()][]);
     }
 

@@ -35,8 +35,7 @@ public class QuickSort {
 		while(start<=end){
 			if(nums[start]<nums[last]) {
 				start++; //Accumulate smaller elements to the left
-			}
-			else{
+			}else{
 				swap(nums,start,end);
 				end--;
 			}

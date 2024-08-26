@@ -6,31 +6,30 @@ package practiceproblems.mergesort;
 class CountingInversion {
 
     static int mergeSort(int[] arr, int arrSize) {
-        int[] temp = new int[arrSize];
-        return mergeSort(arr, temp, 0, arrSize - 1);
+        return mergeSort(arr, 0, arrSize - 1);
     }
 
-    static int mergeSort(int[] arr, int[] temp, int left, int right) {
-        int mid;
+    static int mergeSort(int[] arr, int left, int right) {
+        if (left >= right)
+            return 0;
         int invCount = 0;
-        if (left < right) {
-            mid = ((right - left) / 2) + left;
+        int mid = ((right - left) / 2) + left;
 
-            invCount = mergeSort(arr, temp, left, mid);
-            invCount += mergeSort(arr, temp, mid + 1, right);
+        invCount += mergeSort(arr, left, mid);
+        invCount += mergeSort(arr, mid + 1, right);
 
-            invCount += merge(arr, temp, left, mid + 1, right);
-        }
+        invCount += merge(arr, left, mid + 1, right);
+
         return invCount;
     }
 
-    static int merge(int[] arr, int[] temp, int left, int mid, int right) {
+    static int merge(int[] arr, int left, int mid, int right) {
         int invCount = 0;
-
+        int[] temp = new int[arr.length];
         int i = left;
-        int j = mid;
+        int j = mid+1;
         int k = left;
-        while ((i <= mid - 1) && (j <= right)) {
+        while ((i <= mid) && (j <= right)) {
             if (arr[i] <= arr[j]) {
                 temp[k++] = arr[i++];
             } else {
@@ -40,7 +39,7 @@ class CountingInversion {
                 // when i=1 and j=0 (value 3 and 2) we see an inversion, since
                 // the first part is sorted and values after i=1(3) will be greater than j=0(2)
                 // so we consider all elements after 3 as inversions
-                invCount+= i - mid+1;
+                invCount += mid - i + 1;
             }
         }
 
